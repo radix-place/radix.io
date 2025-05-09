@@ -16,9 +16,9 @@
   {
     "objectID": "radix-lab.html",
     "href": "radix-lab.html",
-    "title": "Radix Lab",
+    "title": "Bienvenido a Radix Lab",
     "section": "",
-    "text": "Radix Lab es un espacio de investigación y desarrollo centrado en la exploración de estructuras naturales, procesos de crecimiento y comportamientos distribuidos, mediante herramientas de modelado matemático, simulación computacional y fabricación digital. Su enfoque integra conocimientos provenientes de las matemáticas, la biología, la física, la ingeniería y el diseño, para construir representaciones formales y matéricas de fenómenos complejos.\nLas investigaciones en Radix Lab se estructuran a partir de principios bioinspirados como la colonización espacial, la morfogénesis jerárquica, la autoorganización, la optimización estructural y la inteligencia colectiva. A través del uso de software libre (Python, Processing, OpenSCAD, Arduino, entre otros), se diseñan algoritmos que permiten simular y traducir estos principios en geometrías dinámicas, estructuras paramétricas y artefactos físicos.\nEl laboratorio articula el trabajo teórico con la experimentación visual y material, dando lugar a prototipos impresos, modelos visuales interactivos, instalaciones sensibles al entorno y estructuras que reproducen comportamientos naturales. Este enfoque híbrido permite consolidar líneas de investigación aplicadas tanto al ámbito artístico como al educativo, generando conocimiento transferible a múltiples contextos disciplinares."
+    "text": "Ciencia, arte y matemáticas en diálogo con la naturaleza\nRadix Lab es un espacio de investigación y desarrollo centrado en la exploración de estructuras naturales, procesos de crecimiento y comportamientos distribuidos, mediante herramientas de modelado matemático, simulación computacional y fabricación digital. Su enfoque integra conocimientos provenientes de las matemáticas, la biología, la física, la ingeniería y el diseño, para construir representaciones formales y matéricas de fenómenos complejos.\nLas investigaciones en Radix Lab se estructuran a partir de principios bioinspirados como la colonización espacial, la morfogénesis jerárquica, la autoorganización, la optimización estructural y la inteligencia colectiva. A través del uso de software libre (Python, Processing, OpenSCAD, Arduino, entre otros), se diseñan algoritmos que permiten simular y traducir estos principios en geometrías dinámicas, estructuras paramétricas y artefactos físicos.\nEl laboratorio articula el trabajo teórico con la experimentación visual y material, dando lugar a prototipos impresos, modelos visuales interactivos, instalaciones sensibles al entorno y estructuras que reproducen comportamientos naturales. Este enfoque híbrido permite consolidar líneas de investigación aplicadas tanto al ámbito artístico como al educativo, generando conocimiento transferible a múltiples contextos disciplinares."
   },
   {
     "objectID": "radix-lab.html#enfoques",
@@ -44,9 +44,9 @@
   {
     "objectID": "radix-edu.html",
     "href": "radix-edu.html",
-    "title": "Radix Edu",
+    "title": "Bienvenido a Radix Edu",
     "section": "",
-    "text": "Radix Edu surge como una iniciativa orientada a transformar los procesos de enseñanza y aprendizaje de las matemáticas y las ciencias, dotándolos de un carácter interdisciplinar, estético y contextualizado. Su propósito es promover el desarrollo de un pensamiento crítico, sistémico y creativo en estudiantes y docentes, mediante experiencias educativas que integran saberes científicos, artísticos y tecnológicos.\nLa propuesta parte de una concepción de la educación como un proceso evolutivo y transdisciplinar, en el que la matemática actúa como lenguaje articulador entre el arte, la biología, el diseño y la programación. Radix Edu formula entornos de aprendizaje activos y significativos, centrados en la exploración, la construcción material, la visualización computacional y la resolución creativa de problemas. Se privilegia el uso de herramientas de software libre y metodologías de diseño bioinspirado para consolidar prácticas pedagógicas que favorezcan la apropiación conceptual, la autonomía intelectual y la sensibilidad estructural del mundo natural.\n\n\n\nRadix Edu trabaja exclusivamente con herramientas abiertas que permiten transparencia, creatividad y apropiación por parte de estudiantes y docentes:\nPython: para modelado matemático, simulación y análisis de datos.\nProcessing: para visualización artística, interacciones y diseño generativo.\nOpenSCAD: para modelado 3D paramétrico orientado a la fabricación.\nArduino: para proyectos que integran sensores, actuadores y entornos físicos.\nBlender y FreeCAD: en cursos más avanzados, para exploraciones 3D libres y potentes.\n\nEstas herramientas no solo enseñan programación, sino una forma de pensar: lógica, estructurada, abierta al juego y a la invención.\n\n\n\n\nLaboratorios Radix en colegios: espacios equipados con tecnologías como impresión 3D, cortadoras láser, sensores, Arduino y software libre para experimentar la matemática desde el cuerpo, el hacer y la visualización.\nCursos y talleres interdisciplinarios: propuestas pedagógicas para colegios y universidades que integran biología, diseño y matemáticas a través de proyectos bioinspirados.\nActividades sensoriales y constructivas: modelado físico con materiales (balso, espaguetis, madera), observación de formas naturales y representación matemática.\nProyectos de aula transformadores: donde los estudiantes diseñan espacios, objetos o algoritmos inspirados en fenómenos naturales.\n\n\n\n\nRadix Edu estructura su propuesta educativa en módulos progresivos que integran matemática, programación y diseño. Cada módulo está pensado para ser interdisciplinar, creativo y adaptable a distintos niveles educativos.\n\nAritmética y Geometría Este módulo introduce conceptos básicos de número, proporción, magnitud, figura y simetría desde una perspectiva sensible y visual. Los estudiantes trabajan con materiales físicos y herramientas digitales para comprender relaciones numéricas, patrones geométricos y principios fundamentales como la razón áurea o los mosaicos regulares.\nGeometría Vectorial Aquí se exploran los vectores como herramientas esenciales para describir posiciones, movimientos y fuerzas en el espacio. Usando programación gráfica, los estudiantes aprenden a representar trayectorias, transformar figuras y construir modelos dinámicos.\nMatemáticas y Arte Paramétrico Este módulo permite a los estudiantes crear arte y diseño controlado por parámetros matemáticos. Con herramientas como OpenSCAD o Processing, experimentan cómo las variables, funciones y ecuaciones generan formas sorprendentes.\nFundamentos de Programación en OpenSCAD Los estudiantes aprenden a usar OpenSCAD para crear modelos tridimensionales a partir de código. Se introducen conceptos de modelado paramétrico, control de variables y composición de formas mediante operaciones booleanas."
+    "text": "Ciencia, arte y matemáticas en diálogo con la naturaleza"
   },
   {
     "objectID": "radix-edu.html#propuestas-educativas",
@@ -58,9 +58,9 @@
   {
     "objectID": "radix-art.html",
     "href": "radix-art.html",
-    "title": "Radix Art",
+    "title": "Bienvenido a Radix Art",
     "section": "",
-    "text": "RADIX ART — Arte Biomimético - Bioinspirado y Paramétrico"
+    "text": "Ciencia, arte y matemáticas en diálogo con la naturaleza"
   },
   {
     "objectID": "radix-art.html#creaciones",
@@ -72,7 +72,7 @@
   {
     "objectID": "radix-lab.html#algunos-proyectos-recientes",
     "href": "radix-lab.html#algunos-proyectos-recientes",
-    "title": "Radix Lab",
+    "title": "Bienvenido a Radix Lab",
     "section": "Algunos proyectos recientes",
     "text": "Algunos proyectos recientes\n\nModelo de crecimiento de raíces usando el algoritmo de colonización espacial, exportable en STL para impresión 3D.\nSimulación de estalactitas mediante autómatas celulares 3D y agregación jerárquica de voxels.\nModelos de comportamiento colectivo de hormigas con feromonas, usando sistemas multiagente en Processing.\nOptimización de estructuras bioinspiradas"
   },
@@ -100,16 +100,16 @@
   {
     "objectID": "radix-edu.html#tipos-de-experiencias-educativas",
     "href": "radix-edu.html#tipos-de-experiencias-educativas",
-    "title": "Radix Edu",
-    "section": "",
-    "text": "Laboratorios Radix en colegios: espacios equipados con tecnologías como impresión 3D, cortadoras láser, sensores, Arduino y software libre para experimentar la matemática desde el cuerpo, el hacer y la visualización.\nCursos y talleres interdisciplinarios: propuestas pedagógicas para colegios y universidades que integran biología, diseño y matemáticas a través de proyectos bioinspirados.\nActividades sensoriales y constructivas: modelado físico con materiales (balso, espaguetis, madera), observación de formas naturales y representación matemática.\nProyectos de aula transformadores: donde los estudiantes diseñan espacios, objetos o algoritmos inspirados en fenómenos naturales."
+    "title": "Bienvenido a Radix Edu",
+    "section": "Tipos de experiencias educativas",
+    "text": "Tipos de experiencias educativas\n\nLaboratorios Radix en colegios: espacios equipados con tecnologías como impresión 3D, cortadoras láser, sensores, Arduino y software libre para experimentar la matemática desde el cuerpo, el hacer y la visualización.\nCursos y talleres interdisciplinarios: propuestas pedagógicas para colegios y universidades que integran biología, diseño y matemáticas a través de proyectos bioinspirados.\nActividades sensoriales y constructivas: modelado físico con materiales (balso, espaguetis, madera), observación de formas naturales y representación matemática.\nProyectos de aula transformadores: donde los estudiantes diseñan espacios, objetos o algoritmos inspirados en fenómenos naturales."
   },
   {
     "objectID": "radix-edu.html#software-libre-en-educación",
     "href": "radix-edu.html#software-libre-en-educación",
-    "title": "Radix Edu",
-    "section": "",
-    "text": "Radix Edu trabaja exclusivamente con herramientas abiertas que permiten transparencia, creatividad y apropiación por parte de estudiantes y docentes:\nPython: para modelado matemático, simulación y análisis de datos.\nProcessing: para visualización artística, interacciones y diseño generativo.\nOpenSCAD: para modelado 3D paramétrico orientado a la fabricación.\nArduino: para proyectos que integran sensores, actuadores y entornos físicos.\nBlender y FreeCAD: en cursos más avanzados, para exploraciones 3D libres y potentes.\n\nEstas herramientas no solo enseñan programación, sino una forma de pensar: lógica, estructurada, abierta al juego y a la invención."
+    "title": "Bienvenido a Radix Edu",
+    "section": "Software libre en educación",
+    "text": "Software libre en educación\n\nRadix Edu trabaja exclusivamente con herramientas abiertas que permiten transparencia, creatividad y apropiación por parte de estudiantes y docentes:\nPython: para modelado matemático, simulación y análisis de datos.\nProcessing: para visualización artística, interacciones y diseño generativo.\nOpenSCAD: para modelado 3D paramétrico orientado a la fabricación.\nArduino: para proyectos que integran sensores, actuadores y entornos físicos.\nBlender y FreeCAD: en cursos más avanzados, para exploraciones 3D libres y potentes.\n\nEstas herramientas no solo enseñan programación, sino una forma de pensar: lógica, estructurada, abierta al juego y a la invención."
   },
   {
     "objectID": "radix-edu.html#módulos-temáticos-disponibles",
@@ -128,7 +128,7 @@
   {
     "objectID": "radix-art.html#descripción-estética",
     "href": "radix-art.html#descripción-estética",
-    "title": "Radix Art",
+    "title": "Bienvenido a Radix Art",
     "section": "Descripción estética",
     "text": "Descripción estética\nRadix Art constituye una línea de creación e investigación en la que convergen la modelación matemática, la simulación computacional y la exploración material para generar obras bioinspiradas de carácter estructural, evolutivo y pedagógico. Cada pieza desarrollada en este espacio es resultado de un proceso iterativo de observación, formalización algorítmica y traducción estética de patrones naturales.\nMás que una representación figurativa de la naturaleza, el arte generado en Radix se fundamenta en la reproducción estructural de sus principios formativos: crecimiento diferencial, morfogénesis, autoorganización, simetría fractal, entre otros. Las obras resultantes —ya sean esculturas impresas en 3D, cuadros paramétricos, instalaciones interactivas o visualizaciones generativas— son dispositivos que permiten articular sensibilidad estética, rigor matemático y procesos de fabricación digital. Radix Art investiga los límites y posibilidades del arte como forma de conocimiento estructurado, capaz de traducir procesos naturales complejos en experiencias visuales y táctiles significativas."
   },
@@ -142,22 +142,22 @@
   {
     "objectID": "radix-art.html#proyectos-en-desarrollo",
     "href": "radix-art.html#proyectos-en-desarrollo",
-    "title": "Radix Art",
+    "title": "Bienvenido a Radix Art",
     "section": "Proyectos en desarrollo",
     "text": "Proyectos en desarrollo\n\nCuadros paramétricos: superficies generadas por algoritmos como el ruido de Perlin o funciones matemáticas customizadas, recortadas en madera o acrílico mediante corte láser.\nEsculturas raíz: sistemas jerárquicos 3D impresos a partir de algoritmos de colonización espacial, con grosores variables y crecimiento orientado por atractores.\nDomos bioinspirados: estructuras curvas construidas con módulos hexagonales o pentagonales, calculadas matemáticamente para optimizar su resistencia y belleza.\nObjetos interactivos: obras que reaccionan a estímulos del entorno (sonido, proximidad, luz) integrando sensores Arduino en estructuras físicas."
   },
   {
     "objectID": "radix-lab.html#herramientas-tecnológicas",
     "href": "radix-lab.html#herramientas-tecnológicas",
-    "title": "Radix Lab",
+    "title": "Bienvenido a Radix Lab",
     "section": "Herramientas tecnológicas",
     "text": "Herramientas tecnológicas\n-Python: modelado matemático, generación de geometrías, exportación de mallas STL.\n-Processing: visualización interactiva y simulación de comportamientos naturales.\n-OpenSCAD: diseño paramétrico para fabricación digital.\n-Arduino: integración de sensores de sonido, luz y proximidad en piezas interactivas.\nHerramientas de fabricación: impresión 3D FDM, corte láser, fresado CNC."
   },
   {
     "objectID": "radix-edu.html#módulos-temáticos-disponibles-para-estudiantes-y-profesores",
     "href": "radix-edu.html#módulos-temáticos-disponibles-para-estudiantes-y-profesores",
-    "title": "Radix Edu",
-    "section": "",
-    "text": "Radix Edu estructura su propuesta educativa en módulos progresivos que integran matemática, programación y diseño. Cada módulo está pensado para ser interdisciplinar, creativo y adaptable a distintos niveles educativos.\n\nAritmética y Geometría Este módulo introduce conceptos básicos de número, proporción, magnitud, figura y simetría desde una perspectiva sensible y visual. Los estudiantes trabajan con materiales físicos y herramientas digitales para comprender relaciones numéricas, patrones geométricos y principios fundamentales como la razón áurea o los mosaicos regulares.\nGeometría Vectorial Aquí se exploran los vectores como herramientas esenciales para describir posiciones, movimientos y fuerzas en el espacio. Usando programación gráfica, los estudiantes aprenden a representar trayectorias, transformar figuras y construir modelos dinámicos.\nMatemáticas y Arte Paramétrico Este módulo permite a los estudiantes crear arte y diseño controlado por parámetros matemáticos. Con herramientas como OpenSCAD o Processing, experimentan cómo las variables, funciones y ecuaciones generan formas sorprendentes.\nFundamentos de Programación en OpenSCAD Los estudiantes aprenden a usar OpenSCAD para crear modelos tridimensionales a partir de código. Se introducen conceptos de modelado paramétrico, control de variables y composición de formas mediante operaciones booleanas."
+    "title": "Bienvenido a Radix Edu",
+    "section": "Módulos temáticos disponibles para estudiantes y profesores",
+    "text": "Módulos temáticos disponibles para estudiantes y profesores\nRadix Edu estructura su propuesta educativa en módulos progresivos que integran matemática, programación y diseño. Cada módulo está pensado para ser interdisciplinar, creativo y adaptable a distintos niveles educativos.\n\nAritmética y Geometría Este módulo introduce conceptos básicos de número, proporción, magnitud, figura y simetría desde una perspectiva sensible y visual. Los estudiantes trabajan con materiales físicos y herramientas digitales para comprender relaciones numéricas, patrones geométricos y principios fundamentales como la razón áurea o los mosaicos regulares.\nGeometría Vectorial Aquí se exploran los vectores como herramientas esenciales para describir posiciones, movimientos y fuerzas en el espacio. Usando programación gráfica, los estudiantes aprenden a representar trayectorias, transformar figuras y construir modelos dinámicos.\nMatemáticas y Arte Paramétrico Este módulo permite a los estudiantes crear arte y diseño controlado por parámetros matemáticos. Con herramientas como OpenSCAD o Processing, experimentan cómo las variables, funciones y ecuaciones generan formas sorprendentes.\nFundamentos de Programación en OpenSCAD Los estudiantes aprenden a usar OpenSCAD para crear modelos tridimensionales a partir de código. Se introducen conceptos de modelado paramétrico, control de variables y composición de formas mediante operaciones booleanas."
   }
 ]
