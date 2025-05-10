@@ -219,6 +219,7 @@ ul.task-list li input[type="checkbox"] {
     gap: 2rem;
     align-items: start;
     justify-content: center;
+    padding-bottom: 1rem;
   }
 
   .controls {
@@ -257,6 +258,20 @@ ul.task-list li input[type="checkbox"] {
     float: right;
     font-weight: bold;
     color: #007744;
+  }
+
+  /* --- Diseño móvil --- */
+  @media (max-width: 768px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    canvas {
+      width: 100vw !important;
+      max-width: 100%;
+      margin: 0 auto;
+    }
   }
 </style>
 
