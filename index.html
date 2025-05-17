@@ -119,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -219,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
 
   .floating-content img:hover {
     transform: scale(1.04);
-    box-shadow: 0 6px 20px rgba(71, 65, 181, 0.28);
+    box-shadow: 0 6px 20px rgba(0, 100, 150, 0.25);
   }
 
   .slogan {
@@ -308,68 +308,6 @@ ul.task-list li input[type="checkbox"] {
     }
   }
 </style>
-<style>
-  .columns .column {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0, 60, 100, 0.06);
-    overflow: hidden;
-  }
-
-  .columns .column::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.75); /* capa blanca semitransparente */
-    z-index: 0;
-  }
-
-  .columns .column > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Fondos personalizados */
-  .radix-lab {
-    background-image: url("imagenes/img_LAB.png");
-  }
-
-  .radix-edu {
-    background-image: url("imagenes/img_REDU2.png"); /* puedes usar img_REDU.png también */
-  }
-
-  .radix-art {
-    background-image: url("imagenes/img_ART.png");
-  }
-
-  /* Responsivo para evitar carga excesiva en pantallas pequeñas */
-  @media (max-width: 600px) {
-    .columns .column::before {
-      background: rgba(255, 255, 255, 0.92);
-    }
-  }
-
-  .column-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  height: 100%;
-  width: 100%;
-}
-
-.column-link:hover {
-  text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.05); /* toque sutil */
-  cursor: pointer;
-}
-
-</style>
 <!-- === ENCABEZADO CON ONDA === -->
 <div class="wave-container">
 <div class="floating-content">
@@ -392,34 +330,22 @@ Radix es un espacio transdisciplinar en el que convergen las matemáticas, las c
 </p>
 </div>
 <!-- === RADIX LAB | EDU | ART EN TRES COLUMNAS === -->
-<div class="columns page-columns page-full">
-<div class="column radix-lab page-columns page-full" style="width:33%;">
-<a href="radix-lab.html" class="column-link">
-<h3 class="anchored">
-Radix Lab
-</h3>
-<p>
-Orientado a la investigación y el desarrollo de modelos bioinspirados mediante algoritmos, simulaciones y prototipos.
-</p>
-</a><p class="page-columns page-full"><a href="radix-lab.html" class="column-link"></a></p>
-</div><div class="column radix-edu page-columns page-full" style="width:33%;">
-<a href="radix-edu.html" class="column-link">
-<h3 class="anchored">
-Radix Edu
-</h3>
-<p>
-Enfocado en el diseño de experiencias educativas transformadoras que integran ciencia, arte y tecnología en entornos escolares y universitarios.
-</p>
-</a><p class="page-columns page-full"><a href="radix-edu.html" class="column-link"></a></p>
-</div><div class="column radix-art page-columns page-full" style="width:33%;">
-<a href="radix-art.html" class="column-link">
-<h3 class="anchored">
-Radix Art
-</h3>
-<p>
-Dedicado a la creación de obras que traducen estructuras y procesos naturales en artefactos visuales, táctiles y sensoriales.
-</p>
-</a><p class="page-columns page-full"><a href="radix-art.html" class="column-link"></a></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<section id="radix-lab" class="level3">
+<h3 class="anchored" data-anchor-id="radix-lab">Radix Lab</h3>
+<p>Orientado a la investigación y el desarrollo de modelos bioinspirados mediante algoritmos, simulaciones y prototipos.</p>
+</section>
+</div><div class="column" style="width:33%;">
+<section id="radix-edu" class="level3">
+<h3 class="anchored" data-anchor-id="radix-edu">Radix Edu</h3>
+<p>Enfocado en el diseño de experiencias educativas transformadoras que integran ciencia, arte y tecnología en entornos escolares y universitarios.</p>
+</section>
+</div><div class="column" style="width:33%;">
+<section id="radix-art" class="level3">
+<h3 class="anchored" data-anchor-id="radix-art">Radix Art</h3>
+<p>Dedicado a la creación de obras que traducen estructuras y procesos naturales en artefactos visuales, táctiles y sensoriales.</p>
+</section>
 </div>
 </div>
 <p style="max-width:850px; margin: 2rem auto 0 0; line-height: 1.6; font-size: 1.1rem; text-align: justify;">
