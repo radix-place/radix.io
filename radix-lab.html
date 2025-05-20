@@ -177,14 +177,14 @@ Ciencia, arte y matemáticas en diálogo con la naturaleza
 
 .floating-content {
   position: absolute;
-  top: 30px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   text-align: center;
   z-index: 2;
   padding: 0 1rem;
-  width: auto;
 }
+
 
 .floating-content img {
   width: 100px;
@@ -221,18 +221,13 @@ window.onload = () => {
   const HEIGHT = 220;
   let WIDTH = window.innerWidth;
 
-  canvas.width = WIDTH * DPR;
-  canvas.height = HEIGHT * DPR;
-  canvas.style.width = WIDTH + "px";
-  canvas.style.height = HEIGHT + "px";
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.scale(DPR, DPR);
+  canvas.style.display = "block";
 
   let points = [];
-  const maxPoints = 50;
+  const maxPoints = 90;
   const minDist = 50;
   const initialPoints = 10;
-  const addInterval = 700;
+  const addInterval = 500;
 
   function distance(a, b) {
     return Math.hypot(a[0] - b[0], a[1] - b[1]);
@@ -255,29 +250,43 @@ window.onload = () => {
     }
   }
 
-  function restartPoints() {
-    points = [];
-    for (let i = 0; i < initialPoints; i++) addRandomPoint();
-  }
-
-function drawVoronoi() {
-  ctx.clearRect(0, 0, WIDTH, HEIGHT);
-
-  const delaunay = d3.Delaunay.from(points);
-  const voronoi = delaunay.voronoi([0, 0, WIDTH, HEIGHT]);
-
-  ctx.strokeStyle = "#999"; // Puedes ajustar este color según el fondo
-  ctx.lineWidth = 0.8;
-
-  for (let i = 0; i < points.length; i++) {
-    const path = new Path2D(voronoi.renderCell(i));
-    ctx.stroke(path);
-  }
+function restartPoints() {
+  points = [];
+  for (let i = 0; i < 10; i++) addRandomPoint();
 }
 
+  function drawVoronoi() {
+    ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
+    const delaunay = d3.Delaunay.from(points);
+    const voronoi = delaunay.voronoi([0, 0, WIDTH, HEIGHT]);
+
+    ctx.strokeStyle = "#999";
+    ctx.lineWidth = 0.8;
+
+    for (let i = 0; i < points.length; i++) {
+      const path = new Path2D(voronoi.renderCell(i));
+      ctx.stroke(path);
+    }
+  }
+
+  function resizeCanvas() {
+    WIDTH = window.innerWidth;
+    canvas.width = WIDTH * DPR;
+    canvas.height = HEIGHT * DPR;
+    canvas.style.width = WIDTH + "px";
+    canvas.style.height = HEIGHT + "px";
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(DPR, DPR);
+    drawVoronoi();
+  }
+
+  window.addEventListener("resize", () => {
+    resizeCanvas();
+  });
+
+  resizeCanvas();
   restartPoints();
-  drawVoronoi();
 
   let lastTime = performance.now();
 
@@ -300,14 +309,6 @@ function drawVoronoi() {
   }
 
   requestAnimationFrame(animate);
-
-  window.addEventListener("resize", () => {
-    WIDTH = window.innerWidth;
-    canvas.width = WIDTH * DPR;
-    canvas.height = HEIGHT * DPR;
-    canvas.style.width = WIDTH + "px";
-    drawVoronoi();
-  });
 };
 </script>
 <p>Radix Lab es un espacio de investigación y desarrollo centrado en la exploración matemática de estructuras biológicas, procesos de crecimiento, adaptación y comportamientos distribuidos y emergentes. Su enfoque integra conocimientos provenientes de la biología, la física, la ingeniería y el diseño, con el propósito de articular el trabajo teórico con la experimentación. Esto da lugar a prototipos impresos, modelos visuales interactivos, instalaciones sensibles al entorno y estructuras que reproducen comportamientos naturales. Este enfoque híbrido permite consolidar líneas de investigación aplicadas tanto al ámbito artístico como al educativo, generando conocimiento transferible a múltiples contextos disciplinares.</p>
