@@ -154,18 +154,193 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<table align="center">
-<tbody><tr>
-<td>
-<img src="imagenes/RADIX_EDU.png" alt="Logo Radix Edu" width="150">
-</td>
-<td align="center" valign="middle">
-<p>
-<small><em>Ciencia, arte y matemáticas en diálogo con la naturaleza</em></small>
+<div class="wave-container">
+<div class="floating-content">
+<img src="imagenes/RADIX_EDU.png" alt="Logo Radix Edu">
+<p class="slogan">
+Aprendizaje conectando arte, ciencia y naturaleza
 </p>
-</td>
-</tr>
-</tbody></table>
+</div>
+<canvas id="tetrisCanvas">
+</canvas>
+</div>
+<style>
+  .wave-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(to bottom, #ffffff 0%, #eefaff 100%);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  #tetrisCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: block;
+  }
+
+  .floating-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    padding: 0 1rem;
+  }
+
+  .floating-content img {
+    width: 100px;
+    opacity: 0.6;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
+  }
+
+  .floating-content img:hover {
+    opacity: 1.0;
+    transform: scale(1.04);
+    box-shadow: 0 6px 20px rgba(0, 100, 150, 0.25);
+  }
+
+  .slogan {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #444;
+    margin-top: 0.75rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const canvas = document.getElementById("tetrisCanvas");
+  const ctx = canvas.getContext("2d");
+
+  let DPR = window.devicePixelRatio || 1;
+  let WIDTH = window.innerWidth;
+  const HEIGHT = 220;
+  const boxSize = 20;
+  let columns = Math.floor(WIDTH / boxSize);
+  let rows = Math.floor(HEIGHT / boxSize);
+  let grid = [];
+
+  function initGrid() {
+    grid = Array.from({ length: rows }, () =>
+      Array(columns).fill(null)
+    );
+  }
+
+  function resizeCanvas() {
+    WIDTH = window.innerWidth;
+    canvas.width = WIDTH * DPR;
+    canvas.height = HEIGHT * DPR;
+    canvas.style.width = WIDTH + "px";
+    canvas.style.height = HEIGHT + "px";
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(DPR, DPR);
+    columns = Math.floor(WIDTH / boxSize);
+    rows = Math.floor(HEIGHT / boxSize);
+    initGrid();
+  }
+
+  class Block {
+    constructor(x) {
+      this.x = x;
+      this.y = 0;
+      this.stopped = false;
+      this.color = `hsl(${Math.random() * 360}, 60%, 70%)`;
+    }
+
+    update() {
+      if (this.stopped) return;
+
+      let nextRow = Math.floor((this.y + boxSize) / boxSize);
+      let col = Math.floor(this.x / boxSize);
+
+      if (
+        nextRow >= rows ||
+        grid[nextRow][col]
+      ) {
+        this.stopped = true;
+        grid[Math.floor(this.y / boxSize)][col] = this.color;
+      } else {
+        this.y += 1.5;
+      }
+    }
+
+    draw() {
+      ctx.fillStyle = this.color;
+      ctx.fillRect(this.x, this.y, boxSize, boxSize);
+    }
+  }
+
+  let blocks = [];
+
+  function addBlock() {
+    const col = Math.floor(Math.random() * columns);
+    const x = col * boxSize;
+    blocks.push(new Block(x));
+  }
+
+  function drawGrid() {
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < columns; c++) {
+        if (grid[r][c]) {
+          ctx.fillStyle = grid[r][c];
+          ctx.fillRect(c * boxSize, r * boxSize, boxSize, boxSize);
+        }
+      }
+    }
+  }
+
+  function maxStackHeight() {
+    for (let r = 0; r < rows; r++) {
+      if (grid[r].some(cell => cell !== null)) {
+        return HEIGHT - r * boxSize;
+      }
+    }
+    return 0;
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, WIDTH, HEIGHT);
+    drawGrid();
+
+    for (let block of blocks) {
+      block.update();
+      block.draw();
+    }
+
+    blocks = blocks.filter(b => !b.stopped);
+
+    if (frameCount % 20 === 0) {
+      addBlock();
+    }
+
+    if (maxStackHeight() >= HEIGHT * 0.85) {
+      initGrid();
+      blocks = [];
+    }
+
+    frameCount++;
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener("resize", () => {
+    resizeCanvas();
+    blocks = [];
+  });
+
+  let frameCount = 0;
+  resizeCanvas();
+  animate();
+});
+</script>
 <section id="filosofía-educativa" class="level1">
 <h1>Filosofía educativa</h1>
 <p>Radix Edu surge como una iniciativa orientada a transformar los procesos de enseñanza y aprendizaje de las matemáticas y las ciencias, dotándolos de un carácter interdisciplinar, estético y contextualizado. Su propósito es promover el desarrollo de un pensamiento crítico, sistémico y creativo en estudiantes y docentes, mediante experiencias que integran saberes científicos, artísticos, tecnológicos y naturales.</p>
