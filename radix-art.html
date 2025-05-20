@@ -179,8 +179,9 @@ Creaciones biomiméticas y bioinspiradas
 
   .floating-content {
     position: absolute;
-    top: 60px;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     z-index: 2;
     padding: 0 1rem;
@@ -188,10 +189,13 @@ Creaciones biomiméticas y bioinspiradas
 
   .floating-content img {
     width: 100px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    opacity: 0.6;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
   }
 
   .floating-content img:hover {
+    opacity: 1.0;
     transform: scale(1.04);
     box-shadow: 0 6px 20px rgba(0, 100, 150, 0.25);
   }
@@ -210,27 +214,6 @@ Creaciones biomiméticas y bioinspiradas
     word-wrap: break-word;
     white-space: normal;
   }
-
-  @media (max-width: 768px) {
-    .wave-container {
-      height: 190px;
-    }
-
-    .floating-content {
-      top: 60px;
-    }
-
-    .floating-content img {
-      width: 90px;
-    }
-
-    .slogan {
-      font-size: 1rem;
-      line-height: 1.4;
-      max-width: 95%;
-    }
-  }
-
 
 </style>
 <script>
