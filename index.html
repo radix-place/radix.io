@@ -472,15 +472,47 @@ Crecimiento orgánico
 <p style="text-align: center; font-style: italic; max-width: 700px; margin: auto; color: #555;">
 En Radix exploramos los tipos de crecimiento biológicos a través de modelos matemáticos, profundizamos en su naturaleza y buscamos reinterpretar su belleza.
 </p>
-<div style="text-align: center; margin-top: 3rem; margin-bottom: 4rem;">
-<p><video controls="" autoplay="" loop="" muted="" playsinline="" style="
-      width: 350px;
-      border-radius: 16px;
-      border: 1.5px solid rgba(0, 100, 150, 0.3);
-      box-shadow: 0 6px 20px rgba(0, 100, 150, 0.2);
-      background: linear-gradient(145deg, rgba(240,250,255,0.05), rgba(200,230,255,0.08));
-    "> <source src="videos/rg_raiz.mp4" type="video/mp4"> Tu navegador no soporta video HTML5. </video></p>
+<div id="videoWrapper" style="text-align: center; position: relative; margin: 3rem auto; display: inline-block;">
+<p><!-- Imagen de presentación --> <img src="imagenes/posterv1.png" alt="Vista previa del video" id="previewImage" style="width: 350px; border-radius: 16px;
+              border: 1.5px solid rgba(0, 100, 150, 0.3);
+              box-shadow: 0 6px 20px rgba(0, 100, 150, 0.2);
+              background: linear-gradient(145deg, rgba(240,250,255,0.05), rgba(200,230,255,0.08));
+              cursor: pointer;"></p>
+<!-- Botón encima de la imagen -->
+<div id="playOverlay" style="position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              background-color: rgba(0, 0, 0, 0.6); color: white;
+              border-radius: 50%; width: 64px; height: 64px;
+              display: flex; align-items: center; justify-content: center;
+              font-size: 2rem; cursor: pointer; transition: background-color 0.3s ease;">
+<pre><code>▶</code></pre>
 </div>
+</div>
+<script>
+document.getElementById("videoWrapper").addEventListener("click", () => {
+  const wrapper = document.getElementById("videoWrapper");
+
+  // Vaciar el contenido actual
+  wrapper.innerHTML = '';
+
+  // Crear el nuevo video
+  const video = document.createElement("video");
+  video.controls = true;
+  video.autoplay = true;
+  video.style.width = "350px";
+  video.style.borderRadius = "16px";
+  video.style.border = "1.5px solid rgba(0, 100, 150, 0.3)";
+  video.style.boxShadow = "0 6px 20px rgba(0, 100, 150, 0.2)";
+  video.style.background = "linear-gradient(145deg, rgba(240,250,255,0.05), rgba(200,230,255,0.08))";
+
+  const source = document.createElement("source");
+  source.src = "videos/rg_raiz.mp4";
+  source.type = "video/mp4";
+
+  video.appendChild(source);
+  wrapper.appendChild(video);
+});
+</script>
 
 
 
