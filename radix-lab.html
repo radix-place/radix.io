@@ -208,13 +208,12 @@ Investigación en matemáticas, biología y diseño
     word-wrap: break-word;
     white-space: normal;
   }
- .content {
+  .content {
     max-width: 850px;
     margin: 2rem auto;
     line-height: 1.7;
     font-size: 1.1rem;
-    text-align: center;
-  }
+    text-align: justify;
 
   .titulo-izquierda {
   text-align: left;
@@ -364,13 +363,14 @@ Estructuras que evolucionan
 <p style="text-align: center; font-style: italic; max-width: 700px; margin: auto; color: #555;">
 La siguiente visualización muestra una simulación generativa de un <strong>gyroide animado</strong>, una estructura periódica mínima inspirada en formas biológicas, en este caso una Euplectella aspergillum (la esponja canasta de Venus).
 </p>
-<!-- Contenedor centrado -->
+<div style="text-align: center;">
 <div id="videoWrapper" style="text-align: center; position: relative; margin: 3rem auto; display: inline-block;">
-<p><img src="imagenes/posterv2.png" alt="Vista previa del video" id="previewImage" style="width: 350px; border-radius: 16px;
+<p><!-- Imagen de presentación --> <img src="imagenes/posterv2.png" alt="Vista previa del video" id="previewImage" style="width: 350px; border-radius: 16px;
               border: 1.5px solid rgba(0, 100, 150, 0.3);
               box-shadow: 0 6px 20px rgba(0, 100, 150, 0.2);
               background: linear-gradient(145deg, rgba(240,250,255,0.05), rgba(200,230,255,0.08));
               cursor: pointer;"></p>
+<!-- Botón encima de la imagen -->
 <div id="playOverlay" style="position: absolute; top: 50%; left: 50%;
               transform: translate(-50%, -50%);
               background-color: rgba(0, 0, 0, 0.6); color: white;
@@ -384,22 +384,28 @@ La siguiente visualización muestra una simulación generativa de un <strong>gyr
 document.getElementById("videoWrapper").addEventListener("click", () => {
   const wrapper = document.getElementById("videoWrapper");
 
-wrapper.innerHTML = '';
+  // Vaciar el contenido actual
+  wrapper.innerHTML = '';
 
-const videoContainer = document.createElement("div");
-videoContainer.style.textAlign = "center";
+  // Crear el nuevo video
+  const video = document.createElement("video");
+  video.controls = true;
+  video.autoplay = true;
+  video.style.width = "350px";
+  video.style.borderRadius = "16px";
+  video.style.border = "1.5px solid rgba(0, 100, 150, 0.3)";
+  video.style.boxShadow = "0 6px 20px rgba(0, 100, 150, 0.2)";
+  video.style.background = "linear-gradient(145deg, rgba(240,250,255,0.05), rgba(200,230,255,0.08))";
 
-video.style.width = "350px";
-video.style.borderRadius = "16px";
-video.style.border = "1.5px solid rgba(0, 100, 150, 0.3)";
-video.style.boxShadow = "0 6px 20px rgba(0, 100, 150, 0.2)";
-video.style.background = "linear-gradient(145deg, rgba(240,250,255,0.05), rgba(200,230,255,0.08))";
+  const source = document.createElement("source");
+  source.src = "videos/radix_lab.mp4";
+  source.type = "video/mp4";
 
-videoContainer.appendChild(video);
-wrapper.appendChild(videoContainer);
-
-
+  video.appendChild(source);
+  wrapper.appendChild(video);
+});
 </script>
+</div>
 <hr style="
   border: none;
   height: 5px;

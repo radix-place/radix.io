@@ -223,15 +223,25 @@ Creaciones biomiméticas y bioinspiradas
 <script>
 window.onload = function () {
   new p5((sk) => {
-    let numLines = 60;
+    // === PARÁMETROS AJUSTABLES ===
+    let numLines = 30;
+    let waveAmplitude = 30;
+    let noiseScale = 0.01;
+    let strokeMinAlpha = 10;
+    let strokeMaxAlphaH = 50; // Horizontal
+    let strokeMaxAlphaV = 45; // Vertical
+    let strokeWeightValue = 1.2;
+    let timeStep = 0.01;
+    let canvasHeight = 320;
+
     let spacing;
     let t = 0;
 
     sk.setup = function () {
-      let canvas = sk.createCanvas(window.innerWidth, 320);
+      let canvas = sk.createCanvas(window.innerWidth, canvasHeight);
       canvas.parent('radixArt');
       spacing = sk.width / numLines;
-      sk.strokeWeight(1.2);
+      sk.strokeWeight(strokeWeightValue);
       sk.frameRate(60);
       sk.colorMode(sk.HSB, 360, 100, 100, 100);
       sk.noFill();
@@ -239,63 +249,60 @@ window.onload = function () {
 
     sk.draw = function () {
       sk.background(0, 0, 100);
-      let escala = 0.01;
-      let amplitud = 20;
 
-      // Líneas horizontales
+      // === LÍNEAS HORIZONTALES ===
       for (let i = 0; i < numLines; i++) {
         let y = i * spacing;
 
-        // Gradiente posicional horizontal
         let hueBase = sk.map(y, 0, sk.height, 180, 280);
-        let ruido = sk.noise(100 * escala, y * escala, t * 0.3);
+        let ruido = sk.noise(100 * noiseScale, y * noiseScale, t * 0.3);
         let hue = (hueBase + 40 * ruido) % 360;
         let sat = 50 + 40 * ruido;
         let bri = 60 + 30 * ruido;
-        let alp = 20 + 60 * ruido;
+        let alp = strokeMinAlpha + strokeMaxAlphaH * ruido;
+        sk.stroke(hue, sat, bri, alp);
 
         sk.stroke(hue, sat, bri, alp);
         sk.beginShape();
         for (let x = 0; x <= sk.width; x += 5) {
-          let n = sk.noise(x * escala, y * escala, t * 0.3);
-          let offset = amplitud * Math.sin(0.02 * x + t + i * 0.1) * n;
+          let n = sk.noise(x * noiseScale, y * noiseScale, t * 0.3);
+          let offset = waveAmplitude * Math.sin(0.02 * x + t + i * 0.1) * n;
           sk.vertex(x, y + offset);
         }
         sk.endShape();
       }
 
-      // Líneas verticales
+      // === LÍNEAS VERTICALES ===
       for (let j = 0; j < numLines; j++) {
         let x = j * spacing;
 
-        // Gradiente posicional vertical
         let hueBase = sk.map(x, 0, sk.width, 220, 140);
-        let ruido = sk.noise(x * escala, 100 * escala, t * 0.3 + 1000);
+        let ruido = sk.noise(x * noiseScale, 100 * noiseScale, t * 0.3 + 1000);
         let hue = (hueBase + 40 * ruido) % 360;
         let sat = 60 + 30 * ruido;
         let bri = 60 + 30 * ruido;
-        let alp = 20 + 50 * ruido;
+        let alp = strokeMinAlpha + strokeMaxAlphaV * ruido;
+        sk.stroke(hue, sat, bri, alp);
 
         sk.stroke(hue, sat, bri, alp);
         sk.beginShape();
         for (let y = 0; y <= sk.height; y += 5) {
-          let n = sk.noise(x * escala, y * escala, t * 0.3 + 1000);
-          let offset = amplitud * Math.cos(0.02 * y + t + j * 0.1) * n;
+          let n = sk.noise(x * noiseScale, y * noiseScale, t * 0.3 + 1000);
+          let offset = waveAmplitude * Math.cos(0.02 * y + t + j * 0.1) * n;
           sk.vertex(x + offset, y);
         }
         sk.endShape();
       }
 
-      t += 0.01;
+      t += timeStep;
     };
 
     sk.windowResized = function () {
-      sk.resizeCanvas(window.innerWidth, 320);
+      sk.resizeCanvas(window.innerWidth, canvasHeight);
       spacing = sk.width / numLines;
     };
   });
 };
-
 </script>
 <section id="descripción" class="level2">
 <h2 class="anchored" data-anchor-id="descripción">Descripción</h2>
