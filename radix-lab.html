@@ -115,14 +115,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#algunos-proyectos-recientes" id="toc-algunos-proyectos-recientes" class="nav-link active" data-scroll-target="#algunos-proyectos-recientes">Algunos proyectos recientes</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -163,6 +157,7 @@ Investigación en matemáticas, biología y diseño
     height: 320px;
     background: linear-gradient(to bottom, #ffffff 0%,rgba(238, 250, 255, 0) 100%);
     overflow: hidden;
+    margin-bottom: 0;
     margin-bottom: 2rem;
   }
 
@@ -213,7 +208,17 @@ Investigación en matemáticas, biología y diseño
     word-wrap: break-word;
     white-space: normal;
   }
+ .content {
+    max-width: 850px;
+    margin: 2rem auto;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    text-align: center;
+  }
 
+  .titulo-izquierda {
+  text-align: left;
+}
 </style>
 <!-- === LIBRERÍA D3-DELAUNAY === -->
 <script src="https://d3js.org/d3-delaunay.v6.min.js"></script>
@@ -232,7 +237,7 @@ window.onload = () => {
   const maxPoints = 150;
   const minDist = 50;
   const initialPoints = 10;
-  const addInterval = 500;
+  const addInterval = 350;
 
   function distance(a, b) {
     return Math.hypot(a[0] - b[0], a[1] - b[1]);
@@ -316,26 +321,33 @@ function restartPoints() {
   requestAnimationFrame(animate);
 };
 </script>
-<p>Radix Lab es un espacio de investigación y desarrollo centrado en la exploración matemática de estructuras biológicas, procesos de crecimiento, adaptación y comportamientos distribuidos y emergentes. Su enfoque integra conocimientos provenientes de la biología, la física, la ingeniería y el diseño, con el propósito de articular el trabajo teórico con la experimentación. Esto da lugar a prototipos impresos, modelos visuales interactivos, instalaciones sensibles al entorno y estructuras que reproducen comportamientos naturales. Este enfoque híbrido permite consolidar líneas de investigación aplicadas tanto al ámbito artístico como al educativo, generando conocimiento transferible a múltiples contextos disciplinares.</p>
-<p>En las investigaciones de Radix Lab se emplea software libre para diseñar algoritmos que permiten simular y traducir los componentes investigativos en geometrías dinámicas, estructuras paramétricas y artefactos visuales, auditivos o físicos.</p>
+<h3 class="titulo-izquierda anchored">
+Descripción
+</h3>
+<p style="max-width:850px; margin: 2rem auto 0 0; line-height: 1.6; font-size: 1.1rem; text-align: justify;">
+Radix Lab es un espacio de investigación y desarrollo centrado en la exploración matemática de estructuras biológicas, procesos de crecimiento, adaptación y comportamientos distribuidos y emergentes. Su enfoque integra conocimientos provenientes de la biología, la física, la ingeniería y el diseño, con el propósito de articular el trabajo teórico con la experimentación. Esto da lugar a prototipos impresos, modelos visuales interactivos, instalaciones sensibles al entorno y estructuras que reproducen comportamientos naturales. Este enfoque híbrido permite consolidar líneas de investigación aplicadas tanto al ámbito artístico como al educativo, generando conocimiento transferible a múltiples contextos disciplinares.
+</p>
+<p style="max-width:850px; margin: 2rem auto 0 0; line-height: 1.6; font-size: 1.1rem; text-align: justify;">
+En las investigaciones de Radix Lab se emplea software libre para diseñar algoritmos que permiten simular y traducir los componentes investigativos en geometrías dinámicas, estructuras paramétricas y artefactos visuales, auditivos o físicos.
+</p>
 <h3 style="text-align: center; margin-top: 3rem;" class="anchored">
 Herramientas Tecnológicas
 </h3>
-<div style="max-width: 700px; margin: auto; font-size: 1rem;">
+<div style="max-width: 850px; margin: 2rem auto; font-size: 1.1rem; line-height: 1.6;">
 <ul style="list-style: none; padding: 0;">
-<li style="margin-bottom: 1.5rem;">
+<li style="margin-bottom: 1.5rem; text-align: justify;">
 <strong><a href="https://www.python.org" target="_blank" style="text-decoration: underline;">PYTHON</a></strong>: Modelado matemático, generación de geometrías, exportación de mallas STL.
 </li>
-<li style="margin-bottom: 1.5rem;">
+<li style="margin-bottom: 1.5rem; text-align: justify;">
 <strong><a href="https://processing.org" target="_blank" style="text-decoration: underline;">PROCESSING</a></strong>: Visualización interactiva y simulación de comportamientos naturales.
 </li>
-<li style="margin-bottom: 1.5rem;">
+<li style="margin-bottom: 1.5rem; text-align: justify;">
 <strong><a href="https://openscad.org" target="_blank" style="text-decoration: underline;">OPENSCAD</a></strong>: Diseño paramétrico para fabricación digital.
 </li>
-<li style="margin-bottom: 1.5rem;">
+<li style="margin-bottom: 1.5rem; text-align: justify;">
 <strong><a href="https://www.arduino.cc" target="_blank" style="text-decoration: underline;">ARDUINO</a></strong>: Integración de sensores para piezas interactivas.
 </li>
-<li style="margin-bottom: 1.5rem;">
+<li style="margin-bottom: 1.5rem; text-align: justify;">
 <strong>FABRICACIÓN</strong>: Impresión 3D FDM, corte láser, fresado CNC, carpintería y trabajo en metal.
 </li>
 </ul>
@@ -346,36 +358,73 @@ Herramientas Tecnológicas
   background: linear-gradient(to right, rgba(0,0,0,0), rgba(14, 2, 2, 0.7), rgba(0,0,0,0));
   width: 80%;
   margin: 4rem auto 2rem auto;">
-<p style="text-align: center; max-width: 600px; margin: 0 auto 2rem auto; font-size: 1rem;">
+<h3 style="text-align: center; margin-top: 5rem; color: #003344;" class="anchored">
+Estructuras que evolucionan
+</h3>
+<p style="text-align: center; font-style: italic; max-width: 700px; margin: auto; color: #555;">
 La siguiente visualización muestra una simulación generativa de un <strong>gyroide animado</strong>, una estructura periódica mínima inspirada en formas biológicas, en este caso una Euplectella aspergillum (la esponja canasta de Venus).
 </p>
-<div style="text-align: center; margin-top: 3rem; margin-bottom: 4rem;">
-<p><video controls="" autoplay="" loop="" muted="" playsinline="" style="
-      width: 350px;
-      border-radius: 16px;
-      border: 2px solid rgba(0, 150, 180, 0.2);
-      box-shadow: 0 0 40px rgba(0, 120, 180, 0.2);
-      background: linear-gradient(145deg, rgba(240,250,255,0.1), rgba(200,230,255,0.1));
-      backdrop-filter: blur(2px);
-    "> <source src="videos/radix_lab.mp4" type="video/mp4"> Tu navegador no soporta video HTML5. </video></p>
+<!-- Contenedor centrado -->
+<div id="videoWrapper" style="text-align: center; position: relative; margin: 3rem auto; display: inline-block;">
+<p><img src="imagenes/posterv2.png" alt="Vista previa del video" id="previewImage" style="width: 350px; border-radius: 16px;
+              border: 1.5px solid rgba(0, 100, 150, 0.3);
+              box-shadow: 0 6px 20px rgba(0, 100, 150, 0.2);
+              background: linear-gradient(145deg, rgba(240,250,255,0.05), rgba(200,230,255,0.08));
+              cursor: pointer;"></p>
+<div id="playOverlay" style="position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              background-color: rgba(0, 0, 0, 0.6); color: white;
+              border-radius: 50%; width: 64px; height: 64px;
+              display: flex; align-items: center; justify-content: center;
+              font-size: 2rem; cursor: pointer; transition: background-color 0.3s ease;">
+<pre><code>▶</code></pre>
 </div>
+</div>
+<script>
+document.getElementById("videoWrapper").addEventListener("click", () => {
+  const wrapper = document.getElementById("videoWrapper");
+
+wrapper.innerHTML = '';
+
+const videoContainer = document.createElement("div");
+videoContainer.style.textAlign = "center";
+
+video.style.width = "350px";
+video.style.borderRadius = "16px";
+video.style.border = "1.5px solid rgba(0, 100, 150, 0.3)";
+video.style.boxShadow = "0 6px 20px rgba(0, 100, 150, 0.2)";
+video.style.background = "linear-gradient(145deg, rgba(240,250,255,0.05), rgba(200,230,255,0.08))";
+
+videoContainer.appendChild(video);
+wrapper.appendChild(videoContainer);
+
+
+</script>
 <hr style="
   border: none;
   height: 5px;
   background: linear-gradient(to right, rgba(0,0,0,0), rgba(14, 2, 2, 0.7), rgba(0,0,0,0));
   width: 80%;
   margin: 4rem auto 2rem auto;">
-<section id="algunos-proyectos-recientes" class="level3">
-<h3 class="anchored" data-anchor-id="algunos-proyectos-recientes">Algunos proyectos recientes</h3>
-<ol type="1">
-<li>Modelos de crecimiento de estructuras biológicas mediante algoritmos generativos, exportables en STL para impresión 3D.<br>
+<h3 style="text-align: center; margin-top: 3rem;" class="anchored">
+Algunos proyectos recientes
+</h3>
+<div style="max-width: 850px; margin: 0 auto; text-align: justify; font-size: 1.1rem; line-height: 1.6;">
+<ol>
+<li>
+Modelos de crecimiento de estructuras biológicas mediante algoritmos generativos, exportables en STL para impresión 3D.
 </li>
-<li>Simulación de comportamiento colectivo (como colonias de hormigas) mediante sistemas multiagente.<br>
+<li>
+Simulación de comportamiento colectivo (como colonias de hormigas) mediante sistemas multiagente.
 </li>
-<li>Estalactitas sintéticas construidas con autómatas celulares y agregación jerárquica de voxels.<br>
+<li>
+Estalactitas sintéticas construidas con autómatas celulares y agregación jerárquica de voxels.
 </li>
-<li>Análisis y optimización matemática de estructuras bioinspiradas.</li>
+<li>
+Análisis y optimización matemática de estructuras bioinspiradas.
+</li>
 </ol>
+</div>
 <hr style="margin-top: 3em;">
 <p style="text-align: center; font-style: italic; color: #555;">
 ¿Te gustaría saber más, colaborar o llevar Radix a tu institución?<br>
@@ -383,7 +432,6 @@ La siguiente visualización muestra una simulación generativa de un <strong>gyr
 </p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
