@@ -173,5 +173,12 @@
     "title": "Bienvenido a Radix Edu",
     "section": "Propuestas de experiencias educativas para colegios y universidades",
     "text": "Propuestas de experiencias educativas para colegios y universidades\n\nLaboratorios Radix en colegios y universidades: diseño de espacios equipados con tecnologías como impresión 3D, cortadoras láser, sensores, Arduino, Raspberry Pi y software libre.\nCursos y talleres interdisciplinarios: propuestas pedagógicas a través de proyectos bioinspirados que integren matemáticas y artes, en colegios y universidades.\nActividades sensoriales y constructivas: modelado físico con materiales tipo balso, espaguetis, madera, entre otros para observar distintas formas naturales y su plausible representación matemática."
+  },
+  {
+    "objectID": "radix-art.html#descripción",
+    "href": "radix-art.html#descripción",
+    "title": "Bienvenido a Radix Art",
+    "section": "Descripción",
+    "text": "Descripción\nRadix Art constituye una línea de creación e investigación en la que convergen la modelación matemática, la simulación computacional y la exploración material para generar obras bioinspiradas de carácter estructural, evolutivo y pedagógico. Cada pieza desarrollada en este espacio es resultado de un proceso iterativo de observación, formalización algorítmica y traducción estética de patrones naturales.\nMás que una representación figurativa de la naturaleza, el arte generado en Radix se fundamenta en la reproducción estructural de sus principios formativos: crecimiento diferencial, morfogénesis, autoorganización, simetría fractal, entre otros. Las obras resultantes —ya sean esculturas impresas en 3D, cuadros paramétricos, instalaciones interactivas o visualizaciones generativas— son dispositivos que permiten articular sensibilidad estética, rigor matemático y procesos de fabricación digital. Radix Art investiga los límites y posibilidades del arte como forma de conocimiento estructurado, capaz de traducir procesos naturales complejos en experiencias visuales y táctiles significativas."
   }
 ]

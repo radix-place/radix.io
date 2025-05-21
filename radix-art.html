@@ -120,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#descripción-estética" id="toc-descripción-estética" class="nav-link active" data-scroll-target="#descripción-estética">Descripción estética</a></li>
+  <li><a href="#descripción" id="toc-descripción" class="nav-link active" data-scroll-target="#descripción">Descripción</a></li>
   <li><a href="#proyectos-en-desarrollo" id="toc-proyectos-en-desarrollo" class="nav-link" data-scroll-target="#proyectos-en-desarrollo">Proyectos en desarrollo</a></li>
   </ul>
 </nav>
@@ -155,18 +155,20 @@ ul.task-list li input[type="checkbox"] {
 Creaciones biomiméticas y bioinspiradas
 </p>
 </div>
-<canvas id="moireCanvas">
-</canvas>
+<div id="radixArt" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1;">
+
+</div>
 </div>
 <style>
-  .wave-container {
-    position: relative;
-    width: 100%;
-    height: 320px;
-    background: linear-gradient(to bottom, #ffffff 0%, #f1faff 100%);
-    overflow: hidden;
-    margin-bottom: 2rem;
-  }
+.wave-container {
+  position: relative;
+  width: 100%;
+  height: 320px; /* Ajusta si quieres menos altura */
+  background: linear-gradient(to bottom, #ffffff 0%, #f1faff 100%);
+  overflow: hidden;
+  margin-bottom: 0;  /* CAMBIA ESTO */
+  padding-bottom: 0;
+}
 
   #moireCanvas {
     position: absolute;
@@ -188,8 +190,8 @@ Creaciones biomiméticas y bioinspiradas
   }
 
   .floating-content img {
-    width: 100px;
-    opacity: 0.6;
+    width: 120px;
+    opacity: 0.5;
     transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
   }
@@ -197,7 +199,7 @@ Creaciones biomiméticas y bioinspiradas
   .floating-content img:hover {
     opacity: 1.0;
     transform: scale(1.04);
-    box-shadow: 0 6px 20px rgba(0, 100, 150, 0.25);
+    box-shadow: 0 6px 20px rgb(0, 100, 150);
   }
 
   .slogan {
@@ -215,90 +217,66 @@ Creaciones biomiméticas y bioinspiradas
     white-space: normal;
   }
 
+
 </style>
+<!-- Incluye p5.js -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
 <script>
 window.onload = function () {
 
-  function noise2D(x, y) {
-    let s = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
-    return s - Math.floor(s);
-  }
+  new p5((sk) => {
+    let numLines = 60;
+    let spacing;
+    let t = 0;
 
-  const canvas = document.getElementById('moireCanvas');
-  const ctx = canvas.getContext('2d');
+    sk.setup = function () {
+      let canvas = sk.createCanvas(window.innerWidth, 600);
+      canvas.parent('radixArt');
+      spacing = sk.width / numLines;
+      sk.strokeWeight(1);
+      sk.frameRate(60);
+    };
 
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = 320;
-  }
+    sk.draw = function () {
+      sk.background(255);
 
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
+      // Líneas horizontales
+      sk.stroke(0, 100);
+      for (let i = 0; i < numLines; i++) {
+        let y = i * spacing;
+        sk.beginShape();
+        for (let x = 0; x <= sk.width; x += 5) {
+          let offset = 20 * Math.sin(0.02 * x + t + i * 0.1);
+          sk.vertex(x, y + offset);
+        }
+        sk.endShape();
+      }
 
-  let t = 0;
+      // Líneas verticales
+      sk.stroke(0, 0, 255, 60);
+      for (let j = 0; j < numLines; j++) {
+        let x = j * spacing;
+        sk.beginShape();
+        for (let y = 0; y <= sk.height; y += 5) {
+          let offset = 20 * Math.cos(0.02 * y + t + j * 0.1);
+          sk.vertex(x + offset, y);
+        }
+        sk.endShape();
+      }
 
-function drawMoire() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.lineWidth = 2;
+      t += 0.02;
+    };
 
-  const spacing = 64;
-  const amp = 8;
-  const freq = 0.0001;
+    sk.windowResized = function () {
+      sk.resizeCanvas(window.innerWidth, 600);
+      spacing = sk.width / numLines;
+    };
+  });
 
-  for (let y = 0; y < canvas.height; y += spacing) {
-    ctx.beginPath();
-    
-    // Gama de colores más amplia y clara
-    let baseHue = 100 + 180 * noise2D(0, y * freq + t);
-    let saturation = 30 + 20 * noise2D(1000, y * freq + t);  // 30%–50%
-    let lightness = 65 + 15 * noise2D(2000, y * freq + t);   // 65%–80%
-    
-    ctx.strokeStyle = `hsl(${baseHue}, ${saturation}%, ${lightness}%)`;
-
-    for (let x = 0; x <= canvas.width; x += 5) {
-      let offset = amp * noise2D(x * freq, y * freq + t);
-      ctx.lineTo(x, y + offset);
-    }
-
-    ctx.stroke();
-  }
-
-  for (let x = 0; x < canvas.width; x += spacing) {
-    ctx.beginPath();
-    
-    // Otro espectro y aleatoriedad de color
-    let baseHue = 160 + 120 * noise2D(x * freq + 1000, 0 + t);
-    let saturation = 35 + 25 * noise2D(x * freq + 2000, 0 + t);
-    let lightness = 68 + 12 * noise2D(x * freq + 3000, 0 + t);
-    
-    ctx.strokeStyle = `hsl(${baseHue}, ${saturation}%, ${lightness}%)`;
-
-    for (let y = 0; y <= canvas.height; y += 5) {
-      let offset = amp * noise2D(x * freq + 1000, y * freq + t);
-      ctx.lineTo(x + offset, y);
-    }
-
-    ctx.stroke();
-  }
-  let fade = ctx.createRadialGradient(
-    canvas.width / 2, canvas.height / 2, canvas.height / 4,
-    canvas.width / 2, canvas.height / 2, canvas.width / 1.2
-  );
-  fade.addColorStop(0, 'rgba(255,255,255,0)');
-  fade.addColorStop(1, 'rgba(255,255,255,0.95)');
-
-  ctx.fillStyle = fade;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  t += 0.0000000005;
-  requestAnimationFrame(drawMoire);
-}
-
-
-  drawMoire();
 };
 </script>
-<section id="descripción-estética" class="level2">
-<h2 class="anchored" data-anchor-id="descripción-estética">Descripción estética</h2>
+<section id="descripción" class="level2">
+<h2 class="anchored" data-anchor-id="descripción">Descripción</h2>
 <p>Radix Art constituye una línea de creación e investigación en la que convergen la modelación matemática, la simulación computacional y la exploración material para generar obras bioinspiradas de carácter estructural, evolutivo y pedagógico. Cada pieza desarrollada en este espacio es resultado de un proceso iterativo de observación, formalización algorítmica y traducción estética de patrones naturales.</p>
 <p>Más que una representación figurativa de la naturaleza, el arte generado en Radix se fundamenta en la reproducción estructural de sus principios formativos: crecimiento diferencial, morfogénesis, autoorganización, simetría fractal, entre otros. Las obras resultantes —ya sean esculturas impresas en 3D, cuadros paramétricos, instalaciones interactivas o visualizaciones generativas— son dispositivos que permiten articular sensibilidad estética, rigor matemático y procesos de fabricación digital. Radix Art investiga los límites y posibilidades del arte como forma de conocimiento estructurado, capaz de traducir procesos naturales complejos en experiencias visuales y táctiles significativas.</p>
 </section>
