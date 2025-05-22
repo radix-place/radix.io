@@ -115,22 +115,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#filosofía" id="toc-filosofía" class="nav-link active" data-scroll-target="#filosofía">Filosofía</a>
-  <ul class="collapse">
-  <li><a href="#software-libre-en-educación" id="toc-software-libre-en-educación" class="nav-link" data-scroll-target="#software-libre-en-educación">Software libre en educación</a></li>
-  <li><a href="#propuestas-de-experiencias-educativas-para-colegios-y-universidades" id="toc-propuestas-de-experiencias-educativas-para-colegios-y-universidades" class="nav-link" data-scroll-target="#propuestas-de-experiencias-educativas-para-colegios-y-universidades">Propuestas de experiencias educativas para colegios y universidades</a></li>
-  <li><a href="#módulos-temáticos-disponibles-para-estudiantes-y-profesores" id="toc-módulos-temáticos-disponibles-para-estudiantes-y-profesores" class="nav-link" data-scroll-target="#módulos-temáticos-disponibles-para-estudiantes-y-profesores">Módulos temáticos disponibles para estudiantes y profesores</a>
-  <ul class="collapse">
-  <li><a href="#diviertete-un-poco-explorando-con-l-sistemas" id="toc-diviertete-un-poco-explorando-con-l-sistemas" class="nav-link" data-scroll-target="#diviertete-un-poco-explorando-con-l-sistemas">Diviertete un poco: Explorando con L-sistemas</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -157,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- === ENCABEZADO === -->
 <div class="wave-container">
 <div class="floating-content">
-<img src="imagenes/RADIX_EDU.png" alt="Logo Radix Edu">
+<img src="imagenes/RADIX_EDU.png" alt="Logo Radix Edu" class="logo-radix">
 <p class="slogan">
 Aprendizaje conectando arte, ciencia y naturaleza
 </p>
@@ -166,61 +152,55 @@ Aprendizaje conectando arte, ciencia y naturaleza
 </canvas>
 </div>
 <style>
-  .wave-container {
-    position: relative;
-    width: 100%;
-    height: 320px;
-    background: linear-gradient(to bottom, #ffffff 0%, #eefaff 100%);
-    overflow: hidden;
-    margin-bottom: 2rem;
-  }
+.wave-container {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(to bottom, #ffffff 0%, #eefaff 100%);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
 
-  #tetrisCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
+#tetrisCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 
-  .floating-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 2;
-    padding: 0 1rem;
-  }
+.floating-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  padding: 0 1rem;
+}
 
-  .floating-content img {
-    width: 120px;
-    opacity: 0.5;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
-    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
-  }
+.logo-radix {
+  width: 100px;
+  opacity: 1.0;
+  transform: scale(1.0);
+  box-shadow: 0 6px 20px rgb(0, 100, 150);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+}
 
-  .floating-content img:hover {
-    opacity: 1.0;
-    transform: scale(1.20);
-    box-shadow: 0 6px 20px rgb(0, 100, 150);
-  }
-
-  .slogan {
-    font-style: italic;
-    font-size: 1.0rem;
-    font-weight: bold;
-    color: #444;
-    margin-top: 0.75rem;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
-    text-align: center;
-    word-wrap: break-word;
-    white-space: normal;
-  }
+.slogan {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #444;
+  margin-top: 1rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+  text-align: center;
+  word-wrap: break-word;
+  white-space: normal;
+}
 
 .content {
   max-width: 850px;
@@ -228,13 +208,83 @@ Aprendizaje conectando arte, ciencia y naturaleza
   line-height: 1.7;
   font-size: 1.1rem;
   text-align: justify;
-} /* ← aquí cerramos correctamente */
+}
 
 .titulo-izquierda {
   text-align: left;
 }
-
 </style>
+<section id="descripcion" class="content">
+<h2 class="titulo-izquierda anchored">
+Filosofía
+</h2>
+<p>
+Radix Edu surge como una iniciativa orientada a transformar los procesos de aprendizaje de las matemáticas y las ciencias, dotándolos de un carácter interdisciplinar, estético y contextualizado. Su propósito es promover el desarrollo del pensamiento crítico, sistémico y creativo en estudiantes y docentes, mediante experiencias que integran saberes científicos, artísticos, tecnológicos y naturales.
+</p>
+<p>
+La propuesta parte de una concepción del aprendizaje como un proceso evolutivo y transdisciplinar, en el que la matemática actúa como un lenguaje articulador entre el arte, la biología, el diseño y la programación. Radix Edu formula entornos de aprendizaje activos y significativos, centrados en la exploración, la construcción material, la visualización computacional y la resolución creativa de problemas.
+</p>
+<p>
+Se privilegia el uso de herramientas de software libre, metodologías de diseño bioinspirado e inteligencia artificial, con el objetivo de consolidar prácticas pedagógicas que favorezcan la apropiación conceptual, la autonomía intelectual y una sensibilidad estructural frente al mundo natural.
+</p>
+</section>
+<section id="herramientas" class="content">
+<h2 class="titulo-izquierda anchored">
+Software libre en educación
+</h2>
+<ul style="list-style: none; padding: 0;">
+<li style="margin-bottom: 1.5rem;">
+<strong>Python:</strong> modelado matemático, simulación y análisis de datos.
+</li>
+<li style="margin-bottom: 1.5rem;">
+<strong>Processing:</strong> visualización artística, interacciones y diseño generativo.
+</li>
+<li style="margin-bottom: 1.5rem;">
+<strong>OpenSCAD:</strong> modelado 3D paramétrico orientado a la fabricación.
+</li>
+<li style="margin-bottom: 1.5rem;">
+<strong>Arduino:</strong> integración de sensores, actuadores y entornos físicos.
+</li>
+<li style="margin-bottom: 1.5rem;">
+<strong>Blender y FreeCAD:</strong> exploraciones 3D libres en cursos avanzados.
+</li>
+</ul>
+</section>
+<section id="propuestas" class="content">
+<h2 class="titulo-izquierda anchored">
+Propuestas para colegios y universidades
+</h2>
+<ul>
+<li>
+<strong>Laboratorios Radix:</strong> diseño de espacios equipados con impresión 3D, corte láser, sensores, Arduino, Raspberry Pi y software libre.
+</li>
+<li>
+<strong>Cursos y talleres interdisciplinarios:</strong> proyectos bioinspirados que integran matemáticas y artes.
+</li>
+<li>
+<strong>Actividades sensoriales y constructivas:</strong> modelado físico con materiales como balso, espaguetis o madera para observar formas naturales.
+</li>
+</ul>
+</section>
+<section id="modulos" class="content">
+<h2 class="titulo-izquierda anchored">
+Módulos temáticos disponibles
+</h2>
+<ul>
+<li>
+<strong>Aritmética y Geometría:</strong> introducción a número, proporción, figura y simetría con enfoque visual y físico.
+</li>
+<li>
+<strong>Geometría Vectorial:</strong> representación de posiciones y movimientos con programación gráfica.
+</li>
+<li>
+<strong>Matemáticas y Arte Paramétrico:</strong> creación artística con parámetros y ecuaciones usando OpenSCAD o Processing.
+</li>
+<li>
+<strong>Modelado 2D y 3D:</strong> uso de OpenSCAD para construir modelos paramétricos con operaciones booleanas.
+</li>
+</ul>
+</section>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("tetrisCanvas");
@@ -360,48 +410,18 @@ document.addEventListener("DOMContentLoaded", () => {
   animate();
 });
 </script>
-<section id="filosofía" class="level1">
-<h1>Filosofía</h1>
-<p>Radix Edu surge como una iniciativa orientada a transformar los procesos de aprendizaje de las matemáticas y las ciencias, dotándolos de un carácter interdisciplinar, estético y contextualizado. Su propósito es promover el desarrollo del pensamiento crítico, sistémico y creativo en estudiantes y docentes, mediante experiencias que integran saberes científicos, artísticos, tecnológicos y naturales.</p>
-<p>La propuesta parte de una concepción del aprendizaje como un proceso evolutivo y transdisciplinar, en el que la matemática actúa como un lenguaje articulador entre el arte, la biología, el diseño y la programación. Radix Edu formula entornos de aprendizaje activos y significativos, centrados en la exploración, la construcción material, la visualización computacional y la resolución creativa de problemas.</p>
-<p>Se privilegia el uso de herramientas de software libre, metodologías de diseño bioinspirado e inteligencia artificial, con el objetivo de consolidar prácticas pedagógicas que favorezcan la apropiación conceptual, la autonomía intelectual y una sensibilidad estructural frente al mundo natural.</p>
-<section id="software-libre-en-educación" class="level2">
-<h2 class="anchored" data-anchor-id="software-libre-en-educación">Software libre en educación</h2>
-<p>Radix Edu trabaja exclusivamente con herramientas de software libre que permitan fomentar la creatividad y la apropiación del lenguaje matemático por parte de estudiantes y docentes:</p>
-<ul>
-<li><p>Python: para modelado matemático, simulación y análisis de datos.</p></li>
-<li><p>Processing: para visualización artística, interacciones y diseño generativo.</p></li>
-<li><p>OpenSCAD: para modelado 3D paramétrico orientado a la fabricación.</p></li>
-<li><p>Arduino: para proyectos que integran sensores, actuadores y entornos físicos.</p></li>
-<li><p>Blender y FreeCAD: en cursos más avanzados para exploraciones 3D libres.</p></li>
-</ul>
-</section>
-<section id="propuestas-de-experiencias-educativas-para-colegios-y-universidades" class="level2">
-<h2 class="anchored" data-anchor-id="propuestas-de-experiencias-educativas-para-colegios-y-universidades">Propuestas de experiencias educativas para colegios y universidades</h2>
-<ul>
-<li><p><strong>Laboratorios Radix en colegios y universidades:</strong> diseño de espacios equipados con tecnologías como impresión 3D, cortadoras láser, sensores, Arduino, Raspberry Pi y software libre.</p></li>
-<li><p><strong>Cursos y talleres interdisciplinarios:</strong> propuestas pedagógicas a través de proyectos bioinspirados que integren matemáticas y artes, en colegios y universidades.</p></li>
-<li><p><strong>Actividades sensoriales y constructivas:</strong> modelado físico con materiales tipo balso, espaguetis, madera, entre otros para observar distintas formas naturales y su plausible representación matemática.</p></li>
-</ul>
-</section>
-<section id="módulos-temáticos-disponibles-para-estudiantes-y-profesores" class="level2">
-<h2 class="anchored" data-anchor-id="módulos-temáticos-disponibles-para-estudiantes-y-profesores">Módulos temáticos disponibles para estudiantes y profesores</h2>
-<p>Radix Edu estructura su propuesta educativa en módulos progresivos que integran matemática, programación y diseño. Cada módulo está pensado para ser interdisciplinar, creativo y adaptable a distintos niveles educativos.</p>
-<ul>
-<li><p><strong>Aritmética y Geometría</strong> Este módulo introduce conceptos básicos de número, proporción, magnitud, figura y simetría desde una perspectiva sensible y visual. Los estudiantes trabajan con materiales físicos y herramientas digitales para comprender relaciones numéricas, patrones geométricos y principios fundamentales como la razón áurea o los mosaicos regulares.</p></li>
-<li><p><strong>Geometría Vectorial</strong> Aquí se exploran los vectores como herramientas esenciales para describir posiciones, movimientos y fuerzas en el espacio. Usando programación gráfica, los estudiantes aprenden a representar trayectorias, transformar figuras y construir modelos dinámicos.</p></li>
-<li><p><strong>Matemáticas y Arte Paramétrico</strong> Este módulo permite a los estudiantes crear arte y diseño controlado por parámetros matemáticos. Con herramientas como OpenSCAD o Processing, experimentan cómo las variables, funciones y ecuaciones generan formas sorprendentes.</p></li>
-<li><p><strong>Modelado bidimensional y tridimensional con OpenSCAD</strong> Los estudiantes aprenden a usar OpenSCAD para crear modelos tridimensionales a partir de código. Se introducen conceptos de modelado paramétrico, control de variables y composición de formas mediante operaciones booleanas.</p></li>
-</ul>
 <hr style="
   border: none;
   height: 5px;
   background: linear-gradient(to right, rgba(0,0,0,0), rgba(14, 2, 2, 0.7), rgba(0,0,0,0));
   width: 80%;
   margin: 4rem auto 2rem auto;">
-<section id="diviertete-un-poco-explorando-con-l-sistemas" class="level3">
-<h3 class="anchored" data-anchor-id="diviertete-un-poco-explorando-con-l-sistemas">Diviertete un poco: Explorando con L-sistemas</h3>
-<p>Los <strong>L-sistemas</strong> (o sistemas de Lindenmayer) son una forma de lenguaje formal que permite describir cómo crecen ciertas estructuras en la naturaleza, como ramas, hojas, helechos o cristales. Se basan en <strong>reglas de producción simples</strong>, que actúan sobre una cadena de símbolos para transformarla paso a paso. A pesar de su simplicidad, estos sistemas pueden generar formas visuales sorprendentemente complejas.</p>
+<section id="lsistemas" class="content">
+<h2 class="titulo-izquierda anchored">
+Diviértete un poco: Explorando con L-sistemas
+</h2>
+<p>
+</p><p>Los <strong>L-sistemas</strong> (o sistemas de Lindenmayer) son una forma de lenguaje formal que permite describir cómo crecen ciertas estructuras en la naturaleza, como ramas, hojas, helechos o cristales. Se basan en <strong>reglas de producción simples</strong>, que actúan sobre una cadena de símbolos para transformarla paso a paso. A pesar de su simplicidad, estos sistemas pueden generar formas visuales sorprendentemente complejas.</p>
 <p>Por ejemplo, supongamos que el símbolo <strong>F</strong> indica hacer un trazo de una determinada longitud, mientras que los símbolos <strong>+</strong> y <strong>−</strong> representan giros. Si definimos la regla:</p>
 <p>Por ejemplo, supongamos que el símbolo <strong>F</strong> corresponde con la instrucción de dibujar una linea de una determinada longitud, mientras que los símbolos <strong>+</strong> y <strong>-</strong> indican un giro a la izquierda y a la derecha un derterminado ángulo en sentido contrario de las manecillas del reloj.</p>
 <p><strong>F –&gt; F+F−F−F+F</strong></p>
@@ -409,218 +429,15 @@ document.addEventListener("DOMContentLoaded", () => {
 <p><strong>iteración 0: F</strong></p>
 <p><strong>iteración 1: F+F−F−F+F</strong></p>
 <p><strong>iteración 2: F+F−F−F+F+F+F−F−F+F−F+F−F−F+F−F+F−F−F+F+F+F−F−F+F</strong></p>
-<p>Utiliza el siguiente visualizador para observar cómo surgen algunas estructuras a partir de unas pocas instrucciones.</p>
-<section id="visualización-interactiva" class="level4">
-<h4 class="anchored" data-anchor-id="visualización-interactiva">Visualización interactiva</h4>
-<style>
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-    align-items: start;
-    justify-content: center;
-    padding-bottom: 1rem;
-  }
+<p></p>
+<p>
+Utiliza el siguiente visualizador para ver cómo estas estructuras evolucionan. Las iteraciones se ajustan automáticamente al espacio del canvas.
+</p>
+<div id="lsystem-interactive">
 
-  .controls {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    min-width: 200px;
-  }
-
-  canvas {
-    width: 100%;
-    height: auto;
-    border: 2px solid #007744;
-    border-radius: 8px;
-    background-color: #ffffff;
-  }
-
-  button {
-    background-color: #007acc;
-    color: white;
-    border: none;
-    padding: 0.5rem;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: #005fa3;
-  }
-
-  input[type=range] {
-    width: 100%;
-  }
-
-  label span.value {
-    float: right;
-    font-weight: bold;
-    color: #007744;
-  }
-
-  @media (max-width: 768px) {
-    .container {
-      display: flex;
-      flex-direction: column;
-    }
-
-    canvas {
-      width: 100vw !important;
-      max-width: 100%;
-      margin: 0 auto;
-    }
-  }
-</style>
-
-<div class="container">
-  <div class="controls">
-    <label for="modelo">Modelo (con regla):</label>
-    <select id="modelo" onchange="setDefaultAngle()">
-      <option value="koch_exp" selected="" title="F → F+F−F−F+F">📏 Koch: F → F+F−F−F+F</option>
-      <option value="arbol" title="F → F[+F]F[-F]F">🌱 Árbol: F → F[+F]F[-F]F</option>
-      <option value="koch" title="F → F−F++F−F">📐 Koch Clásica: F → F−F++F−F</option>
-      <option value="helecho" title="X → F[+X]F[-X]+X">🌿 Helecho: X → F[+X]F[-X]+X</option>
-    </select>
-
-    <label for="iter">Iteraciones (0–5):</label>
-    <input type="number" id="iter" min="0" max="5" value="0">
-
-    <label for="angle">Ángulo: <span class="value" id="angle-val">60°</span></label>
-    <input type="range" id="angle" min="0" max="90" step="1" value="60" oninput="document.getElementById('angle-val').textContent = this.value + '°'">
-
-    <label for="zoom">Zoom: <span class="value" id="zoom-val">1.0×</span></label>
-    <input type="range" id="zoom" min="0.1" max="3" step="0.1" value="1" oninput="document.getElementById('zoom-val').textContent = this.value + '×'">
-
-    <button onclick="generar()">Generar</button>
-  </div>
-
-  <div>
-    <canvas id="canvas"></canvas>
-    <p style="text-align: center; margin-top: 0.5rem;">Vista generada del L-Sistema</p>
-  </div>
 </div>
-
-<script>
-function setDefaultAngle() {
-  const modelo = document.getElementById("modelo").value;
-  let angle = 25;
-  if (modelo === "koch" || modelo === "koch_exp") angle = 60;
-  if (modelo === "helecho") angle = 20;
-  document.getElementById("angle").value = angle;
-  document.getElementById("angle-val").textContent = angle + "°";
-}
-
-function generar() {
-  const modelo = document.getElementById("modelo").value;
-  const iter = parseInt(document.getElementById("iter").value);
-  const angle = parseFloat(document.getElementById("angle").value);
-  const zoom = parseFloat(document.getElementById("zoom").value);
-
-  let axiom, rules, startAngle;
-  if (modelo === "koch_exp") {
-    axiom = "F";
-    rules = { "F": "F+F-F-F+F" };
-    startAngle = 0;
-  } else if (modelo === "arbol") {
-    axiom = "F";
-    rules = { "F": "F[+F]F[-F]F" };
-    startAngle = -90;
-  } else if (modelo === "koch") {
-    axiom = "F";
-    rules = { "F": "F-F++F-F" };
-    startAngle = 0;
-  } else if (modelo === "helecho") {
-    axiom = "X";
-    rules = { "X": "F[+X]F[-X]+X", "F": "FF" };
-    startAngle = -90;
-  }
-
-  const sequence = generateLSystem(axiom, rules, iter);
-  drawLSystem(sequence, angle, startAngle, zoom);
-}
-
-function generateLSystem(axiom, rules, iterations) {
-  let result = axiom;
-  for (let i = 0; i < iterations; i++) {
-    result = result.split('').map(c => rules[c] || c).join('');
-  }
-  return result;
-}
-
-function drawLSystem(seq, angleDeg, startDeg, zoomFactor) {
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
-  canvas.width = canvas.parentElement.clientWidth - 20;
-  canvas.height = canvas.width;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  let x = 0, y = 0;
-  let angle = startDeg * Math.PI / 180;
-  let stack = [];
-  let minX = 0, maxX = 0, minY = 0, maxY = 0;
-
-  for (let c of seq) {
-    if (c === "F") {
-      x += Math.cos(angle);
-      y += Math.sin(angle);
-      minX = Math.min(minX, x);
-      maxX = Math.max(maxX, x);
-      minY = Math.min(minY, y);
-      maxY = Math.max(maxY, y);
-    } else if (c === "+") {
-      angle -= angleDeg * Math.PI / 180;
-    } else if (c === "-") {
-      angle += angleDeg * Math.PI / 180;
-    } else if (c === "[") {
-      stack.push([x, y, angle]);
-    } else if (c === "]") {
-      [x, y, angle] = stack.pop();
-    }
-  }
-
-  const scaleX = canvas.width / (maxX - minX + 20);
-  const scaleY = canvas.height / (maxY - minY + 20);
-  const scale = Math.min(scaleX, scaleY) * zoomFactor;
-
-  x = (canvas.width - (maxX - minX) * scale) / 2 - minX * scale;
-  y = (canvas.height - (maxY - minY) * scale) / 2 - minY * scale;
-  angle = startDeg * Math.PI / 180;
-  stack = [];
-
-  ctx.beginPath();
-  ctx.moveTo(x, y);
-
-  for (let c of seq) {
-    if (c === "F") {
-      const x1 = x + scale * Math.cos(angle);
-      const y1 = y + scale * Math.sin(angle);
-      ctx.lineTo(x1, y1);
-      x = x1;
-      y = y1;
-    } else if (c === "+") {
-      angle -= angleDeg * Math.PI / 180;
-    } else if (c === "-") {
-      angle += angleDeg * Math.PI / 180;
-    } else if (c === "[") {
-      stack.push([x, y, angle]);
-    } else if (c === "]") {
-      [x, y, angle] = stack.pop();
-      ctx.moveTo(x, y);
-    }
-  }
-
-  ctx.strokeStyle = "#007744";
-  ctx.lineWidth = 1;
-  ctx.stroke();
-}
-
-window.onload = () => {
-  setDefaultAngle();
-  generar();
-};
-</script>
+<script src="js/lsystem-radix.js"></script>
+</section>
 <hr style="margin-top: 3em;">
 <p style="text-align: center; font-style: italic; color: #555;">
 ¿Te gustaría saber más, colaborar o llevar Radix a tu institución?<br>
@@ -628,10 +445,6 @@ window.onload = () => {
 </p>
 
 
-</section>
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

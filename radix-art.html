@@ -115,15 +115,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#descripción" id="toc-descripción" class="nav-link active" data-scroll-target="#descripción">Descripción</a></li>
-  <li><a href="#proyectos-en-desarrollo" id="toc-proyectos-en-desarrollo" class="nav-link" data-scroll-target="#proyectos-en-desarrollo">Proyectos en desarrollo</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -147,10 +140,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- === ENCABEZADO MOIRÉ ART === -->
 <div class="wave-container">
 <div class="floating-content">
-<img src="imagenes/RADIX_ART.png" alt="Logo Radix Art">
+<img src="imagenes/RADIX_ART.png" alt="Logo Radix Art" class="logo-radix">
 <p class="slogan">
 Creaciones biomiméticas y bioinspiradas
 </p>
@@ -159,175 +151,39 @@ Creaciones biomiméticas y bioinspiradas
 
 </div>
 </div>
-<style>
-.wave-container {
-  position: relative;
-  width: 100%;
-  height: 320px; /* Ajusta si quieres menos altura */
-  background: linear-gradient(to bottom, #ffffff 0%, #f1faff 100%);
-  overflow: hidden;
-  margin-bottom: 0;  /* CAMBIA ESTO */
-  padding-bottom: 0;
-}
-
-  #moireCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-
-  .floating-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 2;
-    padding: 0 1rem;
-  }
-
-  .floating-content img {
-    width: 120px;
-    opacity: 0.5;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
-    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
-  }
-
-  .floating-content img:hover {
-    opacity: 1.0;
-    transform: scale(1.2);
-    box-shadow: 0 6px 20px rgb(0, 100, 150);
-  }
-
-  .slogan {
-    font-style: italic;
-    font-size: 1.0rem;
-    font-weight: bold;
-    color: #444;
-    margin-top: 0.75rem;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
-    text-align: center;
-    word-wrap: break-word;
-    white-space: normal;
-  }
-
-.content {
-  max-width: 850px;
-  margin: 2rem auto;
-  line-height: 1.7;
-  font-size: 1.1rem;
-  text-align: justify;
-} /* ← aquí cerramos correctamente */
-
-.titulo-izquierda {
-  text-align: left;
-}
-s
-</style>
-<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
-<script>
-window.onload = function () {
-  new p5((sk) => {
-    // === PARÁMETROS AJUSTABLES ===
-    let numLines = 30;
-    let waveAmplitude = 30;
-    let noiseScale = 0.01;
-    let strokeMinAlpha = 10;
-    let strokeMaxAlphaH = 50; // Horizontal
-    let strokeMaxAlphaV = 45; // Vertical
-    let strokeWeightValue = 1.2;
-    let timeStep = 0.01;
-    let canvasHeight = 320;
-
-    let spacing;
-    let t = 0;
-
-    sk.setup = function () {
-      let canvas = sk.createCanvas(window.innerWidth, canvasHeight);
-      canvas.parent('radixArt');
-      spacing = sk.width / numLines;
-      sk.strokeWeight(strokeWeightValue);
-      sk.frameRate(60);
-      sk.colorMode(sk.HSB, 360, 100, 100, 100);
-      sk.noFill();
-    };
-
-    sk.draw = function () {
-      sk.background(0, 0, 100);
-
-      // === LÍNEAS HORIZONTALES ===
-      for (let i = 0; i < numLines; i++) {
-        let y = i * spacing;
-
-        let hueBase = sk.map(y, 0, sk.height, 180, 280);
-        let ruido = sk.noise(100 * noiseScale, y * noiseScale, t * 0.3);
-        let hue = (hueBase + 40 * ruido) % 360;
-        let sat = 50 + 40 * ruido;
-        let bri = 60 + 30 * ruido;
-        let alp = strokeMinAlpha + strokeMaxAlphaH * ruido;
-        sk.stroke(hue, sat, bri, alp);
-
-        sk.stroke(hue, sat, bri, alp);
-        sk.beginShape();
-        for (let x = 0; x <= sk.width; x += 5) {
-          let n = sk.noise(x * noiseScale, y * noiseScale, t * 0.3);
-          let offset = waveAmplitude * Math.sin(0.02 * x + t + i * 0.1) * n;
-          sk.vertex(x, y + offset);
-        }
-        sk.endShape();
-      }
-
-      // === LÍNEAS VERTICALES ===
-      for (let j = 0; j < numLines; j++) {
-        let x = j * spacing;
-
-        let hueBase = sk.map(x, 0, sk.width, 220, 140);
-        let ruido = sk.noise(x * noiseScale, 100 * noiseScale, t * 0.3 + 1000);
-        let hue = (hueBase + 40 * ruido) % 360;
-        let sat = 60 + 30 * ruido;
-        let bri = 60 + 30 * ruido;
-        let alp = strokeMinAlpha + strokeMaxAlphaV * ruido;
-        sk.stroke(hue, sat, bri, alp);
-
-        sk.stroke(hue, sat, bri, alp);
-        sk.beginShape();
-        for (let y = 0; y <= sk.height; y += 5) {
-          let n = sk.noise(x * noiseScale, y * noiseScale, t * 0.3 + 1000);
-          let offset = waveAmplitude * Math.cos(0.02 * y + t + j * 0.1) * n;
-          sk.vertex(x + offset, y);
-        }
-        sk.endShape();
-      }
-
-      t += timeStep;
-    };
-
-    sk.windowResized = function () {
-      sk.resizeCanvas(window.innerWidth, canvasHeight);
-      spacing = sk.width / numLines;
-    };
-  });
-};
-</script>
-<section id="descripción" class="level2">
-<h2 class="anchored" data-anchor-id="descripción">Descripción</h2>
-<p>Radix Art constituye una línea de creación e investigación en la que convergen la modelación matemática, la simulación computacional y la exploración material para generar obras bioinspiradas de carácter estructural, evolutivo y pedagógico. Cada pieza desarrollada en este espacio es resultado de un proceso iterativo de observación, formalización algorítmica y traducción estética de patrones naturales.</p>
-<p>Más que una representación figurativa de la naturaleza, el arte generado en Radix se fundamenta en la reproducción estructural de sus principios formativos: crecimiento diferencial, morfogénesis, autoorganización, simetría fractal, entre otros. Las obras resultantes —ya sean esculturas impresas en 3D, cuadros paramétricos, instalaciones interactivas o visualizaciones generativas— son dispositivos que permiten articular sensibilidad estética, rigor matemático y procesos de fabricación digital. Radix Art investiga los límites y posibilidades del arte como forma de conocimiento estructurado, capaz de traducir procesos naturales complejos en experiencias visuales y táctiles significativas.</p>
+<section id="descripcion" class="content">
+<h2 class="titulo-izquierda anchored">
+Descripción
+</h2>
+<p>
+Radix Art constituye una línea de creación e investigación en la que convergen la modelación matemática, la simulación computacional y la exploración material para generar obras bioinspiradas de carácter estructural, evolutivo y pedagógico. Cada pieza desarrollada en este espacio es resultado de un proceso iterativo de observación, formalización algorítmica y traducción estética de patrones naturales.
+</p>
+<p>
+Más que una representación figurativa de la naturaleza, el arte generado en Radix se fundamenta en la reproducción estructural de sus principios formativos: crecimiento diferencial, morfogénesis, autoorganización, simetría fractal, entre otros. Las obras resultantes —ya sean esculturas impresas en 3D, cuadros paramétricos, instalaciones interactivas o visualizaciones generativas— son dispositivos que permiten articular sensibilidad estética, rigor matemático y procesos de fabricación digital.
+</p>
+<p>
+Radix Art investiga los límites y posibilidades del arte como forma de conocimiento estructurado, capaz de traducir procesos naturales complejos en experiencias visuales y táctiles significativas.
+</p>
 </section>
-<section id="proyectos-en-desarrollo" class="level2">
-<h2 class="anchored" data-anchor-id="proyectos-en-desarrollo">Proyectos en desarrollo</h2>
+<section id="proyectos" class="content">
+<h2 class="titulo-izquierda anchored">
+Proyectos en desarrollo
+</h2>
 <ul>
-<li><p><strong>Cuadros paramétricos:</strong> superficies generadas por algoritmos como el ruido de Perlin o funciones matemáticas customizadas, recortadas en madera o acrílico mediante corte láser.</p></li>
-<li><p><strong>Esculturas raíz:</strong> sistemas jerárquicos 3D impresos a partir de algoritmos de colonización espacial, con grosores variables y crecimiento orientado por atractores.</p></li>
-<li><p><strong>Domos bioinspirados:</strong> estructuras curvas construidas con módulos hexagonales o pentagonales, calculadas matemáticamente para optimizar su resistencia y belleza.</p></li>
-<li><p><strong>Objetos interactivos:</strong> obras que reaccionan a estímulos del entorno (sonido, proximidad, luz) integrando sensores Arduino en estructuras físicas.</p></li>
+<li>
+<strong>Cuadros paramétricos:</strong> superficies generadas por algoritmos como el ruido de Perlin o funciones matemáticas customizadas, recortadas en madera o acrílico mediante corte láser.
+</li>
+<li>
+<strong>Esculturas raíz:</strong> sistemas jerárquicos 3D impresos a partir de algoritmos de colonización espacial, con grosores variables y crecimiento orientado por atractores.
+</li>
+<li>
+<strong>Domos bioinspirados:</strong> estructuras curvas construidas con módulos hexagonales o pentagonales, calculadas matemáticamente para optimizar su resistencia y belleza.
+</li>
+<li>
+<strong>Objetos interactivos:</strong> obras que reaccionan a estímulos del entorno (sonido, proximidad, luz) integrando sensores Arduino en estructuras físicas.
+</li>
 </ul>
+</section>
 <section id="dia-de-la-madre">
 <h2 class="anchored">
 🌸 Homenaje Radix – Día de la Madre
@@ -446,9 +302,157 @@ Ranura de ensamblaje en la parte superior, donde se introduce el disco voronoi.
 ¿Te gustaría saber más, colaborar o llevar Radix a tu institución?<br>
 <strong><a href="mailto:radix.correo@gmail.com" style="color: #b30059; text-decoration: none;">Escríbenos</a></strong> y abramos juntos nuevas formas de ver el mundo.
 </p>
+<style>
+.wave-container {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(to bottom, #ffffff 0%, #f1faff 100%);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  /* border-right: 2px solid rgba(0, 100, 150, 0.64); */
+}
+
+#moireCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.floating-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  padding: 0 1rem;
+}
+
+.logo-radix {
+  width: 100px;
+  opacity: 1.0;
+  transform: scale(1.0);
+  box-shadow: 0 6px 20px rgb(0, 100, 150);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+}
+
+.slogan {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #444;
+  margin-top: 1rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+  text-align: center;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.content {
+  max-width: 850px;
+  margin: 2rem auto;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  text-align: justify;
+}
+
+.titulo-izquierda {
+  text-align: left;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+<script>
+window.onload = function () {
+  new p5((sk) => {
+    // === PARÁMETROS AJUSTABLES ===
+    let numLines = 30;
+    let waveAmplitude = 30;
+    let noiseScale = 0.01;
+    let strokeMinAlpha = 10;
+    let strokeMaxAlphaH = 50; // Horizontal
+    let strokeMaxAlphaV = 45; // Vertical
+    let strokeWeightValue = 1.2;
+    let timeStep = 0.01;
+    let canvasHeight = 320;
+
+    let spacing;
+    let t = 0;
+
+    sk.setup = function () {
+      let canvas = sk.createCanvas(window.innerWidth, canvasHeight);
+      canvas.parent('radixArt');
+      spacing = sk.width / numLines;
+      sk.strokeWeight(strokeWeightValue);
+      sk.frameRate(60);
+      sk.colorMode(sk.HSB, 360, 100, 100, 100);
+      sk.noFill();
+    };
+
+    sk.draw = function () {
+      sk.background(0, 0, 100);
+
+      // === LÍNEAS HORIZONTALES ===
+      for (let i = 0; i < numLines; i++) {
+        let y = i * spacing;
+
+        let hueBase = sk.map(y, 0, sk.height, 180, 280);
+        let ruido = sk.noise(100 * noiseScale, y * noiseScale, t * 0.3);
+        let hue = (hueBase + 40 * ruido) % 360;
+        let sat = 50 + 40 * ruido;
+        let bri = 60 + 30 * ruido;
+        let alp = strokeMinAlpha + strokeMaxAlphaH * ruido;
+        sk.stroke(hue, sat, bri, alp);
+
+        sk.stroke(hue, sat, bri, alp);
+        sk.beginShape();
+        for (let x = 0; x <= sk.width; x += 5) {
+          let n = sk.noise(x * noiseScale, y * noiseScale, t * 0.3);
+          let offset = waveAmplitude * Math.sin(0.02 * x + t + i * 0.1) * n;
+          sk.vertex(x, y + offset);
+        }
+        sk.endShape();
+      }
+
+      // === LÍNEAS VERTICALES ===
+      for (let j = 0; j < numLines; j++) {
+        let x = j * spacing;
+
+        let hueBase = sk.map(x, 0, sk.width, 220, 140);
+        let ruido = sk.noise(x * noiseScale, 100 * noiseScale, t * 0.3 + 1000);
+        let hue = (hueBase + 40 * ruido) % 360;
+        let sat = 60 + 30 * ruido;
+        let bri = 60 + 30 * ruido;
+        let alp = strokeMinAlpha + strokeMaxAlphaV * ruido;
+        sk.stroke(hue, sat, bri, alp);
+
+        sk.stroke(hue, sat, bri, alp);
+        sk.beginShape();
+        for (let y = 0; y <= sk.height; y += 5) {
+          let n = sk.noise(x * noiseScale, y * noiseScale, t * 0.3 + 1000);
+          let offset = waveAmplitude * Math.cos(0.02 * y + t + j * 0.1) * n;
+          sk.vertex(x + offset, y);
+        }
+        sk.endShape();
+      }
+
+      t += timeStep;
+    };
+
+    sk.windowResized = function () {
+      sk.resizeCanvas(window.innerWidth, canvasHeight);
+      spacing = sk.width / numLines;
+    };
+  });
+};
+</script>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
