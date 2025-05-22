@@ -246,10 +246,17 @@ Utiliza el siguiente visualizador para ver cómo estas estructuras evolucionan. 
 .wave-container {
   position: relative;
   width: 100%;
-  height: 320px;
+  min-height: 320px;  /* asegura altura mínima estable */
   background: linear-gradient(to bottom, #ffffff 0%, #eefaff 100%);
   overflow: hidden;
   margin-bottom: 2rem;
+
+  /* Agregamos el borde visual */
+  border: 1.5px solid #007744;  /* verde oscuro Radix */
+  border-radius: 8px;
+
+  /* Protege contra colapsos por redimensionamiento */
+  box-sizing: border-box;
 }
 
 #tetrisCanvas {
