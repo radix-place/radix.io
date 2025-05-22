@@ -227,15 +227,8 @@ Módulos temáticos disponibles
 Diviértete un poco: Explorando con L-sistemas
 </h2>
 <p>
-</p><p>Los <strong>L-sistemas</strong> (o sistemas de Lindenmayer) son una forma de lenguaje formal que permite describir cómo crecen ciertas estructuras en la naturaleza, como ramas, hojas, helechos o cristales. Se basan en <strong>reglas de producción simples</strong>, que actúan sobre una cadena de símbolos para transformarla paso a paso. A pesar de su simplicidad, estos sistemas pueden generar formas visuales sorprendentemente complejas.</p>
-<p>Por ejemplo, supongamos que el símbolo <strong>F</strong> indica hacer un trazo de una determinada longitud, mientras que los símbolos <strong>+</strong> y <strong>−</strong> representan giros. Si definimos la regla:</p>
-<p>Por ejemplo, supongamos que el símbolo <strong>F</strong> corresponde con la instrucción de dibujar una linea de una determinada longitud, mientras que los símbolos <strong>+</strong> y <strong>-</strong> indican un giro a la izquierda y a la derecha un derterminado ángulo en sentido contrario de las manecillas del reloj.</p>
-<p><strong>F –&gt; F+F−F−F+F</strong></p>
-<p>esto significa que cada <strong>F</strong> se reemplazará por <strong>F+F−F−F+F</strong> en el siguiente paso o iteración, haciendo crecer progresivamente el conjunto de líneas</p>
-<p><strong>iteración 0: F</strong></p>
-<p><strong>iteración 1: F+F−F−F+F</strong></p>
-<p><strong>iteración 2: F+F−F−F+F+F+F−F−F+F−F+F−F−F+F−F+F−F−F+F+F+F−F−F+F</strong></p>
-<p></p>
+Los <strong>L-sistemas</strong> (o sistemas de Lindenmayer) son una forma de lenguaje formal que permite describir cómo crecen ciertas estructuras en la naturaleza, como ramas, hojas, helechos o cristales. Se basan en <strong>reglas de producción simples</strong>, que actúan sobre una cadena de símbolos para transformarla paso a paso. A pesar de su simplicidad, estos sistemas pueden generar formas visuales sorprendentemente complejas.
+</p>
 <p>
 Utiliza el siguiente visualizador para ver cómo estas estructuras evolucionan. Las iteraciones se ajustan automáticamente al espacio del canvas.
 </p>
@@ -276,6 +269,7 @@ Utiliza el siguiente visualizador para ver cómo estas estructuras evolucionan. 
   text-align: center;
   z-index: 2;
   padding: 0 1rem;
+  max-width: 90vw;
 }
 
 .logo-radix {
@@ -310,21 +304,6 @@ Utiliza el siguiente visualizador para ver cómo estas estructuras evolucionan. 
 
 .titulo-izquierda {
   text-align: left;
-}
-
-@media (max-width: 768px) {
-  .content {
-    padding: 0 1rem;
-    box-sizing: border-box;
-  }
-
-  .floating-content {
-    max-width: 95vw;
-  }
-
-  .logo-radix {
-    max-width: 28vw;
-  }
 }
 </style>
 <script>
