@@ -93,8 +93,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("ls-canvas");
     const ctx = canvas.getContext("2d");
     const model = document.getElementById("ls-model").value;
-    const iter = parseInt(document.getElementById("ls-iter").value);
+    let iter = parseInt(document.getElementById("ls-iter").value);
     const angleDeg = parseFloat(document.getElementById("ls-angle").value);
+
+  // ✅ Validación suave: limitar iteraciones a 5 como máximo
+  if (iter > 5) {
+    iter = 5;
+    document.getElementById("ls-iter").value = "5";
+  } else if (iter < 0 || isNaN(iter)) {
+    iter = 0;
+    document.getElementById("ls-iter").value = "0";
+  }
+
     let axiom = "F";
     let rules = {};
     let startAngle = 0;
