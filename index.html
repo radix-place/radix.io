@@ -1,860 +1,216 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Bienvenido a RADIX – RADIX</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-.display.math{display: block; text-align: center; margin: 0.5rem auto;}
-</style>
-
-
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/tabby.min.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-html-435ba6093e6f0817aa7405139811e7b1.min.css" rel="stylesheet" append-hash="true" data-mode="light">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-
-
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bienvenido a Radix Edu</title>
+  <meta name="description" content="Aprendizaje conectando arte, ciencia y naturaleza." />
+  <link rel="icon" href="favicon.ico" />
+   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-
-<header id="title-block-header">
-<h1 class="title">Bienvenido a RADIX</h1>
-
-</header>
-
-
-<!-- === ESTILOS === -->
-<style>
-  body {
-    margin: 0;
-    font-family: 'Noto Sans', sans-serif;
-    background-color: #F5F1E7;
-    color: #3A3A3A;
-    line-height: 1.6;
-  }
-
-  .container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  header {
-    background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-  }
-
-  header img {
-    height: 82px;
-  }
-
-  nav a {
-    margin-left: 1.5rem;
-    text-decoration: none;
-    color: #0047AB;
-    font-weight: bold;
-  }
-
-  .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-    height: 240px;
-    text-align: center;
-    background-color: #FFF8E1;
-    padding-top: 1.5rem;
-    padding-bottom: 60px;
-  }
-
-  @media (max-width: 768px) {
-  .hero {
-    padding-top: 2rem;
-    padding-bottom: 80px;
-  }
-  .hero h1 {
-    font-size: 1.6rem;
-  }
-  .hero p {
-    font-size: 1rem;
-    padding: 0 1rem;
-  }
-}
-
-.hero h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: #003344;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto;
-    color: #555;
-  }
-
-  #perlinWave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    z-index: 1;
-  }
-
-  .section {
-    max-width: 1140px;
-    margin: 3rem auto;
-    padding: 0 1.5rem;
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-
-.card {
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 60, 100, 0.06);
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-
-  .card h2 {
-    margin-top: 0;
-  }
-
-  .card p {
-    font-size: 1rem;
-  }
-
-  .card#lab {
-    background-color: #EAF6FF;
-    color: #0047AB;
-  }
-
-  .card#edu {
-    background-color: #FFF8E1;
-    color: #1C4B32;
-  }
-
-  .card#art {
-    background-color: #F5F1E7;
-    color: #A23E2B;
-  }
-
-  .cta {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-
-  #lab .cta {
-    background-color: #0047AB;
-    color: #fff;
-  }
-  #lab .cta:hover {
-    background-color: #003380;
-  }
-
-  #edu .cta {
-    background-color: #F4B400;
-    color: #222;
-  }
-  #edu .cta:hover {
-    background-color: #d69f00;
-  }
-
-  #art .cta {
-    background-color: #A23E2B;
-    color: #fff;
-  }
-  #art .cta:hover {
-    background-color: #8e3524;
-  }
-
-  footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: #EAF6FF;
-    color: #444;
-    font-size: 0.9rem;
-  }
-</style>
-<!-- === SCRIPT PERLIN WAVE === -->
-<script>
-window.onload = function () {
-  const waveSpeed = 0.004;
-  const waveAmplitude = 60;
-  const grad = [1, -1];
-
-  function fade(t) {
-    return t * (2 - t) * Math.sin(Math.PI * t / 2);
-  }
-
-  function lerp(a, b, t) {
-    return a + t * (b - a);
-  }
-
-  function perlin1D(x, seed = 0, octaves = 4, persistence = 0.5) {
-    let total = 0;
-    let frequency = 1;
-    let amplitude = 1;
-    let maxValue = 0;
-
-    for (let i = 0; i < octaves; i++) {
-      let xi = Math.floor(x * frequency);
-      let xf = x * frequency - xi;
-      let left = grad[(xi + seed) % grad.length];
-      let right = grad[(xi + 1 + seed) % grad.length];
-      let dotL = left * xf;
-      let dotR = right * (xf - 1);
-      let value = lerp(dotL, dotR, fade(xf));
-      total += value * amplitude;
-      maxValue += amplitude;
-      amplitude *= persistence;
-      frequency *= 2;
-    }
-
-    return total / maxValue;
-  }
-
-  const canvas = document.getElementById('perlinWave');
-  const ctx = canvas.getContext('2d');
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = 80;
-  }
-
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-
-  let t = 0;
-  function drawWave() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.beginPath();
-    ctx.moveTo(0, canvas.height);
-    const seed = 42;
-
-    for (let x = 0; x <= canvas.width; x++) {
-      let base = perlin1D(x * 0.008 + t, seed, 5, 0.5);
-      let detail = perlin1D(x * 0.02 + t * 1.5, seed + 100, 3, 0.6);
-      let combined = 0.6 * base + 0.4 * detail;
-      let y = 60 + waveAmplitude * combined;
-      ctx.lineTo(x, y);
-    }
-
-    ctx.lineTo(canvas.width, canvas.height);
-    ctx.lineTo(0, canvas.height);
-    ctx.closePath();
-
-    let gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    gradient.addColorStop(0, '#1C4B32');
-    gradient.addColorStop(1, '#F5F1E7');
-    ctx.fillStyle = gradient;
-    ctx.fill();
-  }
-
-  function animate() {
-    t += waveSpeed;
-    drawWave();
-    requestAnimationFrame(animate);
-  }
-  animate();
-};
-</script>
-<!-- === CONTENIDO === -->
-<div class="container">
-<header>
-<img src="imagenes/RADIX_LOGO.png" alt="Logo Radix">
-<nav>
-<a href="#lab">Lab</a> <a href="#edu">Edu</a> <a href="#art">Art</a> <a href="#contacto">Contacto</a>
-</nav>
-</header>
-</div>
-<section id="arte-y-ciencia-en-diálogo-con-la-naturaleza" class="hero">
-<h2 class="anchored">Arte y ciencia en diálogo con la naturaleza</h2>
-<p>Radix es un espacio transdisciplinar en el que convergen las matemáticas, las ciencias naturales, el diseño y el arte para dar lugar a nuevas formas de investigación, creación y aprendizaje.</p>
-<canvas id="perlinWave">
-</canvas>
-</section>
-<section>
-<div id="lab" class="card" style="border-left: 5px solid #0047AB; padding: 1.2rem 1.5rem;">
-<p><a href="radix-lab.html" style="
-  display: inline-block;
-  background-color: #0047AB;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.3rem;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: background-color 0.3s ease;
-  margin-bottom: 0.8rem;"> 🔬 Radix Lab </a></p>
-<p>Orientado a la investigación y el desarrollo de modelos bioinspirados mediante algoritmos, simulaciones y prototipos.</p>
-</div>
-<div id="edu" class="card" style="border-left: 5px solid #F4B400; padding: 1.2rem 1.5rem;">
-<p><a href="radix-edu.html" style="
-  display: inline-block;
-  background-color: #F4B400;
-  color: #222;
-  padding: 10px 20px;
-  font-size: 1.3rem;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: background-color 0.3s ease;
-  margin-bottom: 0.8rem;"> 📘 Radix Edu </a></p>
-<p>Ciencia, arte y tecnología en experiencias educativas. Propuestas activas para el aula, talleres y aprendizaje interdisciplinar.</p>
-<!-- SECCIÓN VISUAL RADIX EDU -->
-<div style="max-width: 360px; margin: 2rem auto 0 0; padding: 0 1rem;">
-
-  <div style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-
-    <!-- Tarjeta 1 -->
-    <div style="background-color: #fff; border-radius: 8px; padding: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-      <a href="radix-edu.html#ia-lenguaje" style="text-decoration: none; color: inherit; display: flex; gap: 1rem;">
-        <img src="imagenes/CHIA.png" alt="Obsequio Día de la Madre" style="width: 120px; height: auto; border-radius: 6px;">
-        <div>
-          <h3 style="font-size: 1rem; margin: 0 0 0.3rem 0; color: #A23E2B;" class="anchored">Lenguaje Matemático con IA</h3>
-          <p style="font-size: 0.9rem; color: #444; margin: 0;">
-            Una experiencia de comunicación con IA.
-          </p>
-        </div>
-      </a>
+  <!-- === ENCABEZADO (HÉROE) === -->
+  <div class="wave-container" aria-label="Sección hero con animación de bloques">
+    <div class="floating-content" role="banner" aria-label="Identidad Radix Edu">
+      <img src="imagenes/RADIX_LOGO.png" alt="Logo Radix Edu" class="logo-radix" />
+      <p class="slogan">Aprendizaje conectando arte, ciencia y naturaleza</p>
     </div>
 
+    <canvas id="tetrisCanvas" aria-hidden="true"></canvas>
+    <noscript>
+      <div class="fallback-hero">
+        <img src="imagenes/RADIX_EDU.png" alt="Radix Edu" width="120" />
+      </div>
+    </noscript>
   </div>
-</div>
 
-</div>
-<div id="art" class="card" style="border-left: 5px solid #A23E2B; padding: 1.2rem 1.5rem;">
-<p><a href="radix-art.html" style="
-  display: inline-block;
-  background-color: #A23E2B;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.3rem;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: background-color 0.3s ease;
-  margin-bottom: 0.8rem;"> 🎨 Radix Art </a></p>
-<p>Creación de obras que traducen estructuras y procesos naturales en artefactos visuales, táctiles y sensoriales.</p>
-<!-- SECCIÓN VISUAL RADIX ART -->
-<div style="max-width: 360px; margin: 2rem auto 0 0; padding: 0 1rem;">
 
-  <div style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
 
-    <!-- Tarjeta 1 -->
-    <div style="background-color: #fff; border-radius: 8px; padding: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-      <a href="radix-art.html#dia-de-la-madre" style="text-decoration: none; color: inherit; display: flex; gap: 1rem;">
-        <img src="imagenes/foto.jpg" alt="Obsequio Día de la Madre" style="width: 80px; height: auto; border-radius: 6px;">
-        <div>
-          <h3 style="font-size: 1rem; margin: 0 0 0.3rem 0; color: #A23E2B;" class="anchored">Obsequio del Día de la Madre</h3>
-          <p style="font-size: 0.9rem; color: #444; margin: 0;">
-            Un homenaje geométrico, diagrama de voronoi  cortado a láser con dedicatoria.
-          </p>
-        </div>
-      </a>
-    </div>
+<section id="descripcion" class="content" aria-label="Filosofía Radix Edu">
+  <h2 class="titulo-izquierda">Filosofía educativa</h2>
 
-  </div>
-</div>
-
-</div>
-<div class="container" style="margin-top: 3rem;">
-<h3 style="text-align: center; margin-bottom: 0.5rem; color: #003344;" class="anchored">
-Crecimiento orgánico
-</h3>
-<p style="text-align: center; font-style: italic; max-width: 700px; margin: 0 auto 1.5rem auto; color: #555;">
-En Radix exploramos los tipos de crecimiento biológicos a través de modelos matemáticos, profundizamos en su naturaleza y buscamos reinterpretar su belleza.
+<p>
+  En Radix entendemos el aprendizaje como un proceso <strong>transformador</strong>, en el que el 
+  conocimiento surge de la interacción entre sujetos, lenguajes, tecnologías y entornos.
 </p>
-<div id="videoWrapper" style="position: relative; text-align: center; max-width: 360px; margin: 0 auto;">
-<p><img src="imagenes/posterv1.png" alt="Vista previa del video" id="previewImage" style="width: 100%; border-radius: 12px;
-              border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-              background: #fff; cursor: pointer;"></p>
-<div id="playOverlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-              background-color: rgba(0, 0, 0, 0.6); color: white; font-size: 1rem;
-              padding: 0.6rem 1.2rem; border-radius: 24px; font-weight: bold;
-              transition: background-color 0.3s ease; cursor: pointer;">
-<pre><code>▶ Reproducir video</code></pre>
-</div>
-</div>
-</div>
-<script>
-document.getElementById("videoWrapper").addEventListener("click", () => {
-  const wrapper = document.getElementById("videoWrapper");
-  wrapper.innerHTML = '';
 
-  const video = document.createElement("video");
-  video.controls = true;
-  video.autoplay = true;
-  video.style.width = "100%";
-  video.style.maxWidth = "360px";
-  video.style.borderRadius = "12px";
-  video.style.boxShadow = "0 6px 12px rgba(0,0,0,0.1)";
+<p>
+  Esta visión se distancia de los modelos instruccionistas y de los enfoques centrados únicamente en la acción individual. 
+  Nuestro propósito en Radix es que el saber se configure como una <strong>propiedad emergente</strong> de redes cognitivas. 
+  Sobre esta base planteamos una <strong>arquitectura cognitiva</strong> compuesta por nueve tipos de pensamiento 
+  —procedimental, lógico, espacial, abstracto, analítico, algorítmico, numérico, crítico y sistémico—, 
+  concebidos como <em>nodos interconectados</em> en una red dinámica de aprendizajes, y no como habilidades aisladas.
+</p>
 
-  const source = document.createElement("source");
-  source.src = "videos/rg_raiz.mp4";
-  source.type = "video/mp4";
+<p>
+  La <strong>matemática</strong> constituye la raíz que nutre esta red, no como una disciplina aislada, 
+  sino como un lenguaje común que enlaza las distintas áreas del conocimiento. 
+  Desde ella se abren múltiples caminos hacia la creación y la comprensión.
+</p>
 
-  video.appendChild(source);
-  wrapper.appendChild(video);
-});
-</script>
-<div id="contacto" class="container">
-<footer>
-© 2025 RADIX. Todos los derechos reservados. | Contacto: radix.place@gmail.com
-</footer>
-</div>
 
+<h3 class="titulo-izquierda">Principios que orientan nuestra pedagogía</h3>
+<ul>
+  <li><strong>Autoorganización:</strong> el aprendizaje emerge de las interacciones entre sujetos, saberes, tecnologías y afectos; el docente acompaña este proceso generando condiciones para su desarrollo.</li>
+  <li><strong>Complejidad:</strong> la incertidumbre es reconocida como un elemento fértil que posibilita transformaciones y nuevas direcciones en el pensamiento.</li>
+  <li><strong>Ambientes emergentes:</strong> el aprendizaje se produce en sistemas interrelacionados de naturaleza material, simbólica, afectiva y tecnológica.</li>
+  <li><strong>Lenguajes múltiples:</strong> lo visual, corporal, sonoro y espacial se reconocen como modos legítimos de pensamiento y de organización cognitiva.</li>
+  <li><strong>Transdisciplinariedad:</strong> la integración de saberes y experiencias diversas permite generar formas innovadoras de comprensión y acción.</li>  
+</ul>
+
+<h3 class="titulo-izquierda">Educación para convivir</h3>
+<p>
+  Concebimos la educación como un <strong>camino de transformación</strong>, en el que aprender significa <strong>articular diversas formas de pensamiento</strong> en redes de sentido compartido. 
+  Nuestra filosofía educativa busca <strong>reconfigurar</strong> los marcos ontológicos, epistemológicos y éticos de la formación, situando el aprendizaje y el conocimiento 
+  al servicio de la <strong>construcción de vínculos</strong> y de la <strong>dignidad humana</strong> como propósito colectivo.
+</p>
 </section>
 
-<script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-    tabsets.forEach(function(tabset) {
-      const tabby = new Tabby('#' + tabset.id);
-    });
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'light-border',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
-      } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
-      }
-    }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
-          }
-        } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
-            if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
-    }
-  });
-  </script>
 
 
 
+<section id="herramientas" class="content">
+    <h2 class="titulo-izquierda">Software libre en educación</h2>
+    <p>
+  El <strong>software libre</strong> permite acceder al código, modificarlo y compartirlo. 
+  En Radix lo entendemos como una práctica de aprendizaje colectivo que refuerza la autonomía y el trabajo colaborativo. 
+  Con este propósito trabajamos con:
+</p>
 
-</body></html>
+<ul>
+  <li><strong>Python:</strong> modelado matemático, simulación y análisis de datos.</li> </li>
+  <li><strong>Processing:</strong> visualización artística, interacciones y diseño generativo.</li>
+  <li><strong>OpenSCAD:</strong> modelado 3D paramétrico orientado a la fabricación.</li>
+</ul>
+
+<p>
+  También integramos plataformas de <strong>hardware libre</strong> para proyectos educativos y experimentales.
+</p>
+
+<ul>
+  <li><strong>Arduino:</strong> integración de sensores y actuadores en entornos físicos.</li>
+  <li><strong>Raspberry Pi:</strong> computación accesible para proyectos educativos y experimentales.</li>
+</ul>
+</section>
+
+<section id="propuestas" class="content">
+  <h2 class="titulo-izquierda">Propuestas para colegios y universidades</h2>
+  <p>
+    En Radix diseñamos experiencias formativas que integran <strong>matemáticas, artes y ciencias</strong>. 
+    Nuestro propósito es que docentes y estudiantes participen en procesos de <strong>exploración creativa</strong>, 
+    <strong>construcción colaborativa</strong> y <strong>reflexión crítica</strong>.
+  </p>
+<ul>
+  <li>
+    <strong>Cursos, talleres y seminarios:</strong> espacios formativos donde desarrollamos 
+    <em>proyectos</em> que enlazan matemáticas, artes y ciencias, 
+    favoreciendo la experimentación y el pensamiento transdisciplinar.
+  </li>
+  <li>
+    <strong>Actividades sensoriales y constructivas:</strong> ejercicios prácticos de modelado con materiales accesibles 
+    (balso, espaguetis, madera, entre otros) que permiten explorar conceptos abstractos a través de la 
+    <em>experiencia física y creativa</em>.
+  </li>
+</ul>
+</section>
+
+
+<section id="modulos" class="content">
+  <h2 class="titulo-izquierda">Módulos Matemáticos</h2>
+  <p>
+    Los módulos de Radix proponen experiencias de aprendizaje donde la matemática se convierte en un puente entre ciencias, artes y tecnología. 
+    Cada módulo combina exploración conceptual y creación práctica, invitando a estudiantes y docentes a experimentar, construir y reflexionar de manera crítica.
+  </p>
+
+  <ul>
+    <li><strong>Aritmética y Geometría:</strong> exploración del número, la proporción, la figura y la simetría mediante representaciones visuales y construcciones físicas.</li>
+    <li><strong>Geometría Vectorial:</strong> estudio de posiciones y movimientos a través de programación gráfica interactiva.</li>
+    <li><strong>Matemáticas y Arte Paramétrico:</strong> creación de formas con parámetros y ecuaciones mediante OpenSCAD y Processing.</li>
+    <li><strong>Modelado 2D y 3D:</strong> diseño de objetos mediante construcción paramétrica y operaciones booleanas en OpenSCAD.</li>
+
+    <li id="ia-lenguaje">
+      <strong>Lenguaje y pensamiento con Inteligencia Artificial:</strong>
+      análisis crítico del lenguaje asistido por IA, aplicado a la redacción, formulación de preguntas, verificación y argumentación matemática.
+      <ul>
+        <li id="actividad-ia">
+          <strong>Ejemplo de actividad : Diseño visual y lenguaje matemático con IA</strong><br>
+          Los estudiantes imaginan una figura con rectángulos, la representan y redactan instrucciones precisas para que una IA pueda interpretarla.
+          <br><em>Duración:</em> 60 minutos &nbsp; | &nbsp; <em>Grados:</em> 8º–9º<br>
+          <a href="docs/RadixEdu_Act_GUIA_GENERAL.pdf" target="_blank" rel="noopener">Guía general (PDF)</a>
+          <a href="docs/RadixEdu_Act_GUIA_DOCENTE.pdf" target="_blank" rel="noopener">Guía docente (PDF)</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+
+<section id="modulos-trans" class="content">
+  <h2 class="titulo-izquierda">Módulos transdisciplinares</h2>
+  <p>
+    Además de los módulos centrados en la matemática, en Radix desarrollamos propuestas 
+    transdisciplinares que articulan distintas áreas del conocimiento según el interés del colegio o universidad. 
+    Estos módulos integran ciencias, artes, humanidades y tecnología en experiencias que promueven la colaboración, 
+    la creatividad y el pensamiento crítico.
+  </p>
+  <ul>
+    <li><strong>Arte y Biología:</strong> estructuras naturales como inspiración para el diseño y la creación plástica.</li>
+    <li><strong>Ciencias Sociales y Tecnología:</strong> representación de datos sociales con herramientas digitales y visualización interactiva.</li>
+    <li><strong>Interculturalidad y Narrativas:</strong> lenguajes artísticos y matemáticos como medios para explorar la diversidad cultural.</li>
+  </ul>
+<p>
+  También puedes compartirnos tus intereses, retos o necesidades educativas, y construiremos junto a ti un módulo
+  a la medida de tu curso o institución. En Radix creemos en la construcción colaborativa, donde
+  cada experiencia se adapta a su contexto para potenciar el aprendizaje y la creatividad. 
+  Escríbenos a <a href="mailto:radix.correo@gmail.com">radix.correo@gmail.com</a>
+</p>
+</section>
+
+<div class="section-divider">
+  <canvas id="perlinWave" aria-hidden="true"></canvas>
+</div>
+
+
+<section id="lsistemas" class="content" aria-label="Visualizador de L-sistemas">
+  <h2 class="titulo-izquierda">Explorando con L-sistemas</h2>
+  <p>
+    Los <strong>L-sistemas</strong> describen procesos de crecimiento natural mediante reglas de producción 
+    muy simples que generan estructuras sorprendentes. 
+    Te presentamos este visualizador interactivo para que experimentes, observes la evolución de las formas 
+    y explores un poco con la matemática detrás de la naturaleza.
+  </p>
+    <p>
+    <strong>Ejemplo: la curva de Koch</strong><br>
+    Un L-sistema se define por un alfabeto, un axioma (inicio) y reglas de producción.  
+    Para la curva de Koch:
+  </p>
+  <ul>
+    <li><strong>Axioma:</strong> F</li>
+    <li><strong>Reglas:</strong> F → F+F−F−F+F</li>
+    <li><strong>Ángulo:</strong> 90°</li>
+  </ul>
+  <p>
+    Aquí <code>F</code> significa “avanzar”, <code>+</code> girar a la izquierda 90°, y <code>−</code> girar a la derecha 90°.  
+    Iterando la regla varias veces, el segmento inicial se transforma en una curva fractal de longitud infinita, 
+    pero contenida en un área finita.
+  </p>
+  <div id="lsystem-interactive"></div>
+  <script src="js/lsystem-radix.js" defer></script>
+</section>
+
+<hr style="margin-top: 3em;">
+
+<p style="text-align: center; font-style: italic; color: #555;">
+  ¿Te gustaría saber más, colaborar o llevar Radix a tu institución?
+  <strong><a href="mailto:radix.correo@gmail.com" style="color: #b30059; text-decoration: none;">radix.correo@gmail.com</a></strong>
+</p>
+
+<script src="js/tetris.js" defer></script>
+
+<script src="js/perlinwave.js"></script>
+</body>
+
+
+</html>
