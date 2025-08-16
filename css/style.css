@@ -1,0 +1,190 @@
+  /* Preferencias de movimiento del usuario */
+  @media (prefers-reduced-motion: reduce) {
+    #tetrisCanvas { display: none !important; }
+  }
+
+  /* Hero */
+  .wave-container {
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+    background: linear-gradient(to bottom, #ffffff 0%, #eefaff 100%);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 1.5px solid #007744;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  .fallback-hero { display:flex; align-items:center; justify-content:center; min-height:320px; }
+
+  #tetrisCanvas {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+  }
+
+  .floating-content {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; z-index: 2; padding: 0 1rem; max-width: 90vw;
+  }
+  .logo-radix {
+    width: 100px; opacity: 1;
+    box-shadow: 0 6px 20px rgba(0, 100, 150, 0.55);
+    transition: transform .3s ease, box-shadow .3s ease, opacity .3s ease;
+  }
+
+  .slogan {
+    font-size: 1.1rem; font-weight: 700; color: #2b2b2b;
+    margin-top: .8rem; line-height: 1.5; text-align: center;
+  }
+
+  .content {
+    max-width: 850px; margin: 2rem auto;
+    line-height: 1.7; font-size: 1.06rem; text-align: justify;
+  }
+
+  .titulo-izquierda { text-align: left; }
+  @media (max-width: 640px){
+    .content { font-size: 1rem; margin: 1.4rem auto; padding: 0 0.4rem; }
+    .slogan { font-size: 1rem; }
+  }
+
+  /* --- FIX de redimensionado del canvas --- */
+.wave-container #tetrisCanvas {
+  display: block;           /* quita el comportamiento inline del canvas */
+  width: 100% !important;   /* coincide con el ancho del contenedor */
+  height: 100% !important;  /* coincide con la altura del contenedor */
+}
+
+:root{
+  --radix-green: #0a7f55;
+  --radix-green-600:#0a6e49;
+  --ink-900:#1e1e1e;
+  --ink-700:#2b2b2b;
+  --paper:#ffffff;
+  --paper-soft:#f5fbf8;
+  --accent:#3a89c9;
+  --shadow: 0 10px 30px rgba(10, 111, 73, .12);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#0e1111;
+    --paper-soft:#0b0f0f;
+    --ink-900:#f2f4f5;
+    --ink-700:#e5e9eb;
+    --shadow: 0 12px 34px rgba(0,0,0,.45);
+  }
+}
+
+/* Tipografía base y ritmo vertical */
+html{ scroll-behavior: smooth; }
+body{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+  color: var(--ink-900);
+  background: var(--paper);
+  line-height: 1.65;
+  letter-spacing: .01em;
+}
+
+/* Hero */
+.wave-container{
+  min-height: clamp(300px, 42vw, 420px);
+  background: radial-gradient(1200px 400px at 50% -10%,
+               var(--paper-soft) 0%, var(--paper) 60%),
+              linear-gradient(to bottom, #fff 0%, #eefaff 100%);
+  border: none;                  /* quita borde duro */
+  border-radius: none; /*16px;*/           /* más suave */
+  box-shadow: var(--shadow);     /* profundidad */
+  margin: clamp(1rem, 2.5vw, 2rem) auto;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Canvas: no interfiere con clics y escala perfecta */
+.wave-container #tetrisCanvas{
+  display:block;
+  position:absolute; inset:0;
+  width:100% !important; height:100% !important;
+  pointer-events:none;           /* importante */
+  border: none;
+}
+
+/* Contenido flotante más protagonista */
+.floating-content{
+  position:absolute; inset:auto;
+  top:50%; left:50%; transform:translate(-50%,-50%);
+  text-align:center; z-index:2; padding-inline:1rem;
+  max-width:min(92vw, 900px);
+}
+
+.logo-radix{
+  width: clamp(110px, 12vw, 160px);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 100, 150, .25);
+  transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+}
+.logo-radix:hover{ transform: translateY(-2px) scale(1.015); }
+
+.slogan{
+  margin-top:.9rem;
+  color: var(--ink-700);
+  font-weight:700;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+}
+
+/* Cuerpo de contenido */
+.content{
+  max-width: 75ch;              /* ancho de lectura óptimo */
+  margin: clamp(1.2rem, 3vw, 2.2rem) auto;
+  padding-inline: clamp(.6rem, 2vw, 1rem);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  text-align: left;              /* mejora legibilidad frente a justify */
+}
+
+/* Títulos */
+.titulo-izquierda{
+  text-align:left;
+  color: var(--radix-green-600);
+  letter-spacing:.3px;
+  margin-bottom:.4rem;
+}
+.titulo-izquierda + p{ margin-top:.6rem; }
+
+/* Accesibilidad de movimiento */
+@media (prefers-reduced-motion: reduce){
+  #tetrisCanvas{ display:none !important; }
+  .logo-radix{ transition:none; }
+}
+
+/* Separadores sutiles dentro de secciones largas */
+.content p + p{ margin-top: .85em; }
+
+/* Dark mode ajustes de hero */
+@media (prefers-color-scheme: dark){
+  .wave-container{
+    background:
+      radial-gradient(1200px 400px at 50% -10%,
+        #0f1414 0%, var(--paper) 70%),
+      linear-gradient(to bottom, #0e1111 0%, #0c0f12 100%);
+  }
+  .slogan{ color:#cfd6da; }
+}
+
+#perlinWave {
+  display:block;
+  width:100%;
+  height:60px;
+  pointer-events:none;
+  border:none;         /* elimina marco */
+  outline:none;
+  box-shadow:none;     /* evita sombra si la hereda */
+}
+
+.section-divider{
+  max-width: 85ch;          /* o 850px para igualar tu .content */
+  margin: 1.2rem auto 0;    /* centrado */
+  padding: 0; border: 0;
+}
+#perlinWave{ display:block; width:100%; height:50px; pointer-events:none; }
