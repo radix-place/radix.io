@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     swatchLAB.setAttribute('aria-label', `Muestra LAB convertida a RGB ${R},${G},${B}`);
 
     gamutNote.innerHTML = clipped
-      ? '<span class="warn">Advertencia:</span> el color LAB ingresado cae parcialmente fuera del gamut sRGB. El valor mostrado fue recortado (clipping) a RGB en [0,255].'
+      ? '<span class="warn">Advertencia:</span> el color LAB ingresado cae parcialmente fuera del rango sRGB. El valor mostrado se ajustó a RGB en [0,255].'
       : '';
 
     if (writeBack) {
