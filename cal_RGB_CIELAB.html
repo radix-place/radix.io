@@ -8,10 +8,10 @@
     :root { --bg:#0b0b0c; --fg:#e9e9ec; --muted:#9aa0a6; --card:#141416; --border:#26262a; }
     *{ box-sizing:border-box; }
     body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; background:var(--bg); color:var(--fg); }
-    .wrap{ max-width:940px; margin:0 auto; padding:24px 16px 56px; }
-    h1{ font-size:1.6rem; margin:0 0 12px; }
-    p.lead{ color:var(--muted); margin:0 0 16px; }
-    .note{ color:var(--muted); font-size:.92rem; line-height:1.45; margin:0 0 24px; }
+    .wrap{ max-width:75ch; margin: clamp(1.2rem, 3vw, 2.2rem)  auto; padding: clamp(.6rem, 2vw, 1rem); }
+    h1{ font-size:1.6rem; margin:clamp(1.2rem, 3vw, 2.2rem) auto; }
+    p.lead{ color:var(--muted); margin:clamp(1.2rem, 3vw, 2.2rem) auto; }
+    .note{ color:var(--muted); font-size:.92rem; line-height:1.45; margin:clamp(1.2rem, 3vw, 2.2rem) auto; }
     .grid{ display:grid; gap:16px; }
     @media(min-width:860px){ .grid{ grid-template-columns:1fr 1fr; } }
 
@@ -36,13 +36,46 @@
     .hint{ font-size:.85rem; color:var(--muted); margin-top:8px; }
     .warn{ color:#ffcc66; }
   </style>
+
+<!-- KaTeX core -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+
+<!-- Auto-render (convierte $...$ y $$...$$ automáticamente) -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body,{
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });"></script>
+
+<!-- Paquetes útiles -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"></script>
+
+<style>
+  /* Integra KaTeX con tu paleta oscura */
+  .katex, .katex-display { color: var(--fg, #e9e9ec); }
+  .katex-display { margin: 0.85rem 0; }
+  /* Tamaños agradables en móvil */
+  .katex { font-size: 1.02rem; }
+  @media (max-width: 560px){ .katex { font-size: 1rem; } }
+  /* Selección y accesibilidad */
+  .katex .mord, .katex .mbin, .katex .mrel { text-rendering: optimizeLegibility; }
+</style>
+
+
+
 </head>
 <body>
   <div class="wrap">
     <header>
       <h1>RGB ↔ CIELAB (D65) — Radix</h1>
-      <p class="lead">Escribe un color en <b>RGB (0–255)</b> para ver su conversión a <b>L*a*b*</b> y viceversa. Conversión directa en JavaScript, perfil sRGB con iluminante D65.</p>
-      <p class="note">
+      <p>Escribe un color en <b>RGB (0–255)</b> para ver su conversión a <b>L*a*b*</b> y viceversa. Conversión directa en JavaScript, perfil sRGB con iluminante D65.</p>
+      <p>
         <strong>¿Por qué CIELAB?</strong> El espacio L*a*b* fue diseñado para aproximar la
         <em>uniformidad perceptual</em>: diferencias pequeñas en L*a*b* se corresponden mejor con diferencias que el ojo percibe.
         En particular, la <span class="mono">distancia euclídea</span> entre dos colores en CIELAB es un estimador práctico
@@ -111,5 +144,77 @@
   </div>
 
   <script src="js/cal_rgb_cielab.js" defer></script>
+
+
+<section id="plano_color" class="content">
+  <div class="wrap">
+<p>
+Aprovecharemos el hecho de que el espacio $L^*a^*b^*$ es equivalente a $\mathbb{R}^3$, 
+lo que permite representar un plano de color en el que cada punto corresponde a una 
+combinación lineal de dos vectores $A$ y $B$.
+</p>
+
+<p>
+En el módulo interactivo puedes definir $A$ y $B$ en RGB. 
+Los convertimos a $A'$ y $B'$ en $L^*a^*b^*$ y generamos una malla discreta con 
+$\alpha,\beta \in \{0,\,0.1,\,\dots,\,1\}$; cada celda muestra el color 
+$\alpha A' + \beta B'$. Debajo del muestrario se muestran los valores HEX y RGB 
+del color seleccionado.
+</p>
+
+</div>
+</section>
+
+
+
+<section class="card" style="max-width: 560px; margin: 0 auto;">
+  <h2 style="margin-top:0">Grid αA′ + βB′ (LAB)</h2>
+
+  <!-- Vectores en RGB -->
+  <div class="row">
+    <div>
+      <label for="AR">A — R (0–255)</label>
+      <input type="number" id="AR" min="0" max="255" step="1" value="30">
+    </div>
+    <div>
+      <label for="AG">A — G (0–255)</label>
+      <input type="number" id="AG" min="0" max="255" step="1" value="120">
+    </div>
+    <div>
+      <label for="AB">A — B (0–255)</label>
+      <input type="number" id="AB" min="0" max="255" step="1" value="200">
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:8px;">
+    <div>
+      <label for="BR">B — R (0–255)</label>
+      <input type="number" id="BR" min="0" max="255" step="1" value="255">
+    </div>
+    <div>
+      <label for="BG">B — G (0–255)</label>
+      <input type="number" id="BG" min="0" max="255" step="1" value="140">
+    </div>
+    <div>
+      <label for="BB">B — B (0–255)</label>
+      <input type="number" id="BB" min="0" max="255" step="1" value="0">
+    </div>
+  </div>
+
+  <!-- Canvas cuadrado y contenido -->
+  <div style="margin-top:14px;">
+    <canvas id="plane"
+            width="420" height="420"
+            style="display:block; width:100%; max-width:520px; aspect-ratio:1/1;
+                   border:1px solid var(--border); border-radius:12px; margin:0 auto;">
+    </canvas>
+    <div id="probe" class="swatch" aria-label="Muestra de color"></div>
+    <div id="probeInfo" class="mono hint" role="status" aria-live="polite">–</div>
+  </div>
+</section>
+
+<!-- carga el script al final -->
+<script src="js/plane_grid.js" defer></script>
+
 </body>
 </html>

@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bienvenido a Radix Edu</title>
   <meta name="description" content="Aprendizaje conectando arte, ciencia y naturaleza." />
+  <meta name="color-scheme" content="light">
   <link rel="icon" href="favicon.ico" />
-   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root { color-scheme: light; }
+    html, body { background:#ffffff !important; color:#111 !important; }
+  </style>
 </head>
 <body>
+
 
   <!-- === ENCABEZADO (HÉROE) === -->
   <div class="wave-container" aria-label="Sección hero con animación de bloques">
@@ -57,8 +63,6 @@ Concebimos la educación como un camino de transformación que orienta el aprend
 la dignidad humana como propósito colectivo.
 </p>
 
-
-
 </section>
 
 <section id="herramientas" class="content">
@@ -101,12 +105,10 @@ la dignidad humana como propósito colectivo.
   <li>
     <strong>Actividades sensoriales y constructivas:</strong> ejercicios prácticos de modelado con materiales accesibles 
     (balso, espaguetis, madera, entre otros) que permiten explorar conceptos abstractos a través de la 
-    <em>experiencia física y creativa</em>.
+    <em>experiencia física y creativa</em>. ( Te invitamos a experimentar la conversión interactiva entre espacios de color RGB y L*a*b*.
+  <br><a href="cal_RGB_CIELAB.html" target="_blank" rel="noopener">Abrir conversor de color</a> )
   </li>
-  <li>
-  <strong>Colores y CIELAB:</strong> experimenta la conversión interactiva entre espacios de color RGB y L*a*b*.
-  <br><a href="cal_RGB_CIELAB.html" target="_blank" rel="noopener">Abrir conversor de color</a>
-  </li>
+
 </ul>
 </section>
 
@@ -205,6 +207,5 @@ la dignidad humana como propósito colectivo.
 
 <script src="js/perlinwave.js"></script>
 </body>
-
 
 </html>
