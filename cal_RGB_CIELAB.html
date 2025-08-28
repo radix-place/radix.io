@@ -65,6 +65,39 @@
   @media (max-width: 560px){ .katex { font-size: 1rem; } }
   /* Selección y accesibilidad */
   .katex .mord, .katex .mbin, .katex .mrel { text-rendering: optimizeLegibility; }
+
+
+
+
+/* Botón REGRESAR — estilos locales a esta página */
+.rx-back-wrap{
+  display:flex;
+  justify-content:center;   /* centrado */
+  margin:16px 0 24px;
+  width:100%;
+}
+
+.rx-back{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  border:1px solid transparent;
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+  transition:transform .15s ease, box-shadow .15s ease;
+  /* ← COLORES POR PÁGINA (cámbialos aquí) */
+  background:#ffbb00;     /* color de la caja en ESTA página */
+  color:#fff;          /* color del texto en ESTA página */
+  border-color:transparent; /* o #ddd en fondo claro */
+}
+
+.rx-back:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18); }
+.rx-back:focus-visible{ outline:3px solid rgba(0,0,0,.25); outline-offset:2px; }
+
+
 </style>
 
 
@@ -147,7 +180,7 @@
 
 
 <section id="plano_color" class="content">
-  <div class="wrap">
+<div class="wrap">
 <p>
 Aprovecharemos el hecho de que el espacio $L^*a^*b^*$ es equivalente a $\mathbb{R}^3$, 
 lo que permite representar un plano de color en el que cada punto corresponde a una 
@@ -215,6 +248,11 @@ del color seleccionado.
 
 <!-- carga el script al final -->
 <script src="js/plane_grid.js" defer></script>
+
+
+<div class="rx-back-wrap">
+  <a href="index.html" class="rx-back">REGRESAR</a>
+</div>
 
 </body>
 </html>
