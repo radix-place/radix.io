@@ -5,41 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Radix • Espacio de Opinión</title>
   <meta name="description" content="Opiniones y ensayos en Radix sobre desarrollo y sociedad, tecnología y futuro, y matemáticas vivas." />
+  <link rel="stylesheet" href="./css/style.css" />
+
   <style>
-    :root{
+    :root {
       --ink:#111; --muted:#666; --bg:#f7f7f7; --card:#fff; --link:#b30059; --border:#e6e6e6;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0; padding:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;}
-    a{color:var(--link); text-decoration:none}
-    a:hover{text-decoration:underline}
-    .content{max-width:960px; margin:0 auto; padding:20px}
-    /* --- Top nav --- */
-    nav.top{display:flex; gap:16px; align-items:center; margin:12px auto 24px}
-    nav.top a{font-weight:600; color:#111}
-    nav.top a.active{color:var(--link); font-weight:700}
-    /* --- Page header --- */
-    header h1{margin:8px 0 4px; font-size:28px}
-    header p{margin:0; color:var(--muted)}
-    /* --- Section tabs --- */
-    .tabs{display:flex; flex-wrap:wrap; gap:10px; margin:20px 0}
-    .tabs a{display:inline-block; padding:8px 12px; background:var(--card); border:1px solid var(--border); border-radius:999px; font-weight:600}
-    .tabs a:hover{background:#fff}
-    /* --- Section blocks --- */
-    section{margin:26px 0}
-    section h2{font-size:20px; margin:0 0 10px}
-    .desc{color:var(--muted); margin:0 0 12px}
-    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px}
-    .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px}
-    .card h3{margin:0 0 6px; font-size:16px}
-    .meta{font-size:12px; color:var(--muted); margin:0 0 8px}
-    .snippet{margin:0}
-    /* --- Footer --- */
-    footer{margin:40px 0 10px; color:var(--muted); font-size:13px}
-    /* --- Utility --- */
-    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+    * { box-sizing: border-box }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; }
+    a { color:var(--link); text-decoration:none }
+    a:hover { text-decoration:underline }
+    .content { max-width:960px; margin:0 auto; padding:20px }
+    nav.top { display:flex; gap:16px; align-items:center; margin:12px auto 24px }
+    nav.top a { font-weight:600; color:#111 }
+    nav.top a.active { color:var(--link); font-weight:700 }
+    header h1 { margin:8px 0 4px; font-size:28px }
+    header p { margin:0; color:var(--muted) }
+    .tabs { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0 }
+    .tabs a { display:inline-block; padding:8px 12px; background:var(--card); border:1px solid var(--border); border-radius:999px; font-weight:600 }
+    .tabs a:hover { background:#fff }
+    section { margin:26px 0 }
+    section h2 { font-size:20px; margin:0 0 10px }
+    .desc { color:var(--muted); margin:0 0 12px }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px }
+    .card h3 { margin:0 0 6px; font-size:16px }
+    .meta { font-size:12px; color:var(--muted); margin:0 0 8px }
+    .snippet { margin:0 }
+    footer { margin:40px 0 10px; color:var(--muted); font-size:13px }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+
+    .texto-nota {
+  font-size: 15px;   /* o 13px si lo quieres aún más pequeño */
+  color: var(--muted);
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+
+    /* Hero con canvas */
+    .hero-anim {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+      background: var(--card);
+      isolation: isolate;
+    }
+    .hero-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      padding: 40px 20px;
+      text-align: center;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.1);
+    }
+    .hero-inner h1 { margin: 0 0 10px; font-size: 32px; }
+    .hero-inner p { margin: 0 0 8px; }
   </style>
 </head>
+
 <body>
   <a href="#contenido" class="sr-only">Saltar al contenido</a>
 
@@ -49,26 +79,35 @@
     <a href="./opinion.html" class="active">Espacio de opinión</a>
   </nav>
 
-  <main id="contenido" class="content">
-    <header>
-      <h1>Espacio de Opinión Radix</h1>
+<main id="contenido" class="content">
+<header class="hero-anim">
+  <!-- Contenedor para el canvas animado -->
+  <div id="radixArt" class="hero-canvas" aria-hidden="true"></div>
 
-      <p>Reflexiones no polarizantes sobre sociedad, educación y matemáticas.</p>
+  <!-- Contenido de tu encabezado -->
+  <div class="hero-inner">
+    <h1>Espacio de Opinión</h1>
+    <h3>Reflexiones no polarizantes sobre sociedad, educación y matemáticas.</h3>
+  </div>
+</header>
 
-    <p class="meta" style="margin-top:6px;">
-      Envía tu <strong>columna de opinión</strong> (≤ 1.000 palabras) sobre educación, sociedad u
-      observaciones de matemáticas escolares o universitarias —y sus conexiones con arte, ciencia u otras disciplinas—,
-      con referencias cuando corresponda, a
-      <a href="mailto:radix.correo@gmail.com">radix.correo@gmail.com</a>.
-    </p>
 
-    <p class="meta" style="margin-top:4px;">
-      Los envíos serán revisados por el equipo editorial. Para textos de carácter matemático,
-      se recomienda emplear <strong>LaTeX</strong> o <strong>Markdown</strong>.
-      Radix se reserva el derecho de edición y publicación. Las opiniones publicadas son responsabilidad de sus autores.
-    </p>
+<section> 
+<p class="texto-nota">
+  Te invitamos a enviar tu <strong>columna de opinión</strong> (máx. 1.000 palabras) sobre sociedad y educación, o sobre matemáticas —tanto en su dimensión escolar y universitaria como en sus conexiones con el arte, la ciencia u otras disciplinas—. Incluye, cuando corresponda, las referencias necesarias y envíala a  
+  <a href="mailto:radix.correo@gmail.com">radix.correo@gmail.com</a>.
+</p>
 
-    </header>
+<p class="texto-nota">
+  Todas las propuestas serán revisadas por el equipo editorial para verificar su pertinencia y el cumplimiento de estas pautas.
+  Para los textos de carácter matemático, sugerimos elaborarlos en <strong>LaTeX</strong> o <strong>Markdown</strong>.
+</p>
+<p class="texto-nota">
+  Este espacio promueve un diálogo respetuoso y constructivo: no se publicarán escritos ofensivos, discriminatorios ni que inciten a la violencia o ataquen a personas en particular.
+  Radix se reserva el derecho de publicación. Las opiniones expresadas son responsabilidad exclusiva de sus autores.
+</p>
+
+</section>
 
     <!-- === 1) DESARROLLO Y SOCIEDAD === -->
 <section id="desarrollo">
@@ -79,7 +118,7 @@
 
     <p class="meta">
     Publicado: 2025-08-28 · Por Andrés Salazar
-    (<a href="mailto:andres.salazar@gmail.com">amsrojas@gmail.com</a>)
+    (<a href="mailto:amsrojas@gmail.com">amsrojas@gmail.com</a>)
     </p>
     <p class="snippet">
     El auge fintech y de startups en Colombia surge de carencias. La baja inclusión financiera, 
@@ -90,7 +129,8 @@
 
     <article class="card">
       <h3><a href="./opinion/edu_bambalinas.html">Educación tras bambalinas</a></h3>
-      <p class="meta">Publicado: 2020-09-01 · Por Andrés Salazar</p>
+      <p class="meta">2025-08-28 · Por Andrés Salazar
+    (<a href="mailto:amsrojas@gmail.com">amsrojas@gmail.com</a>)</p>
       <p class="snippet">
       Aprender nace de la experiencia y de los pequeños encuentros que ofrece el campus. Cafeterías, pasillos, salones y tableros disparan dudas, gestos y asombros que una pantalla no reproduce. La educación en línea ayuda, pero lo esencial ocurre tras bambalinas. 
       </p>
@@ -111,7 +151,8 @@
       <div class="grid">
         <article class="card">
           <h3><a href="./opinion/rot_angular.html">Rotación de un vector a favor de otro</a></h3>
-          <p class="meta">Publicado: 2025-09-01 · 4 min</p>
+          <p class="meta">2025-08-28 · Por Andrés Salazar
+          (<a href="mailto:amsrojas@gmail.com">amsrojas@gmail.com</a>)</p>
           <p class="snippet">Una construcción geométrica basada en producto punto y exterior, que permite interpretar
              la rotación y el escalamiento de vectores en el plano. Con algunos ejemplos 
             se ilustra cómo operaciones elementales generan transformaciones visuales significativas.</p>
@@ -138,5 +179,8 @@
     // Año automático en el pie de página
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script src="./js/hero-opinion.js"></script>
 </body>
 </html>

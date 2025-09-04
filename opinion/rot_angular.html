@@ -34,6 +34,36 @@
     margin-top: 6px;
   }
   
+ /* Botón REGRESAR — estilos locales a esta página */
+.rx-back-wrap{
+  display:flex;
+  justify-content:center;   /* centrado */
+  margin:16px 0 24px;
+  width:100%;
+}
+
+.rx-back{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  border:1px solid transparent;
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+  transition:transform .15s ease, box-shadow .15s ease;
+  /* ← COLORES POR PÁGINA (cámbialos aquí) */
+  background:#ffbb00;     /* color de la caja en ESTA página */
+  color:#fff;          /* color del texto en ESTA página */
+  border-color:transparent; /* o #ddd en fondo claro */
+}
+
+.rx-back:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18); }
+.rx-back:focus-visible{ outline:3px solid rgba(0,0,0,.25); outline-offset:2px; }
+
+
+
   </style>
   <!-- (Opcional) MathJax si usarás LaTeX en el texto -->
   <script>
@@ -53,11 +83,12 @@
 
   <main class="content">
     <header>
-      <h1>Rotación de un vector a favor de otro</h1>
-      <p class="meta">Publicado: 2025-08-28 · Por Andrés Salazar</p>
+      <h1>Rotación y reducción de un vector a favor de otro</h1>
+      <p class="meta">    Publicado: 2025-08-28 · Por Andrés Salazar
+    (<a href="mailto:andres.salazar@gmail.com">amsrojas@gmail.com</a>)</p>
     </header>
 
-    <article>
+<article>
 <p>
 En lo que sigue consideraremos dos vectores en el plano,
 $$A = (a_1, a_2), \qquad B = (b_1, b_2).$$  
@@ -103,7 +134,7 @@ A[B] \cdot B = \lVert A \rVert \, \lVert B \rVert^2 \cos \theta.
 $$
 Por otro lado, al desarrollar el producto escalar componente a componente resulta
 $$
-A[B] \cdot B = \lVert A \rVert \, \lVert B \rVert \bigl( \cos \alpha \cos \beta + \sin \alpha \sin \beta \bigr),
+\frac{A[B] \cdot B}{\lVert A \rVert \, \lVert B \rVert} =  \cos {\alpha} \cos {\beta} + \sin {\alpha} \sin {\beta},
 $$
 donde $\alpha$ es el ángulo que forma $A$ con el eje $x$ y $\beta$ el ángulo que forma $B$ con el mismo eje.  
 Por otro lado 
@@ -112,7 +143,7 @@ A[B] \cdot B = \lVert A \rVert \, \lVert B \rVert^2 \cos{\theta},
 $$
 en donde $\theta$ el ángulo entre los vectores $A[B]$ y $B$. Al igualador las últimas dos expresiones se obtiene que
 $$
-\cos \theta = \cos \alpha \cos \beta + \sin \alpha \sin \beta = \cos(\beta - \alpha).
+\cos \theta =  \cos(\beta - \alpha).
 $$
 y de este modo,
 $$
@@ -131,8 +162,7 @@ A=\left(\frac{1}{\sqrt{2}},\,\frac{1}{\sqrt{2}}\right),\quad \|A\|=1.
 $$
 Entonces
 $$
-A[B] = \bigl(A\cdot B,\; A\land B\bigr)
-= \left(-\frac{1}{\sqrt{2}},\,\frac{1}{\sqrt{2}}\right).
+A[B] =  \left(-\frac{1}{\sqrt{2}},\,\frac{1}{\sqrt{2}}\right).
 $$
 </p>
 
@@ -175,6 +205,10 @@ El resultado es una espiral de segmentos que se acercan progresivamente al orige
   <figcaption>Rotación de un segmento 60° a favor de las manecillas del reloj aplicando una reducción del 10%.</figcaption>
 </figure>
 
+
+  <div class="rx-back-wrap">
+    <a href="../opinion.html" class="rx-back">REGRESAR</a>
+  </div>
     </article>
   </main>
 </body>

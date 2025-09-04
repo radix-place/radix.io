@@ -16,6 +16,38 @@
     article{ background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px }
     article p{ line-height:1.6 }
     figure{ margin:18px 0 } figcaption{ color:var(--muted); font-size:13px }
+  
+  
+   /* Botón REGRESAR — estilos locales a esta página */
+.rx-back-wrap{
+  display:flex;
+  justify-content:center;   /* centrado */
+  margin:16px 0 24px;
+  width:100%;
+}
+
+.rx-back{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  border:1px solid transparent;
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+  transition:transform .15s ease, box-shadow .15s ease;
+  /* ← COLORES POR PÁGINA (cámbialos aquí) */
+  background:#ffbb00;     /* color de la caja en ESTA página */
+  color:#fff;          /* color del texto en ESTA página */
+  border-color:transparent; /* o #ddd en fondo claro */
+}
+
+.rx-back:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18); }
+.rx-back:focus-visible{ outline:3px solid rgba(0,0,0,.25); outline-offset:2px; }
+
+  
+  
   </style>
   <!-- (Opcional) MathJax si usarás LaTeX en el texto -->
   <script>
@@ -69,6 +101,12 @@ Tendríamos que ser muy temerarios para afirmar que la educación ya no será pr
         <figcaption>Breve pie de figura (opcional).</figcaption>
       </figure>
      -->
+
+
+  <div class="rx-back-wrap">
+    <a href="../opinion.html" class="rx-back">REGRESAR</a>
+  </div>
+
 
     </article>
   </main>
