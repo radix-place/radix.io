@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radix • Espacio de Opinión</title>
+  <meta name="description" content="Opiniones y ensayos en Radix sobre desarrollo y sociedad, tecnología y futuro, y matemáticas vivas." />
+  <style>
+    :root{
+      --ink:#111; --muted:#666; --bg:#f7f7f7; --card:#fff; --link:#b30059; --border:#e6e6e6;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .content{max-width:960px; margin:0 auto; padding:20px}
+    /* --- Top nav --- */
+    nav.top{display:flex; gap:16px; align-items:center; margin:12px auto 24px}
+    nav.top a{font-weight:600; color:#111}
+    nav.top a.active{color:var(--link); font-weight:700}
+    /* --- Page header --- */
+    header h1{margin:8px 0 4px; font-size:28px}
+    header p{margin:0; color:var(--muted)}
+    /* --- Section tabs --- */
+    .tabs{display:flex; flex-wrap:wrap; gap:10px; margin:20px 0}
+    .tabs a{display:inline-block; padding:8px 12px; background:var(--card); border:1px solid var(--border); border-radius:999px; font-weight:600}
+    .tabs a:hover{background:#fff}
+    /* --- Section blocks --- */
+    section{margin:26px 0}
+    section h2{font-size:20px; margin:0 0 10px}
+    .desc{color:var(--muted); margin:0 0 12px}
+    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px}
+    .card h3{margin:0 0 6px; font-size:16px}
+    .meta{font-size:12px; color:var(--muted); margin:0 0 8px}
+    .snippet{margin:0}
+    /* --- Footer --- */
+    footer{margin:40px 0 10px; color:var(--muted); font-size:13px}
+    /* --- Utility --- */
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+  </style>
+</head>
+<body>
+  <a href="#contenido" class="sr-only">Saltar al contenido</a>
+
+  <!-- === NAVEGACIÓN PRINCIPAL === -->
+  <nav class="top content" aria-label="Navegación principal">
+    <a href="./index.html">Inicio</a>
+    <a href="./opinion.html" class="active">Espacio de opinión</a>
+  </nav>
+
+  <main id="contenido" class="content">
+    <header>
+      <h1>Espacio de Opinión Radix</h1>
+
+      <p>Reflexiones no polarizantes sobre sociedad, educación y matemáticas.</p>
+
+    <p class="meta" style="margin-top:6px;">
+      Envía tu <strong>columna de opinión</strong> (≤ 1.000 palabras) sobre educación, sociedad u
+      observaciones de matemáticas escolares o universitarias —y sus conexiones con arte, ciencia u otras disciplinas—,
+      con referencias cuando corresponda, a
+      <a href="mailto:radix.correo@gmail.com">radix.correo@gmail.com</a>.
+    </p>
+
+    <p class="meta" style="margin-top:4px;">
+      Los envíos serán revisados por el equipo editorial. Para textos de carácter matemático,
+      se recomienda emplear <strong>LaTeX</strong> o <strong>Markdown</strong>.
+      Radix se reserva el derecho de edición y publicación. Las opiniones publicadas son responsabilidad de sus autores.
+    </p>
+
+    </header>
+
+    <!-- === 1) DESARROLLO Y SOCIEDAD === -->
+<section id="desarrollo">
+  <h2>Sociedad y educación</h2>
+  <div class="grid">
+    <article class="card">
+    <h3><a href="./opinion/esp_digital.html">Colombia ante el espejismo digital</a></h3>
+
+    <p class="meta">
+    Publicado: 2025-08-28 · Por Andrés Salazar
+    (<a href="mailto:andres.salazar@gmail.com">amsrojas@gmail.com</a>)
+    </p>
+    <p class="snippet">
+    El auge fintech y de startups en Colombia surge de carencias. La baja inclusión financiera, 
+    la dependencia de capital externo y el uso ilícito de plataformas maquillan este dinamismo. 
+    Sin inversión sostenida en ciencia, I+D y universidades, seremos usuarios, no creadores.
+    </p>
+    </article>
+
+    <article class="card">
+      <h3><a href="./opinion/edu_bambalinas.html">Educación tras bambalinas</a></h3>
+      <p class="meta">Publicado: 2020-09-01 · Por Andrés Salazar</p>
+      <p class="snippet">
+      Aprender nace de la experiencia y de los pequeños encuentros que ofrece el campus. Cafeterías, pasillos, salones y tableros disparan dudas, gestos y asombros que una pantalla no reproduce. La educación en línea ayuda, pero lo esencial ocurre tras bambalinas. 
+      </p>
+    </article>
+</div>
+
+  <p style="margin-top:10px;">
+    <a href="./opinion/soc_edu.html">Ver todos los artículos</a>
+  </p>
+</section>
+
+
+
+    <!-- === 2) MATEMÁTICAS === -->
+    <section id="matematicas" aria-labelledby="h-matematicas">
+      <h2 id="h-matematicas">Conexión Matemática</h2>
+      <p class="desc">Notas y columnas que conectan las matemáticas escolares y universitarias con arte y biología</p>
+      <div class="grid">
+        <article class="card">
+          <h3><a href="./opinion/rot_angular.html">Rotación de un vector a favor de otro</a></h3>
+          <p class="meta">Publicado: 2025-09-01 · 4 min</p>
+          <p class="snippet">Una construcción geométrica basada en producto punto y exterior, que permite interpretar
+             la rotación y el escalamiento de vectores en el plano. Con algunos ejemplos 
+            se ilustra cómo operaciones elementales generan transformaciones visuales significativas.</p>
+        </article>
+
+                <!-- Espacio para futuras entradas 
+        <article class="card">
+          <h3><a href="#">Título de ejemplo</a></h3>
+          <p class="meta">Próximamente</p>
+          <p class="snippet">Resumen breve del artículo. Dos o tres líneas bastan para invitar a leer.</p>
+        </article> -->
+      </div>
+        <p style="margin-top:10px;">
+    <a href="./opinion/con_mat.html">Ver todos los artículos</a>
+  </p>
+    </section>
+
+    <footer>
+     <span id="y"></span> Radix. Este espacio promueve opinión informada y no polarizante.
+    </footer>
+  </main>
+
+  <script>
+    // Año automático en el pie de página
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

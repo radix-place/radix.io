@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Colombia ante el espejismo digital • Radix</title>
+  <meta name="description" content="Breve descripción del artículo." />
+  <style>
+    :root{ --ink:#111; --muted:#666; --bg:#f7f7f7; --card:#fff; --link:#b30059; --border:#e6e6e6; }
+    *{ box-sizing:border-box }
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--ink) }
+    .content{ max-width: 800px; margin: 0 auto; padding: 20px }
+    a{ color:var(--link); text-decoration:none } a:hover{ text-decoration:underline }
+    header h1{ margin:8px 0 4px; font-size:28px }
+    .meta{ color:var(--muted); font-size:14px; margin:0 0 18px }
+    article{ background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px }
+    article p{ line-height:1.6 }
+    figure{ margin:18px 0 } figcaption{ color:var(--muted); font-size:13px }
+  
+    figure.centered {
+    margin: 16px auto;         /* centra el bloque */
+    text-align: center;        /* centra el figcaption */
+    max-width: 680px;          /* opcional: ancho máximo del bloque */
+  }
+  figure.centered img {
+    display: block;            /* quita el “inline-gap” */
+    margin: 0 auto;            /* centra la imagen */
+    max-width: 100%;           /* responsivo */
+    height: auto;
+  }
+  figure.centered figcaption {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 6px;
+  }
+  
+  </style>
+  <!-- (Opcional) MathJax si usarás LaTeX en el texto -->
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <nav class="content" aria-label="Navegación principal" style="margin:12px auto 24px;">
+    <a href="../index.html" style="margin-right:16px;font-weight:600;color:#111;">Inicio</a>
+    <a href="../opinion.html" style="font-weight:700;color:#b30059;">Espacio de opinión</a>
+  </nav>
+
+
+<!-- PARA EL ARTICULO-->
+
+
+  <main class="content">
+    <header>
+      <h1>Rotación de un vector a favor de otro</h1>
+      <p class="meta">Publicado: 2025-08-28 · Por Andrés Salazar</p>
+    </header>
+
+    <article>
+<p>
+En lo que sigue consideraremos dos vectores en el plano,
+$$A = (a_1, a_2), \qquad B = (b_1, b_2).$$  
+De cursos básicos de álgebra vectorial recordamos dos operaciones fundamentales:  
+el <em>producto punto</em>, denotado $A \cdot B$,  
+y el <em>producto exterior</em> (que en $\mathbb{R}^2$ coincide con el determinante), denotado $A \land B$.  
+Sus definiciones son:
+$$
+A \cdot B = a_1 b_1 + a_2 b_2, 
+\qquad 
+A \land B = a_1 b_2 - a_2 b_1.
+$$
+Se observa de inmediato que $A \cdot B = B \cdot A$, mientras que $A \land B = - (B \land A)$.  
+En otras palabras, el producto punto es conmutativo, mientras que el producto exterior es <em>antisimétrico</em>.  
+Además, la cantidad $\sqrt{A \cdot A}$ se denomina <em>norma</em> o <em>módulo</em> de $A$ y se escribe $\lVert A \rVert$.
+</p>
+
+<p>
+Si $\theta$ es el ángulo entre $A$ y $B$, entonces se cumplen las identidades clásicas:
+$$
+A \cdot B = \lVert A \rVert \, \lVert B \rVert \cos \theta, 
+\qquad 
+A \land B = \lVert A \rVert \, \lVert B \rVert \sin \theta,
+$$
+donde el valor del coseno depende solo de la amplitud del ángulo, mientras que el signo del seno refleja la orientación 
+(horaria o antihoraria) del paso de $A$ a $B$.
+</p>
+
+<p>
+Introducimos ahora la <em>aplicación de $A$ sobre $B$</em>, que denotaremos por
+$$
+A[B] = \bigl( A \cdot B , \; A \land B \bigr).
+$$
+Este nuevo vector satisface
+$$
+\lVert A[B] \rVert = \lVert A \rVert \, \lVert B \rVert.
+$$
+Si $\theta$ es el ángulo entre $A[B]$ y $B$, entonces
+$$
+A[B] \cdot B = \lVert A \rVert \, \lVert B \rVert^2 \cos \theta.
+$$
+Por otro lado, al desarrollar el producto escalar componente a componente resulta
+$$
+A[B] \cdot B = \lVert A \rVert \, \lVert B \rVert \bigl( \cos \alpha \cos \beta + \sin \alpha \sin \beta \bigr),
+$$
+donde $\alpha$ es el ángulo que forma $A$ con el eje $x$ y $\beta$ el ángulo que forma $B$ con el mismo eje.  
+Por otro lado 
+$$
+A[B] \cdot B = \lVert A \rVert \, \lVert B \rVert^2 \cos{\theta},
+$$
+en donde $\theta$ el ángulo entre los vectores $A[B]$ y $B$. Al igualador las últimas dos expresiones se obtiene que
+$$
+\cos \theta = \cos \alpha \cos \beta + \sin \alpha \sin \beta = \cos(\beta - \alpha).
+$$
+y de este modo,
+$$
+\theta = \beta - \alpha.
+$$
+<p>
+En consecuencia, podemos interpretar que el vector $A[B]$ se obtiene a partir del vector $B$ mediante una <em>rotación</em> en sentido horario de un ángulo $\alpha$ —donde $\alpha$ es el ángulo que forma $A$ con el eje $x$—, seguida de una <em>ampliación</em> (o contracción) por el factor $\lVert A \rVert$.
+</p>
+<p>
+<p><strong>Ejemplo.</strong> Rotar $45^\circ$ a favor del reloj, sin cambiar su tamaño, el vector $B = (-1,0)$.</p>
+
+<p>
+Una dirección clásica para $45^\circ$ es $(1,1)$; la normalizamos tomando
+$$
+A=\left(\frac{1}{\sqrt{2}},\,\frac{1}{\sqrt{2}}\right),\quad \|A\|=1.
+$$
+Entonces
+$$
+A[B] = \bigl(A\cdot B,\; A\land B\bigr)
+= \left(-\frac{1}{\sqrt{2}},\,\frac{1}{\sqrt{2}}\right).
+$$
+</p>
+
+<p><strong>Ejemplo.</strong> Consideremos el segmento con extremos en $\mathcal{O}=(0,0)$ y $B=(5,0)$.  
+Queremos obtener, de manera iterada, nuevas posiciones de este vector al <em>rotarlo</em> $60^\circ$ en sentido horario y, al mismo tiempo, <em>reducir su tamaño</em> en un $10\%$ en cada paso.</p>
+
+<p>
+Una dirección unitaria asociada al ángulo de $60^\circ$ es 
+\[
+\left(\frac{1}{2},\,\frac{\sqrt{3}}{2}\right).
+\]
+Si además incorporamos la reducción del $10\%$, definimos
+\[
+A=\left(\frac{0.9}{2},\,\frac{0.9\sqrt{3}}{2}\right).
+\]
+</p>
+
+<p>
+Con la notación introducida, cada nueva rotación se obtiene mediante la composición
+\[
+A^{(n)}[B] \;=\; A^{(n-1)}\!\bigl[A[B]\bigr],
+\]
+con condición inicial
+\[
+A^{(0)}[B] = B.
+\]
+</p>
+
+<p>
+De esta manera, el proceso genera una sucesión de vectores
+\[
+B,\; A[B],\; A[A[B]],\; A^{(3)}[B],\;\dots
+\]
+que corresponden a las sucesivas rotaciones de $B$ en ángulos de $60^\circ$ en sentido horario, cada vez con una longitud reducida al $90\%$ de la anterior.  
+El resultado es una espiral de segmentos que se acercan progresivamente al origen.
+</p>
+
+<figure class="centered">
+  <img src="../opinion/imagenes/graf_rot.png" alt="rotacion" loading="lazy">
+  <figcaption>Rotación de un segmento 60° a favor de las manecillas del reloj aplicando una reducción del 10%.</figcaption>
+</figure>
+
+    </article>
+  </main>
+</body>
+</html>

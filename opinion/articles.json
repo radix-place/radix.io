@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Camino a la normalidad",
+    "slug": "camino-a-la-normalidad",
+    "section": "sociedad",
+    "date": "2025-09-02",
+    "minutes": 6,
+    "excerpt": "Rupturas entre opiniones y sentimientos en tiempos difíciles y la urgencia de que las oportunidades sean simétricas para una normalidad compartida."
+  },
+  {
+    "title": "Educación tras bambalinas",
+    "slug": "educacion-tras-bambalinas",
+    "section": "sociedad",
+    "date": "2025-09-02",
+    "minutes": 5,
+    "excerpt": "Lo que se pierde cuando el aprendizaje se reduce a una pantalla: el campus como organismo de conocimiento que no cabe en píxeles."
+  },
+  {
+    "title": "Colombia ante el espejismo digital",
+    "slug": "colombia-ante-el-espejismo-digital",
+    "section": "tecnologia",
+    "date": "2025-09-02",
+    "minutes": 7,
+    "excerpt": "Auge fintech nacido de la carencia, dependencia de capital externo y descuido de la ciencia: riesgos de confundir dinamismo con progreso."
+  },
+  {
+    "title": "Derivada, ángulo y movimiento",
+    "slug": "derivada-y-angulo",
+    "section": "matematicas",
+    "date": "2025-09-01",
+    "minutes": 4,
+    "excerpt": "Una parametrización simple para pensar la derivada como vector tangente y calcular su ángulo con una dirección ortogonal."
+  }
+]
