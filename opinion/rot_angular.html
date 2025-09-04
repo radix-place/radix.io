@@ -108,12 +108,12 @@ Además, la cantidad $\sqrt{A \cdot A}$ se denomina <em>norma</em> o <em>módulo
 </p>
 
 <p>
-Si $\theta$ es el ángulo entre $A$ y $B$, entonces se cumplen las identidades clásicas:
+Si $\alpha$ es el ángulo entre $A$ y $B$, entonces se cumplen las identidades clásicas:
 $$
-A \cdot B = \lVert A \rVert \, \lVert B \rVert \cos \theta, 
+A \cdot B = \lVert A \rVert \, \lVert B \rVert \cos \alpha, 
 $$
 $$
-A \land B = \lVert A \rVert \, \lVert B \rVert \sin \theta,
+A \land B = \lVert A \rVert \, \lVert B \rVert \sin \alpha,
 $$
 donde el valor del coseno depende solo de la amplitud del ángulo, mientras que el signo del seno refleja la orientación 
 (horaria o antihoraria) del paso de $A$ a $B$.
@@ -134,25 +134,30 @@ A[B] \cdot B = \lVert A \rVert \, \lVert B \rVert^2 \cos \theta.
 $$
 Por otro lado, al desarrollar el producto escalar componente a componente resulta
 $$
-\frac{A[B] \cdot B}{\lVert A \rVert \, \lVert B \rVert} =  \cos {\alpha} \cos {\beta} + \sin {\alpha} \sin {\beta},
+\frac{A[B] \cdot B}{\lVert A \rVert \, \lVert B \rVert^2} =   \cos {\beta} \cos {\alpha} \pm \sin {\beta} \sin {\alpha} ,
 $$
-donde $\alpha$ es el ángulo que forma $A$ con el eje $x$ y $\beta$ el ángulo que forma $B$ con el mismo eje.  
+$\beta$ es el ángulo que forma $B$ con el eje $x$ y $\alpha$ es el ángulo comprendido entre $A$ y $B$. Aquí se ha tomado $\pm$ para indicar a la orientación de $A$ con
+respecto de $B$, es decir si $A$ esta en sentido antihorario con respecto de $B$ se toma el signo menos, si $A$ están en sentido horario se toma el signo más. 
 Por otro lado 
 $$
 A[B] \cdot B = \lVert A \rVert \, \lVert B \rVert^2 \cos{\theta},
 $$
 en donde $\theta$ el ángulo entre los vectores $A[B]$ y $B$. Al igualador las últimas dos expresiones se obtiene que
 $$
-\cos \theta =  \cos(\beta - \alpha).
+\cos \theta =  \cos(\beta \mp \alpha).
 $$
 y de este modo,
 $$
-\theta = \beta - \alpha.
+\theta = \beta \mp \alpha.
 $$
 <p>
-En consecuencia, podemos interpretar que el vector $A[B]$ se obtiene a partir del vector $B$ mediante una <em>rotación</em> en sentido horario de un ángulo $\alpha$ —donde $\alpha$ es el ángulo que forma $A$ con el eje $x$—, seguida de una <em>ampliación</em> (o contracción) por el factor $\lVert A \rVert$.
+De acuerdo con esto si $A$ se ecuentra en sentido antihorario con respecto de $B$ se tiene que $\theta = \beta + \alpha$ es decir $\theta$ coincide con el ángulo que forma el vector $A$ con el eje $x.$
+Por otro lado si $A$ se encuentra en sentido  horario entonces $\theta = \beta - \alpha$ y de nuevo $\theta$ coincide con el ángulo que forma el vector $A$ con respecto del eje $x.$
 </p>
 <p>
+En consecuencia, podemos interpretar que el vector $A[B]$ se obtiene a partir del vector $B$ mediante una <em>rotación</em> en sentido horario del ángulo que forma $A$ con el eje $x$—, seguida de una <em>ampliación</em> (o contracción) por el factor $\lVert A \rVert$.
+</p>
+
 <p><strong>Ejemplo.</strong> Rotar $45^\circ$ a favor del reloj, sin cambiar su tamaño, el vector $B = (-1,0)$.</p>
 
 <p>
