@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title> Configuración triangular (tabla)</title>
+  <style>
+    :root { --ink:#111; --muted:#666; --bg:#f7f7f7; --card:#fff; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--ink); }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 6px; font-size: 22px; }
+    .lead { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+    .grid { display:grid; grid-template-columns: 1fr; gap:16px; }
+    @media (min-width: 960px){ .grid { grid-template-columns: 1fr 1fr; } }
+    .card { background:var(--card); border:1px solid #e8e8e8; border-radius:16px; padding:16px; box-shadow:0 1px 8px rgba(0,0,0,.04); }
+    .controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:8px; }
+    .controls label { display:flex; align-items:center; gap:6px; font-size: 14px; }
+    .btn { border:0; background:#111; color:#fff; padding:8px 12px; border-radius:10px; cursor:pointer; }
+    .btn.ghost { background:#eee; color:#111; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid #eee; }
+    input[type="text"] { width:110px; padding:6px 8px; border:1px solid #ddd; border-radius:8px; }
+    .muted { color:var(--muted); font-size:12px; }
+    svg { width:100%; height:540px; border:1px solid #e6e6e6; border-radius:16px; background:#fafafa; }
+    .right { text-align:right; }
+    /* botón <a class="btn"> sin subrayado y con caja */
+a.btn { text-decoration: none; display: inline-block; }
+
+/* Botón REGRESAR — estilos locales a esta página */
+.rx-back-wrap{
+  display:flex;
+  justify-content:center;   /* centrado */
+  margin:16px 0 24px;
+  width:100%;
+}
+
+.rx-back{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  border:1px solid transparent;
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+  transition:transform .15s ease, box-shadow .15s ease;
+  /* ← COLORES POR PÁGINA (cámbialos aquí) */
+  background:#000000;     /* color de la caja en ESTA página */
+  color:#fff;          /* color del texto en ESTA página */
+  border-color:transparent; /* o #ddd en fondo claro */
+}
+
+.rx-back:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18); }
+.rx-back:focus-visible{ outline:3px solid rgba(0,0,0,.25); outline-offset:2px; }
+
+  </style>
+  <!-- Si tus JS están en /js, deja así; si no, cambia la ruta -->
+  <!-- <script src="js/app.js" defer></script> -->
+
+  <!-- (Opcional) MathJax si usarás LaTeX en el texto -->
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+
+<body>
+<div class="wrap">
+  <h1>Gielis</h1>
+  <p class="lead">
+    La <strong>superfórmula de Gielis</strong> genera curvas con simetrías tipo “flor/estrella” a partir de unos pocos parámetros.
+    La curva se define en coordenadas polares por:
+  </p>
+
+  <div class="math">
+    \[
+      r(\varphi)\;=\;\left(
+        \left|\frac{\cos\!\left(\tfrac{m\,\varphi}{4}\right)}{a}\right|^{\,n_{2}}
+        \;+\;
+        \left|\frac{\sin\!\left(\tfrac{m\,\varphi}{4}\right)}{b}\right|^{\,n_{3}}
+      \right)^{-\,\tfrac{1}{n_{1}}}, 
+      \qquad \varphi\in[0,2\pi].
+    \]
+  </div>
+
+  <h2>Parámetros</h2>
+  <ul>
+    <li>
+      <strong>\(m\)</strong> (entero &ge; 1): controla la <em>simetría rotacional</em> de la figura.
+      Con \(m\) entero, la curva tiene simetría de orden \(m\) (se “repite” \(m\) veces alrededor del centro).
+    </li>
+    <li>
+      <strong>\(a&gt;0\), \(b&gt;0\)</strong>: factores de <em>escala</em> en las direcciones asociadas a los términos 
+      de coseno (para \(a\)) y seno (para \(b\)). 
+      Valores mayores de \(a\) o \(b\) “aplanan/estiran” la figura de manera anisotrópica.
+      Si \(a=b\), la figura es más equilibrada.
+    </li>
+    <li>
+      <strong>\(n_{1}&gt;0\)</strong>: controla la <em>redondez vs. agudeza</em> global del contorno.
+      Valores pequeños (p. ej., \(0.2\!-\!0.6\)) producen puntas más marcadas; valores grandes suavizan el borde.
+    </li>
+    <li>
+      <strong>\(n_{2}&gt;0\), \(n_{3}&gt;0\)</strong>: moldean la <em>forma local de los lóbulos</em>.
+      \(n_{2}\) afecta las zonas donde domina el coseno; \(n_{3}\) las zonas donde domina el seno.
+      Si \(n_{2}=n_{3}\), la figura suele verse más uniforme; si difieren, se enfatizan direcciones específicas.
+    </li>
+  </ul>
+
+  <h2>Notas de uso</h2>
+  <ul>
+    <li>Se recomienda mantener \(a,b,n_{1},n_{2},n_{3}&gt;0\) para curvas bien definidas.</li>
+    <li>El número de lóbulos típicamente está relacionado con \(m\); cambiar \(n_{1},n_{2},n_{3}\) altera cuán “afilados” o “redondeados” aparecen.</li>
+    <li>La representación cartesiana se obtiene con \(x=r(\varphi)\cos\varphi\), \(y=r(\varphi)\sin\varphi\).</li>
+  </ul>
+</div>
+
+<div id="gielis-app"></div>
+
+<!-- coloca el archivo en /js/gielis.js -->
+<script src="js/gielis.js"></script>
+<script>
+  window.GielisApp.mount("#gielis-app");
+</script>
+
+    <div class="rx-back-wrap">      
+    <a href="index.html" class="rx-back">REGRESAR</a>
+</div>   
+</body>
+</html>
