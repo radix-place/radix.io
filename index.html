@@ -145,8 +145,7 @@ la dignidad humana como propósito colectivo.
   <li>
     <strong>Actividades sensoriales y constructivas:</strong> ejercicios prácticos de modelado con materiales accesibles 
     (balso, espaguetis, madera, entre otros) que permiten explorar conceptos abstractos a través de la 
-    <em>experiencia física y creativa</em>. ( Te invitamos a experimentar la conversión interactiva entre espacios de color RGB y L*a*b*.
-  <br><a href="cal_RGB_CIELAB.html" target="_blank" rel="noopener">Abrir conversor de color</a> )
+    <em>experiencia física y creativa</em>. 
   </li>
 
 </ul>
@@ -191,8 +190,6 @@ la dignidad humana como propósito colectivo.
   </p>
   <ul>
     <li><strong>Arte y Biología:</strong> estructuras naturales como inspiración para la creación y el diseño.
-  ( Te invitamos a experimentar con la aproximación numérica de regiones a partir de la descomposición en regiones poligonales.
-  <br><a href="area_region.html" target="_blank" rel="noopener noreferrer">Abrir área poligonal</a> )
   </li>
 
     <li><strong>Ciencias Sociales y Tecnología:</strong> representación de datos sociales con herramientas digitales y visualización interactiva.</li>
@@ -211,36 +208,54 @@ la dignidad humana como propósito colectivo.
 </div>
 
 
-<section id="lsistemas" class="content" aria-label="Visualizador de L-sistemas">
-  <h2 class="titulo-izquierda">Explorando con L-sistemas</h2>
-  <p>
-    Los <strong>L-sistemas</strong> describen procesos de crecimiento natural mediante reglas de producción 
-    muy simples que generan estructuras sorprendentes. 
-    Te presentamos este visualizador interactivo para que experimentes, observes la evolución de las formas 
-    y explores un poco con la matemática detrás de la naturaleza.
-  </p>
-    <p>
-    <strong>Ejemplo: la curva de Koch</strong><br>
-    Un L-sistema se define por un alfabeto, un axioma (inicio) y reglas de producción.  
-    Para la curva de Koch:
-  </p>
-  <ul>
-    <li><strong>Axioma:</strong> F</li>
-    <li><strong>Reglas:</strong> F → F+F−F−F+F</li>
-    <li><strong>Ángulo:</strong> 90°</li>
+
+<section id="modulos-demo" class="content" aria-labelledby="modulos-title">
+  <h2 id="modulos-title" class="titulo-izquierda">Explora algunos de nuestros scripts de prueba</h2>
+
+  <ul class="demo-list">
+    <li class="demo-item">
+      <h3>L-sistemas</h3>
+      <p>Experimenta con un sistema de escritura usado para modelar crecimientos y generar fractales.</p>
+      <a class="btn" href="l_system.html" target="_blank" rel="noopener noreferrer" aria-label="Abrir L-sistemas en una nueva pestaña">Abrir</a>
+    </li>
+
+    <li class="demo-item">
+      <h3>Área poligonal</h3>
+      <p>Aproxima numéricamente el área de una región del plano a partir de su aproximación poligonal.</p>
+      <a class="btn" href="area_region.html" target="_blank" rel="noopener noreferrer" aria-label="Abrir área poligonal en una nueva pestaña">Abrir</a>
+    </li>
+
+    <li class="demo-item">
+      <h3>Espacio de color RGB ↔ CIELAB (L*a*b*)</h3>
+      <p>Conversión interactiva entre espacios de color RGB y CIELAB.</p>
+      <a class="btn" href="cal_RGB_CIELAB.html" target="_blank" rel="noopener noreferrer" aria-label="Abrir conversor de color en una nueva pestaña">Abrir</a>
+    </li>
+
+    <li class="demo-item">
+      <h3>¿Es un triángulo?</h3>
+      <p>Determina cuándo las longitudes de tres segmentos corresponden a los lados de un triángulo y visualízalo.</p>
+      <a class="btn" href="conf_triangular.html" target="_blank" rel="noopener noreferrer" aria-label="Abrir configuración triangular en una nueva pestaña">Abrir</a>
+    </li>
+
+<li class="demo-item">
+  <h3>Teselación de Voronoi</h3>
+  <p>Genera un diagrama que divide el plano en celdas según la cercanía a puntos <em>semilla</em>. Incluye vista del grosor real y exportación a SVG.</p>
+  <a class="btn" href="voronoi.html" target="_blank" rel="noopener noreferrer" aria-label="Abrir teselación de Voronoi en una nueva pestaña">Abrir</a>
+</li>
+
   </ul>
-  <p>
-    Aquí <code>F</code> significa “avanzar”, <code>+</code> girar a la izquierda 90°, y <code>−</code> girar a la derecha 90°.  
-    Iterando la regla varias veces, el segmento inicial se transforma en una curva fractal de longitud infinita, 
-    pero contenida en un área finita.
+
+  <hr style="margin-top:3em">
+
+  <p class="contact-cta" style="text-align:center; font-style:italic; color:#555;">
+    ¿Te gustaría saber más, colaborar o llevar Radix a tu institución?
+    <strong><a href="mailto:radix.correo@gmail.com" style="color:#b30059; text-decoration:none;">radix.correo@gmail.com</a></strong>
   </p>
-  <div id="lsystem-interactive"></div>
-  <script src="js/lsystem-radix.js" defer></script>
 </section>
 
-<hr style="margin-top: 3em;">
 
-<p style="text-align: center; font-style: italic; color: #555;">
+<hr style="margin-top: 3em;">
+      <p style="text-align: center; font-style: italic; color: #555;">
   ¿Te gustaría saber más, colaborar o llevar Radix a tu institución?
   <strong><a href="mailto:radix.correo@gmail.com" style="color: #b30059; text-decoration: none;">radix.correo@gmail.com</a></strong>
 </p>

@@ -217,5 +217,21 @@ body{
 .radix-back:active{ transform: translateY(0); }
 .radix-back:focus-visible{ outline: 3px solid rgba(221, 2, 2, 0.892); outline-offset: 2px; }
 
-
+  /* Presentación mínima y responsiva del listado */
+  #modulos-demo .demo-list{
+    list-style:none; margin:16px 0 0; padding:0;
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px;
+  }
+  #modulos-demo .demo-item{
+    background:#fff; border:1px solid #e6e6e6; border-radius:14px; padding:12px;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  #modulos-demo .demo-item h3{ margin:0; font-size:16px }
+  #modulos-demo .demo-item p{ margin:0; color:#666; font-size:14px }
+  #modulos-demo .btn{
+    margin-top:auto; align-self:flex-start;
+    padding:8px 12px; border:1px solid #e6e6e6; border-radius:10px; background:#fff;
+    text-decoration:none; color:#111; font-size:14px;
+  }
+  #modulos-demo .btn:hover{ border-color:#bbb }
 
