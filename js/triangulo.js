@@ -202,8 +202,6 @@
         <tr><td>C</td><td style="text-align:right">(${C[0].toFixed(2)}, ${C[1].toFixed(2)})</td></tr>
         <tr><td>Perímetro</td><td style="text-align:right">${per.toFixed(2)}</td></tr>
         <tr><td>Área</td><td style="text-align:right">${area.toFixed(2)}</td></tr>
-        <tr><td>R (circunscrita)</td><td style="text-align:right">${isFinite(R)?R.toFixed(2):"—"}</td></tr>
-        <tr><td>r (incircle)</td><td style="text-align:right">${rIn.toFixed(2)}</td></tr>
       `;
     }
 
