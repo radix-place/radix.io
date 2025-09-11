@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Juego de la Vida • Radix</title>
+  <style>
+    :root{ --ink:#111; --muted:#666; --bg:#f7f7f7; --card:#fff; --border:#e6e6e6 }
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--ink) }
+    .wrap{ max-width: 1100px; margin: 24px auto; padding: 0 16px }
+    .panel{ background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px; display:grid; gap:12px }
+    .controls{ display:flex; gap:10px; align-items:end; flex-wrap:wrap }
+    label{ font-size:12px; color:var(--muted); display:block; margin-bottom:4px }
+    input[type="number"], input[type="range"]{ padding:8px; border:1px solid var(--border); border-radius:10px }
+    input[type="number"]{ width:100px }
+    button{ padding:8px 12px; border:1px solid var(--border); background:#fff; border-radius:10px; cursor:pointer }
+    button:disabled{ opacity:.5; cursor:not-allowed }
+    .canvas-box{ background:#fff; border:1px dashed var(--border); border-radius:12px; min-height:420px; display:flex; align-items:center; justify-content:center }
+    canvas#life{ width:100%; height:100%; max-height:70vh; display:block }
+    .muted{ color:var(--muted); font-size:13px }
+    .sep{ width:1px; height:28px; background:var(--border); align-self:center }
+  
+  /* Botón REGRESAR — estilos locales a esta página */
+.rx-back-wrap{
+  display:flex;
+  justify-content:center;   /* centrado */
+  margin:16px 0 24px;
+  width:100%;
+}
+
+.rx-back{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  border:1px solid transparent;
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+  transition:transform .15s ease, box-shadow .15s ease;
+  /* ← COLORES POR PÁGINA (cámbialos aquí) */
+  background:#000000;     /* color de la caja en ESTA página */
+  color:#fff;          /* color del texto en ESTA página */
+  border-color:transparent; /* o #ddd en fondo claro */
+}
+
+.rx-back:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18); }
+.rx-back:focus-visible{ outline:3px solid rgba(0,0,0,.25); outline-offset:2px; }
+  
+  
+  </style>
+</head>
+<body>
+  <div class="wrap">
+       <section id="life-doc" class="content" aria-labelledby="life-title"></section>
+    <h1>El juego de la vida (Conway)</h1>
+
+ 
+  <p>
+    Es un <strong>autómata celular</strong> en una rejilla 2D: cada celda está viva o muerta y, en pasos discretos,
+    todas se actualizan a la vez según reglas <em>locales</em>. Con reglas muy simples emergen patrones complejos
+  </p>
+
+  <h3>Reglas</h3>
+  <ol>
+    <li><strong>Supervivencia:</strong> una celda viva sigue viva si tiene <strong>2 o 3</strong> vecinas vivas.</li>
+    <li><strong>Nacimiento:</strong> una celda muerta nace si tiene <strong>exactamente 3</strong> vecinas vivas.</li>
+    <li>En cualquier otro caso, la celda muere o permanece muerta.</li>
+  </ol>
+
+<h3>¿Qué es el borde toroidal?</h3>
+<p>
+  Es una forma de manejar los bordes de la rejilla como si los lados opuestos estuvieran
+  <strong>pegados</strong>. Imagina que el tablero se enrolla y forma un donut (un <em>toro</em>):
+  la celda que sale por la izquierda entra por la derecha, y la que sale por arriba vuelve por abajo.
+</p>
+
+<ul>
+  <li><strong>Toroidal (envolvente):</strong> no hay “paredes”. Los patrones que llegan al borde
+      continúan al lado opuesto. Útil para evitar efectos de borde y conservar la dinámica global.</li>
+  <li><strong>Borde fijo (no toroidal):</strong> fuera del tablero se considera “vacío”. Los patrones
+      pueden apagarse o deformarse al chocar con el borde. Útil si quieres un mundo finito con límites.</li>
+</ul>
+
+  <h3>Cómo usar este módulo</h3>
+  <ol>
+    <li><strong>Columnas / Filas (10–200):</strong> define el tamaño de la rejilla.</li>
+    <li><strong>Densidad inicial (%):</strong> porcentaje <em>exacto</em> de celdas vivas al pulsar <strong>Aleatorio</strong>.
+      Sugerido: <strong>20–35%</strong> para patrones ricos (con 50–60% suele haber sobrepoblación y la densidad cae al inicio).</li>
+    <li><strong>Velocidad (ms/gen):</strong> menor valor = evolución más rápida.</li>
+    <li><strong>Borde toroidal:</strong> si está activado, el borde “envuelve” (izquierda↔derecha, arriba↔abajo). Si no, los bordes son “duros”.</li>
+    <li><strong>Controles:</strong>
+      <ul>
+        <li><strong>Iniciar / Pausar:</strong> empieza o detiene la simulación (si la rejilla está vacía y hay densidad &gt; 0, se puede sembrar con <em>Aleatorio</em> antes de iniciar).</li>
+        <li><strong>Paso:</strong> avanza una generación cuando está en pausa.</li>
+        <li><strong>Limpiar:</strong> pone todas las celdas en muerto.</li>
+        <li><strong>Aleatorio:</strong> siembra la rejilla con la densidad actual.</li>
+        <li><strong>Exportar PNG:</strong> descarga una imagen del estado actual.</li>
+      </ul>
+    </li>
+    <li><strong>Edición directa:</strong> haz clic para alternar una celda; arrastra para “pintar”.
+      <em>Clic izquierdo</em> = viva, <em>clic derecho</em> = muerta.</li>
+  </ol>
+
+
+</section>
+
+
+
+    <div class="panel">
+      <div class="controls">
+        <div>
+          <label for="cols">Columnas (10–200)</label>
+          <input id="cols" type="number" min="10" max="200" value="80" />
+        </div>
+        <div>
+          <label for="rows">Filas (10–200)</label>
+          <input id="rows" type="number" min="10" max="200" value="50" />
+        </div>
+        <div>
+          <label for="density">Densidad inicial (%)</label>
+          <input id="density" type="number" min="0" max="100" value="30" />
+        </div>
+        <div>
+          <label for="speed">Velocidad (ms/gen)</label>
+          <input id="speed" type="range" min="20" max="500" step="10" value="120" />
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;margin-top:.5rem">
+          <input id="toroidal" type="checkbox" checked />
+          <label for="toroidal">Borde toroidal</label>
+        </div>
+
+        <span class="sep"></span>
+
+        <button id="btn-start">Iniciar</button>
+        <button id="btn-step">Paso</button>
+        <button id="btn-clear">Limpiar</button>
+        <button id="btn-rand">Aleatorio</button>
+
+        <span class="sep"></span>
+
+        <!-- Solo PNG -->
+        <button id="btn-exp-png">Exportar PNG</button>
+
+        <span id="status" class="muted" style="margin-left:auto"></span>
+      </div>
+
+      <div class="canvas-box">
+        <canvas id="life" aria-label="Juego de la Vida"></canvas>
+      </div>
+
+      <p class="muted">Consejos: haz <em>click</em> para alternar una celda; arrastra para “pintar” (clic izquierdo = vivo, clic derecho = muerto). Cambia el tamaño de la ventana y el dibujo se mantendrá nítido.</p>
+    </div>
+  </div>
+
+  <script src="js/life.js"></script>
+
+
+
+      <div class="rx-back-wrap">
+  <a href="index.html" class="rx-back">REGRESAR</a>
+</body>
+</html>
