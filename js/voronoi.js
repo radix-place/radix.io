@@ -1,8 +1,9 @@
-// Voronoi Radix — vista real (mm) en lienzo + export mm (máx 10mm) + sin doble marco
+// Voronoi Radix — vista real (mm) + export mm (máx 10mm)
+// Estética: "slice" por defecto (llena el marco). Precisión: "meet" en vista mm / export.
+// Versión: sin "Randomizar"; Generar controla n (hasta 100).
 (() => {
   const svg     = document.getElementById("voronoi");
   const btnGen  = document.getElementById("btn-gen");
-  const btnRand = document.getElementById("btn-rand");
   const btnExp  = document.getElementById("btn-exp");
   const inputN  = document.getElementById("n");
   const strokePxInput = document.getElementById("strokePx");
@@ -10,19 +11,30 @@
   const previewMmChk  = document.getElementById("previewMm");
   const status  = document.getElementById("status");
 
+  // Asegura que el SVG rellene su contenedor
+  svg.style.width = "100%";
+  svg.style.height = "100%";
+  svg.style.display = "block";
+
   // Caja / viewBox
   const VB = { x: 0, y: 0, w: 900, h: 560 };
   svg.setAttribute("viewBox", `${VB.x} ${VB.y} ${VB.w} ${VB.h}`);
-  svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
 
-  // Tamaño físico objetivo del SVG exportado (puedes cambiarlo)
-  const EXPORT_WIDTH_MM = 210; // A4 de ancho por defecto
+  // Estética por defecto: llenar marco
+  function applyAspect() {
+    const mode = previewMmChk?.checked ? "xMidYMid meet" : "xMidYMid slice";
+    svg.setAttribute("preserveAspectRatio", mode);
+  }
+  applyAspect();
+
+  // Tamaño físico objetivo del SVG exportado
+  const EXPORT_WIDTH_MM = 210;
   const EXPORT_HEIGHT_MM = (VB.h / VB.w) * EXPORT_WIDTH_MM;
 
   // Estado
   let STROKE_PX = parseFloat(strokePxInput?.value || "1.6");
   let STROKE_MM = clamp(parseFloat(strokeMmInput?.value || "0.10"), 0.01, 10);
-  let POINTS = randPoints(Number(inputN.value));
+  let POINTS = randPoints(Number(inputN.value || 30));
 
   function clamp(v, a, b){ return Math.max(a, Math.min(v, b)); }
 
@@ -38,28 +50,21 @@
 
   function render(points) {
     svg.innerHTML = "";
+    if (!points?.length) return;
 
-    if (!points.length) return;
-
-    // Voronoi (d3-delaunay)
     const delaunay = d3.Delaunay.from(points);
     const vor = delaunay.voronoi([VB.x, VB.y, VB.w, VB.h]);
 
-    // Path del diagrama
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute("d", vor.render());
     path.setAttribute("fill", "none");
     path.setAttribute("stroke", "#111");
 
     if (previewMmChk?.checked) {
-      // Vista real en el lienzo: convertimos mm -> unidades del viewBox.
-      // 1 unidad (x) del viewBox = (EXPORT_WIDTH_MM / VB.w) mm
-      // => stroke_user_units = STROKE_MM / (mm por unidad) = STROKE_MM * VB.w / EXPORT_WIDTH_MM
       const strokeUnits = STROKE_MM * VB.w / EXPORT_WIDTH_MM;
       path.setAttribute("stroke-width", strokeUnits);
-      // importante: SIN non-scaling-stroke (que haría fijo en px)
+      path.removeAttribute("vector-effect");
     } else {
-      // Vista en px aparentes (como antes)
       const pxPerUnit = (svg.clientWidth || VB.w) / VB.w;
       const stroke = STROKE_PX / pxPerUnit;
       path.setAttribute("stroke-width", stroke);
@@ -68,22 +73,15 @@
 
     svg.appendChild(path);
 
-    // Estado UI
     const mode = previewMmChk?.checked ? "real (mm)" : "pantalla (px)";
     status.textContent =
       `${points.length} celda(s) · modo ${mode} · grosor ${previewMmChk?.checked ? STROKE_MM.toFixed(2) + " mm" : STROKE_PX.toFixed(1) + " px"}`;
   }
 
   function generate() {
-    let n = Math.max(1, Math.min(50, Number(inputN.value) || 0));
+    let n = Math.max(1, Math.min(100, Number(inputN.value) || 0));
     if (n !== Number(inputN.value)) inputN.value = n;
     POINTS = randPoints(n);
-    render(POINTS);
-  }
-
-  function rerandomize() {
-    if (!POINTS || !POINTS.length) return generate();
-    POINTS = randPoints(POINTS.length);
     render(POINTS);
   }
 
@@ -94,18 +92,18 @@
     if (!clone.getAttribute("xmlns")) clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     if (!clone.getAttribute("xmlns:xlink")) clone.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
 
+    // Precisión, no recortar
+    clone.setAttribute("preserveAspectRatio", "xMidYMid meet");
+
     // Tamaño físico
     clone.setAttribute("width",  EXPORT_WIDTH_MM  + "mm");
     clone.setAttribute("height", EXPORT_HEIGHT_MM + "mm");
 
-    // Fuerza el grosor en mm para todas las trazas
+    // Grosor en mm para todas las trazas
     clone.querySelectorAll("*").forEach(el => {
       if (el.getAttribute("stroke")) {
         el.setAttribute("stroke-width", `${STROKE_MM}mm`);
-        // Si tu láser requiere color específico de corte, define aquí:
-        // el.setAttribute("stroke", "#FF0000");
       }
-      // Limpia efecto de px fijos por si existiera
       el.removeAttribute("vector-effect");
     });
 
@@ -122,17 +120,25 @@
     URL.revokeObjectURL(url);
   }
 
-  // Listeners
+  // Listeners (sin randomize)
   btnGen.addEventListener("click", generate);
-  btnRand.addEventListener("click", rerandomize);
   btnExp.addEventListener("click", exportSVG);
   inputN.addEventListener("change", generate);
   window.addEventListener("resize", () => render(POINTS));
 
-  strokePxInput?.addEventListener("input", () => { STROKE_PX = parseFloat(strokePxInput.value); if (!previewMmChk.checked) render(POINTS); });
-  strokeMmInput?.addEventListener("change", () => { STROKE_MM = clamp(parseFloat(strokeMmInput.value), 0.01, 10); if (previewMmChk.checked) render(POINTS); });
+  strokePxInput?.addEventListener("input", () => {
+    STROKE_PX = parseFloat(strokePxInput.value);
+    if (!previewMmChk.checked) render(POINTS);
+  });
+
+  strokeMmInput?.addEventListener("change", () => {
+    STROKE_MM = clamp(parseFloat(strokeMmInput.value), 0.01, 10);
+    if (previewMmChk.checked) render(POINTS);
+  });
+
   previewMmChk?.addEventListener("change", () => {
-    strokePxInput.disabled = previewMmChk.checked; // deshabilita px cuando se ve en mm
+    strokePxInput.disabled = previewMmChk.checked;
+    applyAspect();
     render(POINTS);
   });
 

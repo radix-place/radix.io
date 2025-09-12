@@ -71,20 +71,26 @@ a.btn { text-decoration: none; display: inline-block; }
 <body>
 <div class="wrap">
   <h1>Gielis</h1>
-  <p class="lead">
+  <p>
     La <strong>superfórmula de Gielis</strong> genera curvas con simetrías tipo “flor/estrella” a partir de unos pocos parámetros.
     La curva se define en coordenadas polares por:
   </p>
 
   <div class="math">
     \[
-      r(\varphi)\;=\;\left(
-        \left|\frac{\cos\!\left(\tfrac{m\,\varphi}{4}\right)}{a}\right|^{\,n_{2}}
-        \;+\;
-        \left|\frac{\sin\!\left(\tfrac{m\,\varphi}{4}\right)}{b}\right|^{\,n_{3}}
-      \right)^{-\,\tfrac{1}{n_{1}}}, 
-      \qquad \varphi\in[0,2\pi].
+      r(\theta) = \left( r_1(\theta) + r_2(\theta)
+              
+      \right)^{\tfrac{1}{n_{1}}}, 
     \]
+   con
+   \[
+   r_1(\theta) = \left|\frac{\cos\!\left(\tfrac{m\,\theta}{4}\right)}{a}\right|^{\,n_{2}}
+   \]
+   y
+\[
+   r_2(\theta) = \left|\frac{\sin\!\left(\tfrac{m\,\theta}{4}\right)}{b}\right|^{\,n_{3}}
+\]
+para $\theta \in [0, 2\pi)$.
   </div>
 
   <h2>Parámetros</h2>

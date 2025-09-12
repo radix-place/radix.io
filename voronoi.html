@@ -77,7 +77,6 @@ a.btn { text-decoration: none; display: inline-block; }
   <h3>Cómo usar el generador</h3>
   <ol>
     <li><strong>Número de puntos (1–50):</strong> ingresa cuántas semillas deseas y pulsa <strong>Generar</strong>.</li>
-    <li><strong>Re-randomizar:</strong> vuelve a distribuir aleatoriamente las semillas manteniendo el mismo número.</li>
     <li><strong>Vista real (mm):</strong> activa esta casilla para previsualizar en el lienzo el <em>grosor físico</em> (en mm) que tendrá el SVG exportado.</li>
     <li><strong>Grosor (pantalla, px):</strong> si la vista real está desactivada, usa el deslizador para ajustar el grosor visual en píxeles.</li>
     <li><strong>Grosor export (mm):</strong> define el grosor de línea del archivo SVG (0.01–10&nbsp;mm), útil para corte láser.</li>
@@ -91,8 +90,8 @@ a.btn { text-decoration: none; display: inline-block; }
 
      <div class="controls">
   <div>
-    <label for="n">Número de puntos (1–50)</label>
-    <input id="n" type="number" min="1" max="50" value="20" />
+    <label for="n">Número de puntos (1–100)</label>
+    <input id="n" type="number" value="30" min="1" max="100">
   </div>
 
   <div>
@@ -112,7 +111,6 @@ a.btn { text-decoration: none; display: inline-block; }
   </div>
 
   <button id="btn-gen">Generar</button>
-  <button id="btn-rand">Re-randomizar</button>
   <button id="btn-exp">Exportar SVG</button>
   <span class="muted" id="status"></span>
 </div>
