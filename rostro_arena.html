@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Rostro de Arena — p5 + ml5 Facemesh</title>
+<style>
+  html,body{margin:0;padding:0;background:#111;color:#eee;font-family:system-ui}
+  #ui{position:fixed;top:12px;left:12px;background:rgba(0,0,0,.5);padding:10px 12px;border-radius:10px;backdrop-filter:blur(4px);z-index:2}
+  #ui label{display:block;font-size:12px;opacity:.9;margin-top:6px}
+  #status{position:fixed;bottom:10px;left:12px;font-size:12px;opacity:.8}
+  canvas{display:block;margin:0 auto;max-width:min(92vw,1280px);height:auto}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ml5@latest/dist/ml5.min.js"></script>
+</head>
+<body>
+<div id="ui">
+  <div><b>Rostro de Arena</b> — p5 + ml5</div>
+  <label>Intensidad arena <input id="rngGrain" type="range" min="0" max="1" step="0.01" value="0.7"></label>
+  <label>Detalle rasgos <input id="rngDetail" type="range" min="0" max="1" step="0.01" value="0.55"></label>
+  <label>Suavizado borde <input id="rngFeather" type="range" min="2" max="40" step="1" value="16"></label>
+  <label>Resolución interna <input id="rngRes" type="range" min="1" max="4" step="1" value="2"></label>
+  <div style="margin-top:6px;font-size:12px">[V] espejo, [S] PNG</div>
+</div>
+<div id="status">Inicializando cámara…</div>
+
+<script>
+let W=1280,H=720, flipVideo=true;
+let capture, facemesh, predictions=[];
+let gSand,gMask,gVideoSmall, ui={};
+
+const FACE_OVAL = [10,338,297,332,284,251,389,356,454,323,361,288,397,365,379,378,400,377,152,148,176,149,150,136,172,58,132,93,234,127,162,21,54,103,67,109];
+
+function setup(){
+  createCanvas(W,H); pixelDensity(1);
+  gSand = createGraphics(W,H);
+  gMask = createGraphics(W,H);
+  gVideoSmall = createGraphics(320,180);
+
+  ui.grain = document.getElementById('rngGrain');
+  ui.detail= document.getElementById('rngDetail');
+  ui.feather=document.getElementById('rngFeather');
+  ui.res   = document.getElementById('rngRes');
+
+  capture = createCapture({video:{facingMode:'user',width:W,height:H},audio:false});
+  capture.size(W,H); capture.elt.setAttribute('playsinline',''); capture.hide();
+
+  // ml5 facemesh
+  facemesh = ml5.facemesh(capture, {maxFaces:1}, () => {
+    document.getElementById('status').textContent = 'Modelo cargado. Busca rostro…';
+  });
+  facemesh.on('predict', (res)=>{ predictions = res; });
+}
+
+function draw(){
+  background(0);
+  const haveFace = predictions && predictions.length>0;
+  if(haveFace){
+    const lm = predictions[0].scaledMesh; // 468 puntos [x,y,z]
+
+    // Máscara del óvalo
+    gMask.clear(); gMask.noStroke();
+    const feather = parseFloat(ui.feather.value);
+    const poly = faceOvalPixels(lm, width, height, flipVideo);
+
+    gMask.fill(255);
+    gMask.beginShape(); poly.forEach(p=>gMask.vertex(p.x,p.y)); gMask.endShape(CLOSE);
+    for(let i=1;i<=5;i++){
+      const k=1+i*0.03, a=255*Math.max(0,1 - i*(255/feather)/255);
+      gMask.fill(255,a);
+      gMask.beginShape(); polyScaled(poly,k).forEach(p=>gMask.vertex(p.x,p.y)); gMask.endShape(CLOSE);
+    }
+
+    // Video reducido para luminancia
+    gVideoSmall.push(); gVideoSmall.clear();
+    gVideoSmall.translate(flipVideo? gVideoSmall.width:0,0);
+    gVideoSmall.scale(flipVideo?-1:1,1);
+    gVideoSmall.image(capture,0,0,gVideoSmall.width,gVideoSmall.height);
+    gVideoSmall.pop();
+
+    // Arena
+    const scale = parseInt(ui.res.value);
+    const sW = Math.floor(width/scale), sH = Math.floor(height/scale);
+    const t = frameCount*0.01, grainK=parseFloat(ui.grain.value), detK=parseFloat(ui.detail.value);
+
+    gSand.noStroke();
+    for(let y=0;y<sH;y++){
+      for(let x=0;x<sW;x++){
+        const X=x*scale, Y=y*scale;
+        const c = gVideoSmall.get(Math.floor(x*gVideoSmall.width/sW),Math.floor(y*gVideoSmall.height/sH));
+        const L = (0.299*c[0]+0.587*c[1]+0.114*c[2])/255.0, h=1.0-L;
+        const n = 0.55*noise(x*0.015,y*0.015,t)+0.30*noise(x*0.05,y*0.05,t*1.7)+0.15*noise(x*0.10,y*0.10,t*3.3);
+        const relief = constrain(0.55*h + detK*0.35*n, 0,1);
+        const shade  = 0.90 + 0.22*(n-0.5) - 0.18*relief*grainK;
+        const base   = 198 + 30*relief*grainK;
+        let r=constrain(base +16*(n-0.5)+ 8*(h-0.5),0,255);
+        let g=constrain(base -18 +10*(n-0.5)-10*relief,0,255);
+        let b=constrain(base -46 - 6*relief,0,255);
+        r=Math.round(r*shade); g=Math.round(g*shade); b=Math.round(b*shade);
+        gSand.fill(r,g,b); gSand.rect(X,Y,scale,scale);
+      }
+    }
+
+    const masked = gSand.get(); masked.mask(gMask.get());
+    image(masked,0,0,width,height);
+  }
+
+  document.getElementById('status').textContent = haveFace ? '👍 Rostro detectado' : 'Buscando rostro…';
+}
+
+function keyPressed(){
+  if(key==='s'||key==='S') saveCanvas('rostro_arena_ml5','png');
+  if(key==='v'||key==='V') flipVideo = !flipVideo;
+}
+
+// utilidades
+function faceOvalPixels(lm,w,h,flip){
+  const arr=[];
+  for(const i of FACE_OVAL){
+    const x = (flip? (1 - lm[i][0]/W) : (lm[i][0]/W)) * w;
+    const y = (lm[i][1]/H) * h;
+    arr.push({x,y});
+  }
+  return arr;
+}
+function polyScaled(poly,k){
+  const c=centroid(poly);
+  return poly.map(p=>({x:c.x+(p.x-c.x)*k,y:c.y+(p.y-c.y)*k}));
+}
+function centroid(poly){
+  let A=0,cx=0,cy=0;
+  for(let i=0;i<poly.length;i++){
+    const p=poly[i], q=poly[(i+1)%poly.length];
+    const cross=p.x*q.y - q.x*p.y; A+=cross; cx+=(p.x+q.x)*cross; cy+=(p.y+q.y)*cross;
+  }
+  A*=0.5; if(Math.abs(A)<1e-6) return {x:0,y:0};
+  return {x:cx/(6*A), y:cy/(6*A)};
+}
+</script>
+</body>
+</html>
