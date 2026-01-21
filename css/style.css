@@ -235,3 +235,10 @@ body{
   }
   #modulos-demo .btn:hover{ border-color:#bbb }
 
+.tagline{
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: #333;
+  max-width: 520px;
+  line-height: 1.4;
+}
