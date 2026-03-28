@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es">
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Radix | Módulos educativos</title>
+  <meta name="description" content="Módulos educativos de Radix: matemáticas, arte, ciencia y tecnología integradas en experiencias formativas." />
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #111;
+      font-family: system-ui, sans-serif;
+    }
+
+    .hero-modulos {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    #Modulos {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      height: 100%;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .hero-overlay h1 {
+      margin: 0 0 12px 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+    }
+
+    .hero-overlay p {
+      max-width: 760px;
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .back {
+      display: inline-block;
+      margin: 20px 0 0 24px;
+      text-decoration: none;
+      color: #b30059;
+      font-weight: 500;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: white;
+      background: #b30059;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9em;
+    }
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    .bloque {
+      margin-top: 2.5em;
+    }
+
+    .bloque h3 {
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+
+
+
+<body>
+
+
+
+  <header class="hero-modulos">
+    <div id="Modulos"></div>
+
+    <div class="hero-overlay">
+      <h1>Módulos educativos</h1>
+
+    </div>
+  </header>
+
+
+
+  <main class="content">
+
+
+<a href="index.html" class="btn btn-back">
+  ← Volver a Radix
+</a>
+
+<div class="content">
+  <p>
+    Los módulos de Radix proponen experiencias de aprendizaje donde la matemática
+    se convierte en un puente entre ciencias, artes y tecnología.
+  </p>
+</div>
+
+
+
+    <section id="modulos">
+      <h2 class="titulo-izquierda">Módulos Matemáticos</h2>
+
+      <p>
+        Los módulos de Radix proponen experiencias donde la matemática se convierte en un puente entre
+        ciencias, artes y tecnología. Cada módulo integra exploración conceptual y creación práctica.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Aritmética y Geometría:</strong>
+          exploración del número, la proporción y la forma mediante representaciones visuales y construcciones físicas.
+        </li>
+
+        <li>
+          <strong>Geometría Vectorial:</strong>
+          estudio de posiciones y movimientos a través de programación gráfica interactiva.
+        </li>
+
+        <li>
+          <strong>Arte Paramétrico:</strong>
+          creación de formas mediante herramientas como Processing y OpenSCAD.
+        </li>
+
+        <li>
+          <strong>Lenguaje y pensamiento con IA:</strong>
+          uso crítico del lenguaje asistido por inteligencia artificial en contextos matemáticos.
+        </li>
+      </ul>
+    </section>
+
+    <section id="modulos-trans">
+      <h2 class="titulo-izquierda">Módulos transdisciplinares</h2>
+
+      <p>
+        En Radix también desarrollamos módulos que integran distintas áreas del conocimiento
+        según el contexto y las necesidades de cada institución.
+      </p>
+
+      <ul>
+        <li><strong>Arte y Biología:</strong> estructuras naturales como inspiración para la creación y el diseño.</li>
+        <li><strong>Ciencias Sociales y Tecnología:</strong> representación de datos sociales con herramientas digitales y visualización interactiva.</li>
+        <li><strong>Interculturalidad y Narrativas:</strong> lenguajes artísticos y matemáticos para explorar la diversidad cultural.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script>
+    window.onload = function () {
+      new p5((sk) => {
+        let numLines = 30;
+        let waveAmplitude = 30;
+        let noiseScale = 0.01;
+        let strokeMinAlpha = 10;
+        let strokeMaxAlphaH = 50;
+        let strokeMaxAlphaV = 45;
+        let strokeWeightValue = 1.2;
+        let timeStep = 0.01;
+        let canvasHeight = 320;
+
+        let spacing;
+        let t = 0;
+
+        sk.setup = function () {
+          const container = document.getElementById('Modulos');
+          let canvas = sk.createCanvas(container.offsetWidth, canvasHeight);
+          canvas.parent('Modulos');
+
+          spacing = sk.width / numLines;
+          sk.strokeWeight(strokeWeightValue);
+          sk.frameRate(60);
+          sk.colorMode(sk.HSB, 360, 100, 100, 100);
+          sk.noFill();
+        };
+
+        sk.draw = function () {
+          sk.background(0, 0, 100);
+
+          for (let i = 0; i < numLines; i++) {
+            let y = i * spacing;
+
+            let hueBase = sk.map(y, 0, sk.height, 180, 280);
+            let ruido = sk.noise(100 * noiseScale, y * noiseScale, t * 0.3);
+            let hue = (hueBase + 40 * ruido) % 360;
+            let sat = 50 + 40 * ruido;
+            let bri = 60 + 30 * ruido;
+            let alp = strokeMinAlpha + strokeMaxAlphaH * ruido;
+
+            sk.stroke(hue, sat, bri, alp);
+            sk.beginShape();
+            for (let x = 0; x <= sk.width; x += 5) {
+              let n = sk.noise(x * noiseScale, y * noiseScale, t * 0.3);
+              let offset = waveAmplitude * Math.sin(0.02 * x + t + i * 0.1) * n;
+              sk.vertex(x, y + offset);
+            }
+            sk.endShape();
+          }
+
+          for (let j = 0; j < numLines; j++) {
+            let x = j * spacing;
+
+            let hueBase = sk.map(x, 0, sk.width, 220, 140);
+            let ruido = sk.noise(x * noiseScale, 100 * noiseScale, t * 0.3 + 1000);
+            let hue = (hueBase + 40 * ruido) % 360;
+            let sat = 60 + 30 * ruido;
+            let bri = 60 + 30 * ruido;
+            let alp = strokeMinAlpha + strokeMaxAlphaV * ruido;
+
+            sk.stroke(hue, sat, bri, alp);
+            sk.beginShape();
+            for (let y = 0; y <= sk.height; y += 5) {
+              let n = sk.noise(x * noiseScale, y * noiseScale, t * 0.3 + 1000);
+              let offset = waveAmplitude * Math.cos(0.02 * y + t + j * 0.1) * n;
+              sk.vertex(x + offset, y);
+            }
+            sk.endShape();
+          }
+
+          t += timeStep;
+        };
+
+        sk.windowResized = function () {
+          const container = document.getElementById('Modulos');
+          sk.resizeCanvas(container.offsetWidth, canvasHeight);
+          spacing = sk.width / numLines;
+        };
+      });
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Radix Lab | Scripts y simulaciones</title>
+  <meta name="description" content="Explora simulaciones, visualizaciones y herramientas desarrolladas en Radix: matemáticas, arte y computación." />
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+  body {
+    margin: 0;
+    background: #ffffff;
+    color: #111;
+    font-family: system-ui, sans-serif;
+  }
+
+  .hero-modulos {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  #perlinHero {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .hero-overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .hero-overlay h1 {
+    margin: 0 0 12px 0;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.05;
+    color: #111;
+  }
+
+  .hero-overlay p {
+    max-width: 760px;
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .back {
+    display: inline-block;
+    margin: 20px 0 0 24px;
+    text-decoration: none;
+    color: #b30059;
+    font-weight: 500;
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    background: #b30059;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+  }
+
+  .content {
+    max-width: 900px;
+    margin: auto;
+    padding: 24px;
+  }
+
+  .bloque {
+    margin-top: 2.5em;
+  }
+
+  .bloque h3 {
+    margin-bottom: 0.5em;
+  }
+  .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+  border-color: rgba(179, 0, 89, 0.22);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.08rem;
+  color: #111;
+}
+
+.card p {
+  margin: 0 0 14px 0;
+  color: #444;
+  line-height: 1.55;
+}
+</style>
+</head>
+
+<body>
+
+  <header class="hero-modulos">
+    <div id="perlinHero"></div>
+
+    <div class="hero-overlay">
+      <h1>Scripts de prueba</h1>
+    </div>
+  </header>
+</head>
+
+
+
+  <div class="content">
+
+
+<a href="index.html" class="btn btn-back">
+Volver a Radix
+</a>
+
+
+    <p>
+      Este espacio reúne simulaciones, visualizaciones y herramientas desarrolladas en Radix.
+      Aquí exploramos ideas en la intersección entre matemáticas, arte y computación.
+    </p>
+
+<p style="margin-top:1em; color:#555;">
+  Estas herramientas forman parte de los desarrollos que pueden integrarse en talleres y cursos Radix.
+</p>
+
+    <section id="modulos-demo" aria-labelledby="modulos-title">
+      <h2 id="modulos-title" class="titulo-izquierda">Simulaciones y herramientas</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>L-sistemas</h3>
+          <p>Modelos de crecimiento y generación de estructuras fractales.</p>
+          <a class="btn" href="l_system.html" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+
+        <div class="card">
+          <h3>Área poligonal</h3>
+          <p>Aproximación numérica del área de una región del plano mediante discretización.</p>
+          <a class="btn" href="area_region.html" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+
+        <div class="card">
+          <h3>RGB ↔ CIELAB</h3>
+          <p>Conversión interactiva y exploración del espacio de color.</p>
+          <a class="btn" href="cal_RGB_CIELAB.html" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+
+        <div class="card">
+          <h3>¿Es un triángulo?</h3>
+          <p>Visualización de las condiciones que permiten formar un triángulo.</p>
+          <a class="btn" href="conf_triangular.html" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+
+        <div class="card">
+          <h3>Teselación de Voronoi</h3>
+          <p>Diagrama del plano basado en cercanía a puntos semilla, con exportación a SVG.</p>
+          <a class="btn" href="voronoi.html" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+
+        <div class="card">
+          <h3>Juego de la Vida</h3>
+          <p>Autómata celular con reglas simples y patrones emergentes.</p>
+          <a class="btn" href="juego_vida.html" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+
+        <div class="card">
+          <h3>Gielis</h3>
+          <p>Curvas paramétricas para generar formas florales, orgánicas y estrelladas.</p>
+          <a class="btn" href="pag_gielis.html" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+<script>
+new p5((sk) => {
+
+  let t = 0;
+  let heroHeight = 320;
+
+  sk.setup = function () {
+    const container = document.getElementById('perlinHero');
+    const canvas = sk.createCanvas(container.offsetWidth, heroHeight);
+    canvas.parent('perlinHero');
+
+    // Usamos HSB para control fino del color
+    sk.colorMode(sk.HSB, 360, 100, 100, 100);
+    sk.noStroke();
+  };
+
+  sk.draw = function () {
+    sk.clear();
+
+    // ===== CAPA 1 (base oscura dinámica) =====
+    sk.beginShape();
+    sk.vertex(0, sk.height);
+
+    for (let x = 0; x <= sk.width; x += 8) {
+      let n = sk.noise(x * 0.006, t);
+
+      let y = sk.map(n, 0, 1, sk.height * 0.6, sk.height * 0.9);
+
+      // color dinámico (oscuro)
+      let hue = sk.map(x, 0, sk.width, 300, 340); // magenta → vino
+      let sat = 60;
+      let bri = sk.map(n, 0, 1, 30, 50); // oscuro
+      let alp = 20;
+
+      sk.fill(hue, sat, bri, alp);
+      sk.vertex(x, y);
+    }
+
+    sk.vertex(sk.width, sk.height);
+    sk.endShape(sk.CLOSE);
+
+
+    // ===== CAPA 2 (más fría y profunda) =====
+    sk.beginShape();
+    sk.vertex(0, sk.height);
+
+    for (let x = 0; x <= sk.width; x += 8) {
+      let n = sk.noise(x * 0.008, t + 100);
+
+      let y = sk.map(n, 0, 1, sk.height * 0.5, sk.height * 0.82);
+
+      let hue = sk.map(x, 0, sk.width, 240, 270); // azul → violeta
+      let sat = 50;
+      let bri = sk.map(n, 0, 1, 25, 45); // más oscuro
+      let alp = 12;
+
+      sk.fill(hue, sat, bri, alp);
+      sk.vertex(x, y);
+    }
+
+    sk.vertex(sk.width, sk.height);
+    sk.endShape(sk.CLOSE);
+
+
+    // ===== CAPA 3 (muy sutil, textura) =====
+    sk.beginShape();
+    sk.vertex(0, sk.height);
+
+    for (let x = 0; x <= sk.width; x += 12) {
+      let n = sk.noise(x * 0.01, t + 200);
+
+      let y = sk.map(n, 0, 1, sk.height * 0.65, sk.height * 0.95);
+
+      let hue = 320;
+      let sat = 30;
+      let bri = 40;
+      let alp = 6;
+
+      sk.fill(hue, sat, bri, alp);
+      sk.vertex(x, y);
+    }
+
+    sk.vertex(sk.width, sk.height);
+    sk.endShape(sk.CLOSE);
+
+
+    t += 0.0025; // más lento → más elegante
+  };
+
+  sk.windowResized = function () {
+    const container = document.getElementById('perlinHero');
+    sk.resizeCanvas(container.offsetWidth, heroHeight);
+  };
+
+});
+</script>
+
+
+</body>
+</html>
