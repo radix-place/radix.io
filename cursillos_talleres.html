@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="es">
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Radix | Cursos y talleres</title>
+  <meta name="description" content="Cursos y talleres: matemáticas, arte, ciencia y tecnología integradas en experiencias formativas." />
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #111;
+      font-family: system-ui, sans-serif;
+    }
+
+    .hero-modulos {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    #Modulos {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      height: 100%;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .hero-overlay h1 {
+      margin: 0 0 12px 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+    }
+
+    .hero-overlay p {
+      max-width: 760px;
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .back {
+      display: inline-block;
+      margin: 20px 0 0 24px;
+      text-decoration: none;
+      color: #b30059;
+      font-weight: 500;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: white;
+      background: #b30059;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9em;
+    }
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    .bloque {
+      margin-top: 2.5em;
+    }
+
+    .bloque h3 {
+      margin-bottom: 0.5em;
+    }
+
+    .card h3::before {
+  content: "•";
+  color: #b30059;
+  margin-right: 8px;
+  font-weight: bold;
+}
+#boidsHero {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+}
+  </style>
+</head>
+
+
+
+<body>
+
+
+
+<header class="hero-modulos">
+  <div id="boidsHero"></div>
+
+  <div class="hero-overlay">
+    <h1>Cursos y talleres</h1>
+  </div>
+</header>
+
+
+
+  <main class="content">
+
+
+<a href="index.html" class="btn btn-back">
+  Volver a Radix
+</a>
+
+<div class="content">
+  <p>
+    Los cursillos y talleres Radix proponen experiencias de aprendizaje donde la matemática
+    se convierte en un puente entre ciencias, artes y tecnología.
+  </p>
+
+  <p>
+    Diseñamos experiencias formativas para docentes, estudiantes e instituciones,
+    con un enfoque interdisciplinario, computacional y creativo.
+  </p>
+</div>
+
+<section id="cursillos" class="content">
+  <h2 class="titulo-izquierda">Cursillos</h2>
+
+  <p>
+    Los cursillos Radix son procesos de formación estructurados en varias sesiones,
+    orientados al desarrollo de herramientas conceptuales, técnicas y pedagógicas.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>OpenSCAD para docentes <br><span class="sub"></span></h3>
+      <p>
+        Diseño generativo y modelación paramétrica para experiencias educativas.
+      </p>
+      <p><strong>Duración:</strong> 24 horas</p>
+      <a class="btn" href="openscad_docentes.html">Ver cursillo</a>
+    </div>
+  </div>
+</section>
+
+<section id="experiencias" class="content">
+  <h2 class="titulo-izquierda">Experiencias cortas</h2>
+
+  <p>
+    Actividades breves de alto impacto diseñadas para explorar el lenguaje,
+    la precisión y la relación entre pensamiento y tecnología.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Lenguaje, precisión e inteligencia artificial <br><span class="sub"></span></h3>
+      <p>
+        Experiencia en la que los estudiantes traducen ideas visuales en lenguaje preciso
+        para que una IA pueda interpretarlas y devolver instrucciones claras.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="talleres" class="content">
+  <h2 class="titulo-izquierda">Talleres para docentes y estudiantes</h2>
+
+  <p>
+    Los talleres Radix son experiencias breves de exploración, creación y comprensión,
+    donde la matemática se articula con la naturaleza, el arte y la tecnología.
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Proporción y diseño <br><span class="sub"></span></h3>
+      <p>
+        Exploración de razones, escalas y proporciones en contextos naturales y de diseño.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Recurrencia y crecimiento <br><span class="sub"></span></h3>
+      <p>
+        Modelación de patrones repetitivos mediante reglas y sistemas de crecimiento.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Geometría vectorial y transformación <br><span class="sub"></span></h3>
+      <p>
+        Trabajo con vectores, rotaciones y escalas para construir formas dinámicas.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Filotaxis y crecimiento radial <br><span class="sub"></span></h3>
+      <p>
+        Estudio de patrones naturales como espirales y distribuciones en plantas.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Ruido de Perlin y texturas naturales <br><span class="sub"></span></h3>
+      <p>
+        Modelación de fenómenos como paisajes y fluidos mediante ruido suave.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Teselaciones y patrones del plano <br><span class="sub"></span></h3>
+      <p>
+        Construcción de patrones que recubren el plano mediante transformaciones geométricas.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="content">
+  <p>
+    Si deseas desarrollar una propuesta Radix para tu colegio, universidad o proyecto educativo,
+    <a href="mailto:radix.correo@gmail.com" style="color:#b30059; text-decoration:none;">
+      <strong>contáctanos aquí</strong>
+    </a>.
+  </p>
+</section>
+
+  </main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+
+<script>
+new p5((sk) => {
+
+  let boids = [];
+  let numBoids = 20;
+
+  class Boid {
+    constructor() {
+      this.pos = sk.createVector(sk.random(sk.width), sk.random(sk.height));
+      this.vel = p5.Vector.random2D().mult(sk.random(0.3, 0.8));
+      this.acc = sk.createVector(0, 0);
+      this.maxSpeed = 1;
+      this.maxForce = 0.03;
+    }
+
+    edges() {
+      if (this.pos.x > sk.width) this.pos.x = 0;
+      if (this.pos.x < 0) this.pos.x = sk.width;
+      if (this.pos.y > sk.height) this.pos.y = 0;
+      if (this.pos.y < 0) this.pos.y = sk.height;
+    }
+
+    align(boids) {
+      let perception = 60;
+      let steering = sk.createVector();
+      let total = 0;
+
+      for (let other of boids) {
+        let d = this.pos.dist(other.pos);
+        if (other != this && d < perception) {
+          steering.add(other.vel);
+          total++;
+        }
+      }
+
+      if (total > 0) {
+        steering.div(total);
+        steering.setMag(this.maxSpeed);
+        steering.sub(this.vel);
+        steering.limit(this.maxForce);
+      }
+
+      return steering;
+    }
+
+    update() {
+      this.pos.add(this.vel);
+      this.vel.add(this.acc);
+      this.vel.limit(this.maxSpeed);
+      this.acc.mult(0);
+    }
+
+    applyForce(f) {
+      this.acc.add(f);
+    }
+
+    draw() {
+sk.noStroke();
+sk.fill(80, 0, 8, 90);
+sk.circle(this.pos.x, this.pos.y, 9);
+    }
+  }
+
+  sk.setup = function () {
+    const container = document.getElementById('boidsHero');
+    let canvas = sk.createCanvas(container.offsetWidth, 320);
+    canvas.parent('boidsHero');
+
+    for (let i = 0; i < numBoids; i++) {
+      boids.push(new Boid());
+    }
+  };
+
+  sk.draw = function () {
+    sk.clear();
+
+    for (let b of boids) {
+      let alignForce = b.align(boids);
+      b.applyForce(alignForce);
+
+      b.update();
+      b.edges();
+      b.draw();
+    }
+  };
+
+  sk.windowResized = function () {
+    const container = document.getElementById('boidsHero');
+    sk.resizeCanvas(container.offsetWidth, 320);
+  };
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="es">
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Radix | OpenSCAD para docentes</title>
+  <meta name="description" content="Cursillo de OpenSCAD para docentes: diseño paramétrico, modelación geométrica y experiencias educativas interdisciplinarias." />
+
+  <link rel="stylesheet" href="css/style.css">
+
+<style>
+  body {
+    margin: 0;
+    background: #fcfcfc;
+    color: #111;
+    font-family: system-ui, sans-serif;
+  }
+
+  /* ===== HERO ===== */
+
+  .hero-cursillo {
+    width: 100%;
+    padding: 84px 24px 64px 24px;
+    background: linear-gradient(180deg, #faf9fb 0%, #f1ecf2 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .hero-inner {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .hero-kicker {
+    margin: 0 0 10px 0;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8d3a67;
+    font-weight: 600;
+  }
+
+  .hero-cursillo h1 {
+    margin: 0;
+    max-width: 780px;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    color: #181218;
+  }
+
+  .hero-sub {
+    margin-top: 16px;
+    max-width: 760px;
+    font-size: 1.08rem;
+    line-height: 1.65;
+    color: #4a3e49;
+  }
+
+  /* ===== CONTENIDO ===== */
+
+  .content {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 28px 24px;
+  }
+
+  .titulo-izquierda {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.7rem;
+    line-height: 1.15;
+    color: #181218;
+  }
+
+  p {
+    line-height: 1.65;
+    color: #3f3a40;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+    line-height: 1.65;
+  }
+
+  li + li {
+    margin-top: 10px;
+  }
+
+  /* ===== BOTONES ===== */
+
+    .back {
+      display: inline-block;
+      margin: 20px 0 0 24px;
+      text-decoration: none;
+      color: #b30059;
+      font-weight: 500;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: white;
+      background: #b30059;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9em;
+    }
+
+  /* ===== GRID Y TARJETAS ===== */
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 24px;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(141, 58, 103, 0.25);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.06);
+  }
+
+  .card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    color: #1a1519;
+  }
+
+  .card p {
+    margin: 0 0 8px 0;
+    color: #4c454b;
+  }
+
+  /* ===== DIVISORES ===== */
+
+  hr {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin: 3em 0;
+  }
+</style>
+
+</head>
+
+<body>
+
+<header class="hero-cursillo">
+  <div class="hero-inner">
+    <p class="hero-kicker">Cursos y talleres · Radix</p>
+    <h1>OpenSCAD para docentes</h1>
+    <p class="hero-sub">
+      Diseño generativo y modelación paramétrica para experiencias educativas.
+    </p>
+  </div>
+</header>
+
+  <div class="content">
+    <a href="cursillos_talleres.html" class="btn btn-back">Volver a cursos y talleres</a>
+  </div>
+
+  <section id="introduccion" class="content">
+    <p>
+      Este curso introduce a docentes de colegio y universidad en el uso de OpenSCAD
+      como herramienta de modelación geométrica y diseño paramétrico para experiencias educativas.
+    </p>
+
+    <p>
+      A través del trabajo con código, formas y variación, los participantes desarrollan
+      herramientas para diseñar actividades que articulan matemáticas, arte, tecnología y pensamiento espacial.
+    </p>
+  </section>
+
+  <section id="presentacion" class="content">
+    <h2 class="titulo-izquierda">Presentación general</h2>
+
+    <p><strong>Enfoque:</strong> diseño generativo y modelación paramétrica para experiencias educativas.</p>
+    <p><strong>Duración:</strong> 24 horas.</p>
+    <p><strong>Dirigido a:</strong> docentes de colegio y universidad interesados en matemáticas, tecnología, diseño, arte y proyectos STEAM.</p>
+  </section>
+
+
+<section id="proposito" class="content">
+  <h2 class="titulo-izquierda">Propósito</h2>
+
+  <p>
+    Introducir a los docentes en el uso de OpenSCAD como herramienta de modelación geométrica y diseño paramétrico,
+    con el fin de que puedan crear actividades pedagógicas orientadas al desarrollo del pensamiento espacial,
+    numérico y analítico en los estudiantes.
+  </p>
+
+  <p>
+    El curso también busca familiarizar a los participantes con el lenguaje matemático y con herramientas técnicas
+    que permitan construir experiencias de aprendizaje interdisciplinarias en áreas como matemáticas, arte, biología,
+    literatura, ciencias sociales, tecnología, diseño y educación STEAM.
+  </p>
+</section>
+
+<section id="estructura" class="content">
+  <h2 class="titulo-izquierda">Estructura del cursillo</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Módulo 1 · Introducción a OpenSCAD</h3>
+      <p><strong>Duración:</strong> 2 horas</p>
+      <p>Entorno de trabajo, sintaxis básica y primeros sólidos: cubo, cilindro y esfera.</p>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 2 · Transformaciones geométricas</h3>
+      <p><strong>Duración:</strong> 2 horas</p>
+      <p>Uso de translate, rotate, scale y composición de transformaciones en el espacio.</p>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 3 · Operaciones booleanas</h3>
+      <p><strong>Duración:</strong> 2 horas</p>
+      <p>Construcción de formas complejas mediante union, difference e intersection.</p>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 4 · Parametrización</h3>
+      <p><strong>Duración:</strong> 3 horas</p>
+      <p>Variables, relaciones entre dimensiones y generación de modelos ajustables.</p>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 5 · Repetición y generación de estructuras</h3>
+      <p><strong>Duración:</strong> 4 horas</p>
+      <p>Uso de ciclos, patrones geométricos, módulos y nociones básicas de funciones y librerías.</p>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 6 · Diseño biomimético básico</h3>
+      <p><strong>Duración:</strong> 4 horas</p>
+      <p>Estructuras radiales, crecimiento modular, filotaxia, L-systems y colonización espacial.</p>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 7 · Exportación y fabricación digital</h3>
+      <p><strong>Duración:</strong> 2 horas</p>
+      <p>Preparación de modelos para impresión 3D y corte láser mediante exportación a STL y DXF.</p>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 8 · Diseño de actividades de aula</h3>
+      <p><strong>Duración:</strong> 5 horas</p>
+      <p>Diseño de experiencias pedagógicas que articulan modelación geométrica, variación paramétrica y lenguaje matemático.</p>
+    </div>
+  </div>
+</section>
+
+<section id="aprendizajes" class="content">
+  <h2 class="titulo-izquierda">Resultados esperados</h2>
+
+  <ul>
+    <li>Comprender la lógica básica del modelado geométrico mediante código.</li>
+    <li>Construir modelos simples utilizando transformaciones y operaciones booleanas.</li>
+    <li>Crear objetos paramétricos ajustables.</li>
+    <li>Generar patrones y estructuras repetitivas.</li>
+    <li>Preparar modelos para impresión 3D o corte láser.</li>
+    <li>Diseñar actividades educativas que utilicen OpenSCAD como herramienta de exploración.</li>
+  </ul>
+</section>
+
+<section id="contacto" class="content">
+  <h2 class="titulo-izquierda">¿Te interesa este curso?</h2>
+
+  <p>
+    Si deseas implementar este curso en tu institución o conversar sobre una adaptación
+    a tu contexto educativo, 
+    <a href="mailto:radix.correo@gmail.com" style="color:#b30059; text-decoration:none;">
+      <strong>escríbenos aquí</strong>
+    </a>.
+  </p>
+</section>
+
+</body>
