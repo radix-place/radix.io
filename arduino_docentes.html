@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="es">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,95 +7,97 @@
   <title>Radix | Arduino y Processing para docentes</title>
   <meta name="description" content="Cursillo de Arduino y Processing para docentes: lectura y visualización de datos con sensores para experiencias educativas interdisciplinarias." />
 
-  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <meta name="color-scheme" content="light" />
 
- <style>
-  body {
-    margin: 0;
-    background: #ffffff;
-    color: #111;
-    font-family: system-ui, sans-serif;
-  }
+  <style>
+    :root { color-scheme: light !important; }
 
-  /* ===== HERO ===== */
-
-  .hero-cursillo {
-    width: 100%;
-    padding: 84px 24px 64px 24px;
-    background: linear-gradient(180deg, #faf9fb 0%, #f1ecf2 100%);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  }
-
-  .hero-inner {
-    max-width: 980px;
-    margin: 0 auto;
-  }
-
-  .hero-kicker {
-    margin: 0 0 10px 0;
-    font-size: 0.82rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #8d3a67;
-    font-weight: 600;
-  }
-
-  .hero-cursillo h1 {
-    margin: 0;
-    max-width: 780px;
-    font-size: clamp(2.4rem, 5vw, 4.2rem);
-    line-height: 1.02;
-    letter-spacing: -0.035em;
-    color: #181218;
-  }
-
-  .hero-sub {
-    margin-top: 16px;
-    max-width: 760px;
-    font-size: 1.08rem;
-    line-height: 1.65;
-    color: #4a3e49;
-  }
-
-  /* ===== CONTENIDO ===== */
-
-  .content {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 28px 24px;
-  }
-
-  .titulo-izquierda {
-    margin-top: 0;
-    margin-bottom: 18px;
-    font-size: 1.7rem;
-    line-height: 1.15;
-    color: #181218;
-  }
-
-  p {
-    line-height: 1.65;
-    color: #3f3a40;
-  }
-
-  ul {
-    padding-left: 1.2rem;
-    line-height: 1.65;
-  }
-
-  li + li {
-    margin-top: 10px;
-  }
-
-  /* ===== BOTONES ===== */
-
-    .back {
-      display: inline-block;
-      margin: 20px 0 0 24px;
-      text-decoration: none;
-      color: #b30059;
-      font-weight: 500;
+    html, body {
+      margin: 0;
+      background: #ffffff !important;
+      color: #111 !important;
+      font-family: system-ui, sans-serif;
     }
+
+    body {
+      background: #ffffff !important;
+      color: #111 !important;
+    }
+
+    /* ===== HERO ===== */
+
+    .hero-cursillo {
+      width: 100%;
+      padding: 84px 24px 64px 24px;
+      background: linear-gradient(180deg, #faf9fb 0%, #f1ecf2 100%) !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .hero-kicker {
+      margin: 0 0 10px 0;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8d3a67;
+      font-weight: 600;
+    }
+
+    .hero-cursillo h1 {
+      margin: 0;
+      max-width: 780px;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      color: #181218;
+    }
+
+    .hero-sub {
+      margin-top: 16px;
+      max-width: 760px;
+      font-size: 1.08rem;
+      line-height: 1.65;
+      color: #4a3e49;
+    }
+
+    .content {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 24px;
+      background: transparent !important;
+      color: #111 !important;
+    }
+
+    .titulo-izquierda {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 1.7rem;
+      line-height: 1.15;
+      color: #181218 !important;
+    }
+
+    p, li, ul, h1, h2, h3 {
+      color: inherit;
+    }
+
+    p {
+      line-height: 1.65;
+      color: #3f3a40 !important;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      line-height: 1.65;
+    }
+
+    li + li {
+      margin-top: 10px;
+    }
+
     .btn {
       display: inline-block;
       margin-top: 10px;
@@ -107,80 +108,60 @@
       border-radius: 6px;
       font-size: 0.9em;
     }
-.btn-back {
-  display: inline-block;
-  background: #b30059;
-  color: white;
-  padding: 12px 22px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: all 0.2s ease;
-}
 
-.btn-back:hover {
-  background: #920047;
-  transform: translateY(-1px);
-}
+    .btn-back {
+      display: inline-block;
+      background: #b30059;
+      color: white !important;
+      padding: 12px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+    }
 
-  /* ===== GRID Y TARJETAS ===== */
+    .btn-back:hover {
+      background: #920047;
+      transform: translateY(-1px);
+    }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 22px;
-    margin-top: 24px;
-  }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
 
-  .card {
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 18px;
-    padding: 22px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    transition: all 0.2s ease;
-  }
+    .card {
+      background: rgba(255, 255, 255, 0.92) !important;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+    }
 
-  .card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(141, 58, 103, 0.25);
-    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.06);
-  }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+      color: #1a1519 !important;
+    }
 
-  .card h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.05rem;
-    color: #1a1519;
-  }
+    .card p {
+      margin: 0 0 8px 0;
+      color: #4c454b !important;
+    }
 
-  .card p {
-    margin: 0 0 8px 0;
-    color: #4c454b;
-  }
-
-  /* ===== DIVISORES ===== */
-
-  hr {
-    border: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    margin: 3em 0;
-  }
-</style>
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Radix | Arduino y Processing para docentes</title>
-  <meta name="description" content="Cursillo de Arduino y Processing para docentes: lectura y visualización de datos con sensores para experiencias educativas interdisciplinarias." />
-
-  <link rel="stylesheet" href="css/style.css">
+    hr {
+      border: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      margin: 3em 0;
+    }
+  </style>
 </head>
-
-
 <body>
 
 <header class="hero-cursillo">
