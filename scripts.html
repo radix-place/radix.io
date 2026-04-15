@@ -196,113 +196,104 @@
           <a class="btn" href="pag_gielis.html" target="_blank" rel="noopener noreferrer">Abrir</a>
         </div>
 
+        <div class="card">
+          <h3>Chryzode</h3>
+          <p>Construcción discreta en la circunferencia mediante reglas de asignación modular.</p>
+          <a class="btn" href="chryzode.html">Abrir</a>
+      </div>
+
       </div>
     </section>
 
   </div>
+  </div>
 
-</body>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script>
+  new p5((sk) => {
 
+    let t = 0;
+    let heroHeight = 320;
 
+    sk.setup = function () {
+      const container = document.getElementById('perlinHero');
+      const canvas = sk.createCanvas(container.offsetWidth, heroHeight);
+      canvas.parent('perlinHero');
 
-<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
-<script>
-new p5((sk) => {
+      sk.colorMode(sk.HSB, 360, 100, 100, 100);
+      sk.noStroke();
+    };
 
-  let t = 0;
-  let heroHeight = 320;
+    sk.draw = function () {
+      sk.clear();
 
-  sk.setup = function () {
-    const container = document.getElementById('perlinHero');
-    const canvas = sk.createCanvas(container.offsetWidth, heroHeight);
-    canvas.parent('perlinHero');
+      sk.beginShape();
+      sk.vertex(0, sk.height);
 
-    // Usamos HSB para control fino del color
-    sk.colorMode(sk.HSB, 360, 100, 100, 100);
-    sk.noStroke();
-  };
+      for (let x = 0; x <= sk.width; x += 8) {
+        let n = sk.noise(x * 0.006, t);
+        let y = sk.map(n, 0, 1, sk.height * 0.6, sk.height * 0.9);
 
-  sk.draw = function () {
-    sk.clear();
+        let hue = sk.map(x, 0, sk.width, 300, 340);
+        let sat = 60;
+        let bri = sk.map(n, 0, 1, 30, 50);
+        let alp = 20;
 
-    // ===== CAPA 1 (base oscura dinámica) =====
-    sk.beginShape();
-    sk.vertex(0, sk.height);
+        sk.fill(hue, sat, bri, alp);
+        sk.vertex(x, y);
+      }
 
-    for (let x = 0; x <= sk.width; x += 8) {
-      let n = sk.noise(x * 0.006, t);
+      sk.vertex(sk.width, sk.height);
+      sk.endShape(sk.CLOSE);
 
-      let y = sk.map(n, 0, 1, sk.height * 0.6, sk.height * 0.9);
+      sk.beginShape();
+      sk.vertex(0, sk.height);
 
-      // color dinámico (oscuro)
-      let hue = sk.map(x, 0, sk.width, 300, 340); // magenta → vino
-      let sat = 60;
-      let bri = sk.map(n, 0, 1, 30, 50); // oscuro
-      let alp = 20;
+      for (let x = 0; x <= sk.width; x += 8) {
+        let n = sk.noise(x * 0.008, t + 100);
+        let y = sk.map(n, 0, 1, sk.height * 0.5, sk.height * 0.82);
 
-      sk.fill(hue, sat, bri, alp);
-      sk.vertex(x, y);
-    }
+        let hue = sk.map(x, 0, sk.width, 240, 270);
+        let sat = 50;
+        let bri = sk.map(n, 0, 1, 25, 45);
+        let alp = 12;
 
-    sk.vertex(sk.width, sk.height);
-    sk.endShape(sk.CLOSE);
+        sk.fill(hue, sat, bri, alp);
+        sk.vertex(x, y);
+      }
 
+      sk.vertex(sk.width, sk.height);
+      sk.endShape(sk.CLOSE);
 
-    // ===== CAPA 2 (más fría y profunda) =====
-    sk.beginShape();
-    sk.vertex(0, sk.height);
+      sk.beginShape();
+      sk.vertex(0, sk.height);
 
-    for (let x = 0; x <= sk.width; x += 8) {
-      let n = sk.noise(x * 0.008, t + 100);
+      for (let x = 0; x <= sk.width; x += 12) {
+        let n = sk.noise(x * 0.01, t + 200);
+        let y = sk.map(n, 0, 1, sk.height * 0.65, sk.height * 0.95);
 
-      let y = sk.map(n, 0, 1, sk.height * 0.5, sk.height * 0.82);
+        let hue = 320;
+        let sat = 30;
+        let bri = 40;
+        let alp = 6;
 
-      let hue = sk.map(x, 0, sk.width, 240, 270); // azul → violeta
-      let sat = 50;
-      let bri = sk.map(n, 0, 1, 25, 45); // más oscuro
-      let alp = 12;
+        sk.fill(hue, sat, bri, alp);
+        sk.vertex(x, y);
+      }
 
-      sk.fill(hue, sat, bri, alp);
-      sk.vertex(x, y);
-    }
+      sk.vertex(sk.width, sk.height);
+      sk.endShape(sk.CLOSE);
 
-    sk.vertex(sk.width, sk.height);
-    sk.endShape(sk.CLOSE);
+      t += 0.0025;
+    };
 
+    sk.windowResized = function () {
+      const container = document.getElementById('perlinHero');
+      sk.resizeCanvas(container.offsetWidth, heroHeight);
+    };
 
-    // ===== CAPA 3 (muy sutil, textura) =====
-    sk.beginShape();
-    sk.vertex(0, sk.height);
-
-    for (let x = 0; x <= sk.width; x += 12) {
-      let n = sk.noise(x * 0.01, t + 200);
-
-      let y = sk.map(n, 0, 1, sk.height * 0.65, sk.height * 0.95);
-
-      let hue = 320;
-      let sat = 30;
-      let bri = 40;
-      let alp = 6;
-
-      sk.fill(hue, sat, bri, alp);
-      sk.vertex(x, y);
-    }
-
-    sk.vertex(sk.width, sk.height);
-    sk.endShape(sk.CLOSE);
-
-
-    t += 0.0025; // más lento → más elegante
-  };
-
-  sk.windowResized = function () {
-    const container = document.getElementById('perlinHero');
-    sk.resizeCanvas(container.offsetWidth, heroHeight);
-  };
-
-});
-</script>
-
+  });
+  </script>
 
 </body>
 </html>
