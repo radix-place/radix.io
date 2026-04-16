@@ -1,4 +1,10 @@
 window.ChryzodeApp = (() => {
+  const DEFAULTS = {
+    n: 180,
+    a: 2,
+    stroke: 1
+  };
+
   function gcd(a, b) {
     a = Math.abs(a);
     b = Math.abs(b);
@@ -51,7 +57,8 @@ window.ChryzodeApp = (() => {
       min: "2",
       max: "800",
       step: "1",
-      value: "180"
+      value: String(DEFAULTS.n),
+      placeholder: String(DEFAULTS.n)
     });
 
     const aInput = create("input", {
@@ -59,7 +66,8 @@ window.ChryzodeApp = (() => {
       min: "0",
       max: "10000",
       step: "1",
-      value: "2"
+      value: String(DEFAULTS.a),
+      placeholder: String(DEFAULTS.a)
     });
 
     const strokeInput = create("input", {
@@ -67,7 +75,8 @@ window.ChryzodeApp = (() => {
       min: "0.1",
       max: "5",
       step: "0.1",
-      value: "1"
+      value: String(DEFAULTS.stroke),
+      placeholder: String(DEFAULTS.stroke)
     });
 
     const pointsCheck = create("input", {
@@ -75,12 +84,14 @@ window.ChryzodeApp = (() => {
       checked: "checked"
     });
 
+    const drawBtn = create("button", { class: "btn", type: "button" }, ["Dibujar"]);
     const exportBtn = create("button", { class: "btn ghost", type: "button" }, ["Exportar SVG"]);
 
     controls.appendChild(create("label", {}, ["n:", nInput]));
     controls.appendChild(create("label", {}, ["a:", aInput]));
     controls.appendChild(create("label", {}, ["trazo:", strokeInput]));
     controls.appendChild(create("label", {}, [pointsCheck, "mostrar puntos"]));
+    controls.appendChild(drawBtn);
     controls.appendChild(exportBtn);
 
     const info = create("div", { class: "muted", html: "" });
@@ -109,6 +120,7 @@ window.ChryzodeApp = (() => {
       aInput,
       strokeInput,
       pointsCheck,
+      drawBtn,
       exportBtn
     };
   }
@@ -126,7 +138,7 @@ window.ChryzodeApp = (() => {
   }
 
   function adaptiveStroke(n, userStroke) {
-    const base = Number.isFinite(userStroke) && userStroke > 0 ? userStroke : 1;
+    const base = Number.isFinite(userStroke) && userStroke > 0 ? userStroke : DEFAULTS.stroke;
     if (n <= 180) return base;
     if (n <= 400) return Math.min(base, 0.9);
     if (n <= 650) return Math.min(base, 0.7);
@@ -140,24 +152,38 @@ window.ChryzodeApp = (() => {
     return 1.0;
   }
 
-  function render(ui) {
-    const svg = ui.svg;
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-
+  function getParams(ui) {
     let n = parseInt(ui.nInput.value, 10);
     let a = parseInt(ui.aInput.value, 10);
     let strokeWidth = parseFloat(ui.strokeInput.value);
 
-    if (!Number.isFinite(n) || n < 2) n = 2;
+    if (!Number.isFinite(n)) n = DEFAULTS.n;
+    if (!Number.isFinite(a)) a = DEFAULTS.a;
+    if (!Number.isFinite(strokeWidth)) strokeWidth = DEFAULTS.stroke;
+
+    if (n < 2) n = 2;
     if (n > 800) n = 800;
 
-    if (!Number.isFinite(a) || a < 0) a = 0;
-    if (!Number.isFinite(strokeWidth) || strokeWidth <= 0) strokeWidth = 1;
+    if (a < 0) a = 0;
+    if (a > 10000) a = 10000;
 
-    ui.nInput.value = String(n);
-    ui.aInput.value = String(a);
-    ui.strokeInput.value = String(strokeWidth);
+    if (strokeWidth <= 0) strokeWidth = DEFAULTS.stroke;
+    if (strokeWidth > 5) strokeWidth = 5;
 
+    return { n, a, strokeWidth };
+  }
+
+  function normalizeInputs(ui, params) {
+    ui.nInput.value = String(params.n);
+    ui.aInput.value = String(params.a);
+    ui.strokeInput.value = String(params.strokeWidth);
+  }
+
+  function render(ui, params = null) {
+    const svg = ui.svg;
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+    const { n, a, strokeWidth } = params || getParams(ui);
     const showPoints = ui.pointsCheck.checked;
 
     const { width, height, cx, cy, radius } = computeDimensions(ui);
@@ -166,6 +192,8 @@ window.ChryzodeApp = (() => {
 
     const realStroke = adaptiveStroke(n, strokeWidth);
     const pointRadius = adaptivePointRadius(n);
+
+    const aMod = ((a % n) + n) % n;
 
     svg.appendChild(createSVG("rect", {
       x: "0",
@@ -194,7 +222,7 @@ window.ChryzodeApp = (() => {
     const pointsGroup = createSVG("g");
 
     for (let k = 0; k < n; k++) {
-      const j = (a * k) % n;
+      const j = (aMod * k) % n;
       const p = pts[k];
       const q = pts[j];
 
@@ -224,9 +252,9 @@ window.ChryzodeApp = (() => {
     svg.appendChild(edgesGroup);
     svg.appendChild(pointsGroup);
 
-    const d = gcd(a, n);
+    const d = gcd(aMod, n);
     ui.info.innerHTML =
-      `Regla: <strong>f(k) = ${a}k mod ${n}</strong> &nbsp;|&nbsp; ` +
+      `Regla: <strong>f(k) = ${aMod}k mod ${n}</strong> &nbsp;|&nbsp; ` +
       `gcd(a,n) = <strong>${d}</strong> &nbsp;|&nbsp; ` +
       `puntos: <strong>${n}</strong>`;
   }
@@ -239,7 +267,7 @@ window.ChryzodeApp = (() => {
       source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
     }
 
-    if (!source.match(/^<svg[^>]+xmlns:xlink="http:\/\/www\.w3\.org\/1999\/xlink"/)) {
+    if (!source.match(/^<svg[^>]+xmlns:xlink="http:\/\/www\.w3.org\/1999\/xlink"/)) {
       source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
     }
 
@@ -277,24 +305,35 @@ window.ChryzodeApp = (() => {
     }
 
     const ui = buildUI(container);
-    const rerender = () => render(ui);
-    const rerenderDebounced = debounce(rerender, 80);
 
+    let lastParams = getParams(ui);
+
+    const draw = () => {
+      lastParams = getParams(ui);
+      normalizeInputs(ui, lastParams);
+      render(ui, lastParams);
+    };
+
+    const rerenderOnResize = debounce(() => {
+      render(ui, lastParams);
+    }, 80);
+
+    ui.drawBtn.addEventListener("click", draw);
     ui.exportBtn.addEventListener("click", () => exportSVG(ui.svg));
 
-    [
-      ui.nInput,
-      ui.aInput,
-      ui.strokeInput,
-      ui.pointsCheck
-    ].forEach(el => {
-      el.addEventListener("input", rerenderDebounced);
-      el.addEventListener("change", rerender);
+    [ui.nInput, ui.aInput, ui.strokeInput].forEach(el => {
+      el.addEventListener("keydown", e => {
+        if (e.key === "Enter") draw();
+      });
     });
 
-    window.addEventListener("resize", rerenderDebounced);
+    ui.pointsCheck.addEventListener("change", () => {
+      render(ui, lastParams);
+    });
 
-    rerender();
+    window.addEventListener("resize", rerenderOnResize);
+
+    draw();
   }
 
   return { mount };

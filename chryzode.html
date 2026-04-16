@@ -112,34 +112,35 @@
   <h1>Chryzode</h1>
 
   <p>
-    Un <strong>chryzode</strong> puede visualizarse como una estructura discreta trazada sobre una circunferencia,
-    en la que un conjunto finito de puntos se conecta según una regla de asignación modular.
-    La figura no surge de una curva continua previa, sino de la repetición de una relación aritmética entre índices.
+    Un <strong>chryzode</strong> es una estructura discreta trazada sobre una circunferencia.
+    Se construye al distribuir un conjunto finito de puntos y conectar cada uno de ellos
+    según una regla aritmética.
   </p>
 
   <div class="math">
     \[
-      f(k) = a k \pmod{n},
+      f(k) = a k \pmod{n}
     \]
   </div>
 
   <p>
-    donde los enteros $0,1,\dots,n-1$ se distribuyen sobre la circunferencia y cada índice $k$ se conecta con
-    $f(k)$. La forma visual resultante depende de la relación entre el número de puntos $n$ y el parámetro $a$.
+    Los enteros $0,1,\dots,n-1$ se ubican sobre la circunferencia, y cada índice $k$
+    se conecta con su imagen $f(k)$. La figura resultante depende de la relación entre
+    el número de puntos $n$ y el parámetro $a$.
   </p>
 
   <h2>Elementos de la construcción</h2>
   <ul>
     <li>
       <strong>\(n\)</strong>: número total de puntos distribuidos sobre la circunferencia.
-      Determina la resolución discreta de la estructura.
+      Define la resolución discreta de la figura.
     </li>
     <li>
-      <strong>\(a\)</strong>: parámetro de asignación modular.
-      Controla cómo se conectan los puntos y modifica drásticamente el patrón visual.
+      <strong>\(a\)</strong>: parámetro de la regla modular.
+      Determina cómo se conectan los puntos y modifica el patrón visual.
     </li>
     <li>
-      <strong>Puntos base</strong>: representan los índices del conjunto discreto \(\{0,1,\dots,n-1\}\).
+      <strong>Puntos base</strong>: representan los índices del conjunto \(\{0,1,\dots,n-1\}\).
     </li>
     <li>
       <strong>Cuerdas</strong>: segmentos que unen cada punto \(k\) con su imagen \(f(k)\).
@@ -148,17 +149,17 @@
 
   <h2>Interpretación</h2>
   <p>
-    Esta visualización muestra cómo una regla aritmética simple puede producir configuraciones geométricas complejas.
-    El interés del chryzode no está solo en la figura final, sino en la relación entre número, repetición,
-    simetría y estructura.
+    Esta visualización muestra cómo una regla aritmética simple puede generar estructuras
+    de gran riqueza geométrica. Su interés no está solo en la figura final, sino en la relación
+    entre número, repetición, simetría y forma.
   </p>
 
-  <h2>Notas de uso</h2>
+  <h2>Observaciones</h2>
   <ul>
-    <li>Cuando \(a\) y \(n\) comparten ciertas relaciones aritméticas, emergen patrones periódicos y simetrías visibles.</li>
+    <li>Según la relación entre \(a\) y \(n\), pueden aparecer simetrías y patrones periódicos.</li>
     <li>Modificar \(n\) cambia la densidad de la representación.</li>
-    <li>Modificar \(a\) altera la conectividad y, con ello, la geometría global del dibujo.</li>
-    <li>La visualización puede interpretarse como un grafo dibujado sobre una circunferencia.</li>
+    <li>Modificar \(a\) altera la conectividad y, con ello, la estructura global del dibujo.</li>
+    <li>La figura también puede entenderse como un grafo dispuesto sobre una circunferencia.</li>
   </ul>
 </div>
 
