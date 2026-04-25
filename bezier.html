@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curva de Bézier interactiva</title>
+
+  <style>
+    :root { --ink:#111; --muted:#666; --bg:#f7f7f7; --card:#fff; }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: var(--bg);
+      color: var(--ink);
+      text-align: center;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: left;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    h2 {
+      margin-top: 24px;
+      font-size: 18px;
+    }
+
+    p, li {
+      line-height: 1.65;
+    }
+
+    .lead {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .math {
+      overflow-x: auto;
+      padding: 8px 0;
+    }
+
+    .app {
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .controles {
+      margin: 15px;
+    }
+
+    button {
+      padding: 10px 16px;
+      margin: 5px;
+      border: none;
+      border-radius: 6px;
+      background: #222;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+    button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    canvas {
+      max-width: 100%;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      cursor: crosshair;
+    }
+
+    .rx-back-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 16px 0 24px;
+      width: 100%;
+    }
+
+    .rx-back {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      box-shadow: 0 6px 16px rgba(0,0,0,.12);
+      transition: transform .15s ease, box-shadow .15s ease;
+      background: #000000;
+      color: #fff;
+    }
+
+    .rx-back:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0,0,0,.18);
+    }
+
+    .rx-back:focus-visible {
+      outline: 3px solid rgba(0,0,0,.25);
+      outline-offset: 2px;
+    }
+  </style>
+
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <h1>Curva de Bézier interactiva</h1>
+
+    <p>
+      Una <strong>curva de Bézier</strong> es una curva paramétrica determinada por un conjunto
+      finito de puntos. Los puntos extremos fijan el inicio y el final de la curva, mientras que
+      los puntos intermedios actúan como puntos de control que modifican su forma.
+    </p>
+
+    <div class="math">
+      \[
+        B(t)=\sum_{i=0}^{n} \binom{n}{i}(1-t)^{n-i}t^iP_i,
+        \qquad 0 \leq t \leq 1
+      \]
+    </div>
+
+    <p>
+      En esta expresión, los puntos \(P_0,P_1,\dots,P_n\) definen el polígono de control.
+      El parámetro \(t\) recorre el intervalo \([0,1]\): cuando \(t=0\), la curva inicia en
+      \(P_0\); cuando \(t=1\), termina en \(P_n\).
+    </p>
+
+    <h2>Elementos de la construcción</h2>
+
+    <ul>
+      <li>
+        <strong>\(P_0\)</strong>: punto inicial de la curva.
+      </li>
+      <li>
+        <strong>\(P_n\)</strong>: punto final de la curva.
+      </li>
+      <li>
+        <strong>Puntos de control</strong>: puntos intermedios que atraen la curva y modifican su trayectoria.
+      </li>
+      <li>
+        <strong>Polígono de control</strong>: línea auxiliar que conecta los puntos \(P_i\) y permite visualizar la estructura que gobierna la curva.
+      </li>
+    </ul>
+
+    <h2>Interpretación</h2>
+
+    <p>
+      Aunque la curva no suele pasar por los puntos de control intermedios, estos determinan
+      la dirección, tensión y forma global de la trayectoria. Al moverlos, se observa cómo
+      una estructura geométrica simple puede generar formas suaves, flexibles y controlables.
+    </p>
+
+    <h2>Exploración interactiva</h2>
+
+    <p>
+      Usa los botones para agregar o quitar puntos de control. Arrastra cualquier punto para
+      modificar la curva. El botón de quitar se desactiva cuando solo quedan los dos puntos
+      extremos, porque esos dos puntos son la estructura mínima de una curva de Bézier.
+    </p>
+
+    <div class="app">
+      <div class="controles">
+        <button id="agregarPunto">Agregar punto de control</button>
+        <button id="quitarPunto">Quitar punto de control</button>
+        <button id="reiniciar">Reiniciar</button>
+      </div>
+
+      <canvas id="canvasBezier" width="900" height="600"></canvas>
+    </div>
+  </div>
+
+  <script src="js/bezier.js"></script>
+
+  <div class="rx-back-wrap">
+    <a href="scripts.html" class="rx-back">REGRESAR</a>
+  </div>
+
+</body>
+</html>
