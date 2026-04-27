@@ -78,13 +78,19 @@
       cursor: not-allowed;
     }
 
-    canvas {
-      max-width: 100%;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      cursor: crosshair;
-    }
+canvas {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  cursor: crosshair;
+
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
 
     .rx-back-wrap {
       display: flex;
