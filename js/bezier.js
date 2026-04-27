@@ -4,15 +4,40 @@ const ctx = canvas.getContext("2d");
 const btnAgregar = document.getElementById("agregarPunto");
 const btnReiniciar = document.getElementById("reiniciar");
 const btnQuitar = document.getElementById("quitarPunto");
+const btnGuardar = document.getElementById("guardarImagen");
 
 let puntos = [];
 let puntoSeleccionado = null;
 let radioPunto = 9;
 
+const proporcionCanvas = 600 / 900;
+
+function ajustarCanvas() {
+  const contenedor = canvas.parentElement;
+  const anchoAnterior = canvas.width || 900;
+  const altoAnterior = canvas.height || 600;
+
+  const anchoNuevo = Math.min(contenedor.clientWidth, 900);
+  const altoNuevo = anchoNuevo * proporcionCanvas;
+
+  const escalaX = anchoNuevo / anchoAnterior;
+  const escalaY = altoNuevo / altoAnterior;
+
+  canvas.width = anchoNuevo;
+  canvas.height = altoNuevo;
+
+  puntos = puntos.map(p => ({
+    x: p.x * escalaX,
+    y: p.y * escalaY
+  }));
+
+  dibujar();
+}
+
 function iniciar() {
   puntos = [
-    { x: 150, y: 400 },
-    { x: 750, y: 200 }
+    { x: canvas.width * 0.17, y: canvas.height * 0.67 },
+    { x: canvas.width * 0.83, y: canvas.height * 0.33 }
   ];
 
   puntoSeleccionado = null;
@@ -23,8 +48,8 @@ function iniciar() {
 function agregarPuntoControl() {
   const n = puntos.length;
 
-  const x = canvas.width / 2 + (Math.random() - 0.5) * 200;
-  const y = canvas.height / 2 + (Math.random() - 0.5) * 200;
+  const x = canvas.width / 2 + (Math.random() - 0.5) * canvas.width * 0.25;
+  const y = canvas.height / 2 + (Math.random() - 0.5) * canvas.height * 0.25;
 
   puntos.splice(n - 1, 0, { x, y });
 
@@ -44,8 +69,6 @@ function quitarPuntoControl() {
 
 function actualizarBotonQuitar() {
   btnQuitar.disabled = puntos.length <= 2;
-  btnQuitar.style.opacity = puntos.length <= 2 ? "0.4" : "1";
-  btnQuitar.style.cursor = puntos.length <= 2 ? "not-allowed" : "pointer";
 }
 
 function interpolar(p1, p2, t) {
@@ -92,15 +115,10 @@ function dibujarCurvaBezier() {
 function dibujarPoligonalControl() {
   ctx.beginPath();
 
-  for (let i = 0; i < puntos.length; i++) {
-    const p = puntos[i];
-
-    if (i === 0) {
-      ctx.moveTo(p.x, p.y);
-    } else {
-      ctx.lineTo(p.x, p.y);
-    }
-  }
+  puntos.forEach((p, i) => {
+    if (i === 0) ctx.moveTo(p.x, p.y);
+    else ctx.lineTo(p.x, p.y);
+  });
 
   ctx.strokeStyle = "#999";
   ctx.lineWidth = 1.5;
@@ -114,12 +132,7 @@ function dibujarPuntos() {
     ctx.beginPath();
     ctx.arc(p.x, p.y, radioPunto, 0, Math.PI * 2);
 
-    if (i === 0 || i === puntos.length - 1) {
-      ctx.fillStyle = "#003049";
-    } else {
-      ctx.fillStyle = "#f77f00";
-    }
-
+    ctx.fillStyle = (i === 0 || i === puntos.length - 1) ? "#003049" : "#f77f00";
     ctx.fill();
 
     ctx.strokeStyle = "white";
@@ -135,17 +148,20 @@ function dibujarPuntos() {
 function dibujar() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
   dibujarPoligonalControl();
   dibujarCurvaBezier();
   dibujarPuntos();
 }
 
-function obtenerPosicionMouse(evento) {
+function obtenerPosicion(evento) {
   const rect = canvas.getBoundingClientRect();
 
   return {
-    x: evento.clientX - rect.left,
-    y: evento.clientY - rect.top
+    x: (evento.clientX - rect.left) * (canvas.width / rect.width),
+    y: (evento.clientY - rect.top) * (canvas.height / rect.height)
   };
 }
 
@@ -156,40 +172,66 @@ function buscarPuntoCercano(pos) {
     const dy = pos.y - p.y;
     const distancia = Math.sqrt(dx * dx + dy * dy);
 
-    if (distancia < radioPunto + 4) {
-      return i;
-    }
+    if (distancia < radioPunto + 6) return i;
   }
 
   return null;
 }
 
-canvas.addEventListener("mousedown", (evento) => {
-  const pos = obtenerPosicionMouse(evento);
+function limitarAlCanvas(pos) {
+  return {
+    x: Math.max(0, Math.min(canvas.width, pos.x)),
+    y: Math.max(0, Math.min(canvas.height, pos.y))
+  };
+}
+
+canvas.addEventListener("pointerdown", (evento) => {
+  const pos = obtenerPosicion(evento);
   puntoSeleccionado = buscarPuntoCercano(pos);
-});
 
-canvas.addEventListener("mousemove", (evento) => {
   if (puntoSeleccionado !== null) {
-    const pos = obtenerPosicionMouse(evento);
-
-    puntos[puntoSeleccionado].x = pos.x;
-    puntos[puntoSeleccionado].y = pos.y;
-
-    dibujar();
+    canvas.setPointerCapture(evento.pointerId);
   }
 });
 
-canvas.addEventListener("mouseup", () => {
+canvas.addEventListener("pointermove", (evento) => {
+  if (puntoSeleccionado === null) return;
+
+  const pos = limitarAlCanvas(obtenerPosicion(evento));
+
+  puntos[puntoSeleccionado].x = pos.x;
+  puntos[puntoSeleccionado].y = pos.y;
+
+  dibujar();
+});
+
+canvas.addEventListener("pointerup", () => {
   puntoSeleccionado = null;
 });
 
-canvas.addEventListener("mouseleave", () => {
+canvas.addEventListener("pointercancel", () => {
   puntoSeleccionado = null;
 });
+
+canvas.addEventListener("pointerleave", () => {
+  puntoSeleccionado = null;
+});
+
+function guardarImagen() {
+  dibujar();
+
+  const enlace = document.createElement("a");
+  enlace.download = "curva-bezier-radix.png";
+  enlace.href = canvas.toDataURL("image/png");
+  enlace.click();
+}
 
 btnAgregar.addEventListener("click", agregarPuntoControl);
 btnQuitar.addEventListener("click", quitarPuntoControl);
 btnReiniciar.addEventListener("click", iniciar);
+btnGuardar.addEventListener("click", guardarImagen);
 
+window.addEventListener("resize", ajustarCanvas);
+
+ajustarCanvas();
 iniciar();
