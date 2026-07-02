@@ -488,12 +488,66 @@ button:focus-visible {
 @media (max-width: 640px) {
   .content {
     margin: 1.4rem auto;
-    padding-inline: 1rem;
+    padding-inline: 1.2rem;
     font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .wave-container {
+    min-height: clamp(460px, 72svh, 560px);
+    height: auto;
+    margin: 0 auto 1.4rem;
+    padding: 32px 18px 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+  }
+
+  .floating-content {
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: 2;
+
+    transform: none;
+
+    width: 100%;
+    max-width: 360px;
+    padding-inline: 0;
+
+    text-align: center;
+  }
+
+  .logo-radix {
+    width: 120px;
+    max-width: 42vw;
   }
 
   .slogan {
-    font-size: 1rem;
+    margin-top: 1rem;
+
+    font-size: 1.08rem;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  .tagline {
+    max-width: 320px;
+    margin: 0.8rem auto 0;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .wave-container #tetrisCanvas {
+    position: absolute;
+    inset: 0;
+
+    width: 100% !important;
+    height: 100% !important;
   }
 
   .btn,
