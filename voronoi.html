@@ -2,138 +2,379 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Voronoi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.fundacionradix.org/voronoi.html" />
+
+  <!-- SEO básico -->
+  <title>Fundación Radix | Diagrama de Voronoi</title>
+  <meta name="description" content="Generador interactivo de diagramas de Voronoi con semillas, control de grosor de línea y exportación SVG para exploración geométrica o fabricación digital." />
+  <meta name="keywords" content="Fundación Radix, Voronoi, teselación, geometría computacional, Delaunay, SVG, corte láser, matemáticas, visualización, educación" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fundación Radix" />
+  <meta property="og:title" content="Fundación Radix | Diagrama de Voronoi" />
+  <meta property="og:description" content="Generador interactivo de diagramas de Voronoi con exportación SVG." />
+  <meta property="og:url" content="https://www.fundacionradix.org/voronoi.html" />
+  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fundación Radix | Diagrama de Voronoi" />
+  <meta name="twitter:description" content="Generador interactivo de diagramas de Voronoi con exportación SVG." />
+  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
+  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
+
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="css/style.css">
+
   <style>
-    :root { --ink:#111; --muted:#666; --bg:#f7f7f7; --card:#fff; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--ink); }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px; }
-    h1 { margin: 0 0 6px; font-size: 22px; }
-    .lead { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
-    .grid { display:grid; grid-template-columns: 1fr; gap:16px; }
-    @media (min-width: 960px){ .grid { grid-template-columns: 1fr 1fr; } }
-    .card { background:var(--card); border:1px solid #e8e8e8; border-radius:16px; padding:16px; box-shadow:0 1px 8px rgba(0,0,0,.04); }
-    .controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:8px; }
-    .controls label { display:flex; align-items:center; gap:6px; font-size: 14px; }
-    .btn { border:0; background:#111; color:#fff; padding:8px 12px; border-radius:10px; cursor:pointer; }
-    .btn.ghost { background:#eee; color:#111; }
-    table { width:100%; border-collapse:collapse; font-size:14px; }
-    th, td { text-align:left; padding:8px; border-bottom:1px solid #eee; }
-    input[type="text"] { width:110px; padding:6px 8px; border:1px solid #ddd; border-radius:8px; }
-    .muted { color:var(--muted); font-size:12px; }
-    svg { width:100%; height:540px; border:1px solid #e6e6e6; border-radius:16px; background:#fafafa; }
-    .right { text-align:right; }
-    /* botón <a class="btn"> sin subrayado y con caja */
-a.btn { text-decoration: none; display: inline-block; }
+    :root {
+      --voro-bg: #f7f7f7;
+      --voro-card: #ffffff;
+      --voro-border: #e8e8e8;
+      --voro-muted: #666666;
+      --voro-ink: #111111;
+      --voro-accent: #b30059;
+    }
 
-/* Botón REGRESAR — estilos locales a esta página */
-.rx-back-wrap{
-  display:flex;
-  justify-content:center;   /* centrado */
-  margin:16px 0 24px;
-  width:100%;
-}
+    body {
+      margin: 0;
+      background: var(--voro-bg);
+      color: var(--voro-ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
 
-.rx-back{
-  display:inline-block;
-  padding:10px 18px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:700;
-  letter-spacing:.4px;
-  text-transform:uppercase;
-  border:1px solid transparent;
-  box-shadow:0 6px 16px rgba(0,0,0,.12);
-  transition:transform .15s ease, box-shadow .15s ease;
-  /* ← COLORES POR PÁGINA (cámbialos aquí) */
-  background:#000000;     /* color de la caja en ESTA página */
-  color:#fff;          /* color del texto en ESTA página */
-  border-color:transparent; /* o #ddd en fondo claro */
-}
+    .voro-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
 
-.rx-back:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18); }
-.rx-back:focus-visible{ outline:3px solid rgba(0,0,0,.25); outline-offset:2px; }
+    .voro-header {
+      margin-bottom: 18px;
+    }
 
+    .voro-kicker {
+      margin: 0 0 0.35rem 0;
+      color: var(--voro-accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .voro-header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #111111;
+    }
+
+    .voro-lead {
+      max-width: 820px;
+      margin: 0;
+      color: var(--voro-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .voro-doc {
+      margin-top: 24px;
+    }
+
+    .voro-doc h2,
+    .voro-doc h3 {
+      color: #111111;
+    }
+
+    .voro-doc p,
+    .voro-doc li {
+      line-height: 1.65;
+      color: #333333;
+    }
+
+    .voro-doc ol {
+      padding-left: 1.25rem;
+    }
+
+    .voro-panel {
+      margin-top: 28px;
+      background: var(--voro-card);
+      border: 1px solid var(--voro-border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .voro-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: end;
+      margin-bottom: 14px;
+    }
+
+    .voro-field label,
+    .voro-check label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--voro-muted);
+      font-size: 0.78rem;
+    }
+
+    .voro-field input[type="number"],
+    .voro-field input[type="range"] {
+      padding: 8px;
+      border: 1px solid var(--voro-border);
+      border-radius: 10px;
+      background: #ffffff;
+      color: #111111;
+      font: inherit;
+    }
+
+    .voro-field input[type="number"] {
+      width: 110px;
+    }
+
+    .voro-field input[type="range"] {
+      width: 160px;
+    }
+
+    .voro-check {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .voro-check label {
+      margin-bottom: 0;
+      color: #333333;
+      font-size: 0.86rem;
+    }
+
+    input:focus-visible {
+      outline: 3px solid rgba(179, 0, 89, 0.18);
+      border-color: var(--voro-accent);
+    }
+
+    .voro-btn {
+      padding: 8px 12px;
+      border: 1px solid var(--voro-border);
+      background: #111111;
+      color: #ffffff;
+      border-radius: 10px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .voro-btn:hover {
+      background: #333333;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .voro-status {
+      color: var(--voro-muted);
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    .voro-canvas-box {
+      background: #ffffff;
+      border: 1px solid var(--voro-border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    #voronoi {
+      width: 100%;
+      height: 560px;
+      display: block;
+      background: #fafafa;
+    }
+
+    .voro-note {
+      margin-top: 10px;
+      color: var(--voro-muted);
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    .voro-back-wrap {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 24px 0 28px;
+    }
+
+    @media (max-width: 720px) {
+      .voro-controls {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .voro-field,
+      .voro-field input[type="number"],
+      .voro-field input[type="range"],
+      .voro-btn {
+        width: 100%;
+      }
+
+      .voro-check {
+        margin-top: 0;
+      }
+
+      #voronoi {
+        height: 420px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .voro-wrap {
+        padding: 18px;
+      }
+    }
   </style>
-  <!-- Si tus JS están en /js, deja así; si no, cambia la ruta -->
-  <script src="js/app.js" defer></script>
 </head>
 
 <body>
 
+  <main class="voro-wrap">
 
-    
-  <div class="wrap">
-    <div class="panel">
+    <header class="voro-header">
+      <p class="voro-kicker">Exploraciones computacionales · Fundación Radix</p>
 
-<section id="voronoi-doc" class="content" aria-labelledby="voronoi-title">
-  <h2 id="voronoi-title">Teselación (diagrama) de Voronoi</h2>
-  <p>
-    Un diagrama de Voronoi es una partición del plano en <strong>celdas</strong> a partir de un conjunto de puntos semilla.
-    Cada celda contiene todos los puntos que están <em>más cerca</em> de su semilla que de cualquier otra.
-  </p>
+      <h1>Diagrama de Voronoi</h1>
 
-  <h3>Cómo usar el generador</h3>
-  <ol>
-    <li><strong>Número de puntos (1–50):</strong> ingresa cuántas semillas deseas y pulsa <strong>Generar</strong>.</li>
-    <li><strong>Vista real (mm):</strong> activa esta casilla para previsualizar en el lienzo el <em>grosor físico</em> (en mm) que tendrá el SVG exportado.</li>
-    <li><strong>Grosor (pantalla, px):</strong> si la vista real está desactivada, usa el deslizador para ajustar el grosor visual en píxeles.</li>
-    <li><strong>Grosor export (mm):</strong> define el grosor de línea del archivo SVG (0.01–10&nbsp;mm), útil para corte láser.</li>
-    <li><strong>Exportar SVG:</strong> descarga el diagrama con tamaño físico fijo y todas las líneas con el grosor en mm que configuraste.</li>
-  </ol>
+      <p class="voro-lead">
+        Generador interactivo para explorar cómo un conjunto de puntos semilla divide el plano
+        en regiones de proximidad. Incluye control de grosor y exportación en formato SVG.
+      </p>
+    </header>
 
+    <section id="voronoi-doc" class="voro-doc" aria-labelledby="voronoi-title">
+      <h2 id="voronoi-title">Teselación de Voronoi</h2>
 
-</section>
+      <p>
+        Un <strong>diagrama de Voronoi</strong> es una partición del plano en celdas a partir
+        de un conjunto de puntos semilla. Cada celda contiene todos los puntos del plano que
+        están más cerca de su semilla que de cualquier otra.
+      </p>
 
+      <p>
+        Estas estructuras aparecen en geometría computacional, análisis espacial, biología,
+        diseño, arquitectura, simulación de territorios y fabricación digital.
+      </p>
 
+      <h3>Cómo usar el generador</h3>
 
-     <div class="controls">
-  <div>
-    <label for="n">Número de puntos (1–100)</label>
-    <input id="n" type="number" value="30" min="1" max="100">
-  </div>
+      <ol>
+        <li>
+          <strong>Número de puntos:</strong> ingresa entre <strong>1 y 100</strong> semillas
+          y pulsa <strong>Generar</strong>.
+        </li>
 
-  <div>
-    <label for="strokePx">Grosor (pantalla, px)</label>
-    <input id="strokePx" type="range" min="0.5" max="6" step="0.1" value="1.6" />
-  </div>
+        <li>
+          <strong>Vista real en milímetros:</strong> activa esta casilla para previsualizar
+          en el lienzo el grosor físico que tendrá el SVG exportado.
+        </li>
 
-  <div>
-    <label for="strokeMm">Grosor export (mm)</label>
-    <input id="strokeMm" type="number" min="0.01" max="10" step="0.01" value="0.10" />
-  </div>
+        <li>
+          <strong>Grosor de pantalla:</strong> si la vista real está desactivada, usa el
+          deslizador para ajustar el grosor visual en píxeles.
+        </li>
 
-  <!-- NUEVO: vista real en el canvas -->
-  <div style="display:flex;align-items:center;gap:.5rem;margin-top:.5rem">
-    <input id="previewMm" type="checkbox" checked />
-    <label for="previewMm">Vista real (mm) en el lienzo</label>
-  </div>
+        <li>
+          <strong>Grosor de exportación:</strong> define el grosor de línea del archivo SVG
+          en milímetros. Esto es útil para corte láser, plotter o impresión.
+        </li>
 
-  <button id="btn-gen">Generar</button>
-  <button id="btn-exp">Exportar SVG</button>
-  <span class="muted" id="status"></span>
-</div>
+        <li>
+          <strong>Exportar SVG:</strong> descarga el diagrama con tamaño físico fijo y líneas
+          configuradas con el grosor seleccionado.
+        </li>
+      </ol>
+    </section>
 
-<!-- lienzo -->
-<div class="canvas-box">
-  <svg id="voronoi" viewBox="0 0 900 560" preserveAspectRatio="xMidYMid meet"
-       aria-label="Diagrama de Voronoi"></svg>
-</div>
+    <section class="voro-panel" aria-label="Generador interactivo de Voronoi">
 
+      <div class="voro-controls">
+        <div class="voro-field">
+          <label for="n">Número de puntos (1–100)</label>
+          <input id="n" type="number" value="30" min="1" max="100">
+        </div>
 
+        <div class="voro-field">
+          <label for="strokePx">Grosor pantalla (px)</label>
+          <input id="strokePx" type="range" min="0.5" max="6" step="0.1" value="1.6">
+        </div>
+
+        <div class="voro-field">
+          <label for="strokeMm">Grosor exportación (mm)</label>
+          <input id="strokeMm" type="number" min="0.01" max="10" step="0.01" value="0.10">
+        </div>
+
+        <div class="voro-check">
+          <input id="previewMm" type="checkbox" checked>
+          <label for="previewMm">Vista real (mm)</label>
+        </div>
+
+        <button id="btn-gen" type="button" class="voro-btn">
+          Generar
+        </button>
+
+        <button id="btn-exp" type="button" class="voro-btn">
+          Exportar SVG
+        </button>
+
+        <span class="voro-status" id="status" role="status" aria-live="polite"></span>
+      </div>
+
+      <div class="voro-canvas-box">
+        <svg id="voronoi"
+             viewBox="0 0 900 560"
+             preserveAspectRatio="xMidYMid meet"
+             aria-label="Diagrama de Voronoi">
+        </svg>
+      </div>
+
+      <p class="voro-note">
+        Sugerencia: usa pocos puntos para estudiar la estructura geométrica y más puntos para
+        obtener patrones de teselación más densos.
+      </p>
+
+    </section>
+
+    <div class="voro-back-wrap">
+      <a href="scripts.html" class="btn btn-back">
+        Volver a exploraciones
+      </a>
     </div>
-  </div>
 
-  <!-- d3-delaunay y tu script -->
+  </main>
+
   <script src="https://cdn.jsdelivr.net/npm/d3-delaunay@6"></script>
   <script src="js/voronoi.js"></script>
 
-
-<div class="rx-back-wrap">
-  <a href="scripts.html" class="rx-back">REGRESAR</a>
-</div>
 </body>
-
-
 </html>

@@ -2,102 +2,242 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>L-Sistema</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.fundacionradix.org/l_system.html" />
+
+  <!-- SEO básico -->
+  <title>Fundación Radix | L-sistemas</title>
+  <meta name="description" content="Visualizador interactivo de L-sistemas para explorar reglas de crecimiento, fractales, patrones naturales y estructuras generadas por producción simbólica." />
+  <meta name="keywords" content="Fundación Radix, L-sistemas, fractales, crecimiento natural, curva de Koch, matemáticas, biología, visualización, educación" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fundación Radix" />
+  <meta property="og:title" content="Fundación Radix | L-sistemas" />
+  <meta property="og:description" content="Exploración interactiva de L-sistemas, reglas de crecimiento y estructuras fractales." />
+  <meta property="og:url" content="https://www.fundacionradix.org/l_system.html" />
+  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fundación Radix | L-sistemas" />
+  <meta name="twitter:description" content="Exploración interactiva de L-sistemas, reglas de crecimiento y estructuras fractales." />
+  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
+  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
+
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="css/style.css">
+
   <style>
-    :root { --ink:#111; --muted:#666; --bg:#f7f7f7; --card:#fff; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--ink); }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px; }
-    h1 { margin: 0 0 6px; font-size: 22px; }
-    .lead { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
-    .grid { display:grid; grid-template-columns: 1fr; gap:16px; }
-    @media (min-width: 960px){ .grid { grid-template-columns: 1fr 1fr; } }
-    .card { background:var(--card); border:1px solid #e8e8e8; border-radius:16px; padding:16px; box-shadow:0 1px 8px rgba(0,0,0,.04); }
-    .controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:8px; }
-    .controls label { display:flex; align-items:center; gap:6px; font-size: 14px; }
-    .btn { border:0; background:#111; color:#fff; padding:8px 12px; border-radius:10px; cursor:pointer; }
-    .btn.ghost { background:#eee; color:#111; }
-    table { width:100%; border-collapse:collapse; font-size:14px; }
-    th, td { text-align:left; padding:8px; border-bottom:1px solid #eee; }
-    input[type="text"] { width:110px; padding:6px 8px; border:1px solid #ddd; border-radius:8px; }
-    .muted { color:var(--muted); font-size:12px; }
-    svg { width:100%; height:540px; border:1px solid #e6e6e6; border-radius:16px; background:#fafafa; }
-    .right { text-align:right; }
-    /* botón <a class="btn"> sin subrayado y con caja */
-a.btn { text-decoration: none; display: inline-block; }
+    :root {
+      --lsys-bg: #f7f7f7;
+      --lsys-card: #ffffff;
+      --lsys-border: #e8e8e8;
+      --lsys-muted: #666666;
+      --lsys-ink: #111111;
+      --lsys-accent: #b30059;
+    }
 
-/* Botón REGRESAR — estilos locales a esta página */
-.rx-back-wrap{
-  display:flex;
-  justify-content:center;   /* centrado */
-  margin:16px 0 24px;
-  width:100%;
-}
+    body {
+      margin: 0;
+      background: var(--lsys-bg);
+      color: var(--lsys-ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
 
-.rx-back{
-  display:inline-block;
-  padding:10px 18px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:700;
-  letter-spacing:.4px;
-  text-transform:uppercase;
-  border:1px solid transparent;
-  box-shadow:0 6px 16px rgba(0,0,0,.12);
-  transition:transform .15s ease, box-shadow .15s ease;
-  /* ← COLORES POR PÁGINA (cámbialos aquí) */
-  background:#000000;     /* color de la caja en ESTA página */
-  color:#fff;          /* color del texto en ESTA página */
-  border-color:transparent; /* o #ddd en fondo claro */
-}
+    .lsys-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
 
-.rx-back:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18); }
-.rx-back:focus-visible{ outline:3px solid rgba(0,0,0,.25); outline-offset:2px; }
+    .lsys-header {
+      margin-bottom: 18px;
+    }
 
+    .lsys-kicker {
+      margin: 0 0 0.35rem 0;
+      color: var(--lsys-accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .lsys-header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #111111;
+    }
+
+    .lsys-lead {
+      max-width: 820px;
+      margin: 0;
+      color: var(--lsys-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .lsys-section {
+      margin-top: 28px;
+    }
+
+    .lsys-section h2,
+    .lsys-section h3 {
+      color: #111111;
+    }
+
+    .lsys-section p,
+    .lsys-section li {
+      line-height: 1.65;
+      color: #333333;
+    }
+
+    .lsys-section ul {
+      padding-left: 1.2rem;
+    }
+
+    .lsys-card {
+      margin-top: 22px;
+      background: var(--lsys-card);
+      border: 1px solid var(--lsys-border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .lsys-example {
+      background: #ffffff;
+      border-left: 4px solid var(--lsys-accent);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 16px;
+    }
+
+    .lsys-example ul {
+      margin-bottom: 0;
+    }
+
+    code {
+      padding: 0.1rem 0.3rem;
+      background: #eeeeee;
+      border-radius: 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.92em;
+    }
+
+    #lsystem-interactive {
+      margin-top: 18px;
+    }
+
+    .lsys-back-wrap {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 24px 0 28px;
+    }
+
+    @media (max-width: 640px) {
+      .lsys-wrap {
+        padding: 18px;
+      }
+
+      .lsys-card {
+        padding: 16px;
+      }
+    }
   </style>
-  <!-- Si tus JS están en /js, deja así; si no, cambia la ruta -->
-  <script src="js/app.js" defer></script>
 </head>
+
 <body>
-  <div class="wrap">
-    <h1>Explorando con L-sistemas</h1>
 
-<section id="lsistemas" class="content" aria-label="Visualizador de L-sistemas">
-  <p>
-    Los <strong>L-sistemas</strong> describen procesos de crecimiento natural mediante reglas de producción 
-    muy simples que generan estructuras sorprendentes. 
-    Te presentamos este visualizador interactivo para que experimentes, observes la evolución de las formas 
-    y explores un poco con la matemática detrás de la naturaleza.
-  </p>
-    <p>
-    <strong>Ejemplo: La curva de Koch</strong><br>
-    Un L-sistema se define por un alfabeto, un axioma (inicio) y reglas de producción.  
-    Para la curva de Koch:
-  </p>
-  <ul>
-    <li><strong>Axioma:</strong> F</li>
-    <li><strong>Reglas:</strong> F → F+F−F−F+F</li>
-    <li><strong>Ángulo:</strong> 90°</li>
-  </ul>
-  <p>
-    Aquí <code>F</code> significa “avanzar”, <code>+</code> girar a la izquierda 90°, y <code>−</code> girar a la derecha 90°.  
-    Iterando la regla varias veces, el segmento inicial se transforma en una curva fractal de longitud infinita, 
-    pero contenida en un área finita.
-  </p>
-  <div id="lsystem-interactive"></div>
+  <main class="lsys-wrap">
+
+    <header class="lsys-header">
+      <p class="lsys-kicker">Exploraciones computacionales · Fundación Radix</p>
+
+      <h1>Explorando con L-sistemas</h1>
+
+      <p class="lsys-lead">
+        Visualizador interactivo para estudiar cómo reglas simbólicas simples pueden producir
+        formas ramificadas, patrones fractales y estructuras asociadas al crecimiento natural.
+      </p>
+    </header>
+
+    <section id="lsistemas" class="lsys-section" aria-label="Visualizador de L-sistemas">
+      <h2>Reglas simples, formas complejas</h2>
+
+      <p>
+        Los <strong>L-sistemas</strong> describen procesos de crecimiento mediante reglas de producción.
+        A partir de un estado inicial y de sustituciones iteradas, es posible generar estructuras
+        de gran complejidad visual: curvas fractales, ramificaciones, configuraciones vegetales
+        y patrones geométricos inspirados en la naturaleza.
+      </p>
+
+      <p>
+        En un L-sistema se trabaja con un <strong>alfabeto</strong>, un <strong>axioma</strong>
+        o estado inicial, un conjunto de <strong>reglas de producción</strong> y una interpretación
+        geométrica de los símbolos. En el visualizador, algunos símbolos se interpretan como
+        movimientos de avance o giros, lo que permite transformar una cadena de texto en una figura.
+      </p>
+
+      <div class="lsys-example">
+        <h3>Ejemplo: curva de Koch</h3>
+
+        <p>
+          La curva de Koch puede construirse mediante una regla de sustitución aplicada de forma
+          repetida sobre un segmento inicial.
+        </p>
+
+        <ul>
+          <li><strong>Axioma:</strong> <code>F</code></li>
+          <li><strong>Regla:</strong> <code>F → F+F−F−F+F</code></li>
+          <li><strong>Ángulo:</strong> <code>90°</code></li>
+        </ul>
+
+        <p>
+          En esta interpretación, <code>F</code> significa avanzar, <code>+</code> girar a la izquierda
+          y <code>−</code> girar a la derecha. Al iterar la regla, el segmento inicial se transforma
+          progresivamente en una curva fractal: una figura que revela estructura a diferentes escalas.
+        </p>
+      </div>
+
+      <div class="lsys-card">
+        <h2>Exploración interactiva</h2>
+
+        <p>
+          Modifica el axioma, las reglas, el ángulo y el número de iteraciones para observar cómo
+          cambia la figura. La intención no es solo obtener una imagen final, sino reconocer la
+          relación entre regla, repetición y forma.
+        </p>
+
+        <div id="lsystem-interactive"></div>
+      </div>
+    </section>
+
+    <div class="lsys-back-wrap">
+      <a href="scripts.html" class="btn btn-back">
+        Volver a exploraciones
+      </a>
+    </div>
+
+  </main>
+
   <script src="js/lsystem-radix.js" defer></script>
-</section>
-
-<hr style="margin-top: 3em;">
-
-
-
-<div class="rx-back-wrap">
-  <a href="scripts.html" class="rx-back">REGRESAR</a>
-</div>
-
-
-
 
 </body>
+</html>

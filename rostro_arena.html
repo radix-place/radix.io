@@ -1,142 +1,563 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Rostro de Arena — p5 + ml5 Facemesh</title>
-<style>
-  html,body{margin:0;padding:0;background:#111;color:#eee;font-family:system-ui}
-  #ui{position:fixed;top:12px;left:12px;background:rgba(0,0,0,.5);padding:10px 12px;border-radius:10px;backdrop-filter:blur(4px);z-index:2}
-  #ui label{display:block;font-size:12px;opacity:.9;margin-top:6px}
-  #status{position:fixed;bottom:10px;left:12px;font-size:12px;opacity:.8}
-  canvas{display:block;margin:0 auto;max-width:min(92vw,1280px);height:auto}
-</style>
-<script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/ml5@latest/dist/ml5.min.js"></script>
-</head>
-<body>
-<div id="ui">
-  <div><b>Rostro de Arena</b> — p5 + ml5</div>
-  <label>Intensidad arena <input id="rngGrain" type="range" min="0" max="1" step="0.01" value="0.7"></label>
-  <label>Detalle rasgos <input id="rngDetail" type="range" min="0" max="1" step="0.01" value="0.55"></label>
-  <label>Suavizado borde <input id="rngFeather" type="range" min="2" max="40" step="1" value="16"></label>
-  <label>Resolución interna <input id="rngRes" type="range" min="1" max="4" step="1" value="2"></label>
-  <div style="margin-top:6px;font-size:12px">[V] espejo, [S] PNG</div>
-</div>
-<div id="status">Inicializando cámara…</div>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<script>
-let W=1280,H=720, flipVideo=true;
-let capture, facemesh, predictions=[];
-let gSand,gMask,gVideoSmall, ui={};
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.fundacionradix.org/rostro_arena.html" />
 
-const FACE_OVAL = [10,338,297,332,284,251,389,356,454,323,361,288,397,365,379,378,400,377,152,148,176,149,150,136,172,58,132,93,234,127,162,21,54,103,67,109];
+  <!-- SEO básico -->
+  <title>Fundación Radix | Rostro de arena</title>
+  <meta name="description" content="Exploración interactiva con cámara, p5.js y ml5 Facemesh para transformar un rostro en una textura visual de arena." />
+  <meta name="keywords" content="Fundación Radix, rostro de arena, p5.js, ml5, facemesh, visión computacional, arte generativo, cámara, educación" />
+  <meta name="robots" content="index,follow" />
 
-function setup(){
-  createCanvas(W,H); pixelDensity(1);
-  gSand = createGraphics(W,H);
-  gMask = createGraphics(W,H);
-  gVideoSmall = createGraphics(320,180);
+  <!-- Open Graph / Social -->
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fundación Radix" />
+  <meta property="og:title" content="Fundación Radix | Rostro de arena" />
+  <meta property="og:description" content="Exploración interactiva de visión computacional y arte generativo con p5.js y ml5 Facemesh." />
+  <meta property="og:url" content="https://www.fundacionradix.org/rostro_arena.html" />
+  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
 
-  ui.grain = document.getElementById('rngGrain');
-  ui.detail= document.getElementById('rngDetail');
-  ui.feather=document.getElementById('rngFeather');
-  ui.res   = document.getElementById('rngRes');
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fundación Radix | Rostro de arena" />
+  <meta name="twitter:description" content="Exploración interactiva de visión computacional y arte generativo con p5.js y ml5 Facemesh." />
+  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
 
-  capture = createCapture({video:{facingMode:'user',width:W,height:H},audio:false});
-  capture.size(W,H); capture.elt.setAttribute('playsinline',''); capture.hide();
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
+  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
 
-  // ml5 facemesh
-  facemesh = ml5.facemesh(capture, {maxFaces:1}, () => {
-    document.getElementById('status').textContent = 'Modelo cargado. Busca rostro…';
-  });
-  facemesh.on('predict', (res)=>{ predictions = res; });
-}
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#111111">
 
-function draw(){
-  background(0);
-  const haveFace = predictions && predictions.length>0;
-  if(haveFace){
-    const lm = predictions[0].scaledMesh; // 468 puntos [x,y,z]
-
-    // Máscara del óvalo
-    gMask.clear(); gMask.noStroke();
-    const feather = parseFloat(ui.feather.value);
-    const poly = faceOvalPixels(lm, width, height, flipVideo);
-
-    gMask.fill(255);
-    gMask.beginShape(); poly.forEach(p=>gMask.vertex(p.x,p.y)); gMask.endShape(CLOSE);
-    for(let i=1;i<=5;i++){
-      const k=1+i*0.03, a=255*Math.max(0,1 - i*(255/feather)/255);
-      gMask.fill(255,a);
-      gMask.beginShape(); polyScaled(poly,k).forEach(p=>gMask.vertex(p.x,p.y)); gMask.endShape(CLOSE);
+  <style>
+    :root {
+      --sand-bg: #111111;
+      --sand-fg: #eeeeee;
+      --sand-muted: rgba(238, 238, 238, 0.72);
+      --sand-panel: rgba(0, 0, 0, 0.55);
+      --sand-border: rgba(255, 255, 255, 0.16);
+      --sand-accent: #ffbb00;
     }
 
-    // Video reducido para luminancia
-    gVideoSmall.push(); gVideoSmall.clear();
-    gVideoSmall.translate(flipVideo? gVideoSmall.width:0,0);
-    gVideoSmall.scale(flipVideo?-1:1,1);
-    gVideoSmall.image(capture,0,0,gVideoSmall.width,gVideoSmall.height);
-    gVideoSmall.pop();
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-    // Arena
-    const scale = parseInt(ui.res.value);
-    const sW = Math.floor(width/scale), sH = Math.floor(height/scale);
-    const t = frameCount*0.01, grainK=parseFloat(ui.grain.value), detK=parseFloat(ui.detail.value);
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: var(--sand-bg);
+      color: var(--sand-fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      overflow-x: hidden;
+    }
 
-    gSand.noStroke();
-    for(let y=0;y<sH;y++){
-      for(let x=0;x<sW;x++){
-        const X=x*scale, Y=y*scale;
-        const c = gVideoSmall.get(Math.floor(x*gVideoSmall.width/sW),Math.floor(y*gVideoSmall.height/sH));
-        const L = (0.299*c[0]+0.587*c[1]+0.114*c[2])/255.0, h=1.0-L;
-        const n = 0.55*noise(x*0.015,y*0.015,t)+0.30*noise(x*0.05,y*0.05,t*1.7)+0.15*noise(x*0.10,y*0.10,t*3.3);
-        const relief = constrain(0.55*h + detK*0.35*n, 0,1);
-        const shade  = 0.90 + 0.22*(n-0.5) - 0.18*relief*grainK;
-        const base   = 198 + 30*relief*grainK;
-        let r=constrain(base +16*(n-0.5)+ 8*(h-0.5),0,255);
-        let g=constrain(base -18 +10*(n-0.5)-10*relief,0,255);
-        let b=constrain(base -46 - 6*relief,0,255);
-        r=Math.round(r*shade); g=Math.round(g*shade); b=Math.round(b*shade);
-        gSand.fill(r,g,b); gSand.rect(X,Y,scale,scale);
+    body {
+      background:
+        radial-gradient(circle at center, rgba(255, 187, 0, 0.08), transparent 38rem),
+        #111111;
+    }
+
+    canvas {
+      display: block;
+      margin: 0 auto;
+      max-width: min(94vw, 1280px);
+      height: auto;
+    }
+
+    .sand-ui {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 3;
+
+      width: min(310px, calc(100vw - 24px));
+      padding: 12px 14px;
+
+      background: var(--sand-panel);
+      border: 1px solid var(--sand-border);
+      border-radius: 14px;
+
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .sand-title {
+      margin: 0 0 8px 0;
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .sand-subtitle {
+      display: block;
+      color: var(--sand-muted);
+      font-size: 0.76rem;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .sand-ui label {
+      display: block;
+      margin-top: 8px;
+      color: var(--sand-muted);
+      font-size: 0.76rem;
+      line-height: 1.35;
+    }
+
+    .sand-ui input[type="range"] {
+      width: 100%;
+      accent-color: var(--sand-accent);
+    }
+
+    .sand-help {
+      margin-top: 8px;
+      color: var(--sand-muted);
+      font-size: 0.76rem;
+      line-height: 1.4;
+    }
+
+    .sand-status {
+      position: fixed;
+      left: 12px;
+      bottom: 10px;
+      z-index: 3;
+
+      max-width: min(680px, calc(100vw - 24px));
+      padding: 8px 10px;
+
+      color: var(--sand-muted);
+      background: rgba(0, 0, 0, 0.42);
+      border: 1px solid var(--sand-border);
+      border-radius: 10px;
+
+      font-size: 0.76rem;
+      line-height: 1.4;
+    }
+
+    .sand-back {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 4;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 10px 15px;
+
+      color: #111111;
+      background: var(--sand-accent);
+
+      border: 1px solid transparent;
+      border-radius: 999px;
+
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      box-shadow: 0 8px 22px rgba(255, 187, 0, 0.22);
+
+      transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+    }
+
+    .sand-back:hover {
+      transform: translateY(-1px);
+      background: #ffd15a;
+      box-shadow: 0 12px 28px rgba(255, 187, 0, 0.28);
+    }
+
+    .sand-back:focus-visible {
+      outline: 3px solid rgba(255, 187, 0, 0.4);
+      outline-offset: 3px;
+    }
+
+    .sand-screen-reader {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 720px) {
+      .sand-ui {
+        position: static;
+        width: auto;
+        margin: 12px;
+      }
+
+      .sand-back {
+        position: static;
+        margin: 0 12px 12px auto;
+        width: max-content;
+      }
+
+      .sand-status {
+        position: static;
+        margin: 12px;
+      }
+
+      canvas {
+        max-width: 100vw;
+      }
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+
+  <!-- Versión fija para conservar la API clásica ml5.facemesh(...) -->
+  <script src="https://cdn.jsdelivr.net/npm/ml5@0.12.2/dist/ml5.min.js"></script>
+</head>
+
+<body>
+
+  <main aria-label="Rostro de arena con visión computacional">
+    <h1 class="sand-screen-reader">Rostro de arena</h1>
+
+    <a href="scripts.html" class="sand-back">
+      Volver
+    </a>
+
+    <section id="ui" class="sand-ui" aria-label="Controles de rostro de arena">
+      <p class="sand-title">
+        Rostro de arena
+        <span class="sand-subtitle">p5.js + ml5 Facemesh · Fundación Radix</span>
+      </p>
+
+      <label for="rngGrain">
+        Intensidad arena
+        <input id="rngGrain" type="range" min="0" max="1" step="0.01" value="0.7">
+      </label>
+
+      <label for="rngDetail">
+        Detalle rasgos
+        <input id="rngDetail" type="range" min="0" max="1" step="0.01" value="0.55">
+      </label>
+
+      <label for="rngFeather">
+        Suavizado borde
+        <input id="rngFeather" type="range" min="2" max="40" step="1" value="16">
+      </label>
+
+      <label for="rngRes">
+        Resolución interna
+        <input id="rngRes" type="range" min="1" max="4" step="1" value="2">
+      </label>
+
+      <div class="sand-help">
+        Teclas: <strong>V</strong> espejo · <strong>S</strong> guardar PNG.
+        La página no incorpora subida de imágenes ni almacenamiento del video.
+      </div>
+    </section>
+
+    <div id="status" class="sand-status" role="status" aria-live="polite">
+      Inicializando cámara…
+    </div>
+  </main>
+
+  <script>
+    const W = 1280;
+    const H = 720;
+
+    const FACE_OVAL = [
+      10, 338, 297, 332, 284, 251, 389, 356, 454,
+      323, 361, 288, 397, 365, 379, 378, 400, 377,
+      152, 148, 176, 149, 150, 136, 172, 58, 132,
+      93, 234, 127, 162, 21, 54, 103, 67, 109
+    ];
+
+    let flipVideo = true;
+    let capture;
+    let facemesh;
+    let predictions = [];
+
+    let gSand;
+    let gMask;
+    let gVideoSmall;
+
+    const ui = {};
+
+    function setStatus(message) {
+      const status = document.getElementById('status');
+      if (status) status.textContent = message;
+    }
+
+    function setup() {
+      createCanvas(W, H);
+      pixelDensity(1);
+
+      gSand = createGraphics(W, H);
+      gSand.pixelDensity(1);
+
+      gMask = createGraphics(W, H);
+      gMask.pixelDensity(1);
+
+      gVideoSmall = createGraphics(320, 180);
+      gVideoSmall.pixelDensity(1);
+
+      ui.grain = document.getElementById('rngGrain');
+      ui.detail = document.getElementById('rngDetail');
+      ui.feather = document.getElementById('rngFeather');
+      ui.res = document.getElementById('rngRes');
+
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        setStatus('La cámara no está disponible. Usa HTTPS, localhost o un navegador compatible.');
+        noLoop();
+        return;
+      }
+
+      capture = createCapture(
+        {
+          video: {
+            facingMode: 'user',
+            width: { ideal: W },
+            height: { ideal: H }
+          },
+          audio: false
+        },
+        () => {
+          setStatus('Cámara activa. Cargando modelo de rostro…');
+        }
+      );
+
+      capture.size(W, H);
+      capture.elt.setAttribute('playsinline', '');
+      capture.hide();
+
+      if (!window.ml5 || typeof ml5.facemesh !== 'function') {
+        setStatus('No se pudo cargar ml5 Facemesh. Revisa la conexión o la versión de la librería.');
+        noLoop();
+        return;
+      }
+
+      facemesh = ml5.facemesh(
+        capture,
+        { maxFaces: 1 },
+        () => {
+          setStatus('Modelo cargado. Busca rostro…');
+        }
+      );
+
+      facemesh.on('predict', results => {
+        predictions = results || [];
+      });
+    }
+
+    function draw() {
+      background(0);
+
+      const haveFace = predictions && predictions.length > 0;
+
+      if (haveFace) {
+        const face = predictions[0];
+        const landmarks = face.scaledMesh;
+
+        if (landmarks && landmarks.length > 0) {
+          drawSandFace(landmarks);
+        }
+      }
+
+      setStatus(haveFace ? 'Rostro detectado.' : 'Buscando rostro…');
+    }
+
+    function drawSandFace(landmarks) {
+      const grainK = Number(ui.grain.value);
+      const detailK = Number(ui.detail.value);
+      const feather = Number(ui.feather.value);
+      const scale = Number(ui.res.value);
+
+      const poly = faceOvalPixels(landmarks, width, height, flipVideo);
+
+      drawFaceMask(poly, feather);
+      drawVideoSample();
+      drawSandTexture(scale, grainK, detailK);
+
+      const masked = gSand.get();
+      masked.mask(gMask.get());
+
+      image(masked, 0, 0, width, height);
+    }
+
+    function drawFaceMask(poly, feather) {
+      gMask.clear();
+      gMask.noStroke();
+
+      gMask.fill(255, 255);
+      gMask.beginShape();
+      poly.forEach(point => gMask.vertex(point.x, point.y));
+      gMask.endShape(CLOSE);
+
+      const rings = Math.max(4, Math.min(16, Math.round(feather / 2)));
+
+      for (let i = 1; i <= rings; i++) {
+        const k = 1 + i * 0.018;
+        const alpha = 255 * (1 - i / (rings + 1));
+
+        gMask.fill(255, alpha);
+        gMask.beginShape();
+        polyScaled(poly, k).forEach(point => gMask.vertex(point.x, point.y));
+        gMask.endShape(CLOSE);
       }
     }
 
-    const masked = gSand.get(); masked.mask(gMask.get());
-    image(masked,0,0,width,height);
-  }
+    function drawVideoSample() {
+      gVideoSmall.push();
+      gVideoSmall.clear();
 
-  document.getElementById('status').textContent = haveFace ? '👍 Rostro detectado' : 'Buscando rostro…';
-}
+      if (flipVideo) {
+        gVideoSmall.translate(gVideoSmall.width, 0);
+        gVideoSmall.scale(-1, 1);
+      }
 
-function keyPressed(){
-  if(key==='s'||key==='S') saveCanvas('rostro_arena_ml5','png');
-  if(key==='v'||key==='V') flipVideo = !flipVideo;
-}
+      gVideoSmall.image(capture, 0, 0, gVideoSmall.width, gVideoSmall.height);
+      gVideoSmall.pop();
+    }
 
-// utilidades
-function faceOvalPixels(lm,w,h,flip){
-  const arr=[];
-  for(const i of FACE_OVAL){
-    const x = (flip? (1 - lm[i][0]/W) : (lm[i][0]/W)) * w;
-    const y = (lm[i][1]/H) * h;
-    arr.push({x,y});
-  }
-  return arr;
-}
-function polyScaled(poly,k){
-  const c=centroid(poly);
-  return poly.map(p=>({x:c.x+(p.x-c.x)*k,y:c.y+(p.y-c.y)*k}));
-}
-function centroid(poly){
-  let A=0,cx=0,cy=0;
-  for(let i=0;i<poly.length;i++){
-    const p=poly[i], q=poly[(i+1)%poly.length];
-    const cross=p.x*q.y - q.x*p.y; A+=cross; cx+=(p.x+q.x)*cross; cy+=(p.y+q.y)*cross;
-  }
-  A*=0.5; if(Math.abs(A)<1e-6) return {x:0,y:0};
-  return {x:cx/(6*A), y:cy/(6*A)};
-}
-</script>
+    function drawSandTexture(scale, grainK, detailK) {
+      const sW = Math.floor(width / scale);
+      const sH = Math.floor(height / scale);
+      const t = frameCount * 0.01;
+
+      gSand.clear();
+      gSand.noStroke();
+
+      for (let y = 0; y < sH; y++) {
+        for (let x = 0; x < sW; x++) {
+          const X = x * scale;
+          const Y = y * scale;
+
+          const sampleX = Math.floor((x * gVideoSmall.width) / sW);
+          const sampleY = Math.floor((y * gVideoSmall.height) / sH);
+
+          const color = gVideoSmall.get(sampleX, sampleY);
+
+          const luminance = (
+            0.299 * color[0] +
+            0.587 * color[1] +
+            0.114 * color[2]
+          ) / 255;
+
+          const shadow = 1 - luminance;
+
+          const n =
+            0.55 * noise(x * 0.015, y * 0.015, t) +
+            0.30 * noise(x * 0.050, y * 0.050, t * 1.7) +
+            0.15 * noise(x * 0.100, y * 0.100, t * 3.3);
+
+          const relief = constrain(0.55 * shadow + detailK * 0.35 * n, 0, 1);
+          const shade = 0.90 + 0.22 * (n - 0.5) - 0.18 * relief * grainK;
+          const base = 198 + 30 * relief * grainK;
+
+          let r = constrain(base + 16 * (n - 0.5) + 8 * (shadow - 0.5), 0, 255);
+          let g = constrain(base - 18 + 10 * (n - 0.5) - 10 * relief, 0, 255);
+          let b = constrain(base - 46 - 6 * relief, 0, 255);
+
+          r = Math.round(r * shade);
+          g = Math.round(g * shade);
+          b = Math.round(b * shade);
+
+          gSand.fill(r, g, b);
+          gSand.rect(X, Y, scale, scale);
+        }
+      }
+    }
+
+    function keyPressed() {
+      if (key === 's' || key === 'S') {
+        saveCanvas('rostro-arena-radix', 'png');
+      }
+
+      if (key === 'v' || key === 'V') {
+        flipVideo = !flipVideo;
+      }
+    }
+
+    function faceOvalPixels(landmarks, canvasWidth, canvasHeight, flip) {
+      const points = [];
+
+      for (const index of FACE_OVAL) {
+        const landmark = landmarks[index];
+
+        if (!landmark) continue;
+
+        const rawX = landmark[0] / W;
+        const rawY = landmark[1] / H;
+
+        const x = (flip ? 1 - rawX : rawX) * canvasWidth;
+        const y = rawY * canvasHeight;
+
+        points.push({ x, y });
+      }
+
+      return points;
+    }
+
+    function polyScaled(poly, k) {
+      const center = centroid(poly);
+
+      return poly.map(point => ({
+        x: center.x + (point.x - center.x) * k,
+        y: center.y + (point.y - center.y) * k
+      }));
+    }
+
+    function centroid(poly) {
+      let area = 0;
+      let cx = 0;
+      let cy = 0;
+
+      for (let i = 0; i < poly.length; i++) {
+        const p = poly[i];
+        const q = poly[(i + 1) % poly.length];
+
+        const cross = p.x * q.y - q.x * p.y;
+
+        area += cross;
+        cx += (p.x + q.x) * cross;
+        cy += (p.y + q.y) * cross;
+      }
+
+      area *= 0.5;
+
+      if (Math.abs(area) < 1e-6) {
+        return {
+          x: width / 2,
+          y: height / 2
+        };
+      }
+
+      return {
+        x: cx / (6 * area),
+        y: cy / (6 * area)
+      };
+    }
+  </script>
+
 </body>
 </html>

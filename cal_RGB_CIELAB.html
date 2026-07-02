@@ -3,256 +3,576 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RGB ↔ CIELAB (Radix Edu)</title>
-  <style>
-    :root { --bg:#0b0b0c; --fg:#e9e9ec; --muted:#9aa0a6; --card:#141416; --border:#26262a; }
-    *{ box-sizing:border-box; }
-    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; background:var(--bg); color:var(--fg); }
-    .wrap{ max-width:75ch; margin: clamp(1.2rem, 3vw, 2.2rem)  auto; padding: clamp(.6rem, 2vw, 1rem); }
-    h1{ font-size:1.6rem; margin:clamp(1.2rem, 3vw, 2.2rem) auto; }
-    p.lead{ color:var(--muted); margin:clamp(1.2rem, 3vw, 2.2rem) auto; }
-    .note{ color:var(--muted); font-size:.92rem; line-height:1.45; margin:clamp(1.2rem, 3vw, 2.2rem) auto; }
-    .grid{ display:grid; gap:16px; }
-    @media(min-width:860px){ .grid{ grid-template-columns:1fr 1fr; } }
 
-    .card{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:16px; }
-    .row{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-    /* En móviles, inputs uno debajo del otro para escribir cómodo */
-    @media(max-width:560px){
-      .row{ grid-template-columns:1fr; }
-      .wrap{ padding:20px 12px 44px; }
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.fundacionradix.org/cal_RGB_CIELAB.html" />
+
+  <!-- SEO básico -->
+  <title>Fundación Radix | Exploración RGB y CIELAB</title>
+  <meta name="description" content="Herramienta interactiva para explorar la conversión entre RGB y CIELAB, la percepción del color y combinaciones lineales en el espacio L*a*b*." />
+  <meta name="keywords" content="Fundación Radix, RGB, CIELAB, color, percepción visual, espacio de color, matemáticas, visualización, educación" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fundación Radix" />
+  <meta property="og:title" content="Fundación Radix | Exploración RGB y CIELAB" />
+  <meta property="og:description" content="Exploración interactiva de color, percepción visual y coordenadas en el espacio L*a*b*." />
+  <meta property="og:url" content="https://www.fundacionradix.org/cal_RGB_CIELAB.html" />
+  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fundación Radix | Exploración RGB y CIELAB" />
+  <meta name="twitter:description" content="Exploración interactiva de color, percepción visual y coordenadas en el espacio L*a*b*." />
+  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
+  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
+
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0b0c">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- MathJax para fórmulas matemáticas -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    :root {
+      --color-bg: #0b0b0c;
+      --color-fg: #e9e9ec;
+      --color-muted: #9aa0a6;
+      --color-card: #141416;
+      --color-card-soft: #101012;
+      --color-border: #26262a;
+      --color-accent: #ffbb00;
+      --color-accent-soft: rgba(255, 187, 0, 0.16);
+      --color-warn: #ffcc66;
+      --color-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
     }
 
-    label{ display:block; font-size:.85rem; color:var(--muted); margin-bottom:4px; }
-    input[type="number"]{ width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:#0f0f11; color:var(--fg); }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-    /* Swatches más grandes */
-    .swatch{ height:84px; border-radius:16px; border:1px solid var(--border);
-             display:flex; align-items:center; justify-content:space-between; padding:0 16px; font-size:.9rem; }
+    html {
+      background: var(--color-bg);
+      color-scheme: dark;
+    }
 
-    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-    .out{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:10px; }
-    .box{ border:1px solid var(--border); border-radius:12px; padding:12px; }
-    .hint{ font-size:.85rem; color:var(--muted); margin-top:8px; }
-    .warn{ color:#ffcc66; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(255, 187, 0, 0.08), transparent 34rem),
+        var(--color-bg);
+      color: var(--color-fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .color-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: clamp(1.1rem, 3vw, 2rem);
+    }
+
+    .color-header {
+      max-width: 820px;
+      margin: clamp(1.2rem, 3vw, 2.2rem) auto;
+    }
+
+    .color-kicker {
+      margin: 0 0 0.4rem 0;
+      color: var(--color-accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .color-header h1 {
+      margin: 0;
+      color: var(--color-fg);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .color-lead {
+      margin-top: 1rem;
+      color: var(--color-muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .color-section {
+      margin-top: clamp(1.8rem, 4vw, 3rem);
+    }
+
+    .color-section h2 {
+      margin: 0 0 0.8rem 0;
+      color: var(--color-fg);
+      font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+      line-height: 1.15;
+    }
+
+    .color-section p {
+      color: var(--color-muted);
+    }
+
+    .color-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    @media (min-width: 860px) {
+      .color-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .color-card {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)),
+        var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--color-shadow);
+    }
+
+    .color-card h2,
+    .color-card h3 {
+      margin-top: 0;
+      color: var(--color-fg);
+    }
+
+    .color-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 560px) {
+      .color-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--color-muted);
+      font-size: 0.85rem;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 12px 14px;
+
+      color: var(--color-fg);
+      background: #0f0f11;
+
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+
+      font: inherit;
+    }
+
+    input[type="number"]:focus-visible {
+      outline: 3px solid var(--color-accent-soft);
+      border-color: var(--color-accent);
+    }
+
+    .swatch {
+      min-height: 84px;
+      margin-top: 14px;
+      padding: 0 16px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+
+      font-size: 0.9rem;
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .color-out {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .color-box {
+      padding: 12px;
+      background: var(--color-card-soft);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+    }
+
+    .hint {
+      margin-top: 8px;
+      color: var(--color-muted);
+      font-size: 0.85rem;
+    }
+
+    .warn {
+      color: var(--color-warn);
+    }
+
+    .color-plane-card {
+      max-width: 640px;
+      margin: 18px auto 0;
+    }
+
+    #plane {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 1 / 1;
+      height: auto;
+      margin: 0 auto;
+
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+
+      background: #000000;
+    }
+
+    #probe {
+      margin-top: 14px;
+    }
+
+    #probeInfo {
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .color-back-wrap {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 28px 0 10px;
+    }
+
+    .color-back {
+      display: inline-block;
+
+      padding: 11px 20px;
+
+      color: #111111;
+      background: var(--color-accent);
+
+      border: 1px solid transparent;
+      border-radius: 999px;
+
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      box-shadow: 0 8px 22px rgba(255, 187, 0, 0.2);
+
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .color-back:hover {
+      transform: translateY(-1px);
+      background: #ffd15a;
+      box-shadow: 0 12px 28px rgba(255, 187, 0, 0.26);
+    }
+
+    .color-back:focus-visible {
+      outline: 3px solid rgba(255, 187, 0, 0.35);
+      outline-offset: 3px;
+    }
+
+    /* Ajustes visuales para MathJax en fondo oscuro */
+    mjx-container {
+      color: var(--color-fg);
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+    }
+
+    mjx-container[display="true"] {
+      margin: 0.85rem 0;
+    }
+
+    @media (max-width: 560px) {
+      .color-wrap {
+        padding: 20px 12px 44px;
+      }
+
+      .color-out {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
-
-<!-- KaTeX core -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-
-<!-- Auto-render (convierte $...$ y $$...$$ automáticamente) -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body,{
-          delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '\\[', right: '\\]', display: true},
-            {left: '$', right: '$', display: false}
-          ],
-          throwOnError: false
-        });"></script>
-
-<!-- Paquetes útiles -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"></script>
-
-<style>
-  /* Integra KaTeX con tu paleta oscura */
-  .katex, .katex-display { color: var(--fg, #e9e9ec); }
-  .katex-display { margin: 0.85rem 0; }
-  /* Tamaños agradables en móvil */
-  .katex { font-size: 1.02rem; }
-  @media (max-width: 560px){ .katex { font-size: 1rem; } }
-  /* Selección y accesibilidad */
-  .katex .mord, .katex .mbin, .katex .mrel { text-rendering: optimizeLegibility; }
-
-
-
-
-/* Botón REGRESAR — estilos locales a esta página */
-.rx-back-wrap{
-  display:flex;
-  justify-content:center;   /* centrado */
-  margin:16px 0 24px;
-  width:100%;
-}
-
-.rx-back{
-  display:inline-block;
-  padding:10px 18px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:700;
-  letter-spacing:.4px;
-  text-transform:uppercase;
-  border:1px solid transparent;
-  box-shadow:0 6px 16px rgba(0,0,0,.12);
-  transition:transform .15s ease, box-shadow .15s ease;
-  /* ← COLORES POR PÁGINA (cámbialos aquí) */
-  background:#ffbb00;     /* color de la caja en ESTA página */
-  color:#fff;          /* color del texto en ESTA página */
-  border-color:transparent; /* o #ddd en fondo claro */
-}
-
-.rx-back:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18); }
-.rx-back:focus-visible{ outline:3px solid rgba(0,0,0,.25); outline-offset:2px; }
-
-
-</style>
-
-
-
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <h1>RGB ↔ CIELAB (D65) — Radix</h1>
-      <p>Escribe un color en <b>RGB (0–255)</b> para ver su conversión a <b>L*a*b*</b> y viceversa. Conversión directa en JavaScript, perfil sRGB con iluminante D65.</p>
-      <p>
-        <strong>¿Por qué CIELAB?</strong> El espacio L*a*b* fue diseñado para aproximar la
-        <em>uniformidad perceptual</em>: diferencias pequeñas en L*a*b* se corresponden mejor con diferencias que el ojo percibe.
-        En particular, la <span class="mono">distancia euclídea</span> entre dos colores en CIELAB es un estimador práctico
-        de su diferencia perceptual (más fiable que medir distancias en RGB).
+
+  <main class="color-wrap">
+
+    <header class="color-header">
+      <p class="color-kicker">Exploraciones computacionales · Fundación Radix</p>
+
+      <h1>Exploración RGB ↔ CIELAB</h1>
+
+      <p class="color-lead">
+        Esta herramienta permite convertir colores entre el espacio RGB y el espacio CIELAB,
+        observar sus coordenadas y explorar cómo cambian las mezclas cuando se trabajan como
+        combinaciones en un espacio perceptual.
       </p>
     </header>
 
-    <div class="grid">
-      <!-- RGB → LAB -->
-      <section class="card" aria-labelledby="h-rgb-lab">
-        <h2 id="h-rgb-lab" style="margin-top:0">RGB → CIELAB</h2>
-        <div class="row">
-          <div>
-            <label for="inR">R (0–255)</label>
-            <input type="number" id="inR" min="0" max="255" step="1" value="30">
-          </div>
-          <div>
-            <label for="inG">G (0–255)</label>
-            <input type="number" id="inG" min="0" max="255" step="1" value="120">
-          </div>
-          <div>
-            <label for="inB">B (0–255)</label>
-            <input type="number" id="inB" min="0" max="255" step="1" value="200">
-          </div>
-        </div>
-        <div id="swatchRGB" class="swatch" role="img" aria-label="Muestra de color RGB">
-          <span>Entrada</span> <span id="hexRGB" class="mono"></span>
-        </div>
-        <div class="out">
-          <div class="box"><div class="hint">L*</div><div class="mono" id="Lval">–</div></div>
-          <div class="box"><div class="hint">a*</div><div class="mono" id="aval">–</div></div>
-          <div class="box"><div class="hint">b*</div><div class="mono" id="bval">–</div></div>
-        </div>
-        <div class="hint">Rangos típicos: L* ∈ [0,100], a* y b* ≈ [−128,127].</div>
-      </section>
+    <section class="color-section" id="introduccion">
+      <h2>Color, percepción y coordenadas</h2>
 
-      <!-- LAB → RGB -->
-      <section class="card" aria-labelledby="h-lab-rgb">
-        <h2 id="h-lab-rgb" style="margin-top:0">CIELAB → RGB</h2>
-        <div class="row">
-          <div>
-            <label for="inL">L* (0–100)</label>
-            <input type="number" id="inL" min="0" max="100" step="0.1" value="50">
+      <p>
+        El modelo <strong>RGB</strong> describe un color mediante la intensidad de rojo, verde y azul
+        en una pantalla. Es útil para dispositivos digitales, pero no mide directamente
+        la diferencia perceptual entre colores.
+      </p>
+
+      <p>
+        El espacio <strong>CIELAB</strong>, también escrito como \(L^*a^*b^*\), organiza el color a partir
+        de tres coordenadas: \(L^*\), asociada a la luminosidad; \(a^*\), asociada al eje verde–rojo;
+        y \(b^*\), asociada al eje azul–amarillo. En esta página se usa una conversión desde sRGB
+        con iluminante D65.
+      </p>
+
+      <p>
+        Una ventaja de CIELAB es que permite aproximar mejor la diferencia percibida entre colores:
+        dos puntos cercanos en \(L^*a^*b^*\) suelen corresponder a colores visualmente similares,
+        mientras que distancias mayores indican cambios perceptuales más notorios.
+      </p>
+    </section>
+
+    <section class="color-section" id="conversion">
+      <h2>Conversión interactiva</h2>
+
+      <div class="color-grid">
+
+        <section class="color-card" aria-labelledby="h-rgb-lab">
+          <h3 id="h-rgb-lab">RGB → CIELAB</h3>
+
+          <div class="color-row">
+            <div>
+              <label for="inR">R (0–255)</label>
+              <input type="number" id="inR" min="0" max="255" step="1" value="30">
+            </div>
+
+            <div>
+              <label for="inG">G (0–255)</label>
+              <input type="number" id="inG" min="0" max="255" step="1" value="120">
+            </div>
+
+            <div>
+              <label for="inB">B (0–255)</label>
+              <input type="number" id="inB" min="0" max="255" step="1" value="200">
+            </div>
           </div>
-          <div>
-            <label for="ina">a* (≈ −128…127)</label>
-            <input type="number" id="ina" min="-200" max="200" step="0.1" value="0">
+
+          <div id="swatchRGB" class="swatch" role="img" aria-label="Muestra de color RGB">
+            <span>Entrada RGB</span>
+            <span id="hexRGB" class="mono"></span>
           </div>
+
+          <div class="color-out">
+            <div class="color-box">
+              <div class="hint">L*</div>
+              <div class="mono" id="Lval">–</div>
+            </div>
+
+            <div class="color-box">
+              <div class="hint">a*</div>
+              <div class="mono" id="aval">–</div>
+            </div>
+
+            <div class="color-box">
+              <div class="hint">b*</div>
+              <div class="mono" id="bval">–</div>
+            </div>
+          </div>
+
+          <div class="hint">
+            Rangos típicos: \(L^* \in [0,100]\), mientras que \(a^*\) y \(b^*\)
+            suelen ubicarse aproximadamente entre −128 y 127.
+          </div>
+        </section>
+
+        <section class="color-card" aria-labelledby="h-lab-rgb">
+          <h3 id="h-lab-rgb">CIELAB → RGB</h3>
+
+          <div class="color-row">
+            <div>
+              <label for="inL">L* (0–100)</label>
+              <input type="number" id="inL" min="0" max="100" step="0.1" value="50">
+            </div>
+
+            <div>
+              <label for="ina">a* (≈ −128…127)</label>
+              <input type="number" id="ina" min="-200" max="200" step="0.1" value="0">
+            </div>
+
+            <div>
+              <label for="inb">b* (≈ −128…127)</label>
+              <input type="number" id="inb" min="-200" max="200" step="0.1" value="0">
+            </div>
+          </div>
+
+          <div id="swatchLAB" class="swatch" role="img" aria-label="Muestra de color CIELAB">
+            <span>Salida RGB</span>
+            <span id="hexLAB" class="mono"></span>
+          </div>
+
+          <div class="color-out">
+            <div class="color-box">
+              <div class="hint">R</div>
+              <div class="mono" id="Rval">–</div>
+            </div>
+
+            <div class="color-box">
+              <div class="hint">G</div>
+              <div class="mono" id="Gval">–</div>
+            </div>
+
+            <div class="color-box">
+              <div class="hint">B</div>
+              <div class="mono" id="Bval">–</div>
+            </div>
+          </div>
+
+          <div class="hint" id="gamutNote"></div>
+        </section>
+
+      </div>
+    </section>
+
+    <section class="color-section" id="plano-color">
+      <h2>Plano de color en \(L^*a^*b^*\)</h2>
+
+      <p>
+        Como el espacio \(L^*a^*b^*\) puede representarse mediante tres coordenadas reales,
+        podemos explorar regiones de color construidas a partir de combinaciones lineales.
+      </p>
+
+      <p>
+        En el módulo siguiente se definen dos colores, \(A\) y \(B\), usando valores RGB.
+        El sistema los convierte a \(A'\) y \(B'\) en \(L^*a^*b^*\), y genera una malla discreta
+        con coeficientes \(\alpha,\beta \in \{0, 0.1, \dots, 1\}\). Cada celda representa el color
+        obtenido mediante la combinación:
+      </p>
+
+      <p>
+        \[
+          \alpha A' + \beta B'
+        \]
+      </p>
+
+      <p>
+        Al seleccionar una celda, se muestran sus valores en formato HEX y RGB. Esto permite comparar
+        cómo una operación sencilla en un espacio matemático produce variaciones visuales no siempre
+        lineales desde el punto de vista perceptivo.
+      </p>
+
+      <section class="color-card color-plane-card" aria-labelledby="h-plane">
+        <h3 id="h-plane">Grid \(\alpha A' + \beta B'\) en LAB</h3>
+
+        <div class="color-row">
           <div>
-            <label for="inb">b* (≈ −128…127)</label>
-            <input type="number" id="inb" min="-200" max="200" step="0.1" value="0">
+            <label for="AR">A — R (0–255)</label>
+            <input type="number" id="AR" min="0" max="255" step="1" value="30">
+          </div>
+
+          <div>
+            <label for="AG">A — G (0–255)</label>
+            <input type="number" id="AG" min="0" max="255" step="1" value="120">
+          </div>
+
+          <div>
+            <label for="AB">A — B (0–255)</label>
+            <input type="number" id="AB" min="0" max="255" step="1" value="200">
           </div>
         </div>
-        <div id="swatchLAB" class="swatch" role="img" aria-label="Muestra de color LAB">
-          <span>Salida</span>
-          <span id="hexLAB" class="mono"></span>
+
+        <div class="color-row" style="margin-top:8px;">
+          <div>
+            <label for="BR">B — R (0–255)</label>
+            <input type="number" id="BR" min="0" max="255" step="1" value="255">
+          </div>
+
+          <div>
+            <label for="BG">B — G (0–255)</label>
+            <input type="number" id="BG" min="0" max="255" step="1" value="140">
+          </div>
+
+          <div>
+            <label for="BB">B — B (0–255)</label>
+            <input type="number" id="BB" min="0" max="255" step="1" value="0">
+          </div>
         </div>
-        <div class="out">
-          <div class="box"><div class="hint">R</div><div class="mono" id="Rval">–</div></div>
-          <div class="box"><div class="hint">G</div><div class="mono" id="Gval">–</div></div>
-          <div class="box"><div class="hint">B</div><div class="mono" id="Bval">–</div></div>
+
+        <div style="margin-top:14px;">
+          <canvas id="plane" width="420" height="420" aria-label="Plano de combinaciones de color en LAB"></canvas>
+
+          <div id="probe" class="swatch" aria-label="Muestra de color seleccionado"></div>
+
+          <div id="probeInfo" class="mono hint" role="status" aria-live="polite">
+            –
+          </div>
         </div>
-        <div class="hint" id="gamutNote"></div>
       </section>
+    </section>
+
+    <div class="color-back-wrap">
+      <a href="scripts.html" class="color-back">
+        Volver a exploraciones
+      </a>
     </div>
-  </div>
+
+  </main>
 
   <script src="js/cal_rgb_cielab.js" defer></script>
-
-
-<section id="plano_color" class="content">
-<div class="wrap">
-<p>
-Aprovecharemos el hecho de que el espacio $L^*a^*b^*$ es equivalente a $\mathbb{R}^3$, 
-para representar en un plano una cuadrícula en la que cada color corresponde a una 
-combinación lineal de dos vectores $A$ y $B$.
-</p>
-
-<p>
-En el módulo interactivo puedes definir $A$ y $B$ en RGB. 
-Los convertimos a $A'$ y $B'$ en $L^*a^*b^*$ y generamos una malla discreta con 
-$\alpha,\beta \in \{0,\,0.1,\,\dots,\,1\}$; cada celda muestra el color 
-$\alpha A' + \beta B'$. Debajo del muestrario se muestran los valores HEX y RGB 
-del color seleccionado.
-</p>
-
-</div>
-</section>
-
-
-
-<section class="card" style="max-width: 560px; margin: 0 auto;">
-  <h2 style="margin-top:0">Grid αA′ + βB′ (LAB)</h2>
-
-  <!-- Vectores en RGB -->
-  <div class="row">
-    <div>
-      <label for="AR">A — R (0–255)</label>
-      <input type="number" id="AR" min="0" max="255" step="1" value="30">
-    </div>
-    <div>
-      <label for="AG">A — G (0–255)</label>
-      <input type="number" id="AG" min="0" max="255" step="1" value="120">
-    </div>
-    <div>
-      <label for="AB">A — B (0–255)</label>
-      <input type="number" id="AB" min="0" max="255" step="1" value="200">
-    </div>
-  </div>
-
-  <div class="row" style="margin-top:8px;">
-    <div>
-      <label for="BR">B — R (0–255)</label>
-      <input type="number" id="BR" min="0" max="255" step="1" value="255">
-    </div>
-    <div>
-      <label for="BG">B — G (0–255)</label>
-      <input type="number" id="BG" min="0" max="255" step="1" value="140">
-    </div>
-    <div>
-      <label for="BB">B — B (0–255)</label>
-      <input type="number" id="BB" min="0" max="255" step="1" value="0">
-    </div>
-  </div>
-
-  <!-- Canvas cuadrado y contenido -->
-  <div style="margin-top:14px;">
-    <canvas id="plane"
-            width="420" height="420"
-            style="display:block; width:100%; max-width:520px; aspect-ratio:1/1;
-                   border:1px solid var(--border); border-radius:12px; margin:0 auto;">
-    </canvas>
-    <div id="probe" class="swatch" aria-label="Muestra de color"></div>
-    <div id="probeInfo" class="mono hint" role="status" aria-live="polite">–</div>
-  </div>
-</section>
-
-<!-- carga el script al final -->
-<script src="js/plane_grid.js" defer></script>
-
-
-<div class="rx-back-wrap">
-  <a href="scripts.html" class="rx-back">REGRESAR</a>
-</div>
+  <script src="js/plane_grid.js" defer></script>
 
 </body>
 </html>

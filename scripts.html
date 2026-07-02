@@ -4,295 +4,338 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Radix| Simulaciones</title>
-  <meta name="description" content="Explora simulaciones, visualizaciones y herramientas desarrolladas en Radix: matemáticas, arte y computación." />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.fundacionradix.org/scripts.html" />
+
+  <!-- SEO básico -->
+  <title>Fundación Radix | Exploraciones computacionales</title>
+  <meta name="description" content="Exploraciones computacionales desarrolladas por Fundación Radix en matemáticas, biología, arte, diseño y computación." />
+  <meta name="keywords" content="Fundación Radix, simulaciones, exploraciones computacionales, matemáticas, biología, arte, diseño, computación, visualización, educación" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fundación Radix" />
+  <meta property="og:title" content="Fundación Radix | Exploraciones computacionales" />
+  <meta property="og:description" content="Simulaciones, visualizaciones y herramientas educativas en matemáticas, biología, arte, diseño y computación." />
+  <meta property="og:url" content="https://www.fundacionradix.org/scripts.html" />
+  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fundación Radix | Exploraciones computacionales" />
+  <meta name="twitter:description" content="Simulaciones, visualizaciones y herramientas educativas en matemáticas, biología, arte, diseño y computación." />
+  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
+  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
+
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-  body {
-    margin: 0;
-    background: #ffffff;
-    color: #111;
-    font-family: system-ui, sans-serif;
-  }
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #111;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+    }
 
-  .hero-modulos {
-    position: relative;
-    width: 100%;
-    height: 320px;
-    overflow: hidden;
-    background: #fff;
-  }
+    .hero-modulos {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      background: #fff;
+    }
 
-  #perlinHero {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-  }
+    #perlinHero {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
 
-  .hero-overlay {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-    margin: 0 auto;
-    height: 100%;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    pointer-events: none;
-  }
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      height: 100%;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      pointer-events: none;
+    }
 
-  .hero-overlay h1 {
-    margin: 0 0 12px 0;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    line-height: 1.05;
-    color: #111;
-  }
+    .hero-overlay h1 {
+      margin: 0 0 12px 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      color: #111;
+    }
 
-  .hero-overlay p {
-    max-width: 760px;
-    margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.6;
-  }
+    .hero-overlay p {
+      max-width: 760px;
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #2b2b2b;
+    }
 
-  .back {
-    display: inline-block;
-    margin: 20px 0 0 24px;
-    text-decoration: none;
-    color: #b30059;
-    font-weight: 500;
-  }
+    .back {
+      display: inline-block;
+      margin: 20px 0 0 24px;
+      text-decoration: none;
+      color: #b30059;
+      font-weight: 500;
+    }
 
-  .btn {
-    display: inline-block;
-    margin-top: 10px;
-    text-decoration: none;
-    color: white;
-    background: #b30059;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 0.9em;
-  }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: white;
+      background: #b30059;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9em;
+    }
 
-  .content {
-    max-width: 900px;
-    margin: auto;
-    padding: 24px;
-  }
+    .btn:hover {
+      opacity: 0.9;
+    }
 
-  .bloque {
-    margin-top: 2.5em;
-  }
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 24px;
+    }
 
-  .bloque h3 {
-    margin-bottom: 0.5em;
-  }
-  .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-  margin-top: 24px;
-}
+    .bloque {
+      margin-top: 2.5em;
+    }
 
-.card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+    .bloque h3 {
+      margin-bottom: 0.5em;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
 
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 1.08rem;
-  color: #111;
-}
+    .card {
+      padding: 18px;
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-.card p {
-  margin: 0 0 14px 0;
-  color: #444;
-  line-height: 1.55;
-}
-</style>
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.08rem;
+      color: #111;
+    }
+
+    .card p {
+      margin: 0 0 14px 0;
+      color: #444;
+      line-height: 1.55;
+    }
+  </style>
 </head>
 
 <body>
 
-  <header class="hero-modulos">
-    <div id="perlinHero"></div>
+  <header class="hero-modulos" aria-label="Exploraciones computacionales">
+    <div id="perlinHero" aria-hidden="true"></div>
 
-<div class="hero-overlay">
-  <h1>Exploraciones</h1>
-  <p>Exploraciones computacionales en matemática, biología, arte y diseño</p>
-</div>
+    <div class="hero-overlay">
+      <h1>Exploraciones computacionales</h1>
+      <p>
+        Simulaciones, visualizaciones y herramientas en matemática, biología, arte, diseño y computación.
+      </p>
+    </div>
   </header>
 
+  <main class="content">
 
-  <div class="content">
+    <a href="index.html" class="btn btn-back">
+      Volver a Fundación Radix
+    </a>
 
-  <a href="index.html" class="btn btn-back">
-    Volver a Radix
-  </a>
-
-<p>
-  Este espacio reúne exploraciones y visualizaciones en la intersección de matemáticas, biología, arte, diseño y computación.
-</p>
+    <p>
+      Este espacio reúne exploraciones y visualizaciones desarrolladas por Fundación Radix en la intersección de
+      matemáticas, biología, arte, diseño y computación.
+    </p>
 
     <section id="modulos-demo" aria-labelledby="modulos-title">
       <h2 id="modulos-title" class="titulo-izquierda">Simulaciones y herramientas</h2>
 
       <div class="grid">
 
-        <div class="card">
+        <article class="card">
           <h3>L-sistemas</h3>
           <p>Modelos de crecimiento y generación de estructuras fractales.</p>
           <a class="btn" href="l_system.html">Abrir</a>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>Área poligonal</h3>
           <p>Aproximación numérica del área de una región mediante discretización.</p>
           <a class="btn" href="area_region.html">Abrir</a>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>RGB ↔ CIELAB</h3>
           <p>Exploración interactiva del espacio de color.</p>
           <a class="btn" href="cal_RGB_CIELAB.html">Abrir</a>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>¿Es un triángulo?</h3>
-          <p>Visualización de las condiciones para formar un triángulo.</p>
+          <p>Visualización de las condiciones necesarias para formar un triángulo.</p>
           <a class="btn" href="conf_triangular.html">Abrir</a>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>Teselación de Voronoi</h3>
           <p>Partición del plano por cercanía a puntos semilla, con exportación SVG.</p>
           <a class="btn" href="voronoi.html">Abrir</a>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>Juego de la Vida</h3>
           <p>Autómata celular con patrones emergentes a partir de reglas simples.</p>
           <a class="btn" href="juego_vida.html">Abrir</a>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>Gielis</h3>
           <p>Curvas paramétricas para generar formas orgánicas y florales.</p>
-          <a class="btn" href="pag_gielis.html" target="_blank" rel="noopener noreferrer">Abrir</a>
-        </div>
+          <a class="btn" href="pag_gielis.html">Abrir</a>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>Chryzode</h3>
           <p>Construcción discreta en la circunferencia mediante reglas de asignación modular.</p>
           <a class="btn" href="chryzode.html">Abrir</a>
-      </div>
+        </article>
 
-      <div class="card">
-        <h3>Curva de Bézier</h3>
-        <p>Exploración interactiva de curvas de Bézier con puntos de control manipulables.</p>
-      <a class="btn" href="bezier.html">Abrir</a>
-      </div>
+        <article class="card">
+          <h3>Curva de Bézier</h3>
+          <p>Exploración interactiva de curvas de Bézier con puntos de control manipulables.</p>
+          <a class="btn" href="bezier.html">Abrir</a>
+        </article>
 
       </div>
     </section>
 
-  </div>
-  </div>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+
   <script>
-  new p5((sk) => {
+    new p5((sk) => {
 
-    let t = 0;
-    let heroHeight = 320;
+      let t = 0;
+      const heroHeight = 320;
 
-    sk.setup = function () {
-      const container = document.getElementById('perlinHero');
-      const canvas = sk.createCanvas(container.offsetWidth, heroHeight);
-      canvas.parent('perlinHero');
+      sk.setup = function () {
+        const container = document.getElementById('perlinHero');
+        const canvas = sk.createCanvas(container.offsetWidth, heroHeight);
+        canvas.parent('perlinHero');
 
-      sk.colorMode(sk.HSB, 360, 100, 100, 100);
-      sk.noStroke();
-    };
+        sk.colorMode(sk.HSB, 360, 100, 100, 100);
+        sk.noStroke();
+      };
 
-    sk.draw = function () {
-      sk.clear();
+      sk.draw = function () {
+        sk.clear();
 
-      sk.beginShape();
-      sk.vertex(0, sk.height);
+        sk.beginShape();
+        sk.vertex(0, sk.height);
 
-      for (let x = 0; x <= sk.width; x += 8) {
-        let n = sk.noise(x * 0.006, t);
-        let y = sk.map(n, 0, 1, sk.height * 0.6, sk.height * 0.9);
+        for (let x = 0; x <= sk.width; x += 8) {
+          const n = sk.noise(x * 0.006, t);
+          const y = sk.map(n, 0, 1, sk.height * 0.6, sk.height * 0.9);
 
-        let hue = sk.map(x, 0, sk.width, 300, 340);
-        let sat = 60;
-        let bri = sk.map(n, 0, 1, 30, 50);
-        let alp = 20;
+          const hue = sk.map(x, 0, sk.width, 300, 340);
+          const sat = 60;
+          const bri = sk.map(n, 0, 1, 30, 50);
+          const alp = 20;
 
-        sk.fill(hue, sat, bri, alp);
-        sk.vertex(x, y);
-      }
+          sk.fill(hue, sat, bri, alp);
+          sk.vertex(x, y);
+        }
 
-      sk.vertex(sk.width, sk.height);
-      sk.endShape(sk.CLOSE);
+        sk.vertex(sk.width, sk.height);
+        sk.endShape(sk.CLOSE);
 
-      sk.beginShape();
-      sk.vertex(0, sk.height);
+        sk.beginShape();
+        sk.vertex(0, sk.height);
 
-      for (let x = 0; x <= sk.width; x += 8) {
-        let n = sk.noise(x * 0.008, t + 100);
-        let y = sk.map(n, 0, 1, sk.height * 0.5, sk.height * 0.82);
+        for (let x = 0; x <= sk.width; x += 8) {
+          const n = sk.noise(x * 0.008, t + 100);
+          const y = sk.map(n, 0, 1, sk.height * 0.5, sk.height * 0.82);
 
-        let hue = sk.map(x, 0, sk.width, 240, 270);
-        let sat = 50;
-        let bri = sk.map(n, 0, 1, 25, 45);
-        let alp = 12;
+          const hue = sk.map(x, 0, sk.width, 240, 270);
+          const sat = 50;
+          const bri = sk.map(n, 0, 1, 25, 45);
+          const alp = 12;
 
-        sk.fill(hue, sat, bri, alp);
-        sk.vertex(x, y);
-      }
+          sk.fill(hue, sat, bri, alp);
+          sk.vertex(x, y);
+        }
 
-      sk.vertex(sk.width, sk.height);
-      sk.endShape(sk.CLOSE);
+        sk.vertex(sk.width, sk.height);
+        sk.endShape(sk.CLOSE);
 
-      sk.beginShape();
-      sk.vertex(0, sk.height);
+        sk.beginShape();
+        sk.vertex(0, sk.height);
 
-      for (let x = 0; x <= sk.width; x += 12) {
-        let n = sk.noise(x * 0.01, t + 200);
-        let y = sk.map(n, 0, 1, sk.height * 0.65, sk.height * 0.95);
+        for (let x = 0; x <= sk.width; x += 12) {
+          const n = sk.noise(x * 0.01, t + 200);
+          const y = sk.map(n, 0, 1, sk.height * 0.65, sk.height * 0.95);
 
-        let hue = 320;
-        let sat = 30;
-        let bri = 40;
-        let alp = 6;
+          const hue = 320;
+          const sat = 30;
+          const bri = 40;
+          const alp = 6;
 
-        sk.fill(hue, sat, bri, alp);
-        sk.vertex(x, y);
-      }
+          sk.fill(hue, sat, bri, alp);
+          sk.vertex(x, y);
+        }
 
-      sk.vertex(sk.width, sk.height);
-      sk.endShape(sk.CLOSE);
+        sk.vertex(sk.width, sk.height);
+        sk.endShape(sk.CLOSE);
 
-      t += 0.0025;
-    };
+        t += 0.0025;
+      };
 
-    sk.windowResized = function () {
-      const container = document.getElementById('perlinHero');
-      sk.resizeCanvas(container.offsetWidth, heroHeight);
-    };
+      sk.windowResized = function () {
+        const container = document.getElementById('perlinHero');
+        sk.resizeCanvas(container.offsetWidth, heroHeight);
+      };
 
-  });
+    });
   </script>
 
 </body>

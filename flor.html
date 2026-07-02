@@ -3,253 +3,835 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Flor biomimética</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.fundacionradix.org/pag_gielis.html" />
+
+  <!-- SEO básico -->
+  <title>Fundación Radix | Flor biomimética</title>
+  <meta name="description" content="Exploración interactiva de flores biomiméticas mediante superfórmula de Gielis y patrones de filotaxis." />
+  <meta name="keywords" content="Fundación Radix, flor biomimética, Gielis, superfórmula, filotaxis, girasol, matemáticas, biología, arte generativo, educación" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fundación Radix" />
+  <meta property="og:title" content="Fundación Radix | Flor biomimética" />
+  <meta property="og:description" content="Exploración interactiva de formas florales mediante modelos matemáticos de pétalos y filotaxis." />
+  <meta property="og:url" content="https://www.fundacionradix.org/pag_gielis.html" />
+  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fundación Radix | Flor biomimética" />
+  <meta name="twitter:description" content="Exploración interactiva de formas florales mediante modelos matemáticos de pétalos y filotaxis." />
+  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
+  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
+
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- MathJax para fórmulas matemáticas -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
   <style>
-    :root{ --ink:#111; --muted:#666; --bg:#f7f7f7; --card:#fff; --border:#e6e6e6 }
-    *{ box-sizing:border-box }
-    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--ink) }
-    header{ padding:16px 20px; border-bottom:1px solid var(--border); background:var(--card) }
-    header h1{ margin:0; font-size:20px }
-    .wrap{ display:grid; grid-template-columns: 320px 1fr; gap:16px; padding:16px; max-width:1200px; margin:0 auto }
-    .panel{ background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px }
-    .panel h2{ margin:0 0 8px; font-size:16px }
-    .row{ display:grid; grid-template-columns: 1fr auto; gap:8px; align-items:center; margin:8px 0 }
-    label{ font-size:13px; color:var(--muted) }
-    input[type="range"]{ width:100% }
-    .small{ font-size:12px; color:var(--muted) }
-    .btn{ display:inline-block; padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:#fff; cursor:pointer }
-    .btn:active{ transform:translateY(1px) }
-    .mode{ display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 10px }
-    .mode label{ display:flex; align-items:center; gap:6px; padding:6px 10px; border:1px solid var(--border); border-radius:10px; cursor:pointer; user-select:none }
-    .footer{ padding:8px 16px; color:var(--muted); font-size:12px }
-    canvas{ border-radius:14px; background:#fff; border:1px solid var(--border) }
+    :root {
+      --flower-bg: #f7f7f7;
+      --flower-card: #ffffff;
+      --flower-border: #e6e6e6;
+      --flower-muted: #666666;
+      --flower-ink: #111111;
+      --flower-accent: #b30059;
+      --flower-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    body {
+      margin: 0;
+      background: var(--flower-bg);
+      color: var(--flower-ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .flower-header {
+      background: var(--flower-card);
+      border-bottom: 1px solid var(--flower-border);
+    }
+
+    .flower-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 24px;
+    }
+
+    .flower-kicker {
+      margin: 0 0 0.35rem 0;
+      color: var(--flower-accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .flower-header h1 {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #111111;
+    }
+
+    .flower-lead {
+      max-width: 820px;
+      margin: 12px 0 0;
+      color: var(--flower-muted);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .flower-wrap {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 16px;
+
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px 24px;
+    }
+
+    .flower-panel {
+      background: var(--flower-card);
+      border: 1px solid var(--flower-border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--flower-shadow);
+    }
+
+    .flower-panel h2 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: #111111;
+    }
+
+    .flower-panel + .flower-panel {
+      margin-top: 16px;
+    }
+
+    .flower-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      margin: 8px 0;
+    }
+
+    .flower-row label {
+      color: var(--flower-muted);
+      font-size: 0.82rem;
+      line-height: 1.35;
+    }
+
+    .flower-row input[type="range"] {
+      width: 100%;
+    }
+
+    .flower-row input[type="color"] {
+      width: 48px;
+      height: 32px;
+      padding: 0;
+      border: 1px solid var(--flower-border);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .flower-small {
+      color: var(--flower-muted);
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+
+    .flower-mode {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0 14px;
+    }
+
+    .flower-mode label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      padding: 7px 10px;
+
+      border: 1px solid var(--flower-border);
+      border-radius: 10px;
+
+      color: #333333;
+      font-size: 0.86rem;
+
+      cursor: pointer;
+      user-select: none;
+      background: #ffffff;
+    }
+
+    .flower-mode label:has(input:checked) {
+      border-color: rgba(179, 0, 89, 0.35);
+      background: rgba(179, 0, 89, 0.06);
+    }
+
+    .flower-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 10px 12px;
+
+      border-radius: 10px;
+      border: 1px solid var(--flower-border);
+
+      background: #ffffff;
+      color: #111111;
+
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .flower-btn:hover {
+      background: #f3f3f3;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .flower-btn:active {
+      transform: translateY(0);
+    }
+
+    .flower-footer {
+      padding-top: 10px;
+      color: var(--flower-muted);
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .flower-canvas-panel {
+      min-width: 0;
+    }
+
+    #sketch-holder {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto !important;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid var(--flower-border);
+      display: block;
+    }
+
+    .flower-description {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 12px;
+    }
+
+    .flower-description-inner {
+      background: var(--flower-card);
+      border: 1px solid var(--flower-border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--flower-shadow);
+    }
+
+    .flower-description h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .flower-description p {
+      color: #333333;
+      line-height: 1.65;
+    }
+
+    .flower-back-wrap {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 8px 0 28px;
+    }
+
+    mjx-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+    }
+
+    @media (max-width: 860px) {
+      .flower-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .flower-header-inner,
+      .flower-wrap,
+      .flower-description {
+        padding-inline: 18px;
+      }
+
+      .flower-row {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
+
   <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
 </head>
+
 <body>
-<header>
-  <h1>Flor biomimética — mundo real → mundo matemático → simulación</h1>
-</header>
-<div class="wrap">
-  <section class="panel" aria-label="Controles">
-    <h2>1) Modelo</h2>
-    <div class="mode">
-      <label><input type="radio" name="model" value="petalos" checked> Pétalos (superfórmula)</label>
-      <label><input type="radio" name="model" value="filotaxis"> Filotaxis (girasol)</label>
-    </div>
 
-    <h2>2) Parámetros</h2>
-    <div id="petal-controls">
-      <div class="row"><label>Número de pétalos (N)</label><input id="N" type="range" min="3" max="24" value="8" step="1"><span id="Nval">8</span></div>
-      <div class="row"><label>Tamaño del pétalo</label><input id="petalScale" type="range" min="20" max="200" value="120" step="1"><span id="petalScaleVal">120</span></div>
-      <div class="row"><label>Redondez (n1)</label><input id="n1" type="range" min="0.2" max="20" value="2.5" step="0.1"><span id="n1val">2.5</span></div>
-      <div class="row"><label>Anisotropía X (a)</label><input id="a" type="range" min="0.2" max="5" value="1" step="0.1"><span id="aval">1.0</span></div>
-      <div class="row"><label>Anisotropía Y (b)</label><input id="b" type="range" min="0.2" max="5" value="1" step="0.1"><span id="bval">1.0</span></div>
-      <div class="row"><label>Ondas (m)</label><input id="m" type="range" min="0" max="20" value="6" step="1"><span id="mval">6</span></div>
-      <div class="row"><label>Agudeza 1 (n2)</label><input id="n2" type="range" min="0.2" max="20" value="8" step="0.1"><span id="n2val">8.0</span></div>
-      <div class="row"><label>Agudeza 2 (n3)</label><input id="n3" type="range" min="0.2" max="20" value="2" step="0.1"><span id="n3val">2.0</span></div>
-      <div class="row"><label>Radio base</label><input id="baseR" type="range" min="10" max="300" value="160" step="1"><span id="baseRval">160</span></div>
-      <div class="row"><label>Grosor de trazo</label><input id="strokeW" type="range" min="0" max="6" value="1" step="0.5"><span id="strokeWval">1.0</span></div>
-      <div class="row"><label>Color pétalo</label><input id="petalColor" type="color" value="#e85a8b"><span class="small">&nbsp;</span></div>
-      <div class="row"><label>Color centro</label><input id="centerColor" type="color" value="#7a4f1b"><span class="small">&nbsp;</span></div>
-    </div>
+  <header class="flower-header">
+    <div class="flower-header-inner">
+      <p class="flower-kicker">Exploraciones computacionales · Fundación Radix</p>
 
-    <div id="phylla-controls" style="display:none">
-      <div class="row"><label>Semillas (N)</label><input id="seeds" type="range" min="50" max="2000" value="600" step="10"><span id="seedsVal">600</span></div>
-      <div class="row"><label>Ángulo (°)</label><input id="phi" type="range" min="100" max="180" value="137.5" step="0.1"><span id="phiVal">137.5</span></div>
-      <div class="row"><label>Constante r = c√n</label><input id="cval" type="range" min="2" max="16" value="8" step="0.5"><span id="cvalVal">8.0</span></div>
-      <div class="row"><label>Tamaño semilla</label><input id="seedSize" type="range" min="1" max="12" value="5" step="0.5"><span id="seedSizeVal">5.0</span></div>
-      <div class="row"><label>Jitter (ruido)</label><input id="jitter" type="range" min="0" max="6" value="0" step="0.2"><span id="jitterVal">0.0</span></div>
-      <div class="row"><label>Gradación centro→borde</label><input id="grad" type="range" min="0" max="1" value="0.6" step="0.05"><span id="gradVal">0.60</span></div>
-      <div class="row"><label>Color semilla</label><input id="seedColor" type="color" value="#ccaa33"><span class="small">&nbsp;</span></div>
-      <div class="row"><label>Color borde</label><input id="seedEdge" type="color" value="#553300"><span class="small">&nbsp;</span></div>
-    </div>
+      <h1>Flor biomimética</h1>
 
-    <h2>3) Exportar</h2>
-    <div class="mode">
-      <button class="btn" id="savePNG" type="button">Guardar PNG</button>
-      <button class="btn" id="randomize" type="button">Aleatorizar</button>
-      <button class="btn" id="reset" type="button">Reiniciar</button>
+      <p class="flower-lead">
+        Exploración interactiva de formas florales mediante modelos matemáticos:
+        pétalos generados con una variante de la superfórmula de Gielis y patrones de
+        filotaxis inspirados en la distribución de semillas del girasol.
+      </p>
     </div>
-    <p class="small">Consejo didáctico: pide a tus estudiantes elegir una flor real, observar sus rasgos (N pétalos, agudeza, compactación del centro) y tratar de aproximarla con los parámetros.</p>
+  </header>
+
+  <section class="flower-description" aria-label="Descripción de la exploración">
+    <div class="flower-description-inner">
+      <h2>Del mundo real al modelo matemático</h2>
+
+      <p>
+        Esta simulación permite observar cómo algunos rasgos de una flor —número de pétalos,
+        redondez, agudeza, simetría, distribución radial o compactación del centro— pueden
+        traducirse en parámetros geométricos.
+      </p>
+
+      <p>
+        En el modo de pétalos, la forma se controla mediante una expresión inspirada en la
+        superfórmula de Gielis. En el modo de filotaxis, la distribución se aproxima con
+        \(r = c\sqrt{n}\) y \(\theta = n\phi\), donde \(\phi\) suele tomar valores cercanos
+        al ángulo áureo, aproximadamente \(137.5^\circ\).
+      </p>
+    </div>
   </section>
 
-  <section class="panel" aria-label="Lienzo">
-    <div id="sketch-holder"></div>
-    <div class="footer">Modelo matemático de pétalo: <span class="small">Superfórmula de Gielis</span>. | Modelo de filotaxis: <span class="small">r = c√n, θ = n·φ (φ≈137.5°)</span>.</div>
-  </section>
-</div>
+  <main class="flower-wrap">
 
-<script>
-// Estado UI
-const qs = s => document.querySelector(s);
-const qsa = s => Array.from(document.querySelectorAll(s));
+    <section class="flower-panel" aria-label="Controles de la flor biomimética">
+      <h2>1. Modelo</h2>
 
-function linkRange(id){
-  const el = qs('#'+id), lab = qs('#'+id+'val');
-  if(!el || !lab) return;
-  const update = () => lab.textContent = (el.type==='range'? Number(el.value).toFixed(el.step && el.step<1? 2:0): el.value);
-  el.addEventListener('input', update); update();
-}
-['N','petalScale','n1','a','b','m','n2','n3','baseR','strokeW','seeds','phi','cval','seedSize','jitter','grad'].forEach(linkRange);
+      <div class="flower-mode">
+        <label>
+          <input type="radio" name="model" value="petalos" checked>
+          Pétalos
+        </label>
 
-// Mostrar/ocultar controles según el modelo
-qsa('input[name="model"]').forEach(r => {
-  r.addEventListener('change', () => {
-    const petal = qs('#petal-controls');
-    const phylla = qs('#phylla-controls');
-    if(r.value==='petalos' && r.checked){ petal.style.display='block'; phylla.style.display='none'; }
-    if(r.value==='filotaxis' && r.checked){ petal.style.display='none'; phylla.style.display='block'; }
-    redraw();
-  })
-});
+        <label>
+          <input type="radio" name="model" value="filotaxis">
+          Filotaxis
+        </label>
+      </div>
 
-// Sketch p5
-let pg;
-new p5(p => {
-  let W=800, H=800;
-  p.setup = () => {
-    const holder = document.getElementById('sketch-holder');
-    const parentW = holder.clientWidth || 800;
-    W = Math.min(1000, Math.max(600, parentW));
-    H = W;
-    const cnv = p.createCanvas(W, H);
-    cnv.parent('sketch-holder');
-    p.noLoop();
-    p.pixelDensity(2);
-    redraw();
-  };
+      <h2>2. Parámetros</h2>
 
-  p.windowResized = () => {
-    const holder = document.getElementById('sketch-holder');
-    const parentW = holder.clientWidth || 800;
-    const Wn = Math.min(1000, Math.max(600, parentW));
-    p.resizeCanvas(Wn, Wn);
-    redraw();
-  };
+      <div id="petal-controls">
+        <div class="flower-row">
+          <label for="N">Número de pétalos (N)</label>
+          <input id="N" type="range" min="3" max="24" value="8" step="1">
+          <span id="Nval">8</span>
+        </div>
 
-  window.redraw = () => { p.clear(); drawScene(p); };
+        <div class="flower-row">
+          <label for="petalScale">Tamaño del pétalo</label>
+          <input id="petalScale" type="range" min="20" max="200" value="120" step="1">
+          <span id="petalScaleVal">120</span>
+        </div>
 
-  function drawScene(p){
-    p.background('#ffffff');
-    p.push();
-    p.translate(p.width/2, p.height/2);
-    const model = document.querySelector('input[name="model"]:checked').value;
-    if(model==='petalos') drawPetals(p); else drawPhyllotaxis(p);
-    p.pop();
-  }
+        <div class="flower-row">
+          <label for="n1">Redondez (n1)</label>
+          <input id="n1" type="range" min="0.2" max="20" value="2.5" step="0.1">
+          <span id="n1val">2.5</span>
+        </div>
 
-  function superformula(theta, a, b, m, n1, n2, n3){
-    // r(θ) = [ ( |cos(mθ/4)/a|^{n2} + |sin(mθ/4)/b|^{n3} ) ]^{-1/n1}
-    const t = m * theta / 4;
-    const part1 = Math.pow(Math.abs(Math.cos(t))/a, n2);
-    const part2 = Math.pow(Math.abs(Math.sin(t))/b, n3);
-    const r = Math.pow(part1 + part2, -1/n1);
-    return r;
-  }
+        <div class="flower-row">
+          <label for="a">Anisotropía X (a)</label>
+          <input id="a" type="range" min="0.2" max="5" value="1" step="0.1">
+          <span id="aval">1.0</span>
+        </div>
 
-  function drawPetals(p){
-    const N = +qs('#N').value;
-    const baseR = +qs('#baseR').value;
-    const petalScale = +qs('#petalScale').value;
-    const a = +qs('#a').value, b = +qs('#b').value;
-    const m = +qs('#m').value, n1 = +qs('#n1').value, n2 = +qs('#n2').value, n3 = +qs('#n3').value;
-    const strokeW = +qs('#strokeW').value;
-    const petalColor = qs('#petalColor').value;
-    const centerColor = qs('#centerColor').value;
+        <div class="flower-row">
+          <label for="b">Anisotropía Y (b)</label>
+          <input id="b" type="range" min="0.2" max="5" value="1" step="0.1">
+          <span id="bval">1.0</span>
+        </div>
 
-    // centro
-    p.noStroke();
-    p.fill(centerColor);
-    p.circle(0,0, Math.max(20, baseR*0.25));
+        <div class="flower-row">
+          <label for="m">Ondas (m)</label>
+          <input id="m" type="range" min="0" max="20" value="6" step="1">
+          <span id="mval">6</span>
+        </div>
 
-    // pétalos replicados radialmente
-    p.stroke(0, 30);
-    p.strokeWeight(strokeW);
-    p.fill(petalColor + 'ff');
+        <div class="flower-row">
+          <label for="n2">Agudeza 1 (n2)</label>
+          <input id="n2" type="range" min="0.2" max="20" value="8" step="0.1">
+          <span id="n2val">8.0</span>
+        </div>
 
-    const steps = 240;
-    for(let i=0;i<N;i++){
-      const ang = (i/N)*p.TWO_PI;
-      p.push();
-      p.rotate(ang);
-      p.beginShape();
-      for(let k=0;k<=steps;k++){
-        const th = p.map(k, 0, steps, -p.HALF_PI, p.HALF_PI); // hoja orientada arriba
-        const r = superformula(th, a, b, m, n1, n2, n3);
-        const x = r * petalScale;
-        const y = r * petalScale;
-        p.vertex(x, -y);
+        <div class="flower-row">
+          <label for="n3">Agudeza 2 (n3)</label>
+          <input id="n3" type="range" min="0.2" max="20" value="2" step="0.1">
+          <span id="n3val">2.0</span>
+        </div>
+
+        <div class="flower-row">
+          <label for="baseR">Radio base</label>
+          <input id="baseR" type="range" min="10" max="300" value="160" step="1">
+          <span id="baseRval">160</span>
+        </div>
+
+        <div class="flower-row">
+          <label for="strokeW">Grosor de trazo</label>
+          <input id="strokeW" type="range" min="0" max="6" value="1" step="0.5">
+          <span id="strokeWval">1.0</span>
+        </div>
+
+        <div class="flower-row">
+          <label for="petalColor">Color pétalo</label>
+          <input id="petalColor" type="color" value="#e85a8b">
+          <span class="flower-small">&nbsp;</span>
+        </div>
+
+        <div class="flower-row">
+          <label for="centerColor">Color centro</label>
+          <input id="centerColor" type="color" value="#7a4f1b">
+          <span class="flower-small">&nbsp;</span>
+        </div>
+      </div>
+
+      <div id="phylla-controls" style="display:none">
+        <div class="flower-row">
+          <label for="seeds">Semillas (N)</label>
+          <input id="seeds" type="range" min="50" max="2000" value="600" step="10">
+          <span id="seedsVal">600</span>
+        </div>
+
+        <div class="flower-row">
+          <label for="phi">Ángulo (°)</label>
+          <input id="phi" type="range" min="100" max="180" value="137.5" step="0.1">
+          <span id="phiVal">137.5</span>
+        </div>
+
+        <div class="flower-row">
+          <label for="cval">Constante \(r = c\sqrt{n}\)</label>
+          <input id="cval" type="range" min="2" max="16" value="8" step="0.5">
+          <span id="cvalVal">8.0</span>
+        </div>
+
+        <div class="flower-row">
+          <label for="seedSize">Tamaño semilla</label>
+          <input id="seedSize" type="range" min="1" max="12" value="5" step="0.5">
+          <span id="seedSizeVal">5.0</span>
+        </div>
+
+        <div class="flower-row">
+          <label for="jitter">Jitter / ruido</label>
+          <input id="jitter" type="range" min="0" max="6" value="0" step="0.2">
+          <span id="jitterVal">0.0</span>
+        </div>
+
+        <div class="flower-row">
+          <label for="grad">Gradación centro→borde</label>
+          <input id="grad" type="range" min="0" max="1" value="0.6" step="0.05">
+          <span id="gradVal">0.60</span>
+        </div>
+
+        <div class="flower-row">
+          <label for="seedColor">Color semilla</label>
+          <input id="seedColor" type="color" value="#ccaa33">
+          <span class="flower-small">&nbsp;</span>
+        </div>
+
+        <div class="flower-row">
+          <label for="seedEdge">Color borde</label>
+          <input id="seedEdge" type="color" value="#553300">
+          <span class="flower-small">&nbsp;</span>
+        </div>
+      </div>
+
+      <h2>3. Exportar</h2>
+
+      <div class="flower-mode">
+        <button class="flower-btn" id="savePNG" type="button">Guardar PNG</button>
+        <button class="flower-btn" id="randomize" type="button">Aleatorizar</button>
+        <button class="flower-btn" id="reset" type="button">Reiniciar</button>
+      </div>
+
+      <p class="flower-small">
+        Consejo didáctico: pide a tus estudiantes elegir una flor real, observar sus rasgos
+        y tratar de aproximarla modificando los parámetros del modelo.
+      </p>
+    </section>
+
+    <section class="flower-panel flower-canvas-panel" aria-label="Lienzo de simulación">
+      <div id="sketch-holder"></div>
+
+      <div class="flower-footer">
+        Modelo de pétalo: <strong>superfórmula de Gielis</strong>.
+        Modelo de filotaxis: \(r = c\sqrt{n}\), \(\theta = n\phi\).
+      </div>
+    </section>
+
+  </main>
+
+  <div class="flower-back-wrap">
+    <a href="scripts.html" class="btn btn-back">
+      Volver a exploraciones
+    </a>
+  </div>
+
+  <script>
+    const qs = selector => document.querySelector(selector);
+    const qsa = selector => Array.from(document.querySelectorAll(selector));
+
+    const rangeIds = [
+      'N', 'petalScale', 'n1', 'a', 'b', 'm', 'n2', 'n3', 'baseR', 'strokeW',
+      'seeds', 'phi', 'cval', 'seedSize', 'jitter', 'grad'
+    ];
+
+    function decimalsFromStep(step) {
+      const value = String(step || '1');
+      return value.includes('.') ? value.split('.')[1].length : 0;
+    }
+
+    function syncRangeLabel(id) {
+      const input = qs('#' + id);
+      const label = qs('#' + id + 'val');
+
+      if (!input || !label) return;
+
+      const decimals = decimalsFromStep(input.step);
+      label.textContent = Number(input.value).toFixed(decimals);
+    }
+
+    function syncAllRangeLabels() {
+      rangeIds.forEach(syncRangeLabel);
+    }
+
+    function setRangeValue(id, value) {
+      const input = qs('#' + id);
+      if (!input) return;
+
+      input.value = value;
+      syncRangeLabel(id);
+    }
+
+    function currentModel() {
+      return document.querySelector('input[name="model"]:checked').value;
+    }
+
+    function updateModelControls() {
+      const petal = qs('#petal-controls');
+      const phylla = qs('#phylla-controls');
+
+      if (currentModel() === 'petalos') {
+        petal.style.display = 'block';
+        phylla.style.display = 'none';
+      } else {
+        petal.style.display = 'none';
+        phylla.style.display = 'block';
       }
-      p.endShape();
-      p.pop();
     }
 
-    // borde suave del centro
-    p.noFill();
-    p.stroke(0, 25);
-    p.circle(0,0, Math.max(22, baseR*0.26));
-  }
-
-  function drawPhyllotaxis(p){
-    const N = +qs('#seeds').value;
-    const phi = (+qs('#phi').value) * Math.PI/180;
-    const c = +qs('#cval').value;
-    const s = +qs('#seedSize').value;
-    const jitter = +qs('#jitter').value;
-    const grad = +qs('#grad').value; // 0..1 centro→borde
-    const col = qs('#seedColor').value;
-    const edge = qs('#seedEdge').value;
-
-    p.noStroke();
-    for(let n=0; n<N; n++){
-      const r = c * Math.sqrt(n);
-      const theta = n * phi;
-      const x = r * Math.cos(theta) + p.random(-jitter, jitter);
-      const y = r * Math.sin(theta) + p.random(-jitter, jitter);
-      const t = n/(N-1); // 0..1
-      const size = p.lerp(s*1.3, s*0.7, t);
-      const colMix = lerpHex(col, edge, t*grad);
-      p.fill(colMix);
-      p.circle(x, y, size);
+    function randomHex() {
+      const n = Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, '0');
+      return '#' + n;
     }
-  }
 
-  function lerpHex(h1, h2, t){
-    const c1 = hexToRgb(h1), c2 = hexToRgb(h2);
-    const r = Math.round(p.lerp(c1.r, c2.r, t));
-    const g = Math.round(p.lerp(c1.g, c2.g, t));
-    const b = Math.round(p.lerp(c1.b, c2.b, t));
-    return `rgb(${r},${g},${b})`;
-  }
-  function hexToRgb(hex){
-    const c = hex.replace('#','');
-    return { r: parseInt(c.substring(0,2),16), g: parseInt(c.substring(2,4),16), b: parseInt(c.substring(4,6),16) };
-  }
-
-  // Botones
-  document.getElementById('savePNG').addEventListener('click', ()=> p.saveCanvas('flor-biomimetica','png'));
-  document.getElementById('reset').addEventListener('click', ()=> { document.querySelectorAll('input[type="range"]').forEach(el=> el.value = el.defaultValue); document.querySelectorAll('input[type="color"]').forEach(el=> el.value = el.defaultValue); ['N','petalScale','n1','a','b','m','n2','n3','baseR','strokeW','seeds','phi','cval','seedSize','jitter','grad'].forEach(linkRange); redraw(); });
-  document.getElementById('randomize').addEventListener('click', ()=>{
-    const rand = (id, min, max, step=1) => { const el = qs('#'+id); const v = (Math.floor((min + Math.random()*(max-min))/step)*step).toFixed(step<1?2:0); el.value=v; const lab=qs('#'+id+'val'); if(lab) lab.textContent=v; };
-    if(document.querySelector('input[name="model"]:checked').value==='petalos'){
-      rand('N',3,16,1); rand('petalScale',60,180,1); rand('a',0.6,1.8,0.1); rand('b',0.6,1.8,0.1); rand('m',2,12,1); rand('n1',0.8,6,0.1); rand('n2',1,12,0.1); rand('n3',1,12,0.1); rand('baseR',120,220,1); rand('strokeW',0,4,0.5);
-      qs('#petalColor').value = randomHex(); qs('#centerColor').value = randomHex();
-    } else {
-      rand('seeds',200,1200,10); rand('phi',130,150,0.1); rand('cval',4,12,0.5); rand('seedSize',2,8,0.5); rand('jitter',0,3,0.2); rand('grad',0.2,0.9,0.05); qs('#seedColor').value = randomHex(); qs('#seedEdge').value = randomHex();
+    function randomRangeValue(min, max, step = 1) {
+      const steps = Math.floor((max - min) / step);
+      const value = min + Math.floor(Math.random() * (steps + 1)) * step;
+      const decimals = decimalsFromStep(step);
+      return Number(value).toFixed(decimals);
     }
-    redraw();
-  });
-  function randomHex(){
-    const n = Math.floor(Math.random()*0xffffff).toString(16).padStart(6,'0');
-    return '#'+n;
-  }
 
-  // Redibujar al mover cualquier control
-  document.addEventListener('input', (e)=>{
-    if(e.target.matches('input')) redraw();
-  });
-});
-</script>
+    syncAllRangeLabels();
+
+    qsa('input[name="model"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        updateModelControls();
+        window.redrawFlower?.();
+      });
+    });
+
+    document.addEventListener('input', event => {
+      if (event.target.matches('input[type="range"]')) {
+        syncRangeLabel(event.target.id);
+      }
+
+      if (event.target.matches('input')) {
+        window.redrawFlower?.();
+      }
+    });
+
+    updateModelControls();
+
+    new p5(p => {
+      const minCanvasWidth = 320;
+      const maxCanvasWidth = 1000;
+
+      p.setup = () => {
+        const holder = document.getElementById('sketch-holder');
+        const canvasSize = getCanvasSize(holder);
+
+        const canvas = p.createCanvas(canvasSize, canvasSize);
+        canvas.parent('sketch-holder');
+
+        p.pixelDensity(2);
+        p.noLoop();
+
+        window.redrawFlower = () => {
+          p.clear();
+          drawScene();
+        };
+
+        attachButtonEvents(p);
+        window.redrawFlower();
+      };
+
+      p.windowResized = () => {
+        const holder = document.getElementById('sketch-holder');
+        const canvasSize = getCanvasSize(holder);
+        p.resizeCanvas(canvasSize, canvasSize);
+        window.redrawFlower?.();
+      };
+
+      function getCanvasSize(holder) {
+        const parentWidth = holder.clientWidth || 800;
+        return Math.min(maxCanvasWidth, Math.max(minCanvasWidth, parentWidth));
+      }
+
+      function drawScene() {
+        p.background('#ffffff');
+        p.push();
+        p.translate(p.width / 2, p.height / 2);
+
+        if (currentModel() === 'petalos') {
+          drawPetals();
+        } else {
+          drawPhyllotaxis();
+        }
+
+        p.pop();
+      }
+
+      function superformula(theta, a, b, m, n1, n2, n3) {
+        const t = (m * theta) / 4;
+
+        const part1 = Math.pow(Math.abs(Math.cos(t)) / a, n2);
+        const part2 = Math.pow(Math.abs(Math.sin(t)) / b, n3);
+
+        const value = Math.pow(part1 + part2, -1 / n1);
+
+        if (!Number.isFinite(value)) return 0;
+
+        return value;
+      }
+
+      function drawPetals() {
+        const N = Number(qs('#N').value);
+        const baseR = Number(qs('#baseR').value);
+        const petalScale = Number(qs('#petalScale').value);
+
+        const a = Number(qs('#a').value);
+        const b = Number(qs('#b').value);
+        const m = Number(qs('#m').value);
+        const n1 = Number(qs('#n1').value);
+        const n2 = Number(qs('#n2').value);
+        const n3 = Number(qs('#n3').value);
+
+        const strokeW = Number(qs('#strokeW').value);
+        const petalColor = qs('#petalColor').value;
+        const centerColor = qs('#centerColor').value;
+
+        const steps = 220;
+        const centerDiameter = Math.max(24, baseR * 0.28);
+        const petalOffset = Math.max(8, baseR * 0.08);
+
+        p.stroke(0, 30);
+        p.strokeWeight(strokeW);
+        p.fill(petalColor);
+
+        for (let i = 0; i < N; i++) {
+          const angle = (i / N) * p.TWO_PI;
+
+          p.push();
+          p.rotate(angle);
+
+          p.beginShape();
+
+          for (let k = 0; k <= steps; k++) {
+            const theta = p.map(k, 0, steps, -p.PI, p.PI);
+            const r = superformula(theta, a, b, m, n1, n2, n3);
+
+            const x = Math.sin(theta) * r * petalScale * 0.45;
+            const y = -Math.cos(theta) * r * petalScale - petalOffset;
+
+            p.vertex(x, y);
+          }
+
+          p.endShape(p.CLOSE);
+          p.pop();
+        }
+
+        p.noStroke();
+        p.fill(centerColor);
+        p.circle(0, 0, centerDiameter);
+
+        p.noFill();
+        p.stroke(0, 28);
+        p.strokeWeight(1);
+        p.circle(0, 0, centerDiameter * 1.04);
+      }
+
+      function drawPhyllotaxis() {
+        const N = Number(qs('#seeds').value);
+        const phi = Number(qs('#phi').value) * Math.PI / 180;
+        const c = Number(qs('#cval').value);
+        const seedSize = Number(qs('#seedSize').value);
+        const jitter = Number(qs('#jitter').value);
+        const grad = Number(qs('#grad').value);
+
+        const seedColor = qs('#seedColor').value;
+        const seedEdge = qs('#seedEdge').value;
+
+        p.randomSeed(17);
+        p.noStroke();
+
+        for (let n = 0; n < N; n++) {
+          const radius = c * Math.sqrt(n);
+          const theta = n * phi;
+
+          const x = radius * Math.cos(theta) + p.random(-jitter, jitter);
+          const y = radius * Math.sin(theta) + p.random(-jitter, jitter);
+
+          const t = N > 1 ? n / (N - 1) : 0;
+          const size = p.lerp(seedSize * 1.3, seedSize * 0.7, t);
+          const color = lerpHex(seedColor, seedEdge, t * grad);
+
+          p.fill(color);
+          p.circle(x, y, size);
+        }
+      }
+
+      function lerpHex(hexA, hexB, t) {
+        const a = hexToRgb(hexA);
+        const b = hexToRgb(hexB);
+
+        const r = Math.round(p.lerp(a.r, b.r, t));
+        const g = Math.round(p.lerp(a.g, b.g, t));
+        const blue = Math.round(p.lerp(a.b, b.b, t));
+
+        return `rgb(${r},${g},${blue})`;
+      }
+
+      function hexToRgb(hex) {
+        const clean = hex.replace('#', '');
+
+        return {
+          r: parseInt(clean.substring(0, 2), 16),
+          g: parseInt(clean.substring(2, 4), 16),
+          b: parseInt(clean.substring(4, 6), 16)
+        };
+      }
+
+      function attachButtonEvents(p) {
+        qs('#savePNG').addEventListener('click', () => {
+          p.saveCanvas('flor-biomimetica-radix', 'png');
+        });
+
+        qs('#reset').addEventListener('click', () => {
+          document.querySelectorAll('input[type="range"]').forEach(input => {
+            input.value = input.defaultValue;
+          });
+
+          document.querySelectorAll('input[type="color"]').forEach(input => {
+            input.value = input.defaultValue;
+          });
+
+          syncAllRangeLabels();
+          window.redrawFlower?.();
+        });
+
+        qs('#randomize').addEventListener('click', () => {
+          if (currentModel() === 'petalos') {
+            setRangeValue('N', randomRangeValue(3, 16, 1));
+            setRangeValue('petalScale', randomRangeValue(60, 180, 1));
+            setRangeValue('a', randomRangeValue(0.6, 1.8, 0.1));
+            setRangeValue('b', randomRangeValue(0.6, 1.8, 0.1));
+            setRangeValue('m', randomRangeValue(2, 12, 1));
+            setRangeValue('n1', randomRangeValue(0.8, 6, 0.1));
+            setRangeValue('n2', randomRangeValue(1, 12, 0.1));
+            setRangeValue('n3', randomRangeValue(1, 12, 0.1));
+            setRangeValue('baseR', randomRangeValue(120, 220, 1));
+            setRangeValue('strokeW', randomRangeValue(0, 4, 0.5));
+
+            qs('#petalColor').value = randomHex();
+            qs('#centerColor').value = randomHex();
+          } else {
+            setRangeValue('seeds', randomRangeValue(200, 1200, 10));
+            setRangeValue('phi', randomRangeValue(130, 150, 0.1));
+            setRangeValue('cval', randomRangeValue(4, 12, 0.5));
+            setRangeValue('seedSize', randomRangeValue(2, 8, 0.5));
+            setRangeValue('jitter', randomRangeValue(0, 3, 0.2));
+            setRangeValue('grad', randomRangeValue(0.2, 0.9, 0.05));
+
+            qs('#seedColor').value = randomHex();
+            qs('#seedEdge').value = randomHex();
+          }
+
+          window.redrawFlower?.();
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>

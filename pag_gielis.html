@@ -2,138 +2,321 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title> Gielis </title>
-  <style>
-    :root { --ink:#111; --muted:#666; --bg:#f7f7f7; --card:#fff; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--ink); }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px; }
-    h1 { margin: 0 0 6px; font-size: 22px; }
-    .lead { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
-    .grid { display:grid; grid-template-columns: 1fr; gap:16px; }
-    @media (min-width: 960px){ .grid { grid-template-columns: 1fr 1fr; } }
-    .card { background:var(--card); border:1px solid #e8e8e8; border-radius:16px; padding:16px; box-shadow:0 1px 8px rgba(0,0,0,.04); }
-    .controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:8px; }
-    .controls label { display:flex; align-items:center; gap:6px; font-size: 14px; }
-    .btn { border:0; background:#111; color:#fff; padding:8px 12px; border-radius:10px; cursor:pointer; }
-    .btn.ghost { background:#eee; color:#111; }
-    table { width:100%; border-collapse:collapse; font-size:14px; }
-    th, td { text-align:left; padding:8px; border-bottom:1px solid #eee; }
-    input[type="text"] { width:110px; padding:6px 8px; border:1px solid #ddd; border-radius:8px; }
-    .muted { color:var(--muted); font-size:12px; }
-    svg { width:100%; height:540px; border:1px solid #e6e6e6; border-radius:16px; background:#fafafa; }
-    .right { text-align:right; }
-    /* botón <a class="btn"> sin subrayado y con caja */
-a.btn { text-decoration: none; display: inline-block; }
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-/* Botón REGRESAR — estilos locales a esta página */
-.rx-back-wrap{
-  display:flex;
-  justify-content:center;   /* centrado */
-  margin:16px 0 24px;
-  width:100%;
-}
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.fundacionradix.org/gielis.html" />
 
-.rx-back{
-  display:inline-block;
-  padding:10px 18px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:700;
-  letter-spacing:.4px;
-  text-transform:uppercase;
-  border:1px solid transparent;
-  box-shadow:0 6px 16px rgba(0,0,0,.12);
-  transition:transform .15s ease, box-shadow .15s ease;
-  /* ← COLORES POR PÁGINA (cámbialos aquí) */
-  background:#000000;     /* color de la caja en ESTA página */
-  color:#fff;          /* color del texto en ESTA página */
-  border-color:transparent; /* o #ddd en fondo claro */
-}
+  <!-- SEO básico -->
+  <title>Fundación Radix | Superfórmula de Gielis</title>
+  <meta name="description" content="Exploración interactiva de la superfórmula de Gielis para generar curvas con simetrías florales, estrelladas y biomiméticas." />
+  <meta name="keywords" content="Fundación Radix, Gielis, superfórmula, geometría, curvas polares, biomimética, arte generativo, matemáticas, educación" />
+  <meta name="robots" content="index,follow" />
 
-.rx-back:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18); }
-.rx-back:focus-visible{ outline:3px solid rgba(0,0,0,.25); outline-offset:2px; }
+  <!-- Open Graph / Social -->
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fundación Radix" />
+  <meta property="og:title" content="Fundación Radix | Superfórmula de Gielis" />
+  <meta property="og:description" content="Exploración interactiva de curvas biomiméticas generadas mediante la superfórmula de Gielis." />
+  <meta property="og:url" content="https://www.fundacionradix.org/gielis.html" />
+  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
 
-  </style>
-  <!-- Si tus JS están en /js, deja así; si no, cambia la ruta -->
-  <!-- <script src="js/app.js" defer></script> -->
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fundación Radix | Superfórmula de Gielis" />
+  <meta name="twitter:description" content="Exploración interactiva de curvas biomiméticas generadas mediante la superfórmula de Gielis." />
+  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
 
-  <!-- (Opcional) MathJax si usarás LaTeX en el texto -->
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
+  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
+
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- MathJax para fórmulas matemáticas -->
   <script>
-    window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] } };
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    :root {
+      --gielis-bg: #f7f7f7;
+      --gielis-card: #ffffff;
+      --gielis-border: #e8e8e8;
+      --gielis-muted: #666666;
+      --gielis-ink: #111111;
+      --gielis-accent: #b30059;
+    }
+
+    body {
+      margin: 0;
+      background: var(--gielis-bg);
+      color: var(--gielis-ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .gielis-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .gielis-header {
+      margin-bottom: 18px;
+    }
+
+    .gielis-kicker {
+      margin: 0 0 0.35rem 0;
+      color: var(--gielis-accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .gielis-header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #111111;
+    }
+
+    .gielis-lead {
+      max-width: 820px;
+      margin: 0;
+      color: var(--gielis-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .gielis-section {
+      margin-top: 28px;
+    }
+
+    .gielis-section h2,
+    .gielis-section h3 {
+      color: #111111;
+    }
+
+    .gielis-section p,
+    .gielis-section li {
+      line-height: 1.65;
+      color: #333333;
+    }
+
+    .gielis-section ul {
+      padding-left: 1.25rem;
+    }
+
+    .gielis-card {
+      margin-top: 22px;
+      background: var(--gielis-card);
+      border: 1px solid var(--gielis-border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .gielis-formula {
+      overflow-x: auto;
+      padding: 8px 0;
+      margin: 12px 0;
+    }
+
+    .gielis-note {
+      background: #ffffff;
+      border-left: 4px solid var(--gielis-accent);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 16px;
+    }
+
+    #gielis-app {
+      margin-top: 18px;
+    }
+
+    .gielis-back-wrap {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 24px 0 28px;
+    }
+
+    mjx-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+    }
+
+    @media (max-width: 640px) {
+      .gielis-wrap {
+        padding: 18px;
+      }
+
+      .gielis-card {
+        padding: 16px;
+      }
+    }
+  </style>
 </head>
 
-
 <body>
-<div class="wrap">
-  <h1>Gielis</h1>
-  <p>
-    La <strong>superfórmula de Gielis</strong> genera curvas con simetrías tipo “flor/estrella” a partir de unos pocos parámetros.
-    La curva se define en coordenadas polares por:
-  </p>
 
-  <div class="math">
-    \[
-      r(\theta) = \left( r_1(\theta) + r_2(\theta)
-              
-      \right)^{\tfrac{1}{n_{1}}}, 
-    \]
-   con
-   \[
-   r_1(\theta) = \left|\frac{\cos\!\left(\tfrac{m\,\theta}{4}\right)}{a}\right|^{\,n_{2}}
-   \]
-   y
-\[
-   r_2(\theta) = \left|\frac{\sin\!\left(\tfrac{m\,\theta}{4}\right)}{b}\right|^{\,n_{3}}
-\]
-para $\theta \in [0, 2\pi)$.
-  </div>
+  <main class="gielis-wrap">
 
-  <h2>Parámetros</h2>
-  <ul>
-    <li>
-      <strong>\(m\)</strong> (entero &ge; 1): controla la <em>simetría rotacional</em> de la figura.
-      Con \(m\) entero, la curva tiene simetría de orden \(m\) (se “repite” \(m\) veces alrededor del centro).
-    </li>
-    <li>
-      <strong>\(a&gt;0\), \(b&gt;0\)</strong>: factores de <em>escala</em> en las direcciones asociadas a los términos 
-      de coseno (para \(a\)) y seno (para \(b\)). 
-      Valores mayores de \(a\) o \(b\) “aplanan/estiran” la figura de manera anisotrópica.
-      Si \(a=b\), la figura es más equilibrada.
-    </li>
-    <li>
-      <strong>\(n_{1}&gt;0\)</strong>: controla la <em>redondez vs. agudeza</em> global del contorno.
-      Valores pequeños (p. ej., \(0.2\!-\!0.6\)) producen puntas más marcadas; valores grandes suavizan el borde.
-    </li>
-    <li>
-      <strong>\(n_{2}&gt;0\), \(n_{3}&gt;0\)</strong>: moldean la <em>forma local de los lóbulos</em>.
-      \(n_{2}\) afecta las zonas donde domina el coseno; \(n_{3}\) las zonas donde domina el seno.
-      Si \(n_{2}=n_{3}\), la figura suele verse más uniforme; si difieren, se enfatizan direcciones específicas.
-    </li>
-  </ul>
+    <header class="gielis-header">
+      <p class="gielis-kicker">Exploraciones computacionales · Fundación Radix</p>
 
-  <h2>Notas de uso</h2>
-  <ul>
-    <li>Se recomienda mantener \(a,b,n_{1},n_{2},n_{3}&gt;0\) para curvas bien definidas.</li>
-    <li>El número de lóbulos típicamente está relacionado con \(m\); cambiar \(n_{1},n_{2},n_{3}\) altera cuán “afilados” o “redondeados” aparecen.</li>
-    <li>La representación cartesiana se obtiene con \(x=r(\varphi)\cos\varphi\), \(y=r(\varphi)\sin\varphi\).</li>
-  </ul>
-</div>
+      <h1>Superfórmula de Gielis</h1>
 
-<div id="gielis-app"></div>
+      <p class="gielis-lead">
+        Exploración interactiva de una ecuación polar capaz de generar curvas con simetrías
+        florales, estrelladas y biomiméticas a partir de pocos parámetros.
+      </p>
+    </header>
 
-<!-- coloca el archivo en /js/gielis.js -->
-<script src="js/gielis.js"></script>
-<script>
-  window.GielisApp.mount("#gielis-app");
-</script>
+    <section class="gielis-section" id="descripcion">
+      <h2>Una fórmula para explorar formas</h2>
 
-    <div class="rx-back-wrap">      
-    <a href="scripts.html" class="rx-back">REGRESAR</a>
-</div>   
+      <p>
+        La <strong>superfórmula de Gielis</strong> generaliza ciertas expresiones polares
+        y permite construir una amplia familia de contornos cerrados. Con cambios en sus
+        parámetros pueden aparecer formas redondeadas, lobuladas, estrelladas o similares
+        a estructuras naturales.
+      </p>
+
+      <p>
+        La curva se define en coordenadas polares mediante:
+      </p>
+
+      <div class="gielis-formula">
+        \[
+          r(\theta)=
+          \left(
+            \left|\frac{\cos\left(\frac{m\theta}{4}\right)}{a}\right|^{n_2}
+            +
+            \left|\frac{\sin\left(\frac{m\theta}{4}\right)}{b}\right|^{n_3}
+          \right)^{-\frac{1}{n_1}},
+          \qquad
+          \theta \in [0,2\pi)
+        \]
+      </div>
+
+      <p>
+        Una vez calculado el radio \(r(\theta)\), la curva puede representarse en el plano
+        mediante las coordenadas cartesianas:
+      </p>
+
+      <div class="gielis-formula">
+        \[
+          x = r(\theta)\cos(\theta),
+          \qquad
+          y = r(\theta)\sin(\theta)
+        \]
+      </div>
+    </section>
+
+    <section class="gielis-section" id="parametros">
+      <h2>Parámetros</h2>
+
+      <ul>
+        <li>
+          <strong>\(m\)</strong>: controla la organización angular de la figura.
+          Está relacionado con la cantidad de repeticiones, lóbulos o simetrías visibles
+          alrededor del centro.
+        </li>
+
+        <li>
+          <strong>\(a &gt; 0\)</strong> y <strong>\(b &gt; 0\)</strong>: actúan como factores de escala
+          asociados a los términos de coseno y seno. Si \(a=b\), la figura suele conservar
+          mayor equilibrio entre ambas direcciones.
+        </li>
+
+        <li>
+          <strong>\(n_1 &gt; 0\)</strong>: regula el comportamiento global del contorno.
+          Al modificarlo cambian la expansión, contracción, redondez o agudeza general
+          de la curva.
+        </li>
+
+        <li>
+          <strong>\(n_2 &gt; 0\)</strong> y <strong>\(n_3 &gt; 0\)</strong>: modifican la forma local
+          de los lóbulos. Cuando difieren, pueden enfatizar direcciones o producir asimetrías
+          visuales entre las zonas dominadas por seno y coseno.
+        </li>
+      </ul>
+
+      <div class="gielis-note">
+        <p>
+          Para evitar curvas mal definidas, conviene mantener \(a\), \(b\), \(n_1\), \(n_2\)
+          y \(n_3\) estrictamente positivos. Valores cercanos a cero pueden producir radios
+          muy grandes o comportamientos numéricamente inestables.
+        </p>
+      </div>
+    </section>
+
+    <section class="gielis-section" id="interpretacion">
+      <h2>Interpretación</h2>
+
+      <p>
+        Esta exploración muestra cómo una fórmula compacta puede producir una gran diversidad
+        de formas. Su valor didáctico está en observar la relación entre parámetro y geometría:
+        cambios pequeños pueden alterar la simetría, la cantidad de lóbulos, la agudeza de las
+        puntas o la suavidad del contorno.
+      </p>
+
+      <p>
+        Desde una perspectiva educativa, la superfórmula permite conectar coordenadas polares,
+        funciones trigonométricas, simetría, parametrización y modelación de formas inspiradas
+        en la naturaleza.
+      </p>
+    </section>
+
+    <section class="gielis-card" aria-label="Aplicación interactiva de la superfórmula de Gielis">
+      <h2>Exploración interactiva</h2>
+
+      <p>
+        Modifica los parámetros y observa cómo cambia la curva. La intención no es encontrar
+        un único resultado correcto, sino reconocer cómo una estructura matemática produce
+        familias completas de formas.
+      </p>
+
+      <div id="gielis-app"></div>
+    </section>
+
+    <div class="gielis-back-wrap">
+      <a href="scripts.html" class="btn btn-back">
+        Volver a exploraciones
+      </a>
+    </div>
+
+  </main>
+
+  <script src="js/gielis.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.GielisApp && typeof window.GielisApp.mount === 'function') {
+        window.GielisApp.mount("#gielis-app");
+      }
+    });
+  </script>
+
 </body>
 </html>

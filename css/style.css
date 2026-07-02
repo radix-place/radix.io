@@ -1,279 +1,504 @@
-  /* Preferencias de movimiento del usuario */
-  @media (prefers-reduced-motion: reduce) {
-    #tetrisCanvas { display: none !important; }
-  }
+/* =========================================================
+   Fundación Radix · Estilos globales
+   ========================================================= */
 
-  /* Hero */
-  .wave-container {
-    position: relative;
-    width: 100%;
-    min-height: 320px;
-    background: linear-gradient(to bottom, #ffffff 0%, #eefaff 100%);
-    overflow: hidden;
-    margin-bottom: 2rem;
-    border: 1.5px solid #007744;
-    border-radius: 8px;
-    box-sizing: border-box;
-  }
-  .fallback-hero { display:flex; align-items:center; justify-content:center; min-height:320px; }
+/* ===== Variables ===== */
 
-  #tetrisCanvas {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    z-index: 1;
-  }
+:root {
+  color-scheme: light;
 
-  .floating-content {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; z-index: 2; padding: 0 1rem; max-width: 90vw;
-  }
-  .logo-radix {
-    width: 100px; opacity: 1;
-    box-shadow: 0 6px 20px rgba(0, 100, 150, 0.55);
-    transition: transform .3s ease, box-shadow .3s ease, opacity .3s ease;
-  }
-
-  .slogan {
-    font-size: 1.1rem; font-weight: 700; color: #2b2b2b;
-    margin-top: .8rem; line-height: 1.5; text-align: center;
-  }
-
-  .content {
-    max-width: 850px; margin: 2rem auto;
-    line-height: 1.7; font-size: 1.06rem; text-align: justify;
-  }
-
-  .titulo-izquierda { text-align: left; }
-  @media (max-width: 640px){
-    .content { font-size: 1rem; margin: 1.4rem auto; padding: 0 0.4rem; }
-    .slogan { font-size: 1rem; }
-  }
-
-  /* --- FIX de redimensionado del canvas --- */
-.wave-container #tetrisCanvas {
-  display: block;           /* quita el comportamiento inline del canvas */
-  width: 100% !important;   /* coincide con el ancho del contenedor */
-  height: 100% !important;  /* coincide con la altura del contenedor */
-}
-
-:root{
   --radix-green: #0a7f55;
-  --radix-green-600:#0a6e49;
-  --ink-900:#1e1e1e;
-  --ink-700:#2b2b2b;
-  --paper:#ffffff;
-  --paper-soft:#f5fbf8;
-  --accent:#3a89c9;
-  --shadow: 0 10px 30px rgba(10, 111, 73, .12);
+  --radix-green-600: #0a6e49;
+
+  --radix-magenta: #b30059;
+  --radix-magenta-700: #920047;
+
+  --ink-900: #111111;
+  --ink-700: #2b2b2b;
+  --ink-500: #555555;
+
+  --paper: #ffffff;
+  --paper-soft: #f5fbf8;
+
+  --accent: #3a89c9;
+
+  --shadow-soft: 0 10px 30px rgba(10, 111, 73, 0.12);
+  --shadow-button: 0 6px 16px rgba(179, 0, 89, 0.18);
+  --shadow-button-hover: 0 10px 22px rgba(179, 0, 89, 0.22);
 }
 
+/* ===== Base ===== */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-/* Tipografía base y ritmo vertical */
-html{ scroll-behavior: smooth; }
-body{
+html {
+  scroll-behavior: smooth;
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
   color: var(--ink-900);
   background: var(--paper);
   line-height: 1.65;
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
 }
 
-/* Hero */
-.wave-container{
+img,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(179, 0, 89, 0.35);
+  outline-offset: 3px;
+}
+
+/* ===== Accesibilidad: reducción de movimiento ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  #tetrisCanvas,
+  #perlinWave {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   Hero principal
+   ========================================================= */
+
+.wave-container {
+  position: relative;
+  width: 100%;
   min-height: clamp(300px, 42vw, 420px);
-  background: radial-gradient(1200px 400px at 50% -10%,
-               #f5fbf8 0%, #ffffff 60%),
-              linear-gradient(to bottom, #fff 0%, #eefaff 100%);
-  border: none;
-  border-radius: 0;
-  box-shadow: var(--shadow);
+
   margin: clamp(1rem, 2.5vw, 2rem) auto;
   overflow: hidden;
-  position: relative;
+
+  background:
+    radial-gradient(
+      1200px 400px at 50% -10%,
+      #f5fbf8 0%,
+      #ffffff 60%
+    ),
+    linear-gradient(to bottom, #ffffff 0%, #eefaff 100%);
+
+  border: none;
+  border-radius: 0;
+  box-shadow: var(--shadow-soft);
 }
 
-/* Canvas: no interfiere con clics y escala perfecta */
-.wave-container #tetrisCanvas{
-  display:block;
-  position:absolute; inset:0;
-  width:100% !important; height:100% !important;
-  pointer-events:none;           /* importante */
+.fallback-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+}
+
+.wave-container #tetrisCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+
+  pointer-events: none;
+  background: transparent;
   border: none;
 }
 
-/* Contenido flotante más protagonista */
-.floating-content{
-  position:absolute; inset:auto;
-  top:50%; left:50%; transform:translate(-50%,-50%);
-  text-align:center; z-index:2; padding-inline:1rem;
-  max-width:min(92vw, 900px);
+.floating-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+
+  transform: translate(-50%, -50%);
+
+  max-width: min(92vw, 900px);
+  padding-inline: 1rem;
+
+  text-align: center;
 }
 
-.logo-radix{
+.logo-radix {
   width: clamp(110px, 12vw, 160px);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 100, 150, .25);
-  transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
-}
-.logo-radix:hover{ transform: translateY(-2px) scale(1.015); }
+  opacity: 1;
 
-.slogan{
-  margin-top:.9rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 100, 150, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.logo-radix:hover {
+  transform: translateY(-2px) scale(1.015);
+}
+
+.slogan {
+  margin-top: 0.9rem;
+
   color: var(--ink-700);
-  font-weight:700;
   font-size: clamp(1rem, 1.8vw, 1.25rem);
-}
-
-/* Cuerpo de contenido */
-.content{
-  max-width: 75ch;              /* ancho de lectura óptimo */
-  margin: clamp(1.2rem, 3vw, 2.2rem) auto;
-  padding-inline: clamp(.6rem, 2vw, 1rem);
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
-  text-align: left;              /* mejora legibilidad frente a justify */
-}
-
-/* Títulos */
-.titulo-izquierda{
-  text-align:left;
-  color: var(--radix-green-600);
-  letter-spacing:.3px;
-  margin-bottom:.4rem;
-}
-.titulo-izquierda + p{ margin-top:.6rem; }
-
-/* Accesibilidad de movimiento */
-@media (prefers-reduced-motion: reduce){
-  #tetrisCanvas{ display:none !important; }
-  .logo-radix{ transition:none; }
-}
-
-/* Separadores sutiles dentro de secciones largas */
-.content p + p{ margin-top: .85em; }
-
-
-
-#perlinWave {
-  display:block;
-  width:100%;
-  height:60px;
-  pointer-events:none;
-  border:none;         /* elimina marco */
-  outline:none;
-  box-shadow:none;     /* evita sombra si la hereda */
-}
-
-.section-divider{
-  max-width: 85ch;          /* o 850px para igualar tu .content */
-  margin: 1.2rem auto 0;    /* centrado */
-  padding: 0; border: 0;
-}
-#perlinWave{ display:block; width:100%; height:50px; pointer-events:none; }
-
-
-
-/* Botón REGRESAR centrado */
-.radix-back-wrap{
-  margin: 20px 0 28px;
-  display: flex;
-  justify-content: center;   /* centra horizontal */
-  width: 100%;
-}
-
-.radix-back{
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 12px;
-  background: #b6bf04;
-  color: #fff;
   font-weight: 700;
-  letter-spacing: .4px;
-  text-decoration: none;
-  box-shadow: 0 6px 16px rgba(105, 142, 2, 0.12);
-  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  line-height: 1.5;
+  text-align: center;
 }
-.radix-back:link,
-.radix-back:visited{ color:#fff; } /* evita que se ponga azul/morado */
-.radix-back:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.18); }
-.radix-back:active{ transform: translateY(0); }
-.radix-back:focus-visible{ outline: 3px solid rgba(221, 2, 2, 0.892); outline-offset: 2px; }
 
-  /* Presentación mínima y responsiva del listado */
-  #modulos-demo .demo-list{
-    list-style:none; margin:16px 0 0; padding:0;
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px;
-  }
-  #modulos-demo .demo-item{
-    background:#fff; border:1px solid #e6e6e6; border-radius:14px; padding:12px;
-    display:flex; flex-direction:column; gap:8px;
-  }
-  #modulos-demo .demo-item h3{ margin:0; font-size:16px }
-  #modulos-demo .demo-item p{ margin:0; color:#666; font-size:14px }
-  #modulos-demo .btn{
-    margin-top:auto; align-self:flex-start;
-    padding:8px 12px; border:1px solid #e6e6e6; border-radius:10px; background:#fff;
-    text-decoration:none; color:#111; font-size:14px;
-  }
-  #modulos-demo .btn:hover{ border-color:#bbb }
-
-.tagline{
-  margin-top: 6px;
-  font-size: 0.95rem;
-  color: #333;
+.tagline {
   max-width: 520px;
+  margin: 6px auto 0;
+
+  color: #333333;
+  font-size: 0.95rem;
   line-height: 1.4;
 }
 
-/* ===== BOTONES RADIX ===== */
+/* =========================================================
+   Contenido general
+   ========================================================= */
+
+.content {
+  max-width: 75ch;
+  margin: clamp(1.2rem, 3vw, 2.2rem) auto;
+  padding-inline: clamp(0.8rem, 2vw, 1.2rem);
+
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.7;
+  text-align: left;
+}
+
+.content p + p {
+  margin-top: 0.85em;
+}
+
+.titulo-izquierda {
+  margin-bottom: 0.4rem;
+
+  color: var(--radix-green-600);
+  letter-spacing: 0.3px;
+  text-align: left;
+}
+
+.titulo-izquierda + p {
+  margin-top: 0.6rem;
+}
+
+/* Texto solo para lectores de pantalla */
+
+.sr-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================================================
+   Divisores visuales
+   ========================================================= */
+
+.section-divider {
+  max-width: 85ch;
+  margin: 1.2rem auto 0;
+  padding: 0;
+  border: 0;
+}
+
+#perlinWave {
+  display: block;
+  width: 100%;
+  height: 50px;
+
+  pointer-events: none;
+
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* =========================================================
+   Botones
+   ========================================================= */
 
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
 
+  margin-top: 10px;
   padding: 10px 18px;
+
+  color: #ffffff !important;
+  background: var(--radix-magenta);
+
+  border: none;
+  border-radius: 999px;
 
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  line-height: 1.2;
 
-  border-radius: 999px;
-  border: none;
-
-  background: #b30059;
-  color: #fff;
   text-decoration: none;
 
-  box-shadow: 0 6px 16px rgba(179, 0, 89, 0.18);
+  box-shadow: var(--shadow-button);
 
-  transition: all 0.25s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .btn:hover {
-  background: #920047;
+  color: #ffffff !important;
+  background: var(--radix-magenta-700);
   transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(179, 0, 89, 0.22);
+  box-shadow: var(--shadow-button-hover);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn-back {
-  display: inline-block;
-  background: #b30059;
-  color: #fff !important;
-  padding: 12px 22px;
   border-radius: 10px;
-  text-decoration: none;
+  padding: 12px 22px;
+
   font-size: 1rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  border: none;
+
   box-shadow: none;
-  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.btn-back:hover {
-  background: #920047;
-  color: #fff !important;
+/* Clase antigua conservada por compatibilidad */
+
+.back {
+  display: inline-block;
+
+  margin: 20px 0 0 24px;
+
+  color: var(--radix-magenta);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* Botón antiguo de regresar, conservado sin interferir con .btn */
+
+.radix-back-wrap {
+  width: 100%;
+  margin: 20px 0 28px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.radix-back {
+  display: inline-block;
+
+  padding: 10px 18px;
+
+  color: #ffffff;
+  background: #b6bf04;
+
+  border-radius: 12px;
+
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+
+  box-shadow: 0 6px 16px rgba(105, 142, 2, 0.12);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.radix-back:link,
+.radix-back:visited {
+  color: #ffffff;
+}
+
+.radix-back:hover {
   transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.radix-back:active {
+  transform: translateY(0);
+}
+
+.radix-back:focus-visible {
+  outline: 3px solid rgba(179, 0, 89, 0.35);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   Tarjetas y grids globales
+   ========================================================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+
+  color: var(--ink-900);
+  font-size: 1.08rem;
+}
+
+.card p {
+  margin: 0 0 14px 0;
+
+  color: #444444;
+  line-height: 1.55;
+}
+
+/* =========================================================
+   Listado antiguo de demos
+   Importante: la regla se limita a .demo-list para no dañar
+   los botones normales de scripts.html.
+   ========================================================= */
+
+#modulos-demo .demo-list {
+  list-style: none;
+
+  margin: 16px 0 0;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+#modulos-demo .demo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 12px;
+
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+}
+
+#modulos-demo .demo-item h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+#modulos-demo .demo-item p {
+  margin: 0;
+
+  color: #666666;
+  font-size: 14px;
+}
+
+/* Esta regla ya NO afecta todos los .btn dentro de #modulos-demo */
+
+#modulos-demo .demo-list .btn {
+  align-self: flex-start;
+
+  margin-top: auto;
+  padding: 8px 12px;
+
+  color: #111111 !important;
+  background: #ffffff;
+
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+
+  font-size: 14px;
+  text-decoration: none;
+
+  box-shadow: none;
+}
+
+#modulos-demo .demo-list .btn:hover {
+  border-color: #bbbbbb;
+  transform: none;
+}
+
+/* =========================================================
+   Responsivo
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .content {
+    margin: 1.4rem auto;
+    padding-inline: 1rem;
+    font-size: 1rem;
+  }
+
+  .slogan {
+    font-size: 1rem;
+  }
+
+  .btn,
+  .btn-back {
+    width: auto;
+    max-width: 100%;
+  }
 }

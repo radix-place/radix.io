@@ -4,24 +4,53 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Radix | Arduino y Processing para docentes</title>
-  <meta name="description" content="Cursillo de Arduino y Processing para docentes: lectura y visualización de datos con sensores para experiencias educativas interdisciplinarias." />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.fundacionradix.org/arduino_docentes.html" />
 
-  <meta name="color-scheme" content="light" />
+  <!-- SEO básico -->
+  <title>Fundación Radix | Arduino y Processing para docentes</title>
+  <meta name="description" content="Curso de Arduino y Processing para docentes: lectura, visualización e interpretación de datos con sensores para experiencias educativas interdisciplinarias." />
+  <meta name="keywords" content="Fundación Radix, Arduino, Processing, sensores, visualización de datos, educación STEAM, formación docente, matemáticas, ciencia, tecnología, arte" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fundación Radix" />
+  <meta property="og:title" content="Fundación Radix | Arduino y Processing para docentes" />
+  <meta property="og:description" content="Lectura y visualización de datos con sensores para experiencias educativas." />
+  <meta property="og:url" content="https://www.fundacionradix.org/arduino_docentes.html" />
+  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fundación Radix | Arduino y Processing para docentes" />
+  <meta name="twitter:description" content="Lectura y visualización de datos con sensores para experiencias educativas." />
+  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
+  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
+
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="css/style.css">
 
   <style>
-    :root { color-scheme: light !important; }
-
-    html, body {
-      margin: 0;
-      background: #ffffff !important;
-      color: #111 !important;
-      font-family: system-ui, sans-serif;
+    :root {
+      color-scheme: light !important;
     }
 
+    html,
     body {
+      margin: 0;
       background: #ffffff !important;
-      color: #111 !important;
+      color: #111111 !important;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
     }
 
     /* ===== HERO ===== */
@@ -31,6 +60,7 @@
       padding: 84px 24px 64px 24px;
       background: linear-gradient(180deg, #faf9fb 0%, #f1ecf2 100%) !important;
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      box-sizing: border-box;
     }
 
     .hero-inner {
@@ -64,12 +94,15 @@
       color: #4a3e49;
     }
 
+    /* ===== CONTENIDO ===== */
+
     .content {
       max-width: 980px;
       margin: 0 auto;
       padding: 28px 24px;
       background: transparent !important;
-      color: #111 !important;
+      color: #111111 !important;
+      box-sizing: border-box;
     }
 
     .titulo-izquierda {
@@ -80,10 +113,6 @@
       color: #181218 !important;
     }
 
-    p, li, ul, h1, h2, h3 {
-      color: inherit;
-    }
-
     p {
       line-height: 1.65;
       color: #3f3a40 !important;
@@ -92,27 +121,34 @@
     ul {
       padding-left: 1.2rem;
       line-height: 1.65;
+      color: #3f3a40;
     }
 
     li + li {
       margin-top: 10px;
     }
 
+    /* ===== BOTONES ===== */
+
     .btn {
       display: inline-block;
       margin-top: 10px;
       text-decoration: none;
-      color: rgb(255, 255, 255);
+      color: #ffffff !important;
       background: #b30059;
       padding: 6px 12px;
       border-radius: 6px;
       font-size: 0.9em;
     }
 
+    .btn:hover {
+      opacity: 0.9;
+    }
+
     .btn-back {
       display: inline-block;
       background: #b30059;
-      color: white !important;
+      color: #ffffff !important;
       padding: 12px 22px;
       border-radius: 10px;
       text-decoration: none;
@@ -125,7 +161,10 @@
     .btn-back:hover {
       background: #920047;
       transform: translateY(-1px);
+      opacity: 1;
     }
+
+    /* ===== GRID Y TARJETAS ===== */
 
     .grid {
       display: grid;
@@ -143,6 +182,12 @@
       transition: all 0.2s ease;
     }
 
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(141, 58, 103, 0.25);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.06);
+    }
+
     .card h3 {
       margin-top: 0;
       margin-bottom: 10px;
@@ -155,145 +200,159 @@
       color: #4c454b !important;
     }
 
-    hr {
-      border: none;
+    /* ===== CONTACTO ===== */
+
+    .contacto-final {
+      margin-top: 2em;
+      padding-top: 1.5em;
       border-top: 1px solid rgba(0, 0, 0, 0.08);
-      margin: 3em 0;
+    }
+
+    .contacto-final a {
+      color: #b30059;
+      text-decoration: none;
     }
   </style>
 </head>
+
 <body>
 
-<header class="hero-cursillo">
-  <div class="hero-inner">
-    <p class="hero-kicker">Cursos y talleres · Radix</p>
-    <h1>Arduino y Processing para docentes</h1>
-    <p class="hero-sub">
-      Lectura y visualización de datos con sensores para experiencias educativas.
-    </p>
-  </div>
-</header>
+  <header class="hero-cursillo" aria-label="Curso Arduino y Processing para docentes">
+    <div class="hero-inner">
+      <p class="hero-kicker">Cursos y talleres · Fundación Radix</p>
+      <h1>Arduino y Processing para docentes</h1>
+      <p class="hero-sub">
+        Lectura y visualización de datos con sensores para experiencias educativas.
+      </p>
+    </div>
+  </header>
 
-  <div class="content">
-    <a href="cursillos_talleres.html" class="btn btn-back">Volver a cursos y talleres</a>
-  </div>
+  <main>
 
-<section id="introduccion" class="content">
-  <p>
-    Este curso introduce a docentes de colegio y universidad en el uso combinado de Arduino y Processing
-    como herramientas para la captura, lectura y visualización de datos provenientes de sensores.
-  </p>
-
-  <p>
-    A través del trabajo con datos, medición y representación, los participantes desarrollan
-    herramientas para diseñar experiencias educativas que articulan observación, análisis y creación
-    en distintos entornos de aprendizaje.
-  </p>
-</section>
-
-<section id="presentacion" class="content">
-  <h2 class="titulo-izquierda">Presentación general</h2>
-
-  <p><strong>Enfoque:</strong> lectura, visualización e interpretación de datos mediante sensores.</p>
-  <p><strong>Duración:</strong> 24 horas.</p>
-  <p><strong>Dirigido a:</strong> docentes de colegio y universidad interesados en matemáticas, ciencia, tecnología, arte y proyectos STEAM.</p>
-</section>
-
-<section id="proposito" class="content">
-  <h2 class="titulo-izquierda">Propósito</h2>
-
-  <p>
-    Introducir a los docentes en el uso de Arduino y Processing como herramientas para la captura,
-    lectura y visualización de datos provenientes de sensores, con el fin de que puedan diseñar
-    experiencias pedagógicas orientadas al desarrollo del pensamiento lógico, analítico, computacional
-    y experimental en los estudiantes.
-  </p>
-
-  <p>
-    El curso también busca promover prácticas de observación, medición, representación e interpretación
-    de fenómenos, articulando matemáticas, ciencia, tecnología y creación visual en contextos educativos.
-  </p>
-</section>
-
-<section id="estructura" class="content">
-  <h2 class="titulo-izquierda">Estructura del cursillo</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Módulo 1 · Introducción a Arduino y Processing</h3>
-      <p><strong>Duración:</strong> 2 horas</p>
-      <p>Relación entre sensor, dato y visualización. Flujo básico de captura, envío y representación de datos.</p>
+    <div class="content">
+      <a href="cursillos_talleres.html" class="btn btn-back">
+        Volver a cursos y talleres
+      </a>
     </div>
 
-    <div class="card">
-      <h3>Módulo 2 · Primeros pasos con Arduino</h3>
-      <p><strong>Duración:</strong> 3 horas</p>
-      <p>Entorno de trabajo, estructura de un programa (setup y loop), variables, lectura digital y analógica.</p>
-    </div>
+    <section id="introduccion" class="content">
+      <p>
+        Este curso introduce a docentes de colegio y universidad en el uso combinado de Arduino y Processing
+        como herramientas para la captura, lectura y visualización de datos provenientes de sensores.
+      </p>
 
-    <div class="card">
-      <h3>Módulo 3 · Sensores y lectura de datos</h3>
-      <p><strong>Duración:</strong> 3 horas</p>
-      <p>Sensores digitales y analógicos. Lectura de valores, variación, rango y estabilidad de los datos.</p>
-    </div>
+      <p>
+        A través del trabajo con datos, medición y representación, los participantes desarrollan
+        herramientas para diseñar experiencias educativas que articulan observación, análisis y creación
+        en distintos entornos de aprendizaje.
+      </p>
+    </section>
 
-    <div class="card">
-      <h3>Módulo 4 · Introducción a Processing</h3>
-      <p><strong>Duración:</strong> 2 horas</p>
-      <p>Entorno de visualización, uso de setup y draw, coordenadas, color y representación básica de datos.</p>
-    </div>
+    <section id="presentacion" class="content">
+      <h2 class="titulo-izquierda">Presentación general</h2>
 
-    <div class="card">
-      <h3>Módulo 5 · Comunicación Arduino–Processing</h3>
-      <p><strong>Duración:</strong> 3 horas</p>
-      <p>Envío y recepción de datos por puerto serial. Visualización en tiempo real.</p>
-    </div>
+      <p><strong>Enfoque:</strong> lectura, visualización e interpretación de datos mediante sensores.</p>
+      <p><strong>Duración:</strong> 24 horas.</p>
+      <p><strong>Dirigido a:</strong> docentes de colegio y universidad interesados en matemáticas, ciencia, tecnología, arte y proyectos STEAM.</p>
+    </section>
 
-    <div class="card">
-      <h3>Módulo 6 · Representación de datos</h3>
-      <p><strong>Duración:</strong> 4 horas</p>
-      <p>Mapeo de valores, gráficas simples, uso de color y movimiento. Introducción al ruido y suavizado.</p>
-    </div>
+    <section id="proposito" class="content">
+      <h2 class="titulo-izquierda">Propósito</h2>
 
-    <div class="card">
-      <h3>Módulo 7 · Experiencias interactivas</h3>
-      <p><strong>Duración:</strong> 3 horas</p>
-      <p>Diseño de visualizaciones reactivas a sensores. Relación entre medición y respuesta visual.</p>
-    </div>
+      <p>
+        Introducir a los docentes en el uso de Arduino y Processing como herramientas para la captura,
+        lectura y visualización de datos provenientes de sensores, con el fin de que puedan diseñar
+        experiencias pedagógicas orientadas al desarrollo del pensamiento lógico, analítico, computacional
+        y experimental en los estudiantes.
+      </p>
 
-    <div class="card">
-      <h3>Módulo 8 · Diseño de actividades de aula</h3>
-      <p><strong>Duración:</strong> 4 horas</p>
-      <p>Diseño de experiencias educativas basadas en datos, integrando observación, análisis y creación.</p>
-    </div>
+      <p>
+        El curso también busca promover prácticas de observación, medición, representación e interpretación
+        de fenómenos, articulando matemáticas, ciencia, tecnología y creación visual en contextos educativos.
+      </p>
+    </section>
 
-  </div>
-</section>
+    <section id="estructura" class="content">
+      <h2 class="titulo-izquierda">Estructura del curso</h2>
 
-<section id="aprendizajes" class="content">
-  <h2 class="titulo-izquierda">Resultados esperados</h2>
+      <div class="grid">
 
-  <ul>
-    <li>Comprender la lógica de Arduino y Processing en proyectos con sensores.</li>
-    <li>Leer y analizar datos provenientes de sensores.</li>
-    <li>Enviar y recibir datos mediante comunicación serial.</li>
-    <li>Construir visualizaciones interactivas en tiempo real.</li>
-    <li>Diseñar actividades educativas interdisciplinarias basadas en datos.</li>
-  </ul>
-</section>
+        <article class="card">
+          <h3>Módulo 1 · Introducción a Arduino y Processing</h3>
+          <p><strong>Duración:</strong> 2 horas</p>
+          <p>Relación entre sensor, dato y visualización. Flujo básico de captura, envío y representación de datos.</p>
+        </article>
 
-<section id="contacto" class="content">
-  <h2 class="titulo-izquierda">¿Te interesa este curso?</h2>
+        <article class="card">
+          <h3>Módulo 2 · Primeros pasos con Arduino</h3>
+          <p><strong>Duración:</strong> 3 horas</p>
+          <p>Entorno de trabajo, estructura de un programa —setup y loop—, variables, lectura digital y analógica.</p>
+        </article>
 
-  <p>
-    Si deseas implementar este curso en tu institución o conversar sobre una adaptación
-    a tu contexto educativo,
-    <a href="mailto:contacto@radix.place" style="color:#b30059; text-decoration:none;">
-      <strong>escríbenos aquí</strong>
-    </a>.
-  </p>
-</section>
+        <article class="card">
+          <h3>Módulo 3 · Sensores y lectura de datos</h3>
+          <p><strong>Duración:</strong> 3 horas</p>
+          <p>Sensores digitales y analógicos. Lectura de valores, variación, rango y estabilidad de los datos.</p>
+        </article>
+
+        <article class="card">
+          <h3>Módulo 4 · Introducción a Processing</h3>
+          <p><strong>Duración:</strong> 2 horas</p>
+          <p>Entorno de visualización, uso de setup y draw, coordenadas, color y representación básica de datos.</p>
+        </article>
+
+        <article class="card">
+          <h3>Módulo 5 · Comunicación Arduino–Processing</h3>
+          <p><strong>Duración:</strong> 3 horas</p>
+          <p>Envío y recepción de datos por puerto serial. Visualización en tiempo real.</p>
+        </article>
+
+        <article class="card">
+          <h3>Módulo 6 · Representación de datos</h3>
+          <p><strong>Duración:</strong> 4 horas</p>
+          <p>Mapeo de valores, gráficas simples, uso de color y movimiento. Introducción al ruido y suavizado.</p>
+        </article>
+
+        <article class="card">
+          <h3>Módulo 7 · Experiencias interactivas</h3>
+          <p><strong>Duración:</strong> 3 horas</p>
+          <p>Diseño de visualizaciones reactivas a sensores. Relación entre medición y respuesta visual.</p>
+        </article>
+
+        <article class="card">
+          <h3>Módulo 8 · Diseño de actividades de aula</h3>
+          <p><strong>Duración:</strong> 4 horas</p>
+          <p>Diseño de experiencias educativas basadas en datos, integrando observación, análisis y creación.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="aprendizajes" class="content">
+      <h2 class="titulo-izquierda">Resultados esperados</h2>
+
+      <ul>
+        <li>Comprender la lógica de Arduino y Processing en proyectos con sensores.</li>
+        <li>Leer y analizar datos provenientes de sensores.</li>
+        <li>Enviar y recibir datos mediante comunicación serial.</li>
+        <li>Construir visualizaciones interactivas en tiempo real.</li>
+        <li>Diseñar actividades educativas interdisciplinarias basadas en datos.</li>
+      </ul>
+    </section>
+
+    <section id="contacto" class="content contacto-final">
+      <h2 class="titulo-izquierda">¿Te interesa este curso?</h2>
+
+      <p>
+        Si deseas implementar este curso en tu institución o conversar sobre una adaptación
+        a tu contexto educativo,
+        <a href="mailto:asalazar@fundacionradix.org">
+          <strong>escríbenos aquí</strong>
+        </a>.
+      </p>
+    </section>
+
+  </main>
 
 </body>
 </html>

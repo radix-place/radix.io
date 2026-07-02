@@ -2,123 +2,365 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Área por puntos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.fundacionradix.org/area_region.html" />
+
+  <!-- SEO básico -->
+  <title>Fundación Radix | Área poligonal por puntos</title>
+  <meta name="description" content="Herramienta interactiva de Fundación Radix para estimar el área interior de un contorno poligonal mediante puntos y coordenadas." />
+  <meta name="keywords" content="Fundación Radix, área poligonal, geometría, coordenadas, visualización matemática, educación, matemáticas, simulación" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fundación Radix" />
+  <meta property="og:title" content="Fundación Radix | Área poligonal por puntos" />
+  <meta property="og:description" content="Herramienta interactiva para estimar el área interior de un contorno poligonal mediante puntos y coordenadas." />
+  <meta property="og:url" content="https://www.fundacionradix.org/area_region.html" />
+  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fundación Radix | Área poligonal por puntos" />
+  <meta name="twitter:description" content="Herramienta interactiva para estimar el área interior de un contorno poligonal mediante puntos y coordenadas." />
+  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
+  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
+
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="css/style.css">
+
   <style>
-    :root { --ink:#111; --muted:#666; --bg:#f7f7f7; --card:#fff; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--ink); }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px; }
-    h1 { margin: 0 0 6px; font-size: 22px; }
-    .lead { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
-    .grid { display:grid; grid-template-columns: 1fr; gap:16px; }
-    @media (min-width: 960px){ .grid { grid-template-columns: 1fr 1fr; } }
-    .card { background:var(--card); border:1px solid #e8e8e8; border-radius:16px; padding:16px; box-shadow:0 1px 8px rgba(0,0,0,.04); }
-    .controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:8px; }
-    .controls label { display:flex; align-items:center; gap:6px; font-size: 14px; }
-    .btn { border:0; background:#111; color:#fff; padding:8px 12px; border-radius:10px; cursor:pointer; }
-    .btn.ghost { background:#eee; color:#111; }
-    table { width:100%; border-collapse:collapse; font-size:14px; }
-    th, td { text-align:left; padding:8px; border-bottom:1px solid #eee; }
-    input[type="text"] { width:110px; padding:6px 8px; border:1px solid #ddd; border-radius:8px; }
-    .muted { color:var(--muted); font-size:12px; }
-    svg { width:100%; height:540px; border:1px solid #e6e6e6; border-radius:16px; background:#fafafa; }
-    .right { text-align:right; }
-    /* botón <a class="btn"> sin subrayado y con caja */
-a.btn { text-decoration: none; display: inline-block; }
+    :root {
+      --area-bg: #f7f7f7;
+      --area-card: #ffffff;
+      --area-border: #e8e8e8;
+      --area-muted: #666666;
+      --area-ink: #111111;
+    }
 
-/* Botón REGRESAR — estilos locales a esta página */
-.rx-back-wrap{
-  display:flex;
-  justify-content:center;   /* centrado */
-  margin:16px 0 24px;
-  width:100%;
-}
+    body {
+      margin: 0;
+      background: var(--area-bg);
+      color: var(--area-ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+    }
 
-.rx-back{
-  display:inline-block;
-  padding:10px 18px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:700;
-  letter-spacing:.4px;
-  text-transform:uppercase;
-  border:1px solid transparent;
-  box-shadow:0 6px 16px rgba(0,0,0,.12);
-  transition:transform .15s ease, box-shadow .15s ease;
-  /* ← COLORES POR PÁGINA (cámbialos aquí) */
-  background:#000000;     /* color de la caja en ESTA página */
-  color:#fff;          /* color del texto en ESTA página */
-  border-color:transparent; /* o #ddd en fondo claro */
-}
+    .area-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
 
-.rx-back:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18); }
-.rx-back:focus-visible{ outline:3px solid rgba(0,0,0,.25); outline-offset:2px; }
+    .area-header {
+      margin-bottom: 18px;
+    }
 
+    .area-header h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #111111;
+    }
+
+    .area-lead {
+      max-width: 760px;
+      margin: 0;
+      color: var(--area-muted);
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 960px) {
+      .area-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .area-card {
+      background: var(--area-card);
+      border: 1px solid var(--area-border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .area-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .area-controls label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.92rem;
+      color: #222222;
+    }
+
+    .area-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .area-actions-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tool-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 0;
+      background: #111111;
+      color: #ffffff;
+
+      padding: 8px 12px;
+      border-radius: 10px;
+
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .tool-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.92;
+    }
+
+    .tool-btn.ghost {
+      background: #eeeeee;
+      color: #111111;
+    }
+
+    .area-table-wrap {
+      max-height: 280px;
+      overflow: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    th {
+      font-weight: 700;
+      color: #222222;
+    }
+
+    input[type="text"] {
+      width: 110px;
+      padding: 6px 8px;
+      border: 1px solid #dddddd;
+      border-radius: 8px;
+      font: inherit;
+    }
+
+    .muted {
+      color: var(--area-muted);
+      font-size: 0.8rem;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    .area-result {
+      margin-top: 12px;
+    }
+
+    .area-result-value {
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: #111111;
+    }
+
+    .area-view-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    #view {
+      width: 100%;
+      height: 540px;
+      border: 1px solid #e6e6e6;
+      border-radius: 16px;
+      background: #fafafa;
+    }
+
+    .area-back-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 24px 0 8px;
+      width: 100%;
+    }
+
+    @media (max-width: 640px) {
+      .area-wrap {
+        padding: 18px;
+      }
+
+      .area-actions {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .area-view-title {
+        flex-direction: column;
+      }
+
+      #view {
+        height: 420px;
+      }
+    }
   </style>
-  <!-- Si tus JS están en /js, deja así; si no, cambia la ruta -->
+
   <script src="js/app.js" defer></script>
 </head>
-<body>
-  <div class="wrap">
-    <h1>Radix • Área Interior Contorno Poligonal</h1>
-    <p class="lead">Añade puntos con el botón y edita las coordenadas (cm). Hasta 50 puntos.</p>
 
-    <div class="grid">
+<body>
+
+  <main class="area-wrap">
+
+    <header class="area-header">
+      <h1>Área interior de un contorno poligonal</h1>
+      <p class="area-lead">
+        Herramienta interactiva para añadir puntos, editar coordenadas en centímetros
+        y estimar el área interior de un contorno. Permite trabajar hasta con 50 puntos.
+      </p>
+    </header>
+
+    <section class="area-grid" aria-label="Herramienta para cálculo de área poligonal">
+
       <!-- Panel izquierdo: control y tabla -->
-      <div class="card">
-        <div class="controls">
-          <label><input id="chkClosed" type="checkbox" checked> Cerrar contorno</label>
-          <label><input id="chkSmooth" type="checkbox"> Suavizar (Catmull–Rom)</label>
-          <label><input id="chkAuto" type="checkbox" checked> Auto-ordenar por ángulo</label>
+      <article class="area-card" aria-label="Controles y coordenadas">
+        <div class="area-controls">
+          <label>
+            <input id="chkClosed" type="checkbox" checked>
+            Cerrar contorno
+          </label>
+
+          <label>
+            <input id="chkSmooth" type="checkbox">
+            Suavizar (Catmull–Rom)
+          </label>
+
+          <label>
+            <input id="chkAuto" type="checkbox" checked>
+            Auto-ordenar por ángulo
+          </label>
         </div>
 
-<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-  <div style="display:flex; gap:8px;">
-    <button id="btnAdd"  type="button" class="btn">Añadir punto</button>
-    <button id="btnUndo" type="button" class="btn ghost">Deshacer último</button>
-    <button id="btnClear" type="button" class="btn ghost">Limpiar</button>
-    <!-- 👇 Nuevo botón -->
-    <button id="btnExportSVG" type="button" class="btn ghost">Guardar SVG</button>
-  </div>
-  <div class="muted">Puntos: <strong id="count">0</strong> / 50</div>
-</div>
+        <div class="area-actions">
+          <div class="area-actions-group">
+            <button id="btnAdd" type="button" class="tool-btn">
+              Añadir punto
+            </button>
 
-        <div style="max-height:280px; overflow:auto;">
+            <button id="btnUndo" type="button" class="tool-btn ghost">
+              Deshacer último
+            </button>
+
+            <button id="btnClear" type="button" class="tool-btn ghost">
+              Limpiar
+            </button>
+
+            <button id="btnExportSVG" type="button" class="tool-btn ghost">
+              Guardar SVG
+            </button>
+          </div>
+
+          <div class="muted">
+            Puntos: <strong id="count">0</strong> / 50
+          </div>
+        </div>
+
+        <div class="area-table-wrap">
           <table>
-            <thead><tr><th>#</th><th>x (cm)</th><th>y (cm)</th><th class="right">Acción</th></tr></thead>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>x (cm)</th>
+                <th>y (cm)</th>
+                <th class="right">Acción</th>
+              </tr>
+            </thead>
             <tbody id="tbody"></tbody>
           </table>
         </div>
 
-        <div class="card" style="margin-top:12px;">
+        <div class="area-card area-result">
           <div class="muted">Área poligonal</div>
-          <div id="areaOut" style="font-weight:700; font-size:20px;">0.00 cm²</div>
+          <div id="areaOut" class="area-result-value">0.00 cm²</div>
           <div id="signOut" class="muted">Signo: —</div>
         </div>
-      </div>
+      </article>
 
       <!-- Panel derecho: vista -->
-      <div class="card">
-        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+      <article class="area-card" aria-label="Vista gráfica del contorno">
+        <div class="area-view-title">
           <strong>Vista</strong>
-          <span class="muted">Unidades: cm • Escala automática</span>
+          <span class="muted">Unidades: cm · Escala automática</span>
         </div>
-        <svg id="view" viewBox="0 0 560 540" aria-label="Vista del contorno"></svg>
-        <div class="muted" style="margin-top:8px;">Consejo: ingresa 8–12 puntos alrededor del contorno. Evita cruces.</div>
-      </div>
+
+        <svg id="view" viewBox="0 0 560 540" aria-label="Vista del contorno poligonal"></svg>
+
+        <div class="muted" style="margin-top:8px;">
+          Consejo: ingresa 8–12 puntos alrededor del contorno. Evita cruces.
+        </div>
+      </article>
+
+    </section>
+
+    <div class="area-back-wrap">
+      <a href="scripts.html" class="btn btn-back">
+        Volver a exploraciones
+      </a>
     </div>
 
-
-
-  </div>
-
-<div class="rx-back-wrap">
-  <a href="scripts.html" class="rx-back">REGRESAR</a>
-</div>
-
-
-
+  </main>
 
 </body>
 </html>

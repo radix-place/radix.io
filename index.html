@@ -1,33 +1,32 @@
 <!doctype html>
 <html lang="es">
 <head>
-
-  <!-- Canonical: define la versión oficial de la URL -->
-  <link rel="canonical" href="https://radix.place/" />
-
-  <!-- SEO básico -->
-  <title>Radix | Matemáticas, Arte y Ciencia en Experiencias Formativas</title>
-  <meta name="description" content="Radix integra matemáticas, arte y ciencia en experiencias creativas y formativas. Un espacio para la innovación educativa, la investigación y la creación interdisciplinar." />
-  <meta name="keywords" content="Radix, matemáticas, arte, ciencia, biomimética, educación, innovación educativa, aprendizaje interdisciplinar" />
-  <meta name="robots" content="index,follow" />
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  
-    <!-- Open Graph / Social -->
-  <meta property="og:locale" content="es_ES" />
+
+  <!-- Canonical: define la versión oficial de la URL -->
+  <link rel="canonical" href="https://www.fundacionradix.org/" />
+
+  <!-- SEO básico -->
+  <title>Fundación Radix | Arte, ciencia y educación para transformar el pensamiento</title>
+  <meta name="description" content="Fundación Radix diseña experiencias educativas, culturales y científicas que integran arte, ciencia, tecnología, pensamiento crítico y lenguaje matemático." />
+  <meta name="keywords" content="Fundación Radix, educación, arte, ciencia, tecnología, matemáticas, pensamiento crítico, innovación educativa, Cali, Colombia" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:locale" content="es_CO" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Radix | Matemáticas, Arte y Ciencia" />
-  <meta property="og:description" content="Radix integra matemáticas, arte y ciencia en experiencias creativas y formativas." />
-  <meta property="og:url" content="https://radix.place/" />
-  <meta property="og:image" content="https://radix.place/preview.png" />
+  <meta property="og:site_name" content="Fundación Radix" />
+  <meta property="og:title" content="Fundación Radix | Arte, ciencia y educación" />
+  <meta property="og:description" content="Experiencias educativas, culturales y científicas para transformar el pensamiento." />
+  <meta property="og:url" content="https://www.fundacionradix.org/" />
+  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Radix | Matemáticas, Arte y Ciencia" />
-  <meta name="twitter:description" content="Radix integra matemáticas, arte y ciencia en experiencias creativas y formativas." />
-  <meta name="twitter:image" content="https://radix.place/preview.png" />
+  <meta name="twitter:title" content="Fundación Radix | Arte, ciencia y educación" />
+  <meta name="twitter:description" content="Experiencias educativas, culturales y científicas para transformar el pensamiento." />
+  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
@@ -36,264 +35,276 @@
   <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
   <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
 
-
   <meta name="color-scheme" content="light">
-  <link rel="icon" href="favicon.ico" />
+  <meta name="theme-color" content="#ffffff">
+
   <link rel="stylesheet" href="css/style.css">
-  
+
   <style>
-    :root { color-scheme: light; }
-    html, body { background:#ffffff !important; color:#111 !important; }
-      .back {
-    display: inline-block;
-    margin: 20px 0 0 24px;
-    text-decoration: none;
-    color: #b30059;
-    font-weight: 500;
-  }
+    :root {
+      color-scheme: light !important;
+      --radix-green: #0a7f55 !important;
+      --radix-green-600: #0a6e49 !important;
+      --ink-900: #111111 !important;
+      --ink-700: #2b2b2b !important;
+      --paper: #ffffff !important;
+      --paper-soft: #f5fbf8 !important;
+      --accent: #3a89c9 !important;
+      --shadow: 0 10px 30px rgba(10, 111, 73, 0.12) !important;
+    }
 
-  .btn {
-    display: inline-block;
-    margin-top: 10px;
-    text-decoration: none;
-    color: white;
-    background: #b30059;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 0.9em;
-  }
+    html {
+      color-scheme: light !important;
+      background: #ffffff !important;
+    }
 
-  :root {
-    color-scheme: light !important;
-    --radix-green: #0a7f55 !important;
-    --radix-green-600: #0a6e49 !important;
-    --ink-900: #111111 !important;
-    --ink-700: #2b2b2b !important;
-    --paper: #ffffff !important;
-    --paper-soft: #f5fbf8 !important;
-    --accent: #3a89c9 !important;
-    --shadow: 0 10px 30px rgba(10, 111, 73, 0.12) !important;
-  }
+    body {
+      background: #ffffff !important;
+      color: #111111 !important;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+    }
 
-  html {
-    color-scheme: light !important;
-    background: #ffffff !important;
-  }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
 
-  body {
-    background: #ffffff !important;
-    color: #111111 !important;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
-  }
+    .back {
+      display: inline-block;
+      margin: 20px 0 0 24px;
+      text-decoration: none;
+      color: #b30059;
+      font-weight: 500;
+    }
 
-  .wave-container {
-    position: relative !important;
-    width: 100% !important;
-    min-height: clamp(300px, 42vw, 420px) !important;
-    background: radial-gradient(1200px 400px at 50% -10%, #f5fbf8 0%, #ffffff 60%),
-                linear-gradient(to bottom, #ffffff 0%, #eefaff 100%) !important;
-    background-color: #ffffff !important;
-    background-image: radial-gradient(1200px 400px at 50% -10%, #f5fbf8 0%, #ffffff 60%),
-                      linear-gradient(to bottom, #ffffff 0%, #eefaff 100%) !important;
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: 0 10px 30px rgba(10, 111, 73, 0.12) !important;
-    overflow: hidden !important;
-  }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: white;
+      background: #b30059;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9em;
+    }
 
-  #tetrisCanvas {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    display: block !important;
-    background: transparent !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
-  }
+    .wave-container {
+      position: relative !important;
+      width: 100% !important;
+      min-height: clamp(300px, 42vw, 420px) !important;
+      background: radial-gradient(1200px 400px at 50% -10%, #f5fbf8 0%, #ffffff 60%),
+                  linear-gradient(to bottom, #ffffff 0%, #eefaff 100%) !important;
+      background-color: #ffffff !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: 0 10px 30px rgba(10, 111, 73, 0.12) !important;
+      overflow: hidden !important;
+    }
 
-  .floating-content {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    text-align: center !important;
-    z-index: 2 !important;
-    padding: 0 1rem !important;
-    max-width: min(92vw, 900px) !important;
-  }
+    #tetrisCanvas {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      display: block !important;
+      background: transparent !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+    }
 
-  .logo-radix {
-    width: clamp(110px, 12vw, 160px) !important;
-    border-radius: 12px !important;
-    box-shadow: 0 10px 30px rgba(0, 100, 150, 0.25) !important;
-    opacity: 1 !important;
-  }
+    .floating-content {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      text-align: center !important;
+      z-index: 2 !important;
+      padding: 0 1rem !important;
+      max-width: min(92vw, 900px) !important;
+    }
 
-  .slogan,
-  .tagline {
-    color: #2b2b2b !important;
-  }
+    .logo-radix {
+      width: clamp(110px, 12vw, 160px) !important;
+      border-radius: 12px !important;
+      box-shadow: 0 10px 30px rgba(0, 100, 150, 0.25) !important;
+      opacity: 1 !important;
+    }
 
-  .content,
-  .content p,
-  .content li,
-  .content h1,
-  .content h2,
-  .content h3,
-  .content h4 {
-    color: #111111 !important;
-  }
+    .slogan,
+    .tagline {
+      color: #2b2b2b !important;
+    }
 
-  a {
-    color: inherit;
-  }
+    .content,
+    .content p,
+    .content li,
+    .content h1,
+    .content h2,
+    .content h3,
+    .content h4 {
+      color: #111111 !important;
+    }
 
-
+    a {
+      color: inherit;
+    }
   </style>
 </head>
 
-
-
 <body>
-  <!-- === ENCABEZADO (HÉROE) === -->
-  <div class="wave-container" aria-label="Sección hero con animación de bloques">
-    <div class="floating-content" role="banner" aria-label="Identidad Radix Edu">
-      <img src="imagenes/RADIX_LOGO.png" alt="Logo Radix Edu" class="logo-radix" />
-      <p class="slogan">Experiencias educativas que integran matemáticas, arte y ciencia.</p>
-<p class="tagline">
-  
-</p>
 
+  <!-- === ENCABEZADO / HERO === -->
+  <header class="wave-container" aria-label="Sección principal con animación de bloques">
+    <div class="floating-content" role="banner" aria-label="Identidad Fundación Radix">
+      <h1 class="sr-only">Fundación Radix</h1>
+
+      <img src="imagenes/RADIX_LOGO.png" alt="Logo Fundación Radix" class="logo-radix" />
+
+      <p class="slogan">
+        Experiencias educativas que integran matemáticas, arte y ciencia.
+      </p>
+
+      <p class="tagline">
+        Arte, ciencia y educación para transformar el pensamiento.
+      </p>
     </div>
 
     <canvas id="tetrisCanvas" aria-hidden="true"></canvas>
+
     <noscript>
       <div class="fallback-hero">
-        <img src="imagenes/RADIX_EDU.png" alt="Radix Edu" width="120" />
+        <img src="imagenes/RADIX_EDU.png" alt="Fundación Radix" width="120" />
       </div>
     </noscript>
-  </div>
+  </header>
 
-<nav aria-label="Navegación principal" class="content" style="margin:12px auto 24px;">
-<a href="scripts.html" class="btn btn-back">
-  Exploraciones computacionales
-</a>
+  <!-- === NAVEGACIÓN PRINCIPAL === -->
+  <nav aria-label="Navegación principal" class="content" style="margin:12px auto 24px;">
+    <a href="scripts.html" class="btn btn-back">
+      Exploraciones computacionales
+    </a>
+
     <a href="cursillos_talleres.html" class="btn btn-back">
-  Cursos y talleres
-</a>
-</nav>
-
-
-<section id="descripcion" class="content" aria-label="Radix Edu">
-<p>
-Diseñamos experiencias educativas en las que convergen distintos lenguajes y formas de creación,
-integrando matemáticas, arte, ciencia y tecnología.
-</p>
-
-<p>
-Trabajamos con colegios y universidades desarrollando cursos, talleres y proyectos
-orientados a activar procesos de reorganización del pensamiento en diversos entornos de aprendizaje.
-</p>
-
-</section>
-
-
-<section id="cursillos" class="content">
-  <h2 class="titulo-izquierda">Cursos y talleres</h2>
-
-  <p>
-    Ofrecemos distintas modalidades según los objetivos de cada institución:
-  </p>
-
-  <ul>
-<li>
-  <strong>Cursos:</strong>
-  procesos estructurados en múltiples sesiones orientados al desarrollo de herramientas
-  conceptuales y técnicas, donde la matemática se articula con la biología, el arte y el diseño.
-</li>
-
-<li>
-  <strong>Talleres exploratorios:</strong>
-  experiencias centradas en visualización, creación y en el uso del lenguaje matemático en distintas disciplinas.
-</li>
-    <li>
-      <strong>Diseño a la medida:</strong>
-      desarrollo de propuestas adaptadas al nivel, intereses y contexto de cada institución.
-    </li>
-  </ul>
-
-<p style="margin-top:1.2em;">
-  <strong>¿Quieres implementar un curso o taller Radix?</strong><br>
-  <a href="mailto:contacto@radix.place" style="color:#b30059; text-decoration:none;">
-    Escríbenos para diseñar una propuesta
-  </a>
-</p>
-</section>
-
-
-
-<section id="como-trabajamos" class="content">
-  <h2 class="titulo-izquierda">Cómo trabajamos</h2>
-
-  <ul>
-    <li><strong>Diagnóstico:</strong> comprensión del contexto y necesidades.</li>
-    <li><strong>Diseño:</strong> estructuración de la experiencia.</li>
-    <li><strong>Implementación:</strong> trabajo con estudiantes o docentes.</li>
-    <li><strong>Evaluación y ajuste:</strong> revisión y mejora del proceso.</li>
-  </ul>
-</section>
-
-
-<section id="filosofia" class="content">
-  <h2 class="titulo-izquierda">Filosofía educativa</h2>
-  <p>
-    Entendemos el aprendizaje como un proceso emergente en el que el pensamiento se reorganiza
-    al entrar en relación con distintos saberes, lenguajes y experiencias.
-  </p>
-
-  <p>
-    La matemática actúa como un lenguaje estructural que conecta disciplinas
-    y abre posibilidades para comprender, crear y transformar.
-  </p>
-</section>
-
-
-<section id="contacto" class="content">
-  <hr style="margin-top:3em;">
-
-<p>
-  <strong>
-    <a href="https://www.instagram.com/radix.place" target="_blank" rel="noopener"
-       style="color:#b30059; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
-       
-      <!-- Icono Instagram (SVG inline) -->
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.5 5.5 0 0 0 12 7.5zm0 9A3.5 3.5 0 1 1 15.5 13 3.5 3.5 0 0 1 12 16.5zM18 6.5a1.2 1.2 0 1 0 1.2 1.2A1.2 1.2 0 0 0 18 6.5z"/>
-      </svg>
-
-      Instagram → @radix.place
+      Cursos y talleres
     </a>
-  </strong>
-</p>
+  </nav>
 
-<p>
-  <strong>
-    <a href="mailto:contacto@radix.place"
-       style="color:#b30059; text-decoration:none;">
-      Contacto → contacto@radix.place
-    </a>
-  </strong>
-</p>
-</section>
+  <main>
 
+    <!-- === DESCRIPCIÓN === -->
+    <section id="descripcion" class="content" aria-label="Fundación Radix">
+      <p>
+        Fundación Radix diseña experiencias educativas, culturales y científicas en las que convergen
+        distintos lenguajes y formas de creación, integrando arte, ciencia, tecnología y pensamiento crítico.
+      </p>
 
-<script src="js/tetris.js" defer></script>
+      <p>
+        Trabajamos con colegios y universidades desarrollando cursos, talleres y proyectos
+        orientados a activar procesos de reorganización del pensamiento en diversos entornos de aprendizaje.
+      </p>
+    </section>
 
-<script src="js/perlinwave.js"></script>
+    <!-- === CURSOS Y TALLERES === -->
+    <section id="cursillos" class="content">
+      <h2 class="titulo-izquierda">Cursos y talleres</h2>
 
+      <p>
+        Ofrecemos distintas modalidades según los objetivos de cada institución:
+      </p>
 
+      <ul>
+        <li>
+          <strong>Cursos:</strong>
+          procesos estructurados en múltiples sesiones orientados al desarrollo de herramientas
+          conceptuales y técnicas, donde la matemática se articula con la biología, el arte y el diseño.
+        </li>
+
+        <li>
+          <strong>Talleres exploratorios:</strong>
+          experiencias centradas en visualización, creación y en el uso del lenguaje matemático en distintas disciplinas.
+        </li>
+
+        <li>
+          <strong>Diseño a la medida:</strong>
+          desarrollo de propuestas adaptadas al nivel, intereses y contexto de cada institución.
+        </li>
+      </ul>
+
+      <p style="margin-top:1.2em;">
+        <strong>¿Quieres implementar un curso o taller Radix?</strong><br>
+        <a href="mailto:asalazar@fundacionradix.org" style="color:#b30059; text-decoration:none;">
+          Escríbenos para diseñar una propuesta
+        </a>
+      </p>
+    </section>
+
+    <!-- === CÓMO TRABAJAMOS === -->
+    <section id="como-trabajamos" class="content">
+      <h2 class="titulo-izquierda">Cómo trabajamos</h2>
+
+      <ul>
+        <li><strong>Diagnóstico:</strong> comprensión del contexto y necesidades.</li>
+        <li><strong>Diseño:</strong> estructuración de la experiencia.</li>
+        <li><strong>Implementación:</strong> trabajo con estudiantes o docentes.</li>
+        <li><strong>Evaluación y ajuste:</strong> revisión y mejora del proceso.</li>
+      </ul>
+    </section>
+
+    <!-- === FILOSOFÍA EDUCATIVA === -->
+    <section id="filosofia" class="content">
+      <h2 class="titulo-izquierda">Filosofía educativa</h2>
+
+      <p>
+        Entendemos el aprendizaje como un proceso emergente en el que el pensamiento se reorganiza
+        al entrar en relación con distintos saberes, lenguajes y experiencias.
+      </p>
+
+      <p>
+        La matemática actúa como un lenguaje estructural que conecta disciplinas
+        y abre posibilidades para comprender, crear y transformar.
+      </p>
+    </section>
+
+    <!-- === CONTACTO === -->
+    <section id="contacto" class="content">
+      <hr style="margin-top:3em;">
+
+      <p>
+        <strong>
+          <a href="https://www.instagram.com/radix.place" target="_blank" rel="noopener"
+             style="color:#b30059; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+
+            <!-- Icono Instagram SVG inline -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.5 5.5 0 0 0 12 7.5zm0 9A3.5 3.5 0 1 1 15.5 13 3.5 3.5 0 0 1 12 16.5zM18 6.5a1.2 1.2 0 1 0 1.2 1.2A1.2 1.2 0 0 0 18 6.5z"/>
+            </svg>
+
+            Instagram → @radix.place
+          </a>
+        </strong>
+      </p>
+
+      <p>
+        <strong>
+          <a href="mailto:asalazar@fundacionradix.org"
+             style="color:#b30059; text-decoration:none;">
+            Contacto → asalazar@fundacionradix.org
+          </a>
+        </strong>
+      </p>
+    </section>
+
+  </main>
+
+  <script src="js/tetris.js" defer></script>
+  <script src="js/perlinwave.js" defer></script>
 
 </body>
-
 </html>
