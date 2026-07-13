@@ -244,7 +244,7 @@ window.ChryzodeApp = (() => {
           cx: p.x.toFixed(3),
           cy: p.y.toFixed(3),
           r: String(pointRadius),
-          fill: "#b30059"
+          fill: "#2f6656"
         }));
       }
     }

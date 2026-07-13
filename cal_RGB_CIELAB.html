@@ -1,47 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.fundacionradix.org/cal_RGB_CIELAB.html" />
-
-  <!-- SEO básico -->
-  <title>Fundación Radix | Exploración RGB y CIELAB</title>
-  <meta name="description" content="Herramienta interactiva para explorar la conversión entre RGB y CIELAB, la percepción del color y combinaciones lineales en el espacio L*a*b*." />
-  <meta name="keywords" content="Fundación Radix, RGB, CIELAB, color, percepción visual, espacio de color, matemáticas, visualización, educación" />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:locale" content="es_CO" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Fundación Radix" />
-  <meta property="og:title" content="Fundación Radix | Exploración RGB y CIELAB" />
-  <meta property="og:description" content="Exploración interactiva de color, percepción visual y coordenadas en el espacio L*a*b*." />
-  <meta property="og:url" content="https://www.fundacionradix.org/cal_RGB_CIELAB.html" />
-  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fundación Radix | Exploración RGB y CIELAB" />
-  <meta name="twitter:description" content="Exploración interactiva de color, percepción visual y coordenadas en el espacio L*a*b*." />
-  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
-  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
-
-  <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#0b0b0c">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- MathJax para fórmulas matemáticas -->
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Canonical -->
+<link href="https://www.fundacionradix.org/cal_RGB_CIELAB.html" rel="canonical"/>
+<!-- SEO básico -->
+<title>Fundación Radix | Exploración RGB y CIELAB</title>
+<meta content="Herramienta interactiva para explorar la conversión entre RGB y CIELAB, la percepción del color y combinaciones lineales en el espacio L*a*b*." name="description"/>
+<meta content="Fundación Radix, RGB, CIELAB, color, percepción visual, espacio de color, matemáticas, visualización, educación" name="keywords"/>
+<meta content="index,follow" name="robots"/>
+<!-- Open Graph / Social -->
+<meta content="es_CO" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Fundación Radix" property="og:site_name"/>
+<meta content="Fundación Radix | Exploración RGB y CIELAB" property="og:title"/>
+<meta content="Exploración interactiva de color, percepción visual y coordenadas en el espacio L*a*b*." property="og:description"/>
+<meta content="https://www.fundacionradix.org/cal_RGB_CIELAB.html" property="og:url"/>
+<meta content="https://www.fundacionradix.org/preview.png" property="og:image"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Fundación Radix | Exploración RGB y CIELAB" name="twitter:title"/>
+<meta content="Exploración interactiva de color, percepción visual y coordenadas en el espacio L*a*b*." name="twitter:description"/>
+<meta content="https://www.fundacionradix.org/preview.png" name="twitter:image"/>
+<!-- Favicons -->
+<link href="/imagenes/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/imagenes/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/imagenes/favicon-64x64.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="/imagenes/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/imagenes/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="dark" name="color-scheme"/>
+<meta content="#0b0b0c" name="theme-color"/>
+<link href="css/style.css?v=8" rel="stylesheet"/><link href="css/tool-pages.css?v=8" rel="stylesheet"/>
+<!-- MathJax para fórmulas matemáticas -->
+<script>
     window.MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -52,10 +45,8 @@
       }
     };
   </script>
-
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
-  <style>
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
     :root {
       --color-bg: #0b0b0c;
       --color-fg: #e9e9ec;
@@ -63,8 +54,8 @@
       --color-card: #141416;
       --color-card-soft: #101012;
       --color-border: #26262a;
-      --color-accent: #ffbb00;
-      --color-accent-soft: rgba(255, 187, 0, 0.16);
+      --color-accent: #a44f32;
+      --color-accent-soft: rgba(164, 79, 50, 0.16);
       --color-warn: #ffcc66;
       --color-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
     }
@@ -80,13 +71,13 @@
       color-scheme: dark;
     }
 
-    body {
+    body.tool-page {
       margin: 0;
       background:
-        radial-gradient(circle at top, rgba(255, 187, 0, 0.08), transparent 34rem),
+        radial-gradient(circle at top, rgba(164, 79, 50, 0.08), transparent 34rem),
         var(--color-bg);
       color: var(--color-fg);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+      font-family: var(--font-body);
       line-height: 1.65;
     }
 
@@ -304,7 +295,7 @@
       text-decoration: none;
       text-transform: uppercase;
 
-      box-shadow: 0 8px 22px rgba(255, 187, 0, 0.2);
+      box-shadow: 0 8px 22px rgba(164, 79, 50, 0.2);
 
       transition:
         transform 0.15s ease,
@@ -314,12 +305,12 @@
 
     .color-back:hover {
       transform: translateY(-1px);
-      background: #ffd15a;
-      box-shadow: 0 12px 28px rgba(255, 187, 0, 0.26);
+      background: #c76d4f;
+      box-shadow: 0 12px 28px rgba(164, 79, 50, 0.26);
     }
 
     .color-back:focus-visible {
-      outline: 3px solid rgba(255, 187, 0, 0.35);
+      outline: 3px solid rgba(164, 79, 50, 0.35);
       outline-offset: 3px;
     }
 
@@ -346,233 +337,209 @@
     }
   </style>
 </head>
-
-<body>
-
-  <main class="color-wrap">
-
-    <header class="color-header">
-      <p class="color-kicker">Exploraciones computacionales · Fundación Radix</p>
-
-      <h1>Exploración RGB ↔ CIELAB</h1>
-
-      <p class="color-lead">
+<body class="tool-page tool-page-dark"><a class="skip-link" href="#contenido-principal">Ir al contenido principal</a><header class="site-header">
+<div class="site-header-inner">
+<a aria-label="Fundación Radix, página de inicio" class="site-brand" href="index.html">
+<span class="site-brand-name">Fundación Radix</span>
+<span class="site-brand-tagline">Arte · Ciencia · Educación</span>
+</a>
+<nav aria-label="Navegación principal" class="site-navigation">
+<ul>
+<li><a href="index.html#fundacion">La Fundación</a></li>
+<li><a aria-current="page" href="scripts.html">Exploraciones</a></li>
+<li><a href="cursillos_talleres.html">Cursos y talleres</a></li>
+<li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main class="color-wrap" id="contenido-principal">
+<header class="color-header">
+<p class="color-kicker">Exploraciones computacionales · Fundación Radix</p>
+<h1>Exploración RGB ↔ CIELAB</h1>
+<p class="color-lead">
         Esta herramienta permite convertir colores entre el espacio RGB y el espacio CIELAB,
         observar sus coordenadas y explorar cómo cambian las mezclas cuando se trabajan como
         combinaciones en un espacio perceptual.
       </p>
-    </header>
-
-    <section class="color-section" id="introduccion">
-      <h2>Color, percepción y coordenadas</h2>
-
-      <p>
+</header>
+<section class="color-section" id="introduccion">
+<h2>Color, percepción y coordenadas</h2>
+<p>
         El modelo <strong>RGB</strong> describe un color mediante la intensidad de rojo, verde y azul
         en una pantalla. Es útil para dispositivos digitales, pero no mide directamente
         la diferencia perceptual entre colores.
       </p>
-
-      <p>
+<p>
         El espacio <strong>CIELAB</strong>, también escrito como \(L^*a^*b^*\), organiza el color a partir
         de tres coordenadas: \(L^*\), asociada a la luminosidad; \(a^*\), asociada al eje verde–rojo;
         y \(b^*\), asociada al eje azul–amarillo. En esta página se usa una conversión desde sRGB
         con iluminante D65.
       </p>
-
-      <p>
+<p>
         Una ventaja de CIELAB es que permite aproximar mejor la diferencia percibida entre colores:
         dos puntos cercanos en \(L^*a^*b^*\) suelen corresponder a colores visualmente similares,
         mientras que distancias mayores indican cambios perceptuales más notorios.
       </p>
-    </section>
-
-    <section class="color-section" id="conversion">
-      <h2>Conversión interactiva</h2>
-
-      <div class="color-grid">
-
-        <section class="color-card" aria-labelledby="h-rgb-lab">
-          <h3 id="h-rgb-lab">RGB → CIELAB</h3>
-
-          <div class="color-row">
-            <div>
-              <label for="inR">R (0–255)</label>
-              <input type="number" id="inR" min="0" max="255" step="1" value="30">
-            </div>
-
-            <div>
-              <label for="inG">G (0–255)</label>
-              <input type="number" id="inG" min="0" max="255" step="1" value="120">
-            </div>
-
-            <div>
-              <label for="inB">B (0–255)</label>
-              <input type="number" id="inB" min="0" max="255" step="1" value="200">
-            </div>
-          </div>
-
-          <div id="swatchRGB" class="swatch" role="img" aria-label="Muestra de color RGB">
-            <span>Entrada RGB</span>
-            <span id="hexRGB" class="mono"></span>
-          </div>
-
-          <div class="color-out">
-            <div class="color-box">
-              <div class="hint">L*</div>
-              <div class="mono" id="Lval">–</div>
-            </div>
-
-            <div class="color-box">
-              <div class="hint">a*</div>
-              <div class="mono" id="aval">–</div>
-            </div>
-
-            <div class="color-box">
-              <div class="hint">b*</div>
-              <div class="mono" id="bval">–</div>
-            </div>
-          </div>
-
-          <div class="hint">
+</section>
+<section class="color-section" id="conversion">
+<h2>Conversión interactiva</h2>
+<div class="color-grid">
+<section aria-labelledby="h-rgb-lab" class="color-card">
+<h3 id="h-rgb-lab">RGB → CIELAB</h3>
+<div class="color-row">
+<div>
+<label for="inR">R (0–255)</label>
+<input id="inR" max="255" min="0" step="1" type="number" value="30"/>
+</div>
+<div>
+<label for="inG">G (0–255)</label>
+<input id="inG" max="255" min="0" step="1" type="number" value="120"/>
+</div>
+<div>
+<label for="inB">B (0–255)</label>
+<input id="inB" max="255" min="0" step="1" type="number" value="200"/>
+</div>
+</div>
+<div aria-label="Muestra de color RGB" class="swatch" id="swatchRGB" role="img">
+<span>Entrada RGB</span>
+<span class="mono" id="hexRGB"></span>
+</div>
+<div class="color-out">
+<div class="color-box">
+<div class="hint">L*</div>
+<div class="mono" id="Lval">–</div>
+</div>
+<div class="color-box">
+<div class="hint">a*</div>
+<div class="mono" id="aval">–</div>
+</div>
+<div class="color-box">
+<div class="hint">b*</div>
+<div class="mono" id="bval">–</div>
+</div>
+</div>
+<div class="hint">
             Rangos típicos: \(L^* \in [0,100]\), mientras que \(a^*\) y \(b^*\)
             suelen ubicarse aproximadamente entre −128 y 127.
           </div>
-        </section>
-
-        <section class="color-card" aria-labelledby="h-lab-rgb">
-          <h3 id="h-lab-rgb">CIELAB → RGB</h3>
-
-          <div class="color-row">
-            <div>
-              <label for="inL">L* (0–100)</label>
-              <input type="number" id="inL" min="0" max="100" step="0.1" value="50">
-            </div>
-
-            <div>
-              <label for="ina">a* (≈ −128…127)</label>
-              <input type="number" id="ina" min="-200" max="200" step="0.1" value="0">
-            </div>
-
-            <div>
-              <label for="inb">b* (≈ −128…127)</label>
-              <input type="number" id="inb" min="-200" max="200" step="0.1" value="0">
-            </div>
-          </div>
-
-          <div id="swatchLAB" class="swatch" role="img" aria-label="Muestra de color CIELAB">
-            <span>Salida RGB</span>
-            <span id="hexLAB" class="mono"></span>
-          </div>
-
-          <div class="color-out">
-            <div class="color-box">
-              <div class="hint">R</div>
-              <div class="mono" id="Rval">–</div>
-            </div>
-
-            <div class="color-box">
-              <div class="hint">G</div>
-              <div class="mono" id="Gval">–</div>
-            </div>
-
-            <div class="color-box">
-              <div class="hint">B</div>
-              <div class="mono" id="Bval">–</div>
-            </div>
-          </div>
-
-          <div class="hint" id="gamutNote"></div>
-        </section>
-
-      </div>
-    </section>
-
-    <section class="color-section" id="plano-color">
-      <h2>Plano de color en \(L^*a^*b^*\)</h2>
-
-      <p>
+</section>
+<section aria-labelledby="h-lab-rgb" class="color-card">
+<h3 id="h-lab-rgb">CIELAB → RGB</h3>
+<div class="color-row">
+<div>
+<label for="inL">L* (0–100)</label>
+<input id="inL" max="100" min="0" step="0.1" type="number" value="50"/>
+</div>
+<div>
+<label for="ina">a* (≈ −128…127)</label>
+<input id="ina" max="200" min="-200" step="0.1" type="number" value="0"/>
+</div>
+<div>
+<label for="inb">b* (≈ −128…127)</label>
+<input id="inb" max="200" min="-200" step="0.1" type="number" value="0"/>
+</div>
+</div>
+<div aria-label="Muestra de color CIELAB" class="swatch" id="swatchLAB" role="img">
+<span>Salida RGB</span>
+<span class="mono" id="hexLAB"></span>
+</div>
+<div class="color-out">
+<div class="color-box">
+<div class="hint">R</div>
+<div class="mono" id="Rval">–</div>
+</div>
+<div class="color-box">
+<div class="hint">G</div>
+<div class="mono" id="Gval">–</div>
+</div>
+<div class="color-box">
+<div class="hint">B</div>
+<div class="mono" id="Bval">–</div>
+</div>
+</div>
+<div class="hint" id="gamutNote"></div>
+</section>
+</div>
+</section>
+<section class="color-section" id="plano-color">
+<h2>Plano de color en \(L^*a^*b^*\)</h2>
+<p>
         Como el espacio \(L^*a^*b^*\) puede representarse mediante tres coordenadas reales,
         podemos explorar regiones de color construidas a partir de combinaciones lineales.
       </p>
-
-      <p>
+<p>
         En el módulo siguiente se definen dos colores, \(A\) y \(B\), usando valores RGB.
         El sistema los convierte a \(A'\) y \(B'\) en \(L^*a^*b^*\), y genera una malla discreta
         con coeficientes \(\alpha,\beta \in \{0, 0.1, \dots, 1\}\). Cada celda representa el color
         obtenido mediante la combinación:
       </p>
-
-      <p>
+<p>
         \[
           \alpha A' + \beta B'
         \]
       </p>
-
-      <p>
+<p>
         Al seleccionar una celda, se muestran sus valores en formato HEX y RGB. Esto permite comparar
         cómo una operación sencilla en un espacio matemático produce variaciones visuales no siempre
         lineales desde el punto de vista perceptivo.
       </p>
-
-      <section class="color-card color-plane-card" aria-labelledby="h-plane">
-        <h3 id="h-plane">Grid \(\alpha A' + \beta B'\) en LAB</h3>
-
-        <div class="color-row">
-          <div>
-            <label for="AR">A — R (0–255)</label>
-            <input type="number" id="AR" min="0" max="255" step="1" value="30">
-          </div>
-
-          <div>
-            <label for="AG">A — G (0–255)</label>
-            <input type="number" id="AG" min="0" max="255" step="1" value="120">
-          </div>
-
-          <div>
-            <label for="AB">A — B (0–255)</label>
-            <input type="number" id="AB" min="0" max="255" step="1" value="200">
-          </div>
-        </div>
-
-        <div class="color-row" style="margin-top:8px;">
-          <div>
-            <label for="BR">B — R (0–255)</label>
-            <input type="number" id="BR" min="0" max="255" step="1" value="255">
-          </div>
-
-          <div>
-            <label for="BG">B — G (0–255)</label>
-            <input type="number" id="BG" min="0" max="255" step="1" value="140">
-          </div>
-
-          <div>
-            <label for="BB">B — B (0–255)</label>
-            <input type="number" id="BB" min="0" max="255" step="1" value="0">
-          </div>
-        </div>
-
-        <div style="margin-top:14px;">
-          <canvas id="plane" width="420" height="420" aria-label="Plano de combinaciones de color en LAB"></canvas>
-
-          <div id="probe" class="swatch" aria-label="Muestra de color seleccionado"></div>
-
-          <div id="probeInfo" class="mono hint" role="status" aria-live="polite">
+<section aria-labelledby="h-plane" class="color-card color-plane-card">
+<h3 id="h-plane">Grid \(\alpha A' + \beta B'\) en LAB</h3>
+<div class="color-row">
+<div>
+<label for="AR">A — R (0–255)</label>
+<input id="AR" max="255" min="0" step="1" type="number" value="30"/>
+</div>
+<div>
+<label for="AG">A — G (0–255)</label>
+<input id="AG" max="255" min="0" step="1" type="number" value="120"/>
+</div>
+<div>
+<label for="AB">A — B (0–255)</label>
+<input id="AB" max="255" min="0" step="1" type="number" value="200"/>
+</div>
+</div>
+<div class="color-row" style="margin-top:8px;">
+<div>
+<label for="BR">B — R (0–255)</label>
+<input id="BR" max="255" min="0" step="1" type="number" value="255"/>
+</div>
+<div>
+<label for="BG">B — G (0–255)</label>
+<input id="BG" max="255" min="0" step="1" type="number" value="140"/>
+</div>
+<div>
+<label for="BB">B — B (0–255)</label>
+<input id="BB" max="255" min="0" step="1" type="number" value="0"/>
+</div>
+</div>
+<div style="margin-top:14px;">
+<canvas aria-label="Plano de combinaciones de color en LAB" height="420" id="plane" width="420"></canvas>
+<div aria-label="Muestra de color seleccionado" class="swatch" id="probe"></div>
+<div aria-live="polite" class="mono hint" id="probeInfo" role="status">
             –
           </div>
-        </div>
-      </section>
-    </section>
-
-    <div class="color-back-wrap">
-      <a href="scripts.html" class="color-back">
+</div>
+</section>
+</section>
+<div class="color-back-wrap">
+<a class="color-back" href="scripts.html">
         Volver a exploraciones
       </a>
-    </div>
-
-  </main>
-
-  <script src="js/cal_rgb_cielab.js" defer></script>
-  <script src="js/plane_grid.js" defer></script>
-
+</div>
+</main>
+<footer class="site-footer">
+<div class="site-footer-inner">
+<p>Fundación Radix Arte, Ciencia y Educación</p>
+<nav aria-label="Navegación secundaria" class="site-footer-nav">
+<a href="scripts.html">Exploraciones</a>
+<a href="cursillos_talleres.html">Cursos y talleres</a>
+<a href="opinion.html">Publicaciones</a>
+</nav>
+<p>Cali, Colombia · 2026</p>
+</div>
+</footer><script defer="" src="js/cal_rgb_cielab.js"></script>
+<script defer="" src="js/plane_grid.js"></script>
 </body>
 </html>

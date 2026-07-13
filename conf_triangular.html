@@ -1,59 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.fundacionradix.org/conf_triangular.html" />
-
-  <!-- SEO básico -->
-  <title>Fundación Radix | Configuración triangular</title>
-  <meta name="description" content="Herramienta interactiva para verificar si tres longitudes pueden formar un triángulo y visualizar su configuración geométrica." />
-  <meta name="keywords" content="Fundación Radix, triángulo, desigualdad triangular, geometría, matemáticas, visualización interactiva, educación" />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:locale" content="es_CO" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Fundación Radix" />
-  <meta property="og:title" content="Fundación Radix | Configuración triangular" />
-  <meta property="og:description" content="Verifica si tres longitudes pueden formar un triángulo y visualiza su configuración geométrica." />
-  <meta property="og:url" content="https://www.fundacionradix.org/conf_triangular.html" />
-  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fundación Radix | Configuración triangular" />
-  <meta name="twitter:description" content="Verifica si tres longitudes pueden formar un triángulo y visualiza su configuración geométrica." />
-  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
-  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
-
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#ffffff">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Canonical -->
+<link href="https://www.fundacionradix.org/conf_triangular.html" rel="canonical"/>
+<!-- SEO básico -->
+<title>Fundación Radix | Configuración triangular</title>
+<meta content="Herramienta interactiva para verificar si tres longitudes pueden formar un triángulo y visualizar su configuración geométrica." name="description"/>
+<meta content="Fundación Radix, triángulo, desigualdad triangular, geometría, matemáticas, visualización interactiva, educación" name="keywords"/>
+<meta content="index,follow" name="robots"/>
+<!-- Open Graph / Social -->
+<meta content="es_CO" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Fundación Radix" property="og:site_name"/>
+<meta content="Fundación Radix | Configuración triangular" property="og:title"/>
+<meta content="Verifica si tres longitudes pueden formar un triángulo y visualiza su configuración geométrica." property="og:description"/>
+<meta content="https://www.fundacionradix.org/conf_triangular.html" property="og:url"/>
+<meta content="https://www.fundacionradix.org/preview.png" property="og:image"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Fundación Radix | Configuración triangular" name="twitter:title"/>
+<meta content="Verifica si tres longitudes pueden formar un triángulo y visualiza su configuración geométrica." name="twitter:description"/>
+<meta content="https://www.fundacionradix.org/preview.png" name="twitter:image"/>
+<!-- Favicons -->
+<link href="/imagenes/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/imagenes/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/imagenes/favicon-64x64.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="/imagenes/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/imagenes/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="light" name="color-scheme"/>
+<meta content="#F4F1E8" name="theme-color"/>
+<link href="css/style.css?v=8" rel="stylesheet"/><link href="css/tool-pages.css?v=8" rel="stylesheet"/>
+<style>
     :root {
-      --tri-bg: #f7f7f7;
-      --tri-card: #ffffff;
-      --tri-border: #e8e8e8;
-      --tri-muted: #666666;
-      --tri-ink: #111111;
+      --tri-bg: var(--radix-paper);
+      --tri-card: var(--radix-paper-light);
+      --tri-border: var(--radix-gray);
+      --tri-muted: var(--radix-muted);
+      --tri-ink: var(--radix-ink);
     }
 
-    body {
+    body.tool-page {
       margin: 0;
       background: var(--tri-bg);
       color: var(--tri-ink);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: var(--font-body);
     }
 
     .tri-wrap {
@@ -68,7 +61,7 @@
 
     .tri-kicker {
       margin: 0 0 0.35rem 0;
-      color: #b30059;
+      color: var(--radix-green);
       font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -80,7 +73,7 @@
       font-size: clamp(1.8rem, 4vw, 2.8rem);
       line-height: 1.1;
       letter-spacing: -0.03em;
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .tri-lead {
@@ -107,9 +100,9 @@
     .tri-card {
       background: var(--tri-card);
       border: 1px solid var(--tri-border);
-      border-radius: 16px;
+      border-radius: var(--radius-medium);
       padding: 16px;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+      box-shadow: none;
     }
 
     .tri-controls {
@@ -124,7 +117,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      color: #222222;
+      color: var(--radix-ink);
       font-size: 0.92rem;
     }
 
@@ -137,16 +130,16 @@
     }
 
     .tri-controls input[type="text"]:focus-visible {
-      outline: 3px solid rgba(179, 0, 89, 0.18);
-      border-color: #b30059;
+      outline: 3px solid rgba(49, 91, 125, 0.28);
+      border-color: var(--radix-green);
     }
 
     .tri-btn {
       border: 0;
-      background: #111111;
+      background: var(--radix-ink);
       color: #ffffff;
       padding: 8px 12px;
-      border-radius: 10px;
+      border-radius: var(--radius-small);
       cursor: pointer;
       font: inherit;
       font-weight: 600;
@@ -157,7 +150,7 @@
     }
 
     .tri-btn:hover {
-      background: #333333;
+      background: var(--radix-muted);
       transform: translateY(-1px);
     }
 
@@ -165,8 +158,8 @@
       width: 100%;
       height: 540px;
       border: 1px solid #e6e6e6;
-      border-radius: 16px;
-      background: #fafafa;
+      border-radius: var(--radius-medium);
+      background: var(--radix-paper-light);
     }
 
     table {
@@ -184,7 +177,7 @@
 
     th {
       font-weight: 700;
-      color: #222222;
+      color: var(--radix-ink);
     }
 
     .right {
@@ -233,77 +226,84 @@
     }
   </style>
 </head>
-
-<body>
-
-  <main class="tri-wrap">
-
-    <header class="tri-header">
-      <p class="tri-kicker">Exploraciones computacionales · Fundación Radix</p>
-
-      <h1>Configuración triangular</h1>
-
-      <p class="tri-lead">
+<body class="tool-page"><a class="skip-link" href="#contenido-principal">Ir al contenido principal</a><header class="site-header">
+<div class="site-header-inner">
+<a aria-label="Fundación Radix, página de inicio" class="site-brand" href="index.html">
+<span class="site-brand-name">Fundación Radix</span>
+<span class="site-brand-tagline">Arte · Ciencia · Educación</span>
+</a>
+<nav aria-label="Navegación principal" class="site-navigation">
+<ul>
+<li><a href="index.html#fundacion">La Fundación</a></li>
+<li><a aria-current="page" href="scripts.html">Exploraciones</a></li>
+<li><a href="cursillos_talleres.html">Cursos y talleres</a></li>
+<li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main class="tri-wrap" id="contenido-principal">
+<header class="tri-header">
+<p class="tri-kicker">Exploraciones computacionales · Fundación Radix</p>
+<h1>Configuración triangular</h1>
+<p class="tri-lead">
         Ingresa tres longitudes y verifica si pueden formar un triángulo.
         La visualización permite observar la configuración geométrica asociada.
       </p>
-    </header>
-
-    <section class="tri-grid" aria-label="Herramienta de configuración triangular">
-
-      <article class="tri-card" aria-label="Controles y visualización del triángulo">
-        <div class="tri-controls">
-          <label>
+</header>
+<section aria-label="Herramienta de configuración triangular" class="tri-grid">
+<article aria-label="Controles y visualización del triángulo" class="tri-card">
+<div class="tri-controls">
+<label>
             Lado 1
-            <input type="text" id="l1" value="13">
-          </label>
-
-          <label>
+            <input id="l1" type="text" value="13"/>
+</label>
+<label>
             Lado 2
-            <input type="text" id="l2" value="20">
-          </label>
-
-          <label>
+            <input id="l2" type="text" value="20"/>
+</label>
+<label>
             Lado 3
-            <input type="text" id="l3" value="21">
-          </label>
-
-          <button type="button" class="tri-btn" onclick="dibujar()">
+            <input id="l3" type="text" value="21"/>
+</label>
+<button class="tri-btn" onclick="dibujar()" type="button">
             Calcular
           </button>
-        </div>
-
-        <svg id="canvas" aria-label="Visualización de la configuración triangular"></svg>
-
-        <p class="tri-note">
+</div>
+<svg aria-label="Visualización de la configuración triangular" id="canvas"></svg>
+<p class="tri-note">
           Para que tres longitudes formen un triángulo, cada lado debe ser menor que la suma
           de los otros dos.
         </p>
-      </article>
-
-      <article class="tri-card" aria-label="Resultados de la configuración triangular">
-        <table>
-          <thead>
-            <tr>
-              <th>Elemento</th>
-              <th class="right">Valor</th>
-            </tr>
-          </thead>
-          <tbody id="tabla"></tbody>
-        </table>
-      </article>
-
-    </section>
-
-    <div class="tri-back-wrap">
-      <a href="scripts.html" class="btn btn-back">
+</article>
+<article aria-label="Resultados de la configuración triangular" class="tri-card">
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th class="right">Valor</th>
+</tr>
+</thead>
+<tbody id="tabla"></tbody>
+</table>
+</article>
+</section>
+<div class="tri-back-wrap">
+<a class="btn btn-back" href="scripts.html">
         Volver a exploraciones
       </a>
-    </div>
-
-  </main>
-
-  <script src="js/triangulo.js" defer></script>
-
+</div>
+</main>
+<footer class="site-footer">
+<div class="site-footer-inner">
+<p>Fundación Radix Arte, Ciencia y Educación</p>
+<nav aria-label="Navegación secundaria" class="site-footer-nav">
+<a href="scripts.html">Exploraciones</a>
+<a href="cursillos_talleres.html">Cursos y talleres</a>
+<a href="opinion.html">Publicaciones</a>
+</nav>
+<p>Cali, Colombia · 2026</p>
+</div>
+</footer><script defer="" src="js/triangulo.js"></script>
 </body>
 </html>

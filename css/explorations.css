@@ -1,0 +1,205 @@
+/* =========================================================
+   Fundación Radix · Exploraciones computacionales
+   ========================================================= */
+
+.explorations-hero {
+  border-bottom: 1px solid var(--radix-gray);
+}
+
+.explorations-hero-inner {
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--content-width));
+  min-height: clamp(540px, 70vh, 700px);
+  margin-inline: auto;
+  padding-block: clamp(4rem, 8vw, 6.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 6rem);
+}
+
+.explorations-hero h1 {
+  margin: 0;
+  font-size: clamp(3.1rem, 7vw, 5.5rem);
+  letter-spacing: -0.045em;
+  line-height: 0.97;
+}
+
+.explorations-lead {
+  max-width: 680px;
+  margin: 1.55rem 0 0;
+  color: var(--ink-700);
+  font-size: clamp(1.08rem, 2vw, 1.25rem);
+  line-height: 1.72;
+}
+
+.field-figure {
+  width: min(100%, 470px);
+  margin: 0 auto;
+}
+
+.field-stage {
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.field-stage::before {
+  content: "";
+  position: absolute;
+  inset: 4.5%;
+  border: 1px solid rgba(49, 91, 125, 0.25);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+#fieldCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.field-caption {
+  max-width: 45ch;
+  margin: 1rem auto 0;
+  color: var(--radix-muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.field-caption strong { color: var(--radix-ink); }
+
+.field-controls {
+  margin-top: 0.65rem;
+  text-align: center;
+}
+
+.field-reset {
+  padding: 0;
+  color: var(--radix-green);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.field-reset:hover,
+.field-reset:focus-visible { border-bottom-color: currentColor; }
+
+.explorations-note {
+  width: min(calc(100% - (2 * var(--page-gutter))), 820px);
+  margin-inline: auto;
+  padding-block: clamp(3.3rem, 7vw, 5rem);
+  text-align: center;
+}
+
+.explorations-note p {
+  margin: 0;
+  color: var(--ink-700);
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 3vw, 1.95rem);
+  line-height: 1.5;
+}
+
+.exploration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 3vw, 1.5rem);
+  margin-top: clamp(2.5rem, 5vw, 3.8rem);
+}
+
+.exploration-card {
+  position: relative;
+  min-height: 285px;
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--radix-paper-light);
+  border: 1px solid var(--radix-gray);
+  border-radius: var(--radius-medium);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.exploration-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--radix-green);
+}
+
+.exploration-card::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -55px;
+  width: 145px;
+  height: 145px;
+  border: 1px solid var(--card-accent, var(--radix-gray));
+  border-radius: 50%;
+  opacity: 0.12;
+}
+
+.exploration-card[data-accent="green"] { --card-accent: var(--radix-green); border-top: 3px solid var(--radix-green); }
+.exploration-card[data-accent="blue"] { --card-accent: var(--radix-blue); border-top: 3px solid var(--radix-blue); }
+.exploration-card[data-accent="terracotta"] { --card-accent: var(--radix-terracotta); border-top: 3px solid var(--radix-terracotta); }
+
+.exploration-index {
+  color: var(--radix-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.exploration-category {
+  margin-top: 0.65rem;
+  color: var(--card-accent, var(--radix-green));
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.exploration-card h3 {
+  margin: 0.85rem 0 0;
+  font-size: 1.45rem;
+  line-height: 1.18;
+}
+
+.exploration-card p {
+  margin: 0.8rem 0 0;
+  color: var(--radix-muted);
+  font-size: 0.94rem;
+  line-height: 1.68;
+}
+
+.exploration-link {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 1.2rem;
+  color: var(--radix-green);
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.exploration-link::after { content: " →"; }
+.exploration-link:hover { text-decoration: underline; }
+
+.experimental-note {
+  margin-top: 1rem;
+  color: var(--radix-muted);
+  font-size: 0.76rem;
+}
+
+@media (max-width: 960px) {
+  .explorations-hero-inner { grid-template-columns: 1fr; }
+  .field-figure { width: min(82%, 450px); }
+  .exploration-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .explorations-hero-inner { padding-block: 3.8rem; }
+  .explorations-hero h1 { font-size: clamp(2.8rem, 14vw, 4.15rem); }
+  .field-figure { width: min(96%, 390px); }
+  .exploration-grid { grid-template-columns: 1fr; }
+}

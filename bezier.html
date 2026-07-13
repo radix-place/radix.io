@@ -1,59 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.fundacionradix.org/bezier.html" />
-
-  <!-- SEO básico -->
-  <title>Fundación Radix | Curva de Bézier interactiva</title>
-  <meta name="description" content="Exploración interactiva de curvas de Bézier con puntos de control manipulables, visualización geométrica y explicación matemática." />
-  <meta name="keywords" content="Fundación Radix, curva de Bézier, geometría, diseño, matemáticas, puntos de control, visualización interactiva, educación" />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:locale" content="es_CO" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Fundación Radix" />
-  <meta property="og:title" content="Fundación Radix | Curva de Bézier interactiva" />
-  <meta property="og:description" content="Exploración interactiva de curvas de Bézier con puntos de control manipulables." />
-  <meta property="og:url" content="https://www.fundacionradix.org/bezier.html" />
-  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fundación Radix | Curva de Bézier interactiva" />
-  <meta name="twitter:description" content="Exploración interactiva de curvas de Bézier con puntos de control manipulables." />
-  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
-  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
-
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#ffffff">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Canonical -->
+<link href="https://www.fundacionradix.org/bezier.html" rel="canonical"/>
+<!-- SEO básico -->
+<title>Fundación Radix | Curva de Bézier interactiva</title>
+<meta content="Exploración interactiva de curvas de Bézier con puntos de control manipulables, visualización geométrica y explicación matemática." name="description"/>
+<meta content="Fundación Radix, curva de Bézier, geometría, diseño, matemáticas, puntos de control, visualización interactiva, educación" name="keywords"/>
+<meta content="index,follow" name="robots"/>
+<!-- Open Graph / Social -->
+<meta content="es_CO" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Fundación Radix" property="og:site_name"/>
+<meta content="Fundación Radix | Curva de Bézier interactiva" property="og:title"/>
+<meta content="Exploración interactiva de curvas de Bézier con puntos de control manipulables." property="og:description"/>
+<meta content="https://www.fundacionradix.org/bezier.html" property="og:url"/>
+<meta content="https://www.fundacionradix.org/preview.png" property="og:image"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Fundación Radix | Curva de Bézier interactiva" name="twitter:title"/>
+<meta content="Exploración interactiva de curvas de Bézier con puntos de control manipulables." name="twitter:description"/>
+<meta content="https://www.fundacionradix.org/preview.png" name="twitter:image"/>
+<!-- Favicons -->
+<link href="/imagenes/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/imagenes/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/imagenes/favicon-64x64.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="/imagenes/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/imagenes/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="light" name="color-scheme"/>
+<meta content="#F4F1E8" name="theme-color"/>
+<link href="css/style.css?v=8" rel="stylesheet"/><link href="css/tool-pages.css?v=8" rel="stylesheet"/>
+<style>
     :root {
-      --bezier-bg: #f7f7f7;
-      --bezier-card: #ffffff;
-      --bezier-border: #d8d8d8;
-      --bezier-muted: #666666;
-      --bezier-ink: #111111;
+      --bezier-bg: var(--radix-paper);
+      --bezier-card: var(--radix-paper-light);
+      --bezier-border: var(--radix-gray);
+      --bezier-muted: var(--radix-muted);
+      --bezier-ink: var(--radix-ink);
     }
 
-    body {
+    body.tool-page {
       margin: 0;
       background: var(--bezier-bg);
       color: var(--bezier-ink);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: var(--font-body);
     }
 
     .bezier-wrap {
@@ -72,7 +65,7 @@
       font-size: clamp(1.8rem, 4vw, 2.8rem);
       line-height: 1.1;
       letter-spacing: -0.03em;
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .bezier-lead {
@@ -87,13 +80,13 @@
       margin-top: 28px;
       margin-bottom: 10px;
       font-size: 1.3rem;
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .bezier-wrap p,
     .bezier-wrap li {
       line-height: 1.65;
-      color: #333333;
+      color: var(--radix-muted);
     }
 
     .bezier-wrap ul {
@@ -122,8 +115,8 @@
     .bezier-btn {
       padding: 10px 16px;
       border: none;
-      border-radius: 10px;
-      background: #222222;
+      border-radius: var(--radius-small);
+      background: var(--radix-ink);
       color: #ffffff;
       cursor: pointer;
       font: inherit;
@@ -135,7 +128,7 @@
     }
 
     .bezier-btn:hover {
-      background: #444444;
+      background: var(--radix-muted);
       transform: translateY(-1px);
     }
 
@@ -152,7 +145,7 @@
 
       background: var(--bezier-card);
       border: 1px solid var(--bezier-border);
-      border-radius: 14px;
+      border-radius: var(--radius-medium);
 
       cursor: crosshair;
       touch-action: none;
@@ -182,120 +175,122 @@
       }
     }
   </style>
-
-  <script>
+<script>
     window.MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']]
       }
     };
   </script>
-
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
-<body>
-
-  <main class="bezier-wrap">
-
-    <header class="bezier-header">
-      <h1>Curva de Bézier interactiva</h1>
-      <p class="bezier-lead">
+<body class="tool-page"><a class="skip-link" href="#contenido-principal">Ir al contenido principal</a><header class="site-header">
+<div class="site-header-inner">
+<a aria-label="Fundación Radix, página de inicio" class="site-brand" href="index.html">
+<span class="site-brand-name">Fundación Radix</span>
+<span class="site-brand-tagline">Arte · Ciencia · Educación</span>
+</a>
+<nav aria-label="Navegación principal" class="site-navigation">
+<ul>
+<li><a href="index.html#fundacion">La Fundación</a></li>
+<li><a aria-current="page" href="scripts.html">Exploraciones</a></li>
+<li><a href="cursillos_talleres.html">Cursos y talleres</a></li>
+<li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main class="bezier-wrap" id="contenido-principal">
+<header class="bezier-header">
+<h1>Curva de Bézier interactiva</h1>
+<p class="bezier-lead">
         Exploración geométrica de una curva paramétrica mediante puntos de control manipulables.
       </p>
-    </header>
-
-    <section id="descripcion">
-      <p>
+</header>
+<section id="descripcion">
+<p>
         Una <strong>curva de Bézier</strong> es una curva paramétrica determinada por un conjunto
         finito de puntos. Los puntos extremos fijan el inicio y el final de la curva, mientras que
         los puntos intermedios actúan como puntos de control que modifican su forma.
       </p>
-
-      <div class="bezier-math">
+<div class="bezier-math">
         \[
           B(t)=\sum_{i=0}^{n} \binom{n}{i}(1-t)^{n-i}t^iP_i,
           \qquad 0 \leq t \leq 1
         \]
       </div>
-
-      <p>
+<p>
         En esta expresión, los puntos \(P_0,P_1,\dots,P_n\) definen el polígono de control.
         El parámetro \(t\) recorre el intervalo \([0,1]\): cuando \(t=0\), la curva inicia en
         \(P_0\); cuando \(t=1\), termina en \(P_n\).
       </p>
-    </section>
-
-    <section id="elementos">
-      <h2>Elementos de la construcción</h2>
-
-      <ul>
-        <li>
-          <strong>\(P_0\)</strong>: punto inicial de la curva.
+</section>
+<section id="elementos">
+<h2>Elementos de la construcción</h2>
+<ul>
+<li>
+<strong>\(P_0\)</strong>: punto inicial de la curva.
         </li>
-        <li>
-          <strong>\(P_n\)</strong>: punto final de la curva.
+<li>
+<strong>\(P_n\)</strong>: punto final de la curva.
         </li>
-        <li>
-          <strong>Puntos de control</strong>: puntos intermedios que atraen la curva y modifican su trayectoria.
+<li>
+<strong>Puntos de control</strong>: puntos intermedios que atraen la curva y modifican su trayectoria.
         </li>
-        <li>
-          <strong>Polígono de control</strong>: línea auxiliar que conecta los puntos \(P_i\) y permite visualizar la estructura que gobierna la curva.
+<li>
+<strong>Polígono de control</strong>: línea auxiliar que conecta los puntos \(P_i\) y permite visualizar la estructura que gobierna la curva.
         </li>
-      </ul>
-    </section>
-
-    <section id="interpretacion">
-      <h2>Interpretación</h2>
-
-      <p>
+</ul>
+</section>
+<section id="interpretacion">
+<h2>Interpretación</h2>
+<p>
         Aunque la curva no suele pasar por los puntos de control intermedios, estos determinan
         la dirección, tensión y forma global de la trayectoria. Al moverlos, se observa cómo
         una estructura geométrica simple puede generar formas suaves, flexibles y controlables.
       </p>
-    </section>
-
-    <section id="exploracion">
-      <h2>Exploración interactiva</h2>
-
-      <p>
+</section>
+<section id="exploracion">
+<h2>Exploración interactiva</h2>
+<p>
         Usa los botones para agregar o quitar puntos de control. Arrastra cualquier punto para
         modificar la curva. El botón de quitar se desactiva cuando solo quedan los dos puntos
         extremos, porque esos dos puntos son la estructura mínima de una curva de Bézier.
       </p>
-
-      <div class="bezier-app">
-        <div class="bezier-controls">
-          <button id="agregarPunto" type="button" class="bezier-btn">
+<div class="bezier-app">
+<div class="bezier-controls">
+<button class="bezier-btn" id="agregarPunto" type="button">
             Agregar punto de control
           </button>
-
-          <button id="quitarPunto" type="button" class="bezier-btn">
+<button class="bezier-btn" id="quitarPunto" type="button">
             Quitar punto de control
           </button>
-
-          <button id="reiniciar" type="button" class="bezier-btn">
+<button class="bezier-btn" id="reiniciar" type="button">
             Reiniciar
           </button>
-
-          <button id="guardarImagen" type="button" class="bezier-btn">
+<button class="bezier-btn" id="guardarImagen" type="button">
             Guardar imagen
           </button>
-        </div>
-
-        <canvas id="canvasBezier" width="900" height="600" aria-label="Visualización interactiva de curva de Bézier"></canvas>
-      </div>
-    </section>
-
-    <div class="bezier-back-wrap">
-      <a href="scripts.html" class="btn btn-back">
+</div>
+<canvas aria-label="Visualización interactiva de curva de Bézier" height="600" id="canvasBezier" width="900"></canvas>
+</div>
+</section>
+<div class="bezier-back-wrap">
+<a class="btn btn-back" href="scripts.html">
         Volver a exploraciones
       </a>
-    </div>
-
-  </main>
-
-  <script src="js/bezier.js"></script>
-
+</div>
+</main>
+<footer class="site-footer">
+<div class="site-footer-inner">
+<p>Fundación Radix Arte, Ciencia y Educación</p>
+<nav aria-label="Navegación secundaria" class="site-footer-nav">
+<a href="scripts.html">Exploraciones</a>
+<a href="cursillos_talleres.html">Cursos y talleres</a>
+<a href="opinion.html">Publicaciones</a>
+</nav>
+<p>Cali, Colombia · 2026</p>
+</div>
+</footer><script src="js/bezier.js"></script>
 </body>
 </html>

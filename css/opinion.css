@@ -1,0 +1,140 @@
+/* =========================================================
+   Fundación Radix · Publicaciones y opinión
+   ========================================================= */
+
+.opinion-hero {
+  border-bottom: 1px solid var(--radix-gray);
+  background: var(--radix-paper-light);
+}
+
+.opinion-hero-inner {
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--content-width));
+  margin-inline: auto;
+  padding-block: clamp(4rem, 8vw, 6.5rem);
+}
+
+.opinion-hero h1 {
+  max-width: 850px;
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 5.4rem);
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+.opinion-lead {
+  max-width: 760px;
+  margin: 1.4rem 0 0;
+  color: var(--ink-700);
+  font-size: clamp(1.05rem, 2vw, 1.22rem);
+  line-height: 1.72;
+}
+
+.editorial-note {
+  width: min(calc(100% - (2 * var(--page-gutter))), 860px);
+  margin-inline: auto;
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+
+.editorial-note p {
+  color: var(--radix-muted);
+  line-height: 1.82;
+}
+
+.publication-section {
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--content-width));
+  margin-inline: auto;
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+  border-top: 1px solid var(--radix-gray);
+}
+
+.publication-section h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4.5vw, 3.15rem);
+  line-height: 1.08;
+}
+
+.publication-desc {
+  max-width: 720px;
+  margin: 1rem 0 0;
+  color: var(--radix-muted);
+  line-height: 1.75;
+}
+
+.publication-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.4rem;
+}
+
+.publication-card {
+  min-height: 260px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  background: var(--radix-paper-light);
+  border: 1px solid var(--radix-gray);
+  border-top: 3px solid var(--radix-green);
+  border-radius: var(--radius-medium);
+}
+
+.publication-card:nth-child(2n) {
+  border-top-color: var(--radix-blue);
+}
+
+.publication-card h3 {
+  margin: 0;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.publication-card h3 a {
+  color: var(--radix-ink);
+  text-decoration: none;
+}
+
+.publication-card h3 a:hover {
+  color: var(--radix-green);
+}
+
+.publication-meta {
+  margin: 0.8rem 0 0;
+  color: var(--radix-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.publication-snippet {
+  margin: 1rem 0 0;
+  color: var(--radix-muted);
+  font-size: 0.95rem;
+  line-height: 1.72;
+}
+
+.publication-more {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--radix-green);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.publication-more::after {
+  content: " →";
+}
+
+.publication-more:hover {
+  text-decoration: underline;
+}
+
+.opinion-list-page .article-shell {
+  max-width: 900px;
+}
+
+@media (max-width: 760px) {
+  .publication-grid {
+    grid-template-columns: 1fr;
+  }
+}

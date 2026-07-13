@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://radix.place/</loc>
-    <lastmod>2025-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://www.fundacionradix.org/</loc></url>
+  <url><loc>https://www.fundacionradix.org/cursillos_talleres.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/openscad_docentes.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/arduino_docentes.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/scripts.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/l_system.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/area_region.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/cal_RGB_CIELAB.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/conf_triangular.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/voronoi.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/juego_vida.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/pag_gielis.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/chryzode.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/bezier.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/flor.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/rostro_arena.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/opinion.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/opinion/esp_digital.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/opinion/edu_bambalinas.html</loc></url>
+  <url><loc>https://www.fundacionradix.org/opinion/rot_angular.html</loc></url>
 </urlset>

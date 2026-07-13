@@ -1,47 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.fundacionradix.org/pag_gielis.html" />
-
-  <!-- SEO básico -->
-  <title>Fundación Radix | Flor biomimética</title>
-  <meta name="description" content="Exploración interactiva de flores biomiméticas mediante superfórmula de Gielis y patrones de filotaxis." />
-  <meta name="keywords" content="Fundación Radix, flor biomimética, Gielis, superfórmula, filotaxis, girasol, matemáticas, biología, arte generativo, educación" />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:locale" content="es_CO" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Fundación Radix" />
-  <meta property="og:title" content="Fundación Radix | Flor biomimética" />
-  <meta property="og:description" content="Exploración interactiva de formas florales mediante modelos matemáticos de pétalos y filotaxis." />
-  <meta property="og:url" content="https://www.fundacionradix.org/pag_gielis.html" />
-  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fundación Radix | Flor biomimética" />
-  <meta name="twitter:description" content="Exploración interactiva de formas florales mediante modelos matemáticos de pétalos y filotaxis." />
-  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
-  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
-
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#ffffff">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- MathJax para fórmulas matemáticas -->
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Canonical -->
+<link href="https://www.fundacionradix.org/pag_gielis.html" rel="canonical"/>
+<!-- SEO básico -->
+<title>Fundación Radix | Flor biomimética</title>
+<meta content="Exploración interactiva de flores biomiméticas mediante superfórmula de Gielis y patrones de filotaxis." name="description"/>
+<meta content="Fundación Radix, flor biomimética, Gielis, superfórmula, filotaxis, girasol, matemáticas, biología, arte generativo, educación" name="keywords"/>
+<meta content="index,follow" name="robots"/>
+<!-- Open Graph / Social -->
+<meta content="es_CO" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Fundación Radix" property="og:site_name"/>
+<meta content="Fundación Radix | Flor biomimética" property="og:title"/>
+<meta content="Exploración interactiva de formas florales mediante modelos matemáticos de pétalos y filotaxis." property="og:description"/>
+<meta content="https://www.fundacionradix.org/pag_gielis.html" property="og:url"/>
+<meta content="https://www.fundacionradix.org/preview.png" property="og:image"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Fundación Radix | Flor biomimética" name="twitter:title"/>
+<meta content="Exploración interactiva de formas florales mediante modelos matemáticos de pétalos y filotaxis." name="twitter:description"/>
+<meta content="https://www.fundacionradix.org/preview.png" name="twitter:image"/>
+<!-- Favicons -->
+<link href="/imagenes/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/imagenes/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/imagenes/favicon-64x64.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="/imagenes/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/imagenes/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="light" name="color-scheme"/>
+<meta content="#F4F1E8" name="theme-color"/>
+<link href="css/style.css?v=8" rel="stylesheet"/><link href="css/tool-pages.css?v=8" rel="stylesheet"/>
+<!-- MathJax para fórmulas matemáticas -->
+<script>
     window.MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -52,24 +45,23 @@
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
-  <style>
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
     :root {
-      --flower-bg: #f7f7f7;
-      --flower-card: #ffffff;
-      --flower-border: #e6e6e6;
-      --flower-muted: #666666;
-      --flower-ink: #111111;
-      --flower-accent: #b30059;
-      --flower-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      --flower-bg: var(--radix-paper);
+      --flower-card: var(--radix-paper-light);
+      --flower-border: var(--radix-gray);
+      --flower-muted: var(--radix-muted);
+      --flower-ink: var(--radix-ink);
+      --flower-accent: var(--radix-green);
+      --flower-shadow: none;
     }
 
-    body {
+    body.tool-page {
       margin: 0;
       background: var(--flower-bg);
       color: var(--flower-ink);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: var(--font-body);
     }
 
     .flower-header {
@@ -98,7 +90,7 @@
       font-size: clamp(1.9rem, 4vw, 3rem);
       line-height: 1.1;
       letter-spacing: -0.03em;
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .flower-lead {
@@ -122,15 +114,15 @@
     .flower-panel {
       background: var(--flower-card);
       border: 1px solid var(--flower-border);
-      border-radius: 16px;
+      border-radius: var(--radius-medium);
       padding: 16px;
-      box-shadow: var(--flower-shadow);
+      box-shadow: none;
     }
 
     .flower-panel h2 {
       margin: 0 0 10px;
       font-size: 1rem;
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .flower-panel + .flower-panel {
@@ -161,7 +153,7 @@
       padding: 0;
       border: 1px solid var(--flower-border);
       border-radius: 8px;
-      background: #ffffff;
+      background: var(--radix-paper-light);
     }
 
     .flower-small {
@@ -185,19 +177,19 @@
       padding: 7px 10px;
 
       border: 1px solid var(--flower-border);
-      border-radius: 10px;
+      border-radius: var(--radius-small);
 
-      color: #333333;
+      color: var(--radix-muted);
       font-size: 0.86rem;
 
       cursor: pointer;
       user-select: none;
-      background: #ffffff;
+      background: var(--radix-paper-light);
     }
 
     .flower-mode label:has(input:checked) {
-      border-color: rgba(179, 0, 89, 0.35);
-      background: rgba(179, 0, 89, 0.06);
+      border-color: rgba(47, 102, 86, 0.35);
+      background: rgba(47, 102, 86, 0.06);
     }
 
     .flower-btn {
@@ -207,11 +199,11 @@
 
       padding: 10px 12px;
 
-      border-radius: 10px;
+      border-radius: var(--radius-small);
       border: 1px solid var(--flower-border);
 
-      background: #ffffff;
-      color: #111111;
+      background: var(--radix-paper-light);
+      color: var(--radix-ink);
 
       cursor: pointer;
       font: inherit;
@@ -225,7 +217,7 @@
 
     .flower-btn:hover {
       background: #f3f3f3;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      box-shadow: none;
       transform: translateY(-1px);
     }
 
@@ -253,8 +245,8 @@
     canvas {
       max-width: 100%;
       height: auto !important;
-      border-radius: 16px;
-      background: #ffffff;
+      border-radius: var(--radius-medium);
+      background: var(--radix-paper-light);
       border: 1px solid var(--flower-border);
       display: block;
     }
@@ -268,9 +260,9 @@
     .flower-description-inner {
       background: var(--flower-card);
       border: 1px solid var(--flower-border);
-      border-radius: 16px;
+      border-radius: var(--radius-medium);
       padding: 18px;
-      box-shadow: var(--flower-shadow);
+      box-shadow: none;
     }
 
     .flower-description h2 {
@@ -279,7 +271,7 @@
     }
 
     .flower-description p {
-      color: #333333;
+      color: var(--radix-muted);
       line-height: 1.65;
     }
 
@@ -314,220 +306,204 @@
       }
     }
   </style>
-
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
 </head>
-
-<body>
-
-  <header class="flower-header">
-    <div class="flower-header-inner">
-      <p class="flower-kicker">Exploraciones computacionales · Fundación Radix</p>
-
-      <h1>Flor biomimética</h1>
-
-      <p class="flower-lead">
+<body class="tool-page"><a class="skip-link" href="#contenido-principal">Ir al contenido principal</a><header class="site-header">
+<div class="site-header-inner">
+<a aria-label="Fundación Radix, página de inicio" class="site-brand" href="index.html">
+<span class="site-brand-name">Fundación Radix</span>
+<span class="site-brand-tagline">Arte · Ciencia · Educación</span>
+</a>
+<nav aria-label="Navegación principal" class="site-navigation">
+<ul>
+<li><a href="index.html#fundacion">La Fundación</a></li>
+<li><a aria-current="page" href="scripts.html">Exploraciones</a></li>
+<li><a href="cursillos_talleres.html">Cursos y talleres</a></li>
+<li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<header class="flower-header">
+<div class="flower-header-inner">
+<p class="flower-kicker">Exploraciones computacionales · Fundación Radix</p>
+<h1>Flor biomimética</h1>
+<p class="flower-lead">
         Exploración interactiva de formas florales mediante modelos matemáticos:
         pétalos generados con una variante de la superfórmula de Gielis y patrones de
         filotaxis inspirados en la distribución de semillas del girasol.
       </p>
-    </div>
-  </header>
-
-  <section class="flower-description" aria-label="Descripción de la exploración">
-    <div class="flower-description-inner">
-      <h2>Del mundo real al modelo matemático</h2>
-
-      <p>
+</div>
+</header>
+<section aria-label="Descripción de la exploración" class="flower-description">
+<div class="flower-description-inner">
+<h2>Del mundo real al modelo matemático</h2>
+<p>
         Esta simulación permite observar cómo algunos rasgos de una flor —número de pétalos,
         redondez, agudeza, simetría, distribución radial o compactación del centro— pueden
         traducirse en parámetros geométricos.
       </p>
-
-      <p>
+<p>
         En el modo de pétalos, la forma se controla mediante una expresión inspirada en la
         superfórmula de Gielis. En el modo de filotaxis, la distribución se aproxima con
         \(r = c\sqrt{n}\) y \(\theta = n\phi\), donde \(\phi\) suele tomar valores cercanos
         al ángulo áureo, aproximadamente \(137.5^\circ\).
       </p>
-    </div>
-  </section>
-
-  <main class="flower-wrap">
-
-    <section class="flower-panel" aria-label="Controles de la flor biomimética">
-      <h2>1. Modelo</h2>
-
-      <div class="flower-mode">
-        <label>
-          <input type="radio" name="model" value="petalos" checked>
+</div>
+</section>
+<main class="flower-wrap" id="contenido-principal">
+<section aria-label="Controles de la flor biomimética" class="flower-panel">
+<h2>1. Modelo</h2>
+<div class="flower-mode">
+<label>
+<input checked="" name="model" type="radio" value="petalos"/>
           Pétalos
         </label>
-
-        <label>
-          <input type="radio" name="model" value="filotaxis">
+<label>
+<input name="model" type="radio" value="filotaxis"/>
           Filotaxis
         </label>
-      </div>
-
-      <h2>2. Parámetros</h2>
-
-      <div id="petal-controls">
-        <div class="flower-row">
-          <label for="N">Número de pétalos (N)</label>
-          <input id="N" type="range" min="3" max="24" value="8" step="1">
-          <span id="Nval">8</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="petalScale">Tamaño del pétalo</label>
-          <input id="petalScale" type="range" min="20" max="200" value="120" step="1">
-          <span id="petalScaleVal">120</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="n1">Redondez (n1)</label>
-          <input id="n1" type="range" min="0.2" max="20" value="2.5" step="0.1">
-          <span id="n1val">2.5</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="a">Anisotropía X (a)</label>
-          <input id="a" type="range" min="0.2" max="5" value="1" step="0.1">
-          <span id="aval">1.0</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="b">Anisotropía Y (b)</label>
-          <input id="b" type="range" min="0.2" max="5" value="1" step="0.1">
-          <span id="bval">1.0</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="m">Ondas (m)</label>
-          <input id="m" type="range" min="0" max="20" value="6" step="1">
-          <span id="mval">6</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="n2">Agudeza 1 (n2)</label>
-          <input id="n2" type="range" min="0.2" max="20" value="8" step="0.1">
-          <span id="n2val">8.0</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="n3">Agudeza 2 (n3)</label>
-          <input id="n3" type="range" min="0.2" max="20" value="2" step="0.1">
-          <span id="n3val">2.0</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="baseR">Radio base</label>
-          <input id="baseR" type="range" min="10" max="300" value="160" step="1">
-          <span id="baseRval">160</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="strokeW">Grosor de trazo</label>
-          <input id="strokeW" type="range" min="0" max="6" value="1" step="0.5">
-          <span id="strokeWval">1.0</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="petalColor">Color pétalo</label>
-          <input id="petalColor" type="color" value="#e85a8b">
-          <span class="flower-small">&nbsp;</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="centerColor">Color centro</label>
-          <input id="centerColor" type="color" value="#7a4f1b">
-          <span class="flower-small">&nbsp;</span>
-        </div>
-      </div>
-
-      <div id="phylla-controls" style="display:none">
-        <div class="flower-row">
-          <label for="seeds">Semillas (N)</label>
-          <input id="seeds" type="range" min="50" max="2000" value="600" step="10">
-          <span id="seedsVal">600</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="phi">Ángulo (°)</label>
-          <input id="phi" type="range" min="100" max="180" value="137.5" step="0.1">
-          <span id="phiVal">137.5</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="cval">Constante \(r = c\sqrt{n}\)</label>
-          <input id="cval" type="range" min="2" max="16" value="8" step="0.5">
-          <span id="cvalVal">8.0</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="seedSize">Tamaño semilla</label>
-          <input id="seedSize" type="range" min="1" max="12" value="5" step="0.5">
-          <span id="seedSizeVal">5.0</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="jitter">Jitter / ruido</label>
-          <input id="jitter" type="range" min="0" max="6" value="0" step="0.2">
-          <span id="jitterVal">0.0</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="grad">Gradación centro→borde</label>
-          <input id="grad" type="range" min="0" max="1" value="0.6" step="0.05">
-          <span id="gradVal">0.60</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="seedColor">Color semilla</label>
-          <input id="seedColor" type="color" value="#ccaa33">
-          <span class="flower-small">&nbsp;</span>
-        </div>
-
-        <div class="flower-row">
-          <label for="seedEdge">Color borde</label>
-          <input id="seedEdge" type="color" value="#553300">
-          <span class="flower-small">&nbsp;</span>
-        </div>
-      </div>
-
-      <h2>3. Exportar</h2>
-
-      <div class="flower-mode">
-        <button class="flower-btn" id="savePNG" type="button">Guardar PNG</button>
-        <button class="flower-btn" id="randomize" type="button">Aleatorizar</button>
-        <button class="flower-btn" id="reset" type="button">Reiniciar</button>
-      </div>
-
-      <p class="flower-small">
+</div>
+<h2>2. Parámetros</h2>
+<div id="petal-controls">
+<div class="flower-row">
+<label for="N">Número de pétalos (N)</label>
+<input id="N" max="24" min="3" step="1" type="range" value="8"/>
+<span id="Nval">8</span>
+</div>
+<div class="flower-row">
+<label for="petalScale">Tamaño del pétalo</label>
+<input id="petalScale" max="200" min="20" step="1" type="range" value="120"/>
+<span id="petalScaleVal">120</span>
+</div>
+<div class="flower-row">
+<label for="n1">Redondez (n1)</label>
+<input id="n1" max="20" min="0.2" step="0.1" type="range" value="2.5"/>
+<span id="n1val">2.5</span>
+</div>
+<div class="flower-row">
+<label for="a">Anisotropía X (a)</label>
+<input id="a" max="5" min="0.2" step="0.1" type="range" value="1"/>
+<span id="aval">1.0</span>
+</div>
+<div class="flower-row">
+<label for="b">Anisotropía Y (b)</label>
+<input id="b" max="5" min="0.2" step="0.1" type="range" value="1"/>
+<span id="bval">1.0</span>
+</div>
+<div class="flower-row">
+<label for="m">Ondas (m)</label>
+<input id="m" max="20" min="0" step="1" type="range" value="6"/>
+<span id="mval">6</span>
+</div>
+<div class="flower-row">
+<label for="n2">Agudeza 1 (n2)</label>
+<input id="n2" max="20" min="0.2" step="0.1" type="range" value="8"/>
+<span id="n2val">8.0</span>
+</div>
+<div class="flower-row">
+<label for="n3">Agudeza 2 (n3)</label>
+<input id="n3" max="20" min="0.2" step="0.1" type="range" value="2"/>
+<span id="n3val">2.0</span>
+</div>
+<div class="flower-row">
+<label for="baseR">Radio base</label>
+<input id="baseR" max="300" min="10" step="1" type="range" value="160"/>
+<span id="baseRval">160</span>
+</div>
+<div class="flower-row">
+<label for="strokeW">Grosor de trazo</label>
+<input id="strokeW" max="6" min="0" step="0.5" type="range" value="1"/>
+<span id="strokeWval">1.0</span>
+</div>
+<div class="flower-row">
+<label for="petalColor">Color pétalo</label>
+<input id="petalColor" type="color" value="#e85a8b"/>
+<span class="flower-small"> </span>
+</div>
+<div class="flower-row">
+<label for="centerColor">Color centro</label>
+<input id="centerColor" type="color" value="#7a4f1b"/>
+<span class="flower-small"> </span>
+</div>
+</div>
+<div id="phylla-controls" style="display:none">
+<div class="flower-row">
+<label for="seeds">Semillas (N)</label>
+<input id="seeds" max="2000" min="50" step="10" type="range" value="600"/>
+<span id="seedsVal">600</span>
+</div>
+<div class="flower-row">
+<label for="phi">Ángulo (°)</label>
+<input id="phi" max="180" min="100" step="0.1" type="range" value="137.5"/>
+<span id="phiVal">137.5</span>
+</div>
+<div class="flower-row">
+<label for="cval">Constante \(r = c\sqrt{n}\)</label>
+<input id="cval" max="16" min="2" step="0.5" type="range" value="8"/>
+<span id="cvalVal">8.0</span>
+</div>
+<div class="flower-row">
+<label for="seedSize">Tamaño semilla</label>
+<input id="seedSize" max="12" min="1" step="0.5" type="range" value="5"/>
+<span id="seedSizeVal">5.0</span>
+</div>
+<div class="flower-row">
+<label for="jitter">Jitter / ruido</label>
+<input id="jitter" max="6" min="0" step="0.2" type="range" value="0"/>
+<span id="jitterVal">0.0</span>
+</div>
+<div class="flower-row">
+<label for="grad">Gradación centro→borde</label>
+<input id="grad" max="1" min="0" step="0.05" type="range" value="0.6"/>
+<span id="gradVal">0.60</span>
+</div>
+<div class="flower-row">
+<label for="seedColor">Color semilla</label>
+<input id="seedColor" type="color" value="#ccaa33"/>
+<span class="flower-small"> </span>
+</div>
+<div class="flower-row">
+<label for="seedEdge">Color borde</label>
+<input id="seedEdge" type="color" value="#553300"/>
+<span class="flower-small"> </span>
+</div>
+</div>
+<h2>3. Exportar</h2>
+<div class="flower-mode">
+<button class="flower-btn" id="savePNG" type="button">Guardar PNG</button>
+<button class="flower-btn" id="randomize" type="button">Aleatorizar</button>
+<button class="flower-btn" id="reset" type="button">Reiniciar</button>
+</div>
+<p class="flower-small">
         Consejo didáctico: pide a tus estudiantes elegir una flor real, observar sus rasgos
         y tratar de aproximarla modificando los parámetros del modelo.
       </p>
-    </section>
-
-    <section class="flower-panel flower-canvas-panel" aria-label="Lienzo de simulación">
-      <div id="sketch-holder"></div>
-
-      <div class="flower-footer">
+</section>
+<section aria-label="Lienzo de simulación" class="flower-panel flower-canvas-panel">
+<div id="sketch-holder"></div>
+<div class="flower-footer">
         Modelo de pétalo: <strong>superfórmula de Gielis</strong>.
         Modelo de filotaxis: \(r = c\sqrt{n}\), \(\theta = n\phi\).
       </div>
-    </section>
-
-  </main>
-
-  <div class="flower-back-wrap">
-    <a href="scripts.html" class="btn btn-back">
+</section>
+</main>
+<div class="flower-back-wrap">
+<a class="btn btn-back" href="scripts.html">
       Volver a exploraciones
     </a>
-  </div>
-
-  <script>
+</div>
+<footer class="site-footer">
+<div class="site-footer-inner">
+<p>Fundación Radix Arte, Ciencia y Educación</p>
+<nav aria-label="Navegación secundaria" class="site-footer-nav">
+<a href="scripts.html">Exploraciones</a>
+<a href="cursillos_talleres.html">Cursos y talleres</a>
+<a href="opinion.html">Publicaciones</a>
+</nav>
+<p>Cali, Colombia · 2026</p>
+</div>
+</footer><script>
     const qs = selector => document.querySelector(selector);
     const qsa = selector => Array.from(document.querySelectorAll(selector));
 
@@ -832,6 +808,5 @@
       }
     });
   </script>
-
 </body>
 </html>

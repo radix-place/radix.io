@@ -1,60 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.fundacionradix.org/l_system.html" />
-
-  <!-- SEO básico -->
-  <title>Fundación Radix | L-sistemas</title>
-  <meta name="description" content="Visualizador interactivo de L-sistemas para explorar reglas de crecimiento, fractales, patrones naturales y estructuras generadas por producción simbólica." />
-  <meta name="keywords" content="Fundación Radix, L-sistemas, fractales, crecimiento natural, curva de Koch, matemáticas, biología, visualización, educación" />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:locale" content="es_CO" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Fundación Radix" />
-  <meta property="og:title" content="Fundación Radix | L-sistemas" />
-  <meta property="og:description" content="Exploración interactiva de L-sistemas, reglas de crecimiento y estructuras fractales." />
-  <meta property="og:url" content="https://www.fundacionradix.org/l_system.html" />
-  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fundación Radix | L-sistemas" />
-  <meta name="twitter:description" content="Exploración interactiva de L-sistemas, reglas de crecimiento y estructuras fractales." />
-  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
-  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
-
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#ffffff">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Canonical -->
+<link href="https://www.fundacionradix.org/l_system.html" rel="canonical"/>
+<!-- SEO básico -->
+<title>Fundación Radix | L-sistemas</title>
+<meta content="Visualizador interactivo de L-sistemas para explorar reglas de crecimiento, fractales, patrones naturales y estructuras generadas por producción simbólica." name="description"/>
+<meta content="Fundación Radix, L-sistemas, fractales, crecimiento natural, curva de Koch, matemáticas, biología, visualización, educación" name="keywords"/>
+<meta content="index,follow" name="robots"/>
+<!-- Open Graph / Social -->
+<meta content="es_CO" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Fundación Radix" property="og:site_name"/>
+<meta content="Fundación Radix | L-sistemas" property="og:title"/>
+<meta content="Exploración interactiva de L-sistemas, reglas de crecimiento y estructuras fractales." property="og:description"/>
+<meta content="https://www.fundacionradix.org/l_system.html" property="og:url"/>
+<meta content="https://www.fundacionradix.org/preview.png" property="og:image"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Fundación Radix | L-sistemas" name="twitter:title"/>
+<meta content="Exploración interactiva de L-sistemas, reglas de crecimiento y estructuras fractales." name="twitter:description"/>
+<meta content="https://www.fundacionradix.org/preview.png" name="twitter:image"/>
+<!-- Favicons -->
+<link href="/imagenes/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/imagenes/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/imagenes/favicon-64x64.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="/imagenes/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/imagenes/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="light" name="color-scheme"/>
+<meta content="#F4F1E8" name="theme-color"/>
+<link href="css/style.css?v=8" rel="stylesheet"/><link href="css/tool-pages.css?v=8" rel="stylesheet"/>
+<style>
     :root {
-      --lsys-bg: #f7f7f7;
-      --lsys-card: #ffffff;
-      --lsys-border: #e8e8e8;
-      --lsys-muted: #666666;
-      --lsys-ink: #111111;
-      --lsys-accent: #b30059;
+      --lsys-bg: var(--radix-paper);
+      --lsys-card: var(--radix-paper-light);
+      --lsys-border: var(--radix-gray);
+      --lsys-muted: var(--radix-muted);
+      --lsys-ink: var(--radix-ink);
+      --lsys-accent: var(--radix-green);
     }
 
-    body {
+    body.tool-page {
       margin: 0;
       background: var(--lsys-bg);
       color: var(--lsys-ink);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: var(--font-body);
     }
 
     .lsys-wrap {
@@ -81,7 +74,7 @@
       font-size: clamp(1.9rem, 4vw, 3rem);
       line-height: 1.1;
       letter-spacing: -0.03em;
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .lsys-lead {
@@ -98,13 +91,13 @@
 
     .lsys-section h2,
     .lsys-section h3 {
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .lsys-section p,
     .lsys-section li {
       line-height: 1.65;
-      color: #333333;
+      color: var(--radix-muted);
     }
 
     .lsys-section ul {
@@ -115,15 +108,15 @@
       margin-top: 22px;
       background: var(--lsys-card);
       border: 1px solid var(--lsys-border);
-      border-radius: 16px;
+      border-radius: var(--radius-medium);
       padding: 18px;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+      box-shadow: none;
     }
 
     .lsys-example {
-      background: #ffffff;
+      background: var(--radix-paper-light);
       border-left: 4px solid var(--lsys-accent);
-      border-radius: 12px;
+      border-radius: var(--radius-medium);
       padding: 14px 16px;
       margin-top: 16px;
     }
@@ -134,7 +127,7 @@
 
     code {
       padding: 0.1rem 0.3rem;
-      background: #eeeeee;
+      background: var(--radix-gray);
       border-radius: 6px;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-size: 0.92em;
@@ -162,82 +155,88 @@
     }
   </style>
 </head>
-
-<body>
-
-  <main class="lsys-wrap">
-
-    <header class="lsys-header">
-      <p class="lsys-kicker">Exploraciones computacionales · Fundación Radix</p>
-
-      <h1>Explorando con L-sistemas</h1>
-
-      <p class="lsys-lead">
+<body class="tool-page"><a class="skip-link" href="#contenido-principal">Ir al contenido principal</a><header class="site-header">
+<div class="site-header-inner">
+<a aria-label="Fundación Radix, página de inicio" class="site-brand" href="index.html">
+<span class="site-brand-name">Fundación Radix</span>
+<span class="site-brand-tagline">Arte · Ciencia · Educación</span>
+</a>
+<nav aria-label="Navegación principal" class="site-navigation">
+<ul>
+<li><a href="index.html#fundacion">La Fundación</a></li>
+<li><a aria-current="page" href="scripts.html">Exploraciones</a></li>
+<li><a href="cursillos_talleres.html">Cursos y talleres</a></li>
+<li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main class="lsys-wrap" id="contenido-principal">
+<header class="lsys-header">
+<p class="lsys-kicker">Exploraciones computacionales · Fundación Radix</p>
+<h1>Explorando con L-sistemas</h1>
+<p class="lsys-lead">
         Visualizador interactivo para estudiar cómo reglas simbólicas simples pueden producir
         formas ramificadas, patrones fractales y estructuras asociadas al crecimiento natural.
       </p>
-    </header>
-
-    <section id="lsistemas" class="lsys-section" aria-label="Visualizador de L-sistemas">
-      <h2>Reglas simples, formas complejas</h2>
-
-      <p>
+</header>
+<section aria-label="Visualizador de L-sistemas" class="lsys-section" id="lsistemas">
+<h2>Reglas simples, formas complejas</h2>
+<p>
         Los <strong>L-sistemas</strong> describen procesos de crecimiento mediante reglas de producción.
         A partir de un estado inicial y de sustituciones iteradas, es posible generar estructuras
         de gran complejidad visual: curvas fractales, ramificaciones, configuraciones vegetales
         y patrones geométricos inspirados en la naturaleza.
       </p>
-
-      <p>
+<p>
         En un L-sistema se trabaja con un <strong>alfabeto</strong>, un <strong>axioma</strong>
         o estado inicial, un conjunto de <strong>reglas de producción</strong> y una interpretación
         geométrica de los símbolos. En el visualizador, algunos símbolos se interpretan como
         movimientos de avance o giros, lo que permite transformar una cadena de texto en una figura.
       </p>
-
-      <div class="lsys-example">
-        <h3>Ejemplo: curva de Koch</h3>
-
-        <p>
+<div class="lsys-example">
+<h3>Ejemplo: curva de Koch</h3>
+<p>
           La curva de Koch puede construirse mediante una regla de sustitución aplicada de forma
           repetida sobre un segmento inicial.
         </p>
-
-        <ul>
-          <li><strong>Axioma:</strong> <code>F</code></li>
-          <li><strong>Regla:</strong> <code>F → F+F−F−F+F</code></li>
-          <li><strong>Ángulo:</strong> <code>90°</code></li>
-        </ul>
-
-        <p>
+<ul>
+<li><strong>Axioma:</strong> <code>F</code></li>
+<li><strong>Regla:</strong> <code>F → F+F−F−F+F</code></li>
+<li><strong>Ángulo:</strong> <code>90°</code></li>
+</ul>
+<p>
           En esta interpretación, <code>F</code> significa avanzar, <code>+</code> girar a la izquierda
           y <code>−</code> girar a la derecha. Al iterar la regla, el segmento inicial se transforma
           progresivamente en una curva fractal: una figura que revela estructura a diferentes escalas.
         </p>
-      </div>
-
-      <div class="lsys-card">
-        <h2>Exploración interactiva</h2>
-
-        <p>
+</div>
+<div class="lsys-card">
+<h2>Exploración interactiva</h2>
+<p>
           Modifica el axioma, las reglas, el ángulo y el número de iteraciones para observar cómo
           cambia la figura. La intención no es solo obtener una imagen final, sino reconocer la
           relación entre regla, repetición y forma.
         </p>
-
-        <div id="lsystem-interactive"></div>
-      </div>
-    </section>
-
-    <div class="lsys-back-wrap">
-      <a href="scripts.html" class="btn btn-back">
+<div id="lsystem-interactive"></div>
+</div>
+</section>
+<div class="lsys-back-wrap">
+<a class="btn btn-back" href="scripts.html">
         Volver a exploraciones
       </a>
-    </div>
-
-  </main>
-
-  <script src="js/lsystem-radix.js" defer></script>
-
+</div>
+</main>
+<footer class="site-footer">
+<div class="site-footer-inner">
+<p>Fundación Radix Arte, Ciencia y Educación</p>
+<nav aria-label="Navegación secundaria" class="site-footer-nav">
+<a href="scripts.html">Exploraciones</a>
+<a href="cursillos_talleres.html">Cursos y talleres</a>
+<a href="opinion.html">Publicaciones</a>
+</nav>
+<p>Cali, Colombia · 2026</p>
+</div>
+</footer><script defer="" src="js/lsystem-radix.js"></script>
 </body>
 </html>

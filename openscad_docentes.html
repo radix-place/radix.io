@@ -1,332 +1,175 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Canonical -->
+<link href="https://www.fundacionradix.org/openscad_docentes.html" rel="canonical"/>
+<!-- SEO básico -->
+<title>Fundación Radix | OpenSCAD para docentes</title>
+<meta content="Curso de OpenSCAD para docentes: diseño paramétrico, modelación geométrica, fabricación digital y experiencias educativas interdisciplinarias." name="description"/>
+<meta content="Fundación Radix, OpenSCAD, diseño paramétrico, impresión 3D, modelación geométrica, educación STEAM, formación docente, matemáticas, arte, tecnología" name="keywords"/>
+<meta content="index,follow" name="robots"/>
+<!-- Open Graph / Social -->
+<meta content="es_CO" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Fundación Radix" property="og:site_name"/>
+<meta content="Fundación Radix | OpenSCAD para docentes" property="og:title"/>
+<meta content="Diseño generativo y modelación paramétrica para experiencias educativas." property="og:description"/>
+<meta content="https://www.fundacionradix.org/openscad_docentes.html" property="og:url"/>
+<meta content="https://www.fundacionradix.org/preview.png" property="og:image"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Fundación Radix | OpenSCAD para docentes" name="twitter:title"/>
+<meta content="Diseño generativo y modelación paramétrica para experiencias educativas." name="twitter:description"/>
+<meta content="https://www.fundacionradix.org/preview.png" name="twitter:image"/>
+<!-- Favicons -->
+<link href="/imagenes/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/imagenes/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/imagenes/favicon-64x64.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="/imagenes/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/imagenes/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="light" name="color-scheme"/>
+<meta content="#F4F1E8" name="theme-color"/>
+<link href="css/style.css?v=8" rel="stylesheet"/><link href="css/course-detail.css?v=8" rel="stylesheet"/>
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.fundacionradix.org/openscad_docentes.html" />
-
-  <!-- SEO básico -->
-  <title>Fundación Radix | OpenSCAD para docentes</title>
-  <meta name="description" content="Curso de OpenSCAD para docentes: diseño paramétrico, modelación geométrica, fabricación digital y experiencias educativas interdisciplinarias." />
-  <meta name="keywords" content="Fundación Radix, OpenSCAD, diseño paramétrico, impresión 3D, modelación geométrica, educación STEAM, formación docente, matemáticas, arte, tecnología" />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:locale" content="es_CO" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Fundación Radix" />
-  <meta property="og:title" content="Fundación Radix | OpenSCAD para docentes" />
-  <meta property="og:description" content="Diseño generativo y modelación paramétrica para experiencias educativas." />
-  <meta property="og:url" content="https://www.fundacionradix.org/openscad_docentes.html" />
-  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fundación Radix | OpenSCAD para docentes" />
-  <meta name="twitter:description" content="Diseño generativo y modelación paramétrica para experiencias educativas." />
-  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
-  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
-
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#ffffff">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <style>
-    body {
-      margin: 0;
-      background: #fcfcfc;
-      color: #111;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
-    }
-
-    /* ===== HERO ===== */
-
-    .hero-cursillo {
-      width: 100%;
-      padding: 84px 24px 64px 24px;
-      background: linear-gradient(180deg, #faf9fb 0%, #f1ecf2 100%);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-      box-sizing: border-box;
-    }
-
-    .hero-inner {
-      max-width: 980px;
-      margin: 0 auto;
-    }
-
-    .hero-kicker {
-      margin: 0 0 10px 0;
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #8d3a67;
-      font-weight: 600;
-    }
-
-    .hero-cursillo h1 {
-      margin: 0;
-      max-width: 780px;
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      line-height: 1.02;
-      letter-spacing: -0.035em;
-      color: #181218;
-    }
-
-    .hero-sub {
-      margin-top: 16px;
-      max-width: 760px;
-      font-size: 1.08rem;
-      line-height: 1.65;
-      color: #4a3e49;
-    }
-
-    /* ===== CONTENIDO ===== */
-
-    .content {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 28px 24px;
-      box-sizing: border-box;
-    }
-
-    .titulo-izquierda {
-      margin-top: 0;
-      margin-bottom: 18px;
-      font-size: 1.7rem;
-      line-height: 1.15;
-      color: #181218;
-    }
-
-    p {
-      line-height: 1.65;
-      color: #3f3a40;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-      line-height: 1.65;
-      color: #3f3a40;
-    }
-
-    li + li {
-      margin-top: 10px;
-    }
-
-    /* ===== BOTONES ===== */
-
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      text-decoration: none;
-      color: white;
-      background: #b30059;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.9em;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-    }
-
-    /* ===== GRID Y TARJETAS ===== */
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-      margin-top: 24px;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-      transition: all 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(141, 58, 103, 0.25);
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.06);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.05rem;
-      color: #1a1519;
-    }
-
-    .card p {
-      margin: 0 0 8px 0;
-      color: #4c454b;
-    }
-
-    /* ===== CONTACTO ===== */
-
-    .contacto-final {
-      margin-top: 2em;
-      padding-top: 1.5em;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    .contacto-final a {
-      color: #b30059;
-      text-decoration: none;
-    }
-  </style>
 </head>
+<body class="course-page"><a class="skip-link" href="#contenido-principal">Ir al contenido principal</a><header class="site-header">
+<div class="site-header-inner">
+<a aria-label="Fundación Radix, página de inicio" class="site-brand" href="index.html">
+<span class="site-brand-name">Fundación Radix</span>
+<span class="site-brand-tagline">Arte · Ciencia · Educación</span>
+</a>
+<nav aria-label="Navegación principal" class="site-navigation">
+<ul>
+<li><a href="index.html#fundacion">La Fundación</a></li>
+<li><a href="scripts.html">Exploraciones</a></li>
+<li><a aria-current="page" href="cursillos_talleres.html">Cursos y talleres</a></li>
+<li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+</nav>
+</div>
+</header>
 
-<body>
+<main id="contenido-principal"><div class="breadcrumb"><a href="cursillos_talleres.html">Volver a cursos y talleres</a></div><section aria-labelledby="course-title" class="course-hero">
+<div class="course-hero-inner">
+<p class="page-eyebrow">Curso para docentes</p>
+<h1 id="course-title">OpenSCAD para docentes</h1>
+<p class="hero-sub">Diseño generativo y modelación paramétrica para experiencias educativas.</p>
+<div aria-label="Información general del curso" class="course-summary">
+<div class="summary-item"><span class="summary-label">Enfoque</span><span class="summary-value">Diseño paramétrico y fabricación digital</span></div>
+<div class="summary-item"><span class="summary-label">Duración</span><span class="summary-value">24 horas</span></div>
+<div class="summary-item"><span class="summary-label">Dirigido a</span><span class="summary-value">Docentes de colegio y universidad</span></div>
+</div>
+</div>
+</section>
 
-  <header class="hero-cursillo" aria-label="Curso OpenSCAD para docentes">
-    <div class="hero-inner">
-      <p class="hero-kicker">Cursos y talleres · Fundación Radix</p>
-      <h1>OpenSCAD para docentes</h1>
-      <p class="hero-sub">
-        Diseño generativo y modelación paramétrica para experiencias educativas.
-      </p>
-    </div>
-  </header>
-
-  <main>
-
-    <div class="content">
-      <a href="cursillos_talleres.html" class="btn btn-back">
-        Volver a cursos y talleres
-      </a>
-    </div>
-
-    <section id="introduccion" class="content">
-      <p>
+<section class="content" id="introduccion">
+<p>
         Este curso introduce a docentes de colegio y universidad en el uso de OpenSCAD
         como herramienta de modelación geométrica y diseño paramétrico para experiencias educativas.
       </p>
-
-      <p>
+<p>
         A través del trabajo con código, formas y variación, los participantes desarrollan
         herramientas para diseñar actividades que articulan matemáticas, arte, tecnología y pensamiento espacial.
       </p>
-    </section>
-
-    <section id="presentacion" class="content">
-      <h2 class="titulo-izquierda">Presentación general</h2>
-
-      <p><strong>Enfoque:</strong> diseño generativo y modelación paramétrica para experiencias educativas.</p>
-      <p><strong>Duración:</strong> 24 horas.</p>
-      <p><strong>Dirigido a:</strong> docentes de colegio y universidad interesados en matemáticas, tecnología, diseño, arte y proyectos STEAM.</p>
-    </section>
-
-    <section id="proposito" class="content">
-      <h2 class="titulo-izquierda">Propósito</h2>
-
-      <p>
+</section>
+<section class="content" id="presentacion">
+<h2 class="titulo-izquierda">Presentación general</h2>
+<p><strong>Enfoque:</strong> diseño generativo y modelación paramétrica para experiencias educativas.</p>
+<p><strong>Duración:</strong> 24 horas.</p>
+<p><strong>Dirigido a:</strong> docentes de colegio y universidad interesados en matemáticas, tecnología, diseño, arte y proyectos STEAM.</p>
+</section>
+<section class="content" id="proposito">
+<h2 class="titulo-izquierda">Propósito</h2>
+<p>
         Introducir a los docentes en el uso de OpenSCAD como herramienta de modelación geométrica y diseño paramétrico,
         con el fin de que puedan crear actividades pedagógicas orientadas al desarrollo del pensamiento espacial,
         numérico y analítico en los estudiantes.
       </p>
-
-      <p>
+<p>
         El curso también busca familiarizar a los participantes con el lenguaje matemático y con herramientas técnicas
         que permitan construir experiencias de aprendizaje interdisciplinarias en áreas como matemáticas, arte, biología,
         literatura, ciencias sociales, tecnología, diseño y educación STEAM.
       </p>
-    </section>
-
-    <section id="estructura" class="content">
-      <h2 class="titulo-izquierda">Estructura del curso</h2>
-
-      <div class="grid">
-
-        <article class="card">
-          <h3>Módulo 1 · Introducción a OpenSCAD</h3>
-          <p><strong>Duración:</strong> 2 horas</p>
-          <p>Entorno de trabajo, sintaxis básica y primeros sólidos: cubo, cilindro y esfera.</p>
-        </article>
-
-        <article class="card">
-          <h3>Módulo 2 · Transformaciones geométricas</h3>
-          <p><strong>Duración:</strong> 2 horas</p>
-          <p>Uso de translate, rotate, scale y composición de transformaciones en el espacio.</p>
-        </article>
-
-        <article class="card">
-          <h3>Módulo 3 · Operaciones booleanas</h3>
-          <p><strong>Duración:</strong> 2 horas</p>
-          <p>Construcción de formas complejas mediante union, difference e intersection.</p>
-        </article>
-
-        <article class="card">
-          <h3>Módulo 4 · Parametrización</h3>
-          <p><strong>Duración:</strong> 3 horas</p>
-          <p>Variables, relaciones entre dimensiones y generación de modelos ajustables.</p>
-        </article>
-
-        <article class="card">
-          <h3>Módulo 5 · Repetición y generación de estructuras</h3>
-          <p><strong>Duración:</strong> 4 horas</p>
-          <p>Uso de ciclos, patrones geométricos, módulos y nociones básicas de funciones y librerías.</p>
-        </article>
-
-        <article class="card">
-          <h3>Módulo 6 · Diseño biomimético básico</h3>
-          <p><strong>Duración:</strong> 4 horas</p>
-          <p>Estructuras radiales, crecimiento modular, filotaxia, L-systems y colonización espacial.</p>
-        </article>
-
-        <article class="card">
-          <h3>Módulo 7 · Exportación y fabricación digital</h3>
-          <p><strong>Duración:</strong> 2 horas</p>
-          <p>Preparación de modelos para impresión 3D y corte láser mediante exportación a STL y DXF.</p>
-        </article>
-
-        <article class="card">
-          <h3>Módulo 8 · Diseño de actividades de aula</h3>
-          <p><strong>Duración:</strong> 5 horas</p>
-          <p>Diseño de experiencias pedagógicas que articulan modelación geométrica, variación paramétrica y lenguaje matemático.</p>
-        </article>
-
-      </div>
-    </section>
-
-    <section id="aprendizajes" class="content">
-      <h2 class="titulo-izquierda">Resultados esperados</h2>
-
-      <ul>
-        <li>Comprender la lógica básica del modelado geométrico mediante código.</li>
-        <li>Construir modelos simples utilizando transformaciones y operaciones booleanas.</li>
-        <li>Crear objetos paramétricos ajustables.</li>
-        <li>Generar patrones y estructuras repetitivas.</li>
-        <li>Preparar modelos para impresión 3D o corte láser.</li>
-        <li>Diseñar actividades educativas que utilicen OpenSCAD como herramienta de exploración.</li>
-      </ul>
-    </section>
-
-    <section id="contacto" class="content contacto-final">
-      <h2 class="titulo-izquierda">¿Te interesa este curso?</h2>
-
-      <p>
+</section>
+<section class="content" id="estructura">
+<h2 class="titulo-izquierda">Estructura del curso</h2>
+<div class="grid">
+<article class="card">
+<h3>Módulo 1 · Introducción a OpenSCAD</h3>
+<p><strong>Duración:</strong> 2 horas</p>
+<p>Entorno de trabajo, sintaxis básica y primeros sólidos: cubo, cilindro y esfera.</p>
+</article>
+<article class="card">
+<h3>Módulo 2 · Transformaciones geométricas</h3>
+<p><strong>Duración:</strong> 2 horas</p>
+<p>Uso de translate, rotate, scale y composición de transformaciones en el espacio.</p>
+</article>
+<article class="card">
+<h3>Módulo 3 · Operaciones booleanas</h3>
+<p><strong>Duración:</strong> 2 horas</p>
+<p>Construcción de formas complejas mediante union, difference e intersection.</p>
+</article>
+<article class="card">
+<h3>Módulo 4 · Parametrización</h3>
+<p><strong>Duración:</strong> 3 horas</p>
+<p>Variables, relaciones entre dimensiones y generación de modelos ajustables.</p>
+</article>
+<article class="card">
+<h3>Módulo 5 · Repetición y generación de estructuras</h3>
+<p><strong>Duración:</strong> 4 horas</p>
+<p>Uso de ciclos, patrones geométricos, módulos y nociones básicas de funciones y librerías.</p>
+</article>
+<article class="card">
+<h3>Módulo 6 · Diseño biomimético básico</h3>
+<p><strong>Duración:</strong> 4 horas</p>
+<p>Estructuras radiales, crecimiento modular, filotaxia, L-systems y colonización espacial.</p>
+</article>
+<article class="card">
+<h3>Módulo 7 · Exportación y fabricación digital</h3>
+<p><strong>Duración:</strong> 2 horas</p>
+<p>Preparación de modelos para impresión 3D y corte láser mediante exportación a STL y DXF.</p>
+</article>
+<article class="card">
+<h3>Módulo 8 · Diseño de actividades de aula</h3>
+<p><strong>Duración:</strong> 5 horas</p>
+<p>Diseño de experiencias pedagógicas que articulan modelación geométrica, variación paramétrica y lenguaje matemático.</p>
+</article>
+</div>
+</section>
+<section class="content" id="aprendizajes">
+<h2 class="titulo-izquierda">Resultados esperados</h2>
+<ul>
+<li>Comprender la lógica básica del modelado geométrico mediante código.</li>
+<li>Construir modelos simples utilizando transformaciones y operaciones booleanas.</li>
+<li>Crear objetos paramétricos ajustables.</li>
+<li>Generar patrones y estructuras repetitivas.</li>
+<li>Preparar modelos para impresión 3D o corte láser.</li>
+<li>Diseñar actividades educativas que utilicen OpenSCAD como herramienta de exploración.</li>
+</ul>
+</section>
+<section class="content contacto-final" id="contacto">
+<h2 class="titulo-izquierda">¿Te interesa este curso?</h2>
+<p>
         Si deseas implementar este curso en tu institución o conversar sobre una adaptación
         a tu contexto educativo,
         <a href="mailto:asalazar@fundacionradix.org">
-          <strong>escríbenos aquí</strong>
-        </a>.
+<strong>escríbenos aquí</strong>
+</a>.
       </p>
-    </section>
-
-  </main>
-
-</body>
+</section>
+</main>
+<footer class="site-footer">
+<div class="site-footer-inner">
+<p>Fundación Radix Arte, Ciencia y Educación</p>
+<nav aria-label="Navegación secundaria" class="site-footer-nav">
+<a href="scripts.html">Exploraciones</a>
+<a href="cursillos_talleres.html">Cursos y talleres</a>
+<a href="opinion.html">Publicaciones</a>
+</nav>
+<p>Cali, Colombia · 2026</p>
+</div>
+</footer></body>
 </html>

@@ -1,51 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.fundacionradix.org/rostro_arena.html" />
-
-  <!-- SEO básico -->
-  <title>Fundación Radix | Rostro de arena</title>
-  <meta name="description" content="Exploración interactiva con cámara, p5.js y ml5 Facemesh para transformar un rostro en una textura visual de arena." />
-  <meta name="keywords" content="Fundación Radix, rostro de arena, p5.js, ml5, facemesh, visión computacional, arte generativo, cámara, educación" />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:locale" content="es_CO" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Fundación Radix" />
-  <meta property="og:title" content="Fundación Radix | Rostro de arena" />
-  <meta property="og:description" content="Exploración interactiva de visión computacional y arte generativo con p5.js y ml5 Facemesh." />
-  <meta property="og:url" content="https://www.fundacionradix.org/rostro_arena.html" />
-  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fundación Radix | Rostro de arena" />
-  <meta name="twitter:description" content="Exploración interactiva de visión computacional y arte generativo con p5.js y ml5 Facemesh." />
-  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
-  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
-
-  <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#111111">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Canonical -->
+<link href="https://www.fundacionradix.org/rostro_arena.html" rel="canonical"/>
+<!-- SEO básico -->
+<title>Fundación Radix | Rostro de arena</title>
+<meta content="Exploración interactiva con cámara, p5.js y ml5 Facemesh para transformar un rostro en una textura visual de arena." name="description"/>
+<meta content="Fundación Radix, rostro de arena, p5.js, ml5, facemesh, visión computacional, arte generativo, cámara, educación" name="keywords"/>
+<meta content="index,follow" name="robots"/>
+<!-- Open Graph / Social -->
+<meta content="es_CO" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Fundación Radix" property="og:site_name"/>
+<meta content="Fundación Radix | Rostro de arena" property="og:title"/>
+<meta content="Exploración interactiva de visión computacional y arte generativo con p5.js y ml5 Facemesh." property="og:description"/>
+<meta content="https://www.fundacionradix.org/rostro_arena.html" property="og:url"/>
+<meta content="https://www.fundacionradix.org/preview.png" property="og:image"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Fundación Radix | Rostro de arena" name="twitter:title"/>
+<meta content="Exploración interactiva de visión computacional y arte generativo con p5.js y ml5 Facemesh." name="twitter:description"/>
+<meta content="https://www.fundacionradix.org/preview.png" name="twitter:image"/>
+<!-- Favicons -->
+<link href="/imagenes/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/imagenes/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/imagenes/favicon-64x64.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="/imagenes/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/imagenes/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="dark" name="color-scheme"/>
+<meta content="#202522" name="theme-color"/>
+<link href="css/style.css?v=8" rel="stylesheet"/>
+<style>
     :root {
-      --sand-bg: #111111;
-      --sand-fg: #eeeeee;
-      --sand-muted: rgba(238, 238, 238, 0.72);
-      --sand-panel: rgba(0, 0, 0, 0.55);
+      --sand-bg: #202522;
+      --sand-fg: #f4f1e8;
+      --sand-muted: rgba(244, 241, 232, 0.72);
+      --sand-panel: rgba(32, 37, 34, 0.84);
       --sand-border: rgba(255, 255, 255, 0.16);
-      --sand-accent: #ffbb00;
+      --sand-accent: #a44f32;
     }
 
     *,
@@ -61,14 +56,14 @@
       min-height: 100%;
       background: var(--sand-bg);
       color: var(--sand-fg);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: var(--font-body);
       overflow-x: hidden;
     }
 
     body {
       background:
-        radial-gradient(circle at center, rgba(255, 187, 0, 0.08), transparent 38rem),
-        #111111;
+        radial-gradient(circle at center, rgba(164, 79, 50, 0.08), transparent 38rem),
+        var(--sand-bg);
     }
 
     canvas {
@@ -89,7 +84,7 @@
 
       background: var(--sand-panel);
       border: 1px solid var(--sand-border);
-      border-radius: 14px;
+      border-radius: 6px;
 
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
@@ -162,11 +157,11 @@
 
       padding: 10px 15px;
 
-      color: #111111;
+      color: var(--sand-fg);
       background: var(--sand-accent);
 
       border: 1px solid transparent;
-      border-radius: 999px;
+      border-radius: 3px;
 
       font-size: 0.78rem;
       font-weight: 800;
@@ -174,7 +169,7 @@
       text-decoration: none;
       text-transform: uppercase;
 
-      box-shadow: 0 8px 22px rgba(255, 187, 0, 0.22);
+      box-shadow: 0 8px 22px rgba(164, 79, 50, 0.22);
 
       transition:
         transform 0.15s ease,
@@ -184,12 +179,12 @@
 
     .sand-back:hover {
       transform: translateY(-1px);
-      background: #ffd15a;
-      box-shadow: 0 12px 28px rgba(255, 187, 0, 0.28);
+      background: #843f2a;
+      box-shadow: 0 12px 28px rgba(164, 79, 50, 0.28);
     }
 
     .sand-back:focus-visible {
-      outline: 3px solid rgba(255, 187, 0, 0.4);
+      outline: 3px solid rgba(164, 79, 50, 0.4);
       outline-offset: 3px;
     }
 
@@ -228,60 +223,47 @@
       }
     }
   </style>
-
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
-
-  <!-- Versión fija para conservar la API clásica ml5.facemesh(...) -->
-  <script src="https://cdn.jsdelivr.net/npm/ml5@0.12.2/dist/ml5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+<!-- Versión fija para conservar la API clásica ml5.facemesh(...) -->
+<script src="https://cdn.jsdelivr.net/npm/ml5@0.12.2/dist/ml5.min.js"></script>
 </head>
-
-<body>
-
-  <main aria-label="Rostro de arena con visión computacional">
-    <h1 class="sand-screen-reader">Rostro de arena</h1>
-
-    <a href="scripts.html" class="sand-back">
-      Volver
+<body><a class="skip-link" href="#contenido-principal">Ir al contenido principal</a>
+<main aria-label="Rostro de arena con visión computacional" id="contenido-principal">
+<h1 class="sand-screen-reader">Rostro de arena</h1>
+<a class="sand-back" href="scripts.html">
+      Volver a exploraciones
     </a>
-
-    <section id="ui" class="sand-ui" aria-label="Controles de rostro de arena">
-      <p class="sand-title">
+<section aria-label="Controles de rostro de arena" class="sand-ui" id="ui">
+<p class="sand-title">
         Rostro de arena
         <span class="sand-subtitle">p5.js + ml5 Facemesh · Fundación Radix</span>
-      </p>
-
-      <label for="rngGrain">
+</p>
+<label for="rngGrain">
         Intensidad arena
-        <input id="rngGrain" type="range" min="0" max="1" step="0.01" value="0.7">
-      </label>
-
-      <label for="rngDetail">
+        <input id="rngGrain" max="1" min="0" step="0.01" type="range" value="0.7"/>
+</label>
+<label for="rngDetail">
         Detalle rasgos
-        <input id="rngDetail" type="range" min="0" max="1" step="0.01" value="0.55">
-      </label>
-
-      <label for="rngFeather">
+        <input id="rngDetail" max="1" min="0" step="0.01" type="range" value="0.55"/>
+</label>
+<label for="rngFeather">
         Suavizado borde
-        <input id="rngFeather" type="range" min="2" max="40" step="1" value="16">
-      </label>
-
-      <label for="rngRes">
+        <input id="rngFeather" max="40" min="2" step="1" type="range" value="16"/>
+</label>
+<label for="rngRes">
         Resolución interna
-        <input id="rngRes" type="range" min="1" max="4" step="1" value="2">
-      </label>
-
-      <div class="sand-help">
+        <input id="rngRes" max="4" min="1" step="1" type="range" value="2"/>
+</label>
+<div class="sand-help">
         Teclas: <strong>V</strong> espejo · <strong>S</strong> guardar PNG.
         La página no incorpora subida de imágenes ni almacenamiento del video.
       </div>
-    </section>
-
-    <div id="status" class="sand-status" role="status" aria-live="polite">
+</section>
+<div aria-live="polite" class="sand-status" id="status" role="status">
       Inicializando cámara…
     </div>
-  </main>
-
-  <script>
+</main>
+<script>
     const W = 1280;
     const H = 720;
 
@@ -558,6 +540,5 @@
       };
     }
   </script>
-
 </body>
 </html>

@@ -1,59 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.fundacionradix.org/area_region.html" />
-
-  <!-- SEO básico -->
-  <title>Fundación Radix | Área poligonal por puntos</title>
-  <meta name="description" content="Herramienta interactiva de Fundación Radix para estimar el área interior de un contorno poligonal mediante puntos y coordenadas." />
-  <meta name="keywords" content="Fundación Radix, área poligonal, geometría, coordenadas, visualización matemática, educación, matemáticas, simulación" />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:locale" content="es_CO" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Fundación Radix" />
-  <meta property="og:title" content="Fundación Radix | Área poligonal por puntos" />
-  <meta property="og:description" content="Herramienta interactiva para estimar el área interior de un contorno poligonal mediante puntos y coordenadas." />
-  <meta property="og:url" content="https://www.fundacionradix.org/area_region.html" />
-  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fundación Radix | Área poligonal por puntos" />
-  <meta name="twitter:description" content="Herramienta interactiva para estimar el área interior de un contorno poligonal mediante puntos y coordenadas." />
-  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
-  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
-
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#ffffff">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Canonical -->
+<link href="https://www.fundacionradix.org/area_region.html" rel="canonical"/>
+<!-- SEO básico -->
+<title>Fundación Radix | Área poligonal por puntos</title>
+<meta content="Herramienta interactiva de Fundación Radix para estimar el área interior de un contorno poligonal mediante puntos y coordenadas." name="description"/>
+<meta content="Fundación Radix, área poligonal, geometría, coordenadas, visualización matemática, educación, matemáticas, simulación" name="keywords"/>
+<meta content="index,follow" name="robots"/>
+<!-- Open Graph / Social -->
+<meta content="es_CO" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Fundación Radix" property="og:site_name"/>
+<meta content="Fundación Radix | Área poligonal por puntos" property="og:title"/>
+<meta content="Herramienta interactiva para estimar el área interior de un contorno poligonal mediante puntos y coordenadas." property="og:description"/>
+<meta content="https://www.fundacionradix.org/area_region.html" property="og:url"/>
+<meta content="https://www.fundacionradix.org/preview.png" property="og:image"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Fundación Radix | Área poligonal por puntos" name="twitter:title"/>
+<meta content="Herramienta interactiva para estimar el área interior de un contorno poligonal mediante puntos y coordenadas." name="twitter:description"/>
+<meta content="https://www.fundacionradix.org/preview.png" name="twitter:image"/>
+<!-- Favicons -->
+<link href="/imagenes/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/imagenes/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/imagenes/favicon-64x64.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="/imagenes/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/imagenes/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="light" name="color-scheme"/>
+<meta content="#F4F1E8" name="theme-color"/>
+<link href="css/style.css?v=8" rel="stylesheet"/><link href="css/tool-pages.css?v=8" rel="stylesheet"/>
+<style>
     :root {
-      --area-bg: #f7f7f7;
-      --area-card: #ffffff;
-      --area-border: #e8e8e8;
-      --area-muted: #666666;
-      --area-ink: #111111;
+      --area-bg: var(--radix-paper);
+      --area-card: var(--radix-paper-light);
+      --area-border: var(--radix-gray);
+      --area-muted: var(--radix-muted);
+      --area-ink: var(--radix-ink);
     }
 
-    body {
+    body.tool-page {
       margin: 0;
       background: var(--area-bg);
       color: var(--area-ink);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      font-family: var(--font-body);
     }
 
     .area-wrap {
@@ -71,7 +64,7 @@
       font-size: clamp(1.8rem, 4vw, 2.8rem);
       line-height: 1.1;
       letter-spacing: -0.03em;
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .area-lead {
@@ -98,9 +91,9 @@
     .area-card {
       background: var(--area-card);
       border: 1px solid var(--area-border);
-      border-radius: 16px;
+      border-radius: var(--radius-medium);
       padding: 16px;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+      box-shadow: none;
     }
 
     .area-controls {
@@ -116,7 +109,7 @@
       align-items: center;
       gap: 6px;
       font-size: 0.92rem;
-      color: #222222;
+      color: var(--radix-ink);
     }
 
     .area-actions {
@@ -139,11 +132,11 @@
       justify-content: center;
 
       border: 0;
-      background: #111111;
+      background: var(--radix-ink);
       color: #ffffff;
 
       padding: 8px 12px;
-      border-radius: 10px;
+      border-radius: var(--radius-small);
 
       cursor: pointer;
       font-size: 0.9rem;
@@ -161,8 +154,8 @@
     }
 
     .tool-btn.ghost {
-      background: #eeeeee;
-      color: #111111;
+      background: var(--radix-gray);
+      color: var(--radix-ink);
     }
 
     .area-table-wrap {
@@ -185,7 +178,7 @@
 
     th {
       font-weight: 700;
-      color: #222222;
+      color: var(--radix-ink);
     }
 
     input[type="text"] {
@@ -212,7 +205,7 @@
     .area-result-value {
       font-weight: 700;
       font-size: 1.35rem;
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .area-view-title {
@@ -226,8 +219,8 @@
       width: 100%;
       height: 540px;
       border: 1px solid #e6e6e6;
-      border-radius: 16px;
-      background: #fafafa;
+      border-radius: var(--radius-medium);
+      background: var(--radix-paper-light);
     }
 
     .area-back-wrap {
@@ -256,111 +249,114 @@
       }
     }
   </style>
-
-  <script src="js/app.js" defer></script>
+<script defer="" src="js/app.js"></script>
 </head>
-
-<body>
-
-  <main class="area-wrap">
-
-    <header class="area-header">
-      <h1>Área interior de un contorno poligonal</h1>
-      <p class="area-lead">
+<body class="tool-page"><a class="skip-link" href="#contenido-principal">Ir al contenido principal</a><header class="site-header">
+<div class="site-header-inner">
+<a aria-label="Fundación Radix, página de inicio" class="site-brand" href="index.html">
+<span class="site-brand-name">Fundación Radix</span>
+<span class="site-brand-tagline">Arte · Ciencia · Educación</span>
+</a>
+<nav aria-label="Navegación principal" class="site-navigation">
+<ul>
+<li><a href="index.html#fundacion">La Fundación</a></li>
+<li><a aria-current="page" href="scripts.html">Exploraciones</a></li>
+<li><a href="cursillos_talleres.html">Cursos y talleres</a></li>
+<li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main class="area-wrap" id="contenido-principal">
+<header class="area-header">
+<h1>Área interior de un contorno poligonal</h1>
+<p class="area-lead">
         Herramienta interactiva para añadir puntos, editar coordenadas en centímetros
         y estimar el área interior de un contorno. Permite trabajar hasta con 50 puntos.
       </p>
-    </header>
-
-    <section class="area-grid" aria-label="Herramienta para cálculo de área poligonal">
-
-      <!-- Panel izquierdo: control y tabla -->
-      <article class="area-card" aria-label="Controles y coordenadas">
-        <div class="area-controls">
-          <label>
-            <input id="chkClosed" type="checkbox" checked>
+</header>
+<section aria-label="Herramienta para cálculo de área poligonal" class="area-grid">
+<!-- Panel izquierdo: control y tabla -->
+<article aria-label="Controles y coordenadas" class="area-card">
+<div class="area-controls">
+<label>
+<input checked="" id="chkClosed" type="checkbox"/>
             Cerrar contorno
           </label>
-
-          <label>
-            <input id="chkSmooth" type="checkbox">
+<label>
+<input id="chkSmooth" type="checkbox"/>
             Suavizar (Catmull–Rom)
           </label>
-
-          <label>
-            <input id="chkAuto" type="checkbox" checked>
+<label>
+<input checked="" id="chkAuto" type="checkbox"/>
             Auto-ordenar por ángulo
           </label>
-        </div>
-
-        <div class="area-actions">
-          <div class="area-actions-group">
-            <button id="btnAdd" type="button" class="tool-btn">
+</div>
+<div class="area-actions">
+<div class="area-actions-group">
+<button class="tool-btn" id="btnAdd" type="button">
               Añadir punto
             </button>
-
-            <button id="btnUndo" type="button" class="tool-btn ghost">
+<button class="tool-btn ghost" id="btnUndo" type="button">
               Deshacer último
             </button>
-
-            <button id="btnClear" type="button" class="tool-btn ghost">
+<button class="tool-btn ghost" id="btnClear" type="button">
               Limpiar
             </button>
-
-            <button id="btnExportSVG" type="button" class="tool-btn ghost">
+<button class="tool-btn ghost" id="btnExportSVG" type="button">
               Guardar SVG
             </button>
-          </div>
-
-          <div class="muted">
+</div>
+<div class="muted">
             Puntos: <strong id="count">0</strong> / 50
           </div>
-        </div>
-
-        <div class="area-table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>x (cm)</th>
-                <th>y (cm)</th>
-                <th class="right">Acción</th>
-              </tr>
-            </thead>
-            <tbody id="tbody"></tbody>
-          </table>
-        </div>
-
-        <div class="area-card area-result">
-          <div class="muted">Área poligonal</div>
-          <div id="areaOut" class="area-result-value">0.00 cm²</div>
-          <div id="signOut" class="muted">Signo: —</div>
-        </div>
-      </article>
-
-      <!-- Panel derecho: vista -->
-      <article class="area-card" aria-label="Vista gráfica del contorno">
-        <div class="area-view-title">
-          <strong>Vista</strong>
-          <span class="muted">Unidades: cm · Escala automática</span>
-        </div>
-
-        <svg id="view" viewBox="0 0 560 540" aria-label="Vista del contorno poligonal"></svg>
-
-        <div class="muted" style="margin-top:8px;">
+</div>
+<div class="area-table-wrap">
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>x (cm)</th>
+<th>y (cm)</th>
+<th class="right">Acción</th>
+</tr>
+</thead>
+<tbody id="tbody"></tbody>
+</table>
+</div>
+<div class="area-card area-result">
+<div class="muted">Área poligonal</div>
+<div class="area-result-value" id="areaOut">0.00 cm²</div>
+<div class="muted" id="signOut">Signo: —</div>
+</div>
+</article>
+<!-- Panel derecho: vista -->
+<article aria-label="Vista gráfica del contorno" class="area-card">
+<div class="area-view-title">
+<strong>Vista</strong>
+<span class="muted">Unidades: cm · Escala automática</span>
+</div>
+<svg aria-label="Vista del contorno poligonal" id="view" viewbox="0 0 560 540"></svg>
+<div class="muted" style="margin-top:8px;">
           Consejo: ingresa 8–12 puntos alrededor del contorno. Evita cruces.
         </div>
-      </article>
-
-    </section>
-
-    <div class="area-back-wrap">
-      <a href="scripts.html" class="btn btn-back">
+</article>
+</section>
+<div class="area-back-wrap">
+<a class="btn btn-back" href="scripts.html">
         Volver a exploraciones
       </a>
-    </div>
-
-  </main>
-
-</body>
+</div>
+</main>
+<footer class="site-footer">
+<div class="site-footer-inner">
+<p>Fundación Radix Arte, Ciencia y Educación</p>
+<nav aria-label="Navegación secundaria" class="site-footer-nav">
+<a href="scripts.html">Exploraciones</a>
+<a href="cursillos_talleres.html">Cursos y talleres</a>
+<a href="opinion.html">Publicaciones</a>
+</nav>
+<p>Cali, Colombia · 2026</p>
+</div>
+</footer></body>
 </html>

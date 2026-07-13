@@ -1,60 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.fundacionradix.org/juego_vida.html" />
-
-  <!-- SEO básico -->
-  <title>Fundación Radix | Juego de la Vida</title>
-  <meta name="description" content="Exploración interactiva del Juego de la Vida de Conway: autómata celular, reglas locales, patrones emergentes y borde toroidal." />
-  <meta name="keywords" content="Fundación Radix, Juego de la Vida, Conway, autómata celular, matemáticas, complejidad, patrones emergentes, simulación, educación" />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:locale" content="es_CO" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Fundación Radix" />
-  <meta property="og:title" content="Fundación Radix | Juego de la Vida" />
-  <meta property="og:description" content="Exploración interactiva de un autómata celular con reglas locales y patrones emergentes." />
-  <meta property="og:url" content="https://www.fundacionradix.org/juego_vida.html" />
-  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fundación Radix | Juego de la Vida" />
-  <meta name="twitter:description" content="Exploración interactiva de un autómata celular con reglas locales y patrones emergentes." />
-  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
-  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
-
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#ffffff">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Canonical -->
+<link href="https://www.fundacionradix.org/juego_vida.html" rel="canonical"/>
+<!-- SEO básico -->
+<title>Fundación Radix | Juego de la Vida</title>
+<meta content="Exploración interactiva del Juego de la Vida de Conway: autómata celular, reglas locales, patrones emergentes y borde toroidal." name="description"/>
+<meta content="Fundación Radix, Juego de la Vida, Conway, autómata celular, matemáticas, complejidad, patrones emergentes, simulación, educación" name="keywords"/>
+<meta content="index,follow" name="robots"/>
+<!-- Open Graph / Social -->
+<meta content="es_CO" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Fundación Radix" property="og:site_name"/>
+<meta content="Fundación Radix | Juego de la Vida" property="og:title"/>
+<meta content="Exploración interactiva de un autómata celular con reglas locales y patrones emergentes." property="og:description"/>
+<meta content="https://www.fundacionradix.org/juego_vida.html" property="og:url"/>
+<meta content="https://www.fundacionradix.org/preview.png" property="og:image"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Fundación Radix | Juego de la Vida" name="twitter:title"/>
+<meta content="Exploración interactiva de un autómata celular con reglas locales y patrones emergentes." name="twitter:description"/>
+<meta content="https://www.fundacionradix.org/preview.png" name="twitter:image"/>
+<!-- Favicons -->
+<link href="/imagenes/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/imagenes/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/imagenes/favicon-64x64.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="/imagenes/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/imagenes/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="light" name="color-scheme"/>
+<meta content="#F4F1E8" name="theme-color"/>
+<link href="css/style.css?v=8" rel="stylesheet"/><link href="css/tool-pages.css?v=8" rel="stylesheet"/>
+<style>
     :root {
-      --life-bg: #f7f7f7;
-      --life-card: #ffffff;
-      --life-border: #e6e6e6;
-      --life-muted: #666666;
-      --life-ink: #111111;
-      --life-accent: #b30059;
+      --life-bg: var(--radix-paper);
+      --life-card: var(--radix-paper-light);
+      --life-border: var(--radix-gray);
+      --life-muted: var(--radix-muted);
+      --life-ink: var(--radix-ink);
+      --life-accent: var(--radix-green);
     }
 
-    body {
+    body.tool-page {
       margin: 0;
       background: var(--life-bg);
       color: var(--life-ink);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: var(--font-body);
     }
 
     .life-wrap {
@@ -81,7 +74,7 @@
       font-size: clamp(1.9rem, 4vw, 3rem);
       line-height: 1.1;
       letter-spacing: -0.03em;
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .life-lead {
@@ -98,13 +91,13 @@
 
     .life-doc h2,
     .life-doc h3 {
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .life-doc p,
     .life-doc li {
       line-height: 1.65;
-      color: #333333;
+      color: var(--radix-muted);
     }
 
     .life-doc ul,
@@ -116,11 +109,11 @@
       margin-top: 28px;
       background: var(--life-card);
       border: 1px solid var(--life-border);
-      border-radius: 16px;
+      border-radius: var(--radius-medium);
       padding: 16px;
       display: grid;
       gap: 14px;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+      box-shadow: none;
     }
 
     .life-controls {
@@ -147,17 +140,17 @@
 
     .life-check label {
       margin-bottom: 0;
-      color: #333333;
+      color: var(--radix-muted);
     }
 
     input[type="number"],
     input[type="range"] {
       padding: 8px;
       border: 1px solid var(--life-border);
-      border-radius: 10px;
+      border-radius: var(--radius-small);
       font: inherit;
-      background: #ffffff;
-      color: #111111;
+      background: var(--radix-paper-light);
+      color: var(--radix-ink);
     }
 
     input[type="number"] {
@@ -165,16 +158,16 @@
     }
 
     input:focus-visible {
-      outline: 3px solid rgba(179, 0, 89, 0.18);
+      outline: 3px solid rgba(49, 91, 125, 0.28);
       border-color: var(--life-accent);
     }
 
     .life-btn {
       padding: 8px 12px;
       border: 1px solid var(--life-border);
-      background: #ffffff;
-      color: #111111;
-      border-radius: 10px;
+      background: var(--radix-paper-light);
+      color: var(--radix-ink);
+      border-radius: var(--radius-small);
       cursor: pointer;
       font: inherit;
       font-weight: 600;
@@ -187,7 +180,7 @@
     .life-btn:hover {
       background: #f3f3f3;
       transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      box-shadow: none;
     }
 
     .life-btn:disabled {
@@ -198,9 +191,9 @@
     }
 
     .life-canvas-box {
-      background: #ffffff;
+      background: var(--radix-paper-light);
       border: 1px dashed var(--life-border);
-      border-radius: 14px;
+      border-radius: var(--radius-medium);
       min-height: 420px;
       display: flex;
       align-items: center;
@@ -275,168 +268,154 @@
     }
   </style>
 </head>
-
-<body>
-
-  <main class="life-wrap">
-
-    <header class="life-header">
-      <p class="life-kicker">Exploraciones computacionales · Fundación Radix</p>
-
-      <h1>Juego de la Vida de Conway</h1>
-
-      <p class="life-lead">
+<body class="tool-page"><a class="skip-link" href="#contenido-principal">Ir al contenido principal</a><header class="site-header">
+<div class="site-header-inner">
+<a aria-label="Fundación Radix, página de inicio" class="site-brand" href="index.html">
+<span class="site-brand-name">Fundación Radix</span>
+<span class="site-brand-tagline">Arte · Ciencia · Educación</span>
+</a>
+<nav aria-label="Navegación principal" class="site-navigation">
+<ul>
+<li><a href="index.html#fundacion">La Fundación</a></li>
+<li><a aria-current="page" href="scripts.html">Exploraciones</a></li>
+<li><a href="cursillos_talleres.html">Cursos y talleres</a></li>
+<li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main class="life-wrap" id="contenido-principal">
+<header class="life-header">
+<p class="life-kicker">Exploraciones computacionales · Fundación Radix</p>
+<h1>Juego de la Vida de Conway</h1>
+<p class="life-lead">
         Exploración de un autómata celular donde reglas locales simples producen patrones,
         oscilaciones, estructuras móviles y comportamientos emergentes.
       </p>
-    </header>
-
-    <section id="life-doc" class="life-doc" aria-labelledby="life-title">
-      <h2 id="life-title">¿Qué es el Juego de la Vida?</h2>
-
-      <p>
+</header>
+<section aria-labelledby="life-title" class="life-doc" id="life-doc">
+<h2 id="life-title">¿Qué es el Juego de la Vida?</h2>
+<p>
         El <strong>Juego de la Vida</strong>, propuesto por John Conway, es un
         <strong>autómata celular</strong> definido sobre una rejilla bidimensional.
         Cada celda puede estar viva o muerta, y todas las celdas se actualizan al mismo
         tiempo en pasos discretos. A partir de reglas locales muy simples emergen patrones
         complejos.
       </p>
-
-      <h3>Reglas</h3>
-
-      <ol>
-        <li>
-          <strong>Supervivencia:</strong> una celda viva sigue viva si tiene
+<h3>Reglas</h3>
+<ol>
+<li>
+<strong>Supervivencia:</strong> una celda viva sigue viva si tiene
           <strong>2 o 3</strong> vecinas vivas.
         </li>
-
-        <li>
-          <strong>Nacimiento:</strong> una celda muerta nace si tiene
+<li>
+<strong>Nacimiento:</strong> una celda muerta nace si tiene
           <strong>exactamente 3</strong> vecinas vivas.
         </li>
-
-        <li>
+<li>
           En cualquier otro caso, la celda muere o permanece muerta.
         </li>
-      </ol>
-
-      <h3>¿Qué es el borde toroidal?</h3>
-
-      <p>
+</ol>
+<h3>¿Qué es el borde toroidal?</h3>
+<p>
         Es una forma de manejar los bordes de la rejilla como si los lados opuestos estuvieran
         <strong>pegados</strong>. Imagina que el tablero se enrolla y forma un toro:
         la celda que sale por la izquierda entra por la derecha, y la que sale por arriba
         vuelve por abajo.
       </p>
-
-      <ul>
-        <li>
-          <strong>Toroidal o envolvente:</strong> no hay paredes. Los patrones que llegan
+<ul>
+<li>
+<strong>Toroidal o envolvente:</strong> no hay paredes. Los patrones que llegan
           al borde continúan al lado opuesto. Es útil para reducir efectos de borde y observar
           la dinámica global.
         </li>
-
-        <li>
-          <strong>Borde fijo:</strong> fuera del tablero se considera vacío. Los patrones
+<li>
+<strong>Borde fijo:</strong> fuera del tablero se considera vacío. Los patrones
           pueden apagarse o deformarse al chocar con el límite.
         </li>
-      </ul>
-
-      <h3>Cómo usar este módulo</h3>
-
-      <ol>
-        <li>
-          <strong>Columnas / Filas:</strong> define el tamaño de la rejilla.
+</ul>
+<h3>Cómo usar este módulo</h3>
+<ol>
+<li>
+<strong>Columnas / Filas:</strong> define el tamaño de la rejilla.
         </li>
-
-        <li>
-          <strong>Densidad inicial:</strong> porcentaje de celdas vivas al pulsar
+<li>
+<strong>Densidad inicial:</strong> porcentaje de celdas vivas al pulsar
           <strong>Aleatorio</strong>. Un rango entre <strong>20 % y 35 %</strong> suele producir
           patrones ricos.
         </li>
-
-        <li>
-          <strong>Velocidad:</strong> controla el tiempo entre generaciones. Menor valor significa
+<li>
+<strong>Velocidad:</strong> controla el tiempo entre generaciones. Menor valor significa
           evolución más rápida.
         </li>
-
-        <li>
-          <strong>Borde toroidal:</strong> activa o desactiva la conexión entre bordes opuestos.
+<li>
+<strong>Borde toroidal:</strong> activa o desactiva la conexión entre bordes opuestos.
         </li>
-
-        <li>
-          <strong>Controles:</strong> iniciar, pausar, avanzar una generación, limpiar,
+<li>
+<strong>Controles:</strong> iniciar, pausar, avanzar una generación, limpiar,
           generar una configuración aleatoria o exportar una imagen PNG.
         </li>
-
-        <li>
-          <strong>Edición directa:</strong> haz clic para alternar una celda; arrastra para pintar.
+<li>
+<strong>Edición directa:</strong> haz clic para alternar una celda; arrastra para pintar.
           Clic izquierdo marca una celda viva y clic derecho la marca como muerta.
         </li>
-      </ol>
-    </section>
-
-    <section class="life-panel" aria-label="Simulador interactivo del Juego de la Vida">
-      <div class="life-controls">
-
-        <div class="life-field">
-          <label for="cols">Columnas (10–200)</label>
-          <input id="cols" type="number" min="10" max="200" value="80" />
-        </div>
-
-        <div class="life-field">
-          <label for="rows">Filas (10–200)</label>
-          <input id="rows" type="number" min="10" max="200" value="50" />
-        </div>
-
-        <div class="life-field">
-          <label for="density">Densidad inicial (%)</label>
-          <input id="density" type="number" min="0" max="100" value="30" />
-        </div>
-
-        <div class="life-field">
-          <label for="speed">Velocidad (ms/gen)</label>
-          <input id="speed" type="range" min="20" max="500" step="10" value="120" />
-        </div>
-
-        <div class="life-check">
-          <input id="toroidal" type="checkbox" checked />
-          <label for="toroidal">Borde toroidal</label>
-        </div>
-
-        <span class="life-sep" aria-hidden="true"></span>
-
-        <button id="btn-start" type="button" class="life-btn">Iniciar</button>
-        <button id="btn-step" type="button" class="life-btn">Paso</button>
-        <button id="btn-clear" type="button" class="life-btn">Limpiar</button>
-        <button id="btn-rand" type="button" class="life-btn">Aleatorio</button>
-
-        <span class="life-sep" aria-hidden="true"></span>
-
-        <button id="btn-exp-png" type="button" class="life-btn">Exportar PNG</button>
-
-        <span id="status" class="life-muted"></span>
-      </div>
-
-      <div class="life-canvas-box">
-        <canvas id="life" aria-label="Simulación del Juego de la Vida"></canvas>
-      </div>
-
-      <p class="life-muted">
+</ol>
+</section>
+<section aria-label="Simulador interactivo del Juego de la Vida" class="life-panel">
+<div class="life-controls">
+<div class="life-field">
+<label for="cols">Columnas (10–200)</label>
+<input id="cols" max="200" min="10" type="number" value="80"/>
+</div>
+<div class="life-field">
+<label for="rows">Filas (10–200)</label>
+<input id="rows" max="200" min="10" type="number" value="50"/>
+</div>
+<div class="life-field">
+<label for="density">Densidad inicial (%)</label>
+<input id="density" max="100" min="0" type="number" value="30"/>
+</div>
+<div class="life-field">
+<label for="speed">Velocidad (ms/gen)</label>
+<input id="speed" max="500" min="20" step="10" type="range" value="120"/>
+</div>
+<div class="life-check">
+<input checked="" id="toroidal" type="checkbox"/>
+<label for="toroidal">Borde toroidal</label>
+</div>
+<span aria-hidden="true" class="life-sep"></span>
+<button class="life-btn" id="btn-start" type="button">Iniciar</button>
+<button class="life-btn" id="btn-step" type="button">Paso</button>
+<button class="life-btn" id="btn-clear" type="button">Limpiar</button>
+<button class="life-btn" id="btn-rand" type="button">Aleatorio</button>
+<span aria-hidden="true" class="life-sep"></span>
+<button class="life-btn" id="btn-exp-png" type="button">Exportar PNG</button>
+<span class="life-muted" id="status"></span>
+</div>
+<div class="life-canvas-box">
+<canvas aria-label="Simulación del Juego de la Vida" id="life"></canvas>
+</div>
+<p class="life-muted">
         Consejo: haz clic para alternar una celda; arrastra para pintar.
         Clic izquierdo = viva; clic derecho = muerta.
       </p>
-    </section>
-
-    <div class="life-back-wrap">
-      <a href="scripts.html" class="btn btn-back">
+</section>
+<div class="life-back-wrap">
+<a class="btn btn-back" href="scripts.html">
         Volver a exploraciones
       </a>
-    </div>
-
-  </main>
-
-  <script src="js/life.js"></script>
-
+</div>
+</main>
+<footer class="site-footer">
+<div class="site-footer-inner">
+<p>Fundación Radix Arte, Ciencia y Educación</p>
+<nav aria-label="Navegación secundaria" class="site-footer-nav">
+<a href="scripts.html">Exploraciones</a>
+<a href="cursillos_talleres.html">Cursos y talleres</a>
+<a href="opinion.html">Publicaciones</a>
+</nav>
+<p>Cali, Colombia · 2026</p>
+</div>
+</footer><script src="js/life.js"></script>
 </body>
 </html>

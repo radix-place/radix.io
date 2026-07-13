@@ -1,47 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.fundacionradix.org/chryzode.html" />
-
-  <!-- SEO básico -->
-  <title>Fundación Radix | Chryzode</title>
-  <meta name="description" content="Exploración interactiva de chryzodes: estructuras discretas generadas sobre una circunferencia mediante reglas modulares." />
-  <meta name="keywords" content="Fundación Radix, chryzode, geometría modular, matemáticas, circunferencia, patrones, visualización, arte generativo, educación" />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:locale" content="es_CO" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Fundación Radix" />
-  <meta property="og:title" content="Fundación Radix | Chryzode" />
-  <meta property="og:description" content="Exploración interactiva de estructuras discretas generadas mediante reglas modulares sobre una circunferencia." />
-  <meta property="og:url" content="https://www.fundacionradix.org/chryzode.html" />
-  <meta property="og:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fundación Radix | Chryzode" />
-  <meta name="twitter:description" content="Exploración interactiva de estructuras discretas generadas mediante reglas modulares sobre una circunferencia." />
-  <meta name="twitter:image" content="https://www.fundacionradix.org/preview.png" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/imagenes/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/imagenes/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/imagenes/favicon-64x64.png">
-  <link rel="icon" type="image/x-icon" href="/imagenes/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/imagenes/favicon.svg">
-
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#ffffff">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- MathJax para fórmulas matemáticas -->
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Canonical -->
+<link href="https://www.fundacionradix.org/chryzode.html" rel="canonical"/>
+<!-- SEO básico -->
+<title>Fundación Radix | Chryzode</title>
+<meta content="Exploración interactiva de chryzodes: estructuras discretas generadas sobre una circunferencia mediante reglas modulares." name="description"/>
+<meta content="Fundación Radix, chryzode, geometría modular, matemáticas, circunferencia, patrones, visualización, arte generativo, educación" name="keywords"/>
+<meta content="index,follow" name="robots"/>
+<!-- Open Graph / Social -->
+<meta content="es_CO" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Fundación Radix" property="og:site_name"/>
+<meta content="Fundación Radix | Chryzode" property="og:title"/>
+<meta content="Exploración interactiva de estructuras discretas generadas mediante reglas modulares sobre una circunferencia." property="og:description"/>
+<meta content="https://www.fundacionradix.org/chryzode.html" property="og:url"/>
+<meta content="https://www.fundacionradix.org/preview.png" property="og:image"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Fundación Radix | Chryzode" name="twitter:title"/>
+<meta content="Exploración interactiva de estructuras discretas generadas mediante reglas modulares sobre una circunferencia." name="twitter:description"/>
+<meta content="https://www.fundacionradix.org/preview.png" name="twitter:image"/>
+<!-- Favicons -->
+<link href="/imagenes/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/imagenes/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/imagenes/favicon-64x64.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="/imagenes/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="/imagenes/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="light" name="color-scheme"/>
+<meta content="#F4F1E8" name="theme-color"/>
+<link href="css/style.css?v=8" rel="stylesheet"/><link href="css/tool-pages.css?v=8" rel="stylesheet"/>
+<!-- MathJax para fórmulas matemáticas -->
+<script>
     window.MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -52,23 +45,21 @@
       }
     };
   </script>
-
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
-  <style>
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
     :root {
-      --chry-bg: #f7f7f7;
-      --chry-card: #ffffff;
-      --chry-border: #e8e8e8;
-      --chry-muted: #666666;
-      --chry-ink: #111111;
+      --chry-bg: var(--radix-paper);
+      --chry-card: var(--radix-paper-light);
+      --chry-border: var(--radix-gray);
+      --chry-muted: var(--radix-muted);
+      --chry-ink: var(--radix-ink);
     }
 
-    body {
+    body.tool-page {
       margin: 0;
       background: var(--chry-bg);
       color: var(--chry-ink);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: var(--font-body);
     }
 
     .chryzode-wrap {
@@ -83,7 +74,7 @@
 
     .chryzode-kicker {
       margin: 0 0 0.35rem 0;
-      color: #b30059;
+      color: var(--radix-green);
       font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -95,7 +86,7 @@
       font-size: clamp(1.9rem, 4vw, 3rem);
       line-height: 1.1;
       letter-spacing: -0.03em;
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .chryzode-lead {
@@ -114,13 +105,13 @@
       margin-top: 0;
       margin-bottom: 10px;
       font-size: 1.3rem;
-      color: #111111;
+      color: var(--radix-ink);
     }
 
     .chryzode-section p,
     .chryzode-section li {
       line-height: 1.65;
-      color: #333333;
+      color: var(--radix-muted);
     }
 
     .chryzode-section ul {
@@ -136,9 +127,9 @@
     .chryzode-card {
       background: var(--chry-card);
       border: 1px solid var(--chry-border);
-      border-radius: 16px;
+      border-radius: var(--radius-medium);
       padding: 18px;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+      box-shadow: none;
       margin-top: 18px;
     }
 
@@ -173,119 +164,117 @@
     }
   </style>
 </head>
-
-<body>
-
-  <main>
-
-    <div class="chryzode-wrap">
-
-      <header class="chryzode-header">
-        <p class="chryzode-kicker">Exploraciones computacionales · Fundación Radix</p>
-
-        <h1>Chryzode</h1>
-
-        <p class="chryzode-lead">
+<body class="tool-page"><a class="skip-link" href="#contenido-principal">Ir al contenido principal</a><header class="site-header">
+<div class="site-header-inner">
+<a aria-label="Fundación Radix, página de inicio" class="site-brand" href="index.html">
+<span class="site-brand-name">Fundación Radix</span>
+<span class="site-brand-tagline">Arte · Ciencia · Educación</span>
+</a>
+<nav aria-label="Navegación principal" class="site-navigation">
+<ul>
+<li><a href="index.html#fundacion">La Fundación</a></li>
+<li><a aria-current="page" href="scripts.html">Exploraciones</a></li>
+<li><a href="cursillos_talleres.html">Cursos y talleres</a></li>
+<li><a href="index.html#contacto">Contacto</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main id="contenido-principal">
+<div class="chryzode-wrap">
+<header class="chryzode-header">
+<p class="chryzode-kicker">Exploraciones computacionales · Fundación Radix</p>
+<h1>Chryzode</h1>
+<p class="chryzode-lead">
           Exploración de patrones geométricos generados mediante una regla modular aplicada
           sobre puntos distribuidos en una circunferencia.
         </p>
-      </header>
-
-      <section class="chryzode-section" id="descripcion">
-        <p>
+</header>
+<section class="chryzode-section" id="descripcion">
+<p>
           Un <strong>chryzode</strong> es una estructura discreta trazada sobre una circunferencia.
           Se construye distribuyendo un conjunto finito de puntos y conectando cada uno de ellos
           con otro punto determinado por una regla aritmética.
         </p>
-
-        <div class="chryzode-math">
+<div class="chryzode-math">
           \[
             f(k) = a k \pmod{n}
           \]
         </div>
-
-        <p>
+<p>
           Los enteros \(0,1,\dots,n-1\) se ubican sobre la circunferencia, y cada índice \(k\)
           se conecta con su imagen \(f(k)\). La figura resultante depende de la relación entre
           el número total de puntos \(n\) y el parámetro \(a\).
         </p>
-      </section>
-
-      <section class="chryzode-section" id="elementos">
-        <h2>Elementos de la construcción</h2>
-
-        <ul>
-          <li>
-            <strong>\(n\)</strong>: número total de puntos distribuidos sobre la circunferencia.
+</section>
+<section class="chryzode-section" id="elementos">
+<h2>Elementos de la construcción</h2>
+<ul>
+<li>
+<strong>\(n\)</strong>: número total de puntos distribuidos sobre la circunferencia.
             Define la resolución discreta de la figura.
           </li>
-
-          <li>
-            <strong>\(a\)</strong>: parámetro de la regla modular.
+<li>
+<strong>\(a\)</strong>: parámetro de la regla modular.
             Determina cómo se conectan los puntos y modifica el patrón visual.
           </li>
-
-          <li>
-            <strong>Puntos base</strong>: representan los índices del conjunto
+<li>
+<strong>Puntos base</strong>: representan los índices del conjunto
             \(\{0,1,\dots,n-1\}\).
           </li>
-
-          <li>
-            <strong>Cuerdas</strong>: segmentos que unen cada punto \(k\) con su imagen \(f(k)\).
+<li>
+<strong>Cuerdas</strong>: segmentos que unen cada punto \(k\) con su imagen \(f(k)\).
           </li>
-        </ul>
-      </section>
-
-      <section class="chryzode-section" id="interpretacion">
-        <h2>Interpretación</h2>
-
-        <p>
+</ul>
+</section>
+<section class="chryzode-section" id="interpretacion">
+<h2>Interpretación</h2>
+<p>
           Esta visualización muestra cómo una regla aritmética simple puede generar estructuras
           de gran riqueza geométrica. Su interés no está solo en la figura final, sino en la relación
           entre número, repetición, simetría y forma.
         </p>
-      </section>
-
-      <section class="chryzode-section" id="observaciones">
-        <h2>Observaciones</h2>
-
-        <ul>
-          <li>
+</section>
+<section class="chryzode-section" id="observaciones">
+<h2>Observaciones</h2>
+<ul>
+<li>
             Según la relación entre \(a\) y \(n\), pueden aparecer simetrías y patrones periódicos.
           </li>
-
-          <li>
+<li>
             Modificar \(n\) cambia la densidad de la representación.
           </li>
-
-          <li>
+<li>
             Modificar \(a\) altera la conectividad y, con ello, la estructura global del dibujo.
           </li>
-
-          <li>
+<li>
             La figura también puede entenderse como un grafo dispuesto sobre una circunferencia.
           </li>
-        </ul>
-      </section>
-
-    </div>
-
-    <section class="chryzode-app-wrap" aria-label="Aplicación interactiva Chryzode">
-      <div id="chryzode-app"></div>
-    </section>
-
-    <div class="chryzode-back-wrap">
-      <a href="scripts.html" class="btn btn-back">
+</ul>
+</section>
+</div>
+<section aria-label="Aplicación interactiva Chryzode" class="chryzode-app-wrap">
+<div id="chryzode-app"></div>
+</section>
+<div class="chryzode-back-wrap">
+<a class="btn btn-back" href="scripts.html">
         Volver a exploraciones
       </a>
-    </div>
-
-  </main>
-
-  <script src="js/chryzode.js"></script>
-  <script>
+</div>
+</main>
+<footer class="site-footer">
+<div class="site-footer-inner">
+<p>Fundación Radix Arte, Ciencia y Educación</p>
+<nav aria-label="Navegación secundaria" class="site-footer-nav">
+<a href="scripts.html">Exploraciones</a>
+<a href="cursillos_talleres.html">Cursos y talleres</a>
+<a href="opinion.html">Publicaciones</a>
+</nav>
+<p>Cali, Colombia · 2026</p>
+</div>
+</footer><script src="js/chryzode.js"></script>
+<script>
     window.ChryzodeApp.mount("#chryzode-app");
   </script>
-
 </body>
 </html>

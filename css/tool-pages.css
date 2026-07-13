@@ -1,0 +1,87 @@
+/* =========================================================
+   Fundación Radix · Herramientas y exploraciones interactivas
+   ========================================================= */
+
+.tool-page {
+  background: var(--radix-paper);
+}
+
+.tool-page [class$="-wrap"] {
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--content-width));
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+.tool-page [class$="-header"] {
+  padding-top: clamp(2.8rem, 6vw, 4.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.tool-page [class$="-kicker"] {
+  margin: 0 0 0.5rem;
+  color: var(--radix-green);
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.tool-page [class$="-header"] h1 {
+  margin: 0;
+  color: var(--radix-ink);
+  font-family: var(--font-heading);
+  font-size: clamp(2.55rem, 6vw, 4.6rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.tool-page [class$="-lead"] {
+  max-width: 820px;
+  margin: 1rem 0 0;
+  color: var(--radix-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.tool-page [class$="-section"] h2,
+.tool-page [class$="-doc"] h2,
+.tool-page [class$="-panel"] h2 {
+  color: var(--radix-ink);
+  font-family: var(--font-heading);
+}
+
+.tool-page [class$="-card"],
+.tool-page [class$="-panel"],
+.tool-page [class$="-canvas-box"] {
+  background: var(--radix-paper-light);
+  border-color: var(--radix-gray);
+  border-radius: var(--radius-medium);
+  box-shadow: none;
+}
+
+.tool-page button,
+.tool-page [class$="-btn"] {
+  border-radius: var(--radius-small);
+}
+
+.tool-page canvas,
+.tool-page svg {
+  border-color: var(--radix-gray);
+}
+
+.tool-page .tool-intro-line {
+  width: min(calc(100% - (2 * var(--page-gutter))), var(--content-width));
+  margin: 0 auto;
+  padding-top: 1.4rem;
+  color: var(--radix-muted);
+  font-size: 0.82rem;
+}
+
+@media (max-width: 640px) {
+  .tool-page [class$="-wrap"] {
+    width: min(calc(100% - 2rem), var(--content-width));
+    padding-inline: 0;
+  }
+}
