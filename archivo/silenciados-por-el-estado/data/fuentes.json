@@ -1,0 +1,1083 @@
+{
+  "schema_version": "2.0.0",
+  "project": "Silenciados por el Estado",
+  "last_review": "2026-07-22",
+  "method": "Revisión perfil por perfil con prioridad a sentencias, comisiones de la verdad, archivos públicos, organismos internacionales y documentos estatales; fuentes contrapuestas en casos disputados.",
+  "profiles": {
+    "hermanas-mirabal": {
+      "name": "Hermanas Mirabal",
+      "status": "verificado_inicial",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Responsabilidad estatal directa",
+      "editorial_note": "Las fuentes oficiales dominicanas y de Naciones Unidas coinciden en que fueron asesinadas por orden de la dictadura de Rafael Trujillo. La resolución A/RES/54/134 documenta el legado internacional del 25 de noviembre.",
+      "sources": [
+        {
+          "id": "mirabal-museo-rd",
+          "type": "archivo/museo público",
+          "institution": "Dirección General de Museos de la República Dominicana",
+          "title": "Casa Museo Hermanas Mirabal",
+          "year": 2026,
+          "url": "https://museosrd.gob.do/museos/casa-museo-hermanas-mirabal/",
+          "supports": [
+            "identidad",
+            "resistencia contra la dictadura",
+            "fecha del asesinato",
+            "memoria institucional"
+          ]
+        },
+        {
+          "id": "mirabal-un-background",
+          "type": "organismo internacional",
+          "institution": "Naciones Unidas",
+          "title": "Background: International Day for the Elimination of Violence against Women",
+          "year": 2026,
+          "url": "https://www.un.org/en/observances/ending-violence-against-women-day/background",
+          "supports": [
+            "asesinato por orden de Rafael Trujillo",
+            "origen conmemorativo del 25 de noviembre"
+          ]
+        },
+        {
+          "id": "mirabal-un-resolution",
+          "type": "resolución internacional",
+          "institution": "Asamblea General de las Naciones Unidas",
+          "title": "A/RES/54/134. Día Internacional de la Eliminación de la Violencia contra la Mujer",
+          "year": 1999,
+          "url": "https://digitallibrary.un.org/record/404761?ln=es",
+          "supports": [
+            "designación oficial del 25 de noviembre"
+          ]
+        }
+      ]
+    },
+    "steve-biko": {
+      "name": "Steve Biko",
+      "status": "con_salvedad",
+      "certainty": "alta sobre muerte bajo custodia; atribución penal individual reabierta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Muerte por lesiones sufridas bajo custodia policial",
+      "editorial_note": "La muerte bajo custodia y las lesiones están establecidas. La Comisión de Verdad negó amnistía a los policías por falta de revelación completa. Una nueva investigación judicial fue reabierta en 2025, por lo que no debe presentarse como cerrada la responsabilidad penal individual.",
+      "sources": [
+        {
+          "id": "biko-gov-reopened-inquest",
+          "type": "comunicado judicial oficial",
+          "institution": "Departamento de Justicia y Desarrollo Constitucional de Sudáfrica",
+          "title": "Re-opened inquest into the death of Mr Stephen Bantu Biko",
+          "year": 2025,
+          "url": "https://www.gov.za/news/media-statements/minister-mmamoloko-kubayi-directs-inquest-death-steve-biko-be-re-opened-12",
+          "supports": [
+            "liderazgo antiapartheid",
+            "muerte por lesiones bajo custodia",
+            "reapertura de la investigación"
+          ]
+        },
+        {
+          "id": "biko-trc-decision",
+          "type": "decisión de comisión de la verdad",
+          "institution": "Truth and Reconciliation Commission of South Africa",
+          "title": "Amnesty Committee Decision AC/99/0020",
+          "year": 1999,
+          "url": "https://www.justice.gov.za/trc/decisions/1999/99_snyman.html",
+          "supports": [
+            "participación de miembros de la Security Police",
+            "muerte en detención",
+            "negativa de amnistía"
+          ]
+        },
+        {
+          "id": "biko-trc-release",
+          "type": "comunicado de comisión de la verdad",
+          "institution": "Truth and Reconciliation Commission of South Africa",
+          "title": "Amnesty decision on death of Steve Biko",
+          "year": 1999,
+          "url": "https://www.justice.gov.za/trc/media/pr/1999/p990216a.htm",
+          "supports": [
+            "negativa de amnistía",
+            "falta de revelación completa",
+            "naturaleza no amnistiable del acto"
+          ]
+        }
+      ]
+    },
+    "berta-caceres": {
+      "name": "Berta Cáceres",
+      "status": "con_salvedad",
+      "certainty": "alta sobre asesinato, condenas y vínculos; cadena completa aún no esclarecida",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Vínculos entre actores empresariales, fuerzas de seguridad e instituciones estatales",
+      "editorial_note": "No se usa la fórmula genérica 'responsabilidad estatal directa'. Las fuentes sostienen condenas contra autores y coautores, riesgos previamente denunciados, vínculos con fuerzas de seguridad e instituciones del Estado y graves omisiones investigativas. La cadena completa de responsabilidades sigue abierta.",
+      "sources": [
+        {
+          "id": "berta-iachr-2016",
+          "type": "pronunciamiento internacional",
+          "institution": "Comisión Interamericana de Derechos Humanos",
+          "title": "IACHR Condemns the Killing of Berta Cáceres in Honduras",
+          "year": 2016,
+          "url": "https://www.oas.org/en/iachr/media_center/PReleases/2016/024.asp",
+          "supports": [
+            "defensa indígena y ambiental",
+            "asesinato",
+            "amenazas previas",
+            "medidas cautelares"
+          ]
+        },
+        {
+          "id": "berta-un-court-results",
+          "type": "documento de Naciones Unidas con información estatal",
+          "institution": "Consejo de Derechos Humanos de las Naciones Unidas",
+          "title": "Información sobre condenas en el caso Berta Cáceres",
+          "year": 2021,
+          "url": "https://docstore.ohchr.org/SelfServices/FilesHandler.ashx?enc=WOpzb%2Fx9vn0W%2FE%2F8ob4SJE9uu2t47mtYOgOVUGppoYAIs%2BNcOb0medaSPEfjiqFqhoeBbREZ2KHsWd%2BqNMi9lQ%3D%3D",
+          "supports": [
+            "condena de siete coautores materiales",
+            "declaración de culpabilidad de Roberto David Castillo como coautor"
+          ]
+        },
+        {
+          "id": "berta-giei-2026",
+          "type": "mecanismo internacional independiente",
+          "institution": "GIEI Honduras / Comisión Interamericana de Derechos Humanos",
+          "title": "Seguimiento al Informe del GIEI Honduras sobre el asesinato de Berta Cáceres",
+          "year": 2026,
+          "url": "https://www.oas.org/es/cidh/sesiones/audiencia.asp?Hearing=3883",
+          "supports": [
+            "operación criminal",
+            "vínculos empresariales",
+            "vínculos con fuerzas de seguridad e instituciones estatales",
+            "omisiones investigativas",
+            "responsabilidades aún no esclarecidas"
+          ]
+        }
+      ]
+    },
+    "sophie-scholl": {
+      "name": "Sophie Scholl",
+      "status": "verificado",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Ejecución por tribunal del régimen nazi",
+      "editorial_note": "La detención, el juicio sumario y la ejecución están documentados por instituciones públicas de memoria histórica. Se corrige la fecha de ejecución a 22 de febrero de 1943.",
+      "sources": [
+        {
+          "id": "scholl-bpb",
+          "type": "archivo público de educación histórica",
+          "institution": "Bundeszentrale für politische Bildung",
+          "title": "Sophie Scholl und die Weiße Rose",
+          "year": 2005,
+          "url": "https://www.bpb.de/themen/nationalsozialismus-zweiter-weltkrieg/weisse-rose/",
+          "supports": [
+            "resistencia civil",
+            "detención",
+            "ejecución"
+          ]
+        },
+        {
+          "id": "scholl-ushmm",
+          "type": "museo y archivo histórico",
+          "institution": "United States Holocaust Memorial Museum",
+          "title": "La Rosa Blanca",
+          "year": 2026,
+          "url": "https://encyclopedia.ushmm.org/content/es/article/white-rose",
+          "supports": [
+            "integrantes",
+            "folletos",
+            "arresto",
+            "ejecución"
+          ]
+        }
+      ]
+    },
+    "ruth-first": {
+      "name": "Ruth First",
+      "status": "verificado",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Asesinato mediante carta bomba por agentes de la policía de seguridad del apartheid",
+      "editorial_note": "La Comisión de Verdad y Reconciliación documentó las solicitudes de amnistía y concedió amnistía a Craig Williamson y Roger Raven por su participación en el asesinato.",
+      "sources": [
+        {
+          "id": "first-trc-decision",
+          "type": "decisión de comisión de la verdad",
+          "institution": "Truth and Reconciliation Commission of South Africa",
+          "title": "Amnesty decision concerning the death of Ruth First",
+          "year": 2000,
+          "url": "https://www.justice.gov.za/trc/decisions/2000/ac20082.htm",
+          "supports": [
+            "muerte por carta bomba",
+            "participación de agentes de seguridad",
+            "procedimiento de amnistía"
+          ]
+        },
+        {
+          "id": "first-trc-release",
+          "type": "comunicado oficial",
+          "institution": "Truth and Reconciliation Commission of South Africa",
+          "title": "Amnesty granted for role in murder of Ruth First",
+          "year": 2000,
+          "url": "https://www.justice.gov.za/trc/media/pr/2000/pr000601a.htm",
+          "supports": [
+            "concesión de amnistía",
+            "identidad de responsables"
+          ]
+        }
+      ]
+    },
+    "zahra-kazemi": {
+      "name": "Zahra Kazemi",
+      "status": "con_salvedad",
+      "certainty": "alta sobre muerte bajo custodia y lesiones; atribución penal individual no resuelta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Muerte bajo custodia estatal con indicios documentados de tortura",
+      "editorial_note": "Se mantiene la salvedad: la muerte bajo custodia y las lesiones graves están establecidas, pero el proceso iraní no produjo una condena firme y las autoridades disputaron aspectos de la causa.",
+      "sources": [
+        {
+          "id": "kazemi-canada-committee",
+          "type": "informe parlamentario",
+          "institution": "House of Commons of Canada",
+          "title": "The Death of Zahra Kazemi: Iran’s Failure to Uphold its International Obligations",
+          "year": 2004,
+          "url": "https://www.ourcommons.ca/DocumentViewer/en/37-3/FAAE/report-2/page-5",
+          "supports": [
+            "detención",
+            "muerte bajo custodia",
+            "lesiones",
+            "fallos investigativos"
+          ]
+        },
+        {
+          "id": "kazemi-canada-gov",
+          "type": "pronunciamiento estatal",
+          "institution": "Government of Canada",
+          "title": "Statement on the anniversary of Zahra Kazemi’s death",
+          "year": 2018,
+          "url": "https://www.canada.ca/en/global-affairs/news/2018/07/statement-on-the-anniversary-of-zahra-kazemis-death.html",
+          "supports": [
+            "muerte en custodia",
+            "demanda de rendición de cuentas"
+          ]
+        }
+      ]
+    },
+    "lady-constance-lytton": {
+      "name": "Lady Constance Lytton",
+      "status": "con_salvedad",
+      "certainty": "alta sobre alimentación forzada y daño; relación exacta con la muerte posterior no judicialmente establecida",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Alimentación forzada y trato carcelario estatal documentados",
+      "editorial_note": "La violencia carcelaria está documentada. Se evita presentar como certeza médica o judicial que la alimentación forzada fue la causa exclusiva de su muerte en 1923.",
+      "sources": [
+        {
+          "id": "lytton-national-archives",
+          "type": "archivo público",
+          "institution": "The National Archives, Reino Unido",
+          "title": "Constance Lytton and force-feeding",
+          "year": 2026,
+          "url": "https://blog.nationalarchives.gov.uk/constance-lytton-force-feeding/",
+          "supports": [
+            "detención",
+            "identidad Jane Warton",
+            "alimentación forzada"
+          ]
+        },
+        {
+          "id": "lytton-hansard",
+          "type": "registro parlamentario",
+          "institution": "UK Parliament",
+          "title": "Force-feeding of suffragist prisoners, Hansard",
+          "year": 1910,
+          "url": "https://api.parliament.uk/historic-hansard/commons/1910/mar/14/forcible-feeding-of-prisoners",
+          "supports": [
+            "política estatal de alimentación forzada"
+          ]
+        }
+      ]
+    },
+    "pierre-seel-y-los-triangulos-rosas": {
+      "name": "Pierre Seel — y los \"triángulos rosas\"",
+      "status": "verificado",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Persecución y tortura por la Gestapo bajo el régimen nazi",
+      "editorial_note": "Se conserva con precisión que Pierre Seel sobrevivió y que su inclusión se debe a persecución y tortura estatal, no a muerte causada por el Estado.",
+      "sources": [
+        {
+          "id": "seel-paris",
+          "type": "archivo municipal",
+          "institution": "Ville de Paris",
+          "title": "Hommage à Pierre Seel et aux victimes homosexuelles du nazisme",
+          "year": 2019,
+          "url": "https://cdn.paris.fr/paris/2019/07/24/3fc5f9216fa9cf6f8fda167b78507407.pdf",
+          "supports": [
+            "biografía",
+            "deportación",
+            "persecución por homosexualidad"
+          ]
+        },
+        {
+          "id": "seel-dilcrah",
+          "type": "documento estatal",
+          "institution": "DILCRAH, République française",
+          "title": "Mémoire de la déportation pour motif d’homosexualité",
+          "year": 2023,
+          "url": "https://www.dilcrah.gouv.fr/files/2023-04/DP%20D%C3%A9portation%20pour%20motif%20d%27homosexualit%C3%A9.pdf",
+          "supports": [
+            "contexto de persecución estatal",
+            "memoria oficial"
+          ]
+        }
+      ]
+    },
+    "fred-hampton": {
+      "name": "Fred Hampton",
+      "status": "verificado",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Muerte en operativo policial con infiltración documentada del FBI",
+      "editorial_note": "Las fuentes federales documentan la infiltración del FBI, la entrega del plano del apartamento y el operativo de la policía de Chicago. Se evita atribuir a una sola institución toda la cadena de decisión sin precisar niveles.",
+      "sources": [
+        {
+          "id": "hampton-nara",
+          "type": "archivo federal",
+          "institution": "National Archives and Records Administration",
+          "title": "Fred Hampton (August 30, 1948–December 4, 1969)",
+          "year": 2021,
+          "url": "https://rediscovering-black-history.blogs.archives.gov/2021/12/02/fred-hampton/",
+          "supports": [
+            "FBI",
+            "informante",
+            "plano del apartamento",
+            "redada policial",
+            "muerte"
+          ]
+        },
+        {
+          "id": "hampton-fbi-vault",
+          "type": "archivo de inteligencia desclasificado",
+          "institution": "Federal Bureau of Investigation",
+          "title": "The Vault: Black Panther Party",
+          "year": 2026,
+          "url": "https://vault.fbi.gov/Black%20Panther%20Party",
+          "supports": [
+            "COINTELPRO",
+            "vigilancia e infiltración"
+          ]
+        }
+      ]
+    },
+    "james-chaney-andrew-goodman-y-michael-schwerner": {
+      "name": "James Chaney, Andrew Goodman y Michael Schwerner",
+      "status": "verificado",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Complicidad directa de un agente de policía con el Ku Klux Klan",
+      "editorial_note": "La participación del subsheriff Cecil Price y las condenas federales están establecidas judicialmente.",
+      "sources": [
+        {
+          "id": "mississippi-burning-fbi",
+          "type": "archivo federal",
+          "institution": "Federal Bureau of Investigation",
+          "title": "Mississippi Burning",
+          "year": 2026,
+          "url": "https://www.fbi.gov/history/famous-cases/mississippi-burning",
+          "supports": [
+            "desaparición",
+            "investigación federal",
+            "participación del subsheriff"
+          ]
+        },
+        {
+          "id": "mississippi-burning-doj",
+          "type": "historia judicial",
+          "institution": "United States Department of Justice",
+          "title": "Justice Department commemorates Mississippi Burning case",
+          "year": 2014,
+          "url": "https://www.justice.gov/opa/pr/justice-department-commemorates-50th-anniversary-mississippi-burning-case",
+          "supports": [
+            "condenas federales",
+            "derechos civiles"
+          ]
+        }
+      ]
+    },
+    "thomas-sankara": {
+      "name": "Thomas Sankara",
+      "status": "verificado",
+      "certainty": "alta sobre asesinato y condenas nacionales",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Asesinato en golpe de Estado con condenas judiciales",
+      "editorial_note": "El tribunal militar de Burkina Faso condenó en 2022 a Blaise Compaoré y otros acusados. No se incluye como hecho probado una intervención extranjera específica que no haya sido establecida en la sentencia.",
+      "sources": [
+        {
+          "id": "sankara-verdict",
+          "type": "registro del proceso",
+          "institution": "Thomas Sankara Website — archivo oficial del proceso",
+          "title": "Verdict complet du procès de Thomas Sankara et de ses compagnons",
+          "year": 2022,
+          "url": "https://www.thomassankara.net/verdict-proces-de-thomas-sankara-de-compagnons/",
+          "supports": [
+            "veredicto",
+            "condenas",
+            "calificación de los delitos"
+          ]
+        },
+        {
+          "id": "sankara-ohchr",
+          "type": "decisión internacional",
+          "institution": "Comité de Derechos Humanos de Naciones Unidas",
+          "title": "Sankara et al. v. Burkina Faso, CCPR/C/86/D/1159/2003",
+          "year": 2006,
+          "url": "https://juris.ohchr.org/casedetails/1254/en-US",
+          "supports": [
+            "falta de investigación",
+            "derecho a recurso efectivo",
+            "trato a la familia"
+          ]
+        }
+      ]
+    },
+    "patrice-lumumba": {
+      "name": "Patrice Lumumba",
+      "status": "con_salvedad",
+      "certainty": "alta sobre ejecución y responsabilidad política belga; proceso penal actualizado en 2026",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Ejecución con responsabilidad política belga documentada",
+      "editorial_note": "La comisión parlamentaria belga concluyó responsabilidad moral y política, no una orden gubernamental directa de asesinato. En marzo de 2026 un tribunal ordenó llevar a juicio a un exdiplomático por su presunta participación; el proceso no equivale a condena.",
+      "sources": [
+        {
+          "id": "lumumba-parliament",
+          "type": "informe parlamentario",
+          "institution": "Chambre des représentants de Belgique",
+          "title": "Commission d’enquête sur l’assassinat de Patrice Lumumba",
+          "year": 2001,
+          "url": "https://www.lachambre.be/FLWB/pdf/50/0312/50K0312006.pdf",
+          "supports": [
+            "traslado a Katanga",
+            "participación belga",
+            "responsabilidad política"
+          ]
+        },
+        {
+          "id": "lumumba-2026-trial",
+          "type": "información judicial actualizada",
+          "institution": "Reuters",
+          "title": "Belgium orders ex-diplomat to stand trial for 1961 murder of Congo’s Lumumba",
+          "year": 2026,
+          "url": "https://www.reuters.com/world/africa/belgium-orders-ex-diplomat-stand-trial-1961-murder-congos-lumumba-2026-03-17/",
+          "supports": [
+            "apertura de juicio",
+            "cargos",
+            "estado procesal"
+          ]
+        }
+      ]
+    },
+    "mehdi-ben-barka": {
+      "name": "Mehdi Ben Barka",
+      "status": "con_salvedad",
+      "certainty": "alta sobre secuestro con participación policial; muerte y cadena completa no establecidas judicialmente",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Secuestro en París con participación de policías franceses y agentes marroquíes",
+      "editorial_note": "El cuerpo nunca fue hallado y la instrucción sigue abierta. Se evita afirmar como certeza judicial la forma exacta de muerte o una orden oficial de ambos gobiernos.",
+      "sources": [
+        {
+          "id": "benbarka-assemblee",
+          "type": "control parlamentario",
+          "institution": "Assemblée nationale française",
+          "title": "Justice pour Mehdi Ben Barka — question écrite n°2312",
+          "year": 2025,
+          "url": "https://questions.assemblee-nationale.fr/q17/17-2312QE.htm",
+          "supports": [
+            "secuestro en París",
+            "instrucción abierta",
+            "secreto de defensa"
+          ]
+        },
+        {
+          "id": "benbarka-ina",
+          "type": "archivo audiovisual público",
+          "institution": "Institut national de l’audiovisuel",
+          "title": "Affaire Ben Barka",
+          "year": 2026,
+          "url": "https://www.ina.fr/ina-eclaire-actu/mehdi-ben-barka-enlevement-disparition-maroc-france",
+          "supports": [
+            "contexto histórico",
+            "participación policial",
+            "investigación"
+          ]
+        }
+      ]
+    },
+    "salvador-allende": {
+      "name": "Salvador Allende",
+      "status": "con_salvedad",
+      "certainty": "alta sobre suicidio durante el golpe y sobre intervención encubierta estadounidense previa; nexo jurídico entre ambos no establecido",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Muerte durante golpe de Estado; intervención exterior documentada",
+      "editorial_note": "La autopsia de 2011 confirmó suicidio. Los archivos oficiales estadounidenses documentan operaciones encubiertas contra el gobierno de Allende, pero no prueban una orden estadounidense para su muerte.",
+      "sources": [
+        {
+          "id": "allende-forensic",
+          "type": "informe forense divulgado por Poder Judicial",
+          "institution": "Servicio Médico Legal de Chile / Poder Judicial",
+          "title": "Informe pericial sobre la muerte de Salvador Allende",
+          "year": 2011,
+          "url": "https://www.biobiochile.cl/noticias/2011/07/19/dan-a-conocer-informe-completo-del-servicio-medico-legal-en-investigacion-sobre-muerte-de-allende.shtml",
+          "supports": [
+            "autopsia",
+            "causa de muerte",
+            "suicidio"
+          ]
+        },
+        {
+          "id": "allende-frus",
+          "type": "archivo diplomático oficial",
+          "institution": "U.S. Department of State, Office of the Historian",
+          "title": "Foreign Relations of the United States, Chile, 1969–1973",
+          "year": 2014,
+          "url": "https://history.state.gov/historicaldocuments/frus1969-76v21",
+          "supports": [
+            "acciones encubiertas",
+            "intervención política",
+            "documentos oficiales"
+          ]
+        }
+      ]
+    },
+    "ken-saro-wiwa": {
+      "name": "Ken Saro-Wiwa",
+      "status": "verificado",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Ejecución estatal después de un proceso judicial defectuoso",
+      "editorial_note": "La Asamblea General de la ONU calificó la ejecución de arbitraria y el proceso de defectuoso.",
+      "sources": [
+        {
+          "id": "saro-un-resolution",
+          "type": "resolución internacional",
+          "institution": "Asamblea General de las Naciones Unidas",
+          "title": "A/RES/50/199. Situation of human rights in Nigeria",
+          "year": 1995,
+          "url": "https://digitallibrary.un.org/record/208278?ln=en",
+          "supports": [
+            "ejecución arbitraria",
+            "proceso defectuoso",
+            "responsabilidad estatal"
+          ]
+        },
+        {
+          "id": "saro-amnesty",
+          "type": "informe de derechos humanos",
+          "institution": "Amnesty International",
+          "title": "15th anniversary of the execution of Ken Saro-Wiwa and the Ogoni leaders",
+          "year": 2010,
+          "url": "https://www.amnesty.org/en/documents/afr44/026/2010/en/",
+          "supports": [
+            "activismo ogoni",
+            "juicio injusto",
+            "ejecución"
+          ]
+        }
+      ]
+    },
+    "jamal-khashoggi": {
+      "name": "Jamal Khashoggi",
+      "status": "con_salvedad",
+      "certainty": "alta sobre asesinato estatal premeditado; autoría intelectual individual no juzgada de forma independiente",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Ejecución extrajudicial atribuida al Estado saudí",
+      "editorial_note": "La Relatora Especial de la ONU concluyó que fue una ejecución deliberada y premeditada por la que Arabia Saudita es responsable. La atribución penal a personas de la cúpula requiere investigación judicial independiente.",
+      "sources": [
+        {
+          "id": "khashoggi-un-report",
+          "type": "informe internacional",
+          "institution": "Relatora Especial de Naciones Unidas sobre ejecuciones extrajudiciales",
+          "title": "A/HRC/41/36: Investigation into the unlawful death of Jamal Khashoggi",
+          "year": 2019,
+          "url": "https://digitallibrary.un.org/record/3853356",
+          "supports": [
+            "ejecución premeditada",
+            "responsabilidad estatal",
+            "obligación de investigar"
+          ]
+        },
+        {
+          "id": "khashoggi-ohchr",
+          "type": "comunicado internacional",
+          "institution": "Office of the High Commissioner for Human Rights",
+          "title": "Khashoggi killing: UN expert calls for international investigation",
+          "year": 2019,
+          "url": "https://www.ohchr.org/en/press-releases/2019/06/khashoggi-killing-un-expert-calls-international-investigation",
+          "supports": [
+            "hallazgos",
+            "rendición de cuentas"
+          ]
+        }
+      ]
+    },
+    "hrant-dink": {
+      "name": "Hrant Dink",
+      "status": "verificado",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Responsabilidad estatal por no proteger e investigar adecuadamente",
+      "editorial_note": "La responsabilidad es por violación del derecho a la vida, omisión de protección y fallos investigativos, no por autoría material estatal establecida en la sentencia europea.",
+      "sources": [
+        {
+          "id": "dink-echr",
+          "type": "sentencia internacional",
+          "institution": "European Court of Human Rights",
+          "title": "Dink v. Turkey",
+          "year": 2010,
+          "url": "https://hudoc.echr.coe.int/eng?i=001-100383",
+          "supports": [
+            "derecho a la vida",
+            "falta de protección",
+            "fallos de investigación",
+            "libertad de expresión"
+          ]
+        },
+        {
+          "id": "dink-turkey-mfa",
+          "type": "reconocimiento estatal de sentencia",
+          "institution": "Ministerio de Relaciones Exteriores de Turquía",
+          "title": "Hrant Dink Davası Hk.",
+          "year": 2010,
+          "url": "https://www.mfa.gov.tr/no_-201_-14-eylul-2010_-hrant-dink-davasi-hk_.tr.mfa",
+          "supports": [
+            "reconocimiento de violaciones declaradas por el TEDH"
+          ]
+        }
+      ]
+    },
+    "rodolfo-walsh": {
+      "name": "Rodolfo Walsh",
+      "status": "verificado",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Desaparición forzada atribuida al grupo de tareas de la ESMA",
+      "editorial_note": "La documentación estatal argentina identifica el secuestro por un grupo de tareas y su condición de desaparecido.",
+      "sources": [
+        {
+          "id": "walsh-argentina",
+          "type": "archivo estatal de memoria",
+          "institution": "Argentina.gob.ar",
+          "title": "Rodolfo Walsh, con la vigencia de siempre, 45 años después",
+          "year": 2022,
+          "url": "https://www.argentina.gob.ar/node/307407",
+          "supports": [
+            "Carta Abierta",
+            "ataque",
+            "secuestro por grupo de tareas de la ESMA"
+          ]
+        },
+        {
+          "id": "walsh-pba",
+          "type": "registro estatal de víctimas",
+          "institution": "Subsecretaría de Derechos Humanos de la Provincia de Buenos Aires",
+          "title": "Walsh, Rodolfo Jorge",
+          "year": 2026,
+          "url": "https://derechoshumanos.mjus.gba.gob.ar/victima/4028-walsh-rodolfo-jorge/",
+          "supports": [
+            "desaparición",
+            "causas y sentencias"
+          ]
+        }
+      ]
+    },
+    "alekos-panagulis": {
+      "name": "Alekos Panagulis",
+      "status": "con_salvedad",
+      "certainty": "alta sobre tortura y condena; muerte posterior no probada como asesinato",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Tortura estatal durante la dictadura de los coroneles",
+      "editorial_note": "La tortura y la condena militar están documentadas. La hipótesis de que el accidente de 1976 fue provocado no se presenta como hecho.",
+      "sources": [
+        {
+          "id": "panagulis-ert",
+          "type": "archivo audiovisual público",
+          "institution": "ERT — Archivo de la radiotelevisión pública griega",
+          "title": "Αλέκος Παναγούλης — 1 Μαΐου 1976",
+          "year": 2018,
+          "url": "https://www.ert.gr/ert-arxeio/alekos-panagoylis/",
+          "supports": [
+            "resistencia",
+            "detención",
+            "tortura",
+            "muerte"
+          ]
+        },
+        {
+          "id": "panagulis-siusa",
+          "type": "archivo estatal",
+          "institution": "Sistema Informativo Unificato per le Soprintendenze Archivistiche, Italia",
+          "title": "Panagulis Alexandros",
+          "year": 2026,
+          "url": "https://siusa-archivi.cultura.gov.it/cgi-bin/siusa/pagina.pl?Chiave=103702&TipoPag=prodpersona",
+          "supports": [
+            "biografía",
+            "condena militar",
+            "tortura",
+            "actividad política"
+          ]
+        }
+      ]
+    },
+    "oscar-romero": {
+      "name": "Óscar Romero",
+      "status": "verificado",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Ejecución extrajudicial con participación de agentes estatales y escuadrones de la muerte",
+      "editorial_note": "La CIDH declaró responsabilidad internacional de El Salvador y la Comisión de la Verdad identificó la planificación del crimen.",
+      "sources": [
+        {
+          "id": "romero-iachr",
+          "type": "informe de fondo",
+          "institution": "Comisión Interamericana de Derechos Humanos",
+          "title": "Report No. 37/00, Case 11.481, Monsignor Oscar Arnulfo Romero",
+          "year": 2000,
+          "url": "https://www.oas.org/en/iachr/decisions/merits.asp?Year=2000",
+          "supports": [
+            "ejecución extrajudicial",
+            "responsabilidad estatal",
+            "impunidad"
+          ]
+        },
+        {
+          "id": "romero-truth",
+          "type": "comisión de la verdad",
+          "institution": "Comisión de la Verdad para El Salvador / Naciones Unidas",
+          "title": "From Madness to Hope: The 12-Year War in El Salvador",
+          "year": 1993,
+          "url": "https://digitallibrary.un.org/record/183599",
+          "supports": [
+            "planificación del asesinato",
+            "escuadrones de la muerte"
+          ]
+        }
+      ]
+    },
+    "religiosas-de-maryknoll": {
+      "name": "Religiosas de Maryknoll",
+      "status": "verificado",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Secuestro, violencia sexual y asesinato por miembros de la Guardia Nacional",
+      "editorial_note": "La Comisión de la Verdad de Naciones Unidas documentó el arresto y asesinato por miembros de la Guardia Nacional y la obstrucción posterior.",
+      "sources": [
+        {
+          "id": "maryknoll-truth",
+          "type": "comisión de la verdad",
+          "institution": "Comisión de la Verdad para El Salvador / Naciones Unidas",
+          "title": "The American Churchwomen — Report of the Commission on the Truth for El Salvador",
+          "year": 1993,
+          "url": "https://www.derechos.org/nizkor/salvador/informes/truth.html",
+          "supports": [
+            "detención por Guardia Nacional",
+            "violencia sexual",
+            "asesinato",
+            "encubrimiento"
+          ]
+        },
+        {
+          "id": "maryknoll-doj",
+          "type": "proceso judicial",
+          "institution": "United States Department of Justice",
+          "title": "Ford v. Garcia litigation record",
+          "year": 2000,
+          "url": "https://www.justice.gov/sites/default/files/eoir/legacy/2014/09/29/3377.pdf",
+          "supports": [
+            "responsabilidad de mando debatida en litigio civil"
+          ]
+        }
+      ]
+    },
+    "frei-tito-de-alencar-lima": {
+      "name": "Frei Tito de Alencar Lima",
+      "status": "con_salvedad",
+      "certainty": "alta sobre tortura; nexo con suicidio reconocido por fuentes públicas y testimoniales",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Tortura estatal con secuelas psicológicas graves",
+      "editorial_note": "La tortura está documentada por órganos estatales brasileños. El vínculo con el suicidio se presenta como nexo histórico y testimonial reconocido, no como sentencia penal específica.",
+      "sources": [
+        {
+          "id": "frei-tito-cemdp",
+          "type": "registro estatal de víctimas",
+          "institution": "Comissão Especial sobre Mortos e Desaparecidos Políticos, Brasil",
+          "title": "Frei Tito de Alencar Lima",
+          "year": 2004,
+          "url": "https://cemdp.mdh.gov.br/modules/desaparecidos/acervo/ficha/cid/314",
+          "supports": [
+            "detención",
+            "métodos de tortura",
+            "exilio",
+            "suicidio"
+          ]
+        },
+        {
+          "id": "frei-tito-comissao-sp",
+          "type": "comisión de la verdad estatal",
+          "institution": "Assembleia Legislativa do Estado de São Paulo",
+          "title": "Biografia de Frei Tito é lançada em reunião da Comissão estadual da Verdade",
+          "year": 2014,
+          "url": "https://www.al.sp.gov.br/noticia/?id=356404",
+          "supports": [
+            "tortura",
+            "exilio",
+            "secuelas",
+            "suicidio"
+          ]
+        }
+      ]
+    },
+    "janani-luwum": {
+      "name": "Janani Luwum",
+      "status": "verificado_inicial",
+      "certainty": "alta sobre asesinato bajo el régimen de Idi Amin; cadena penal no judicializada",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Asesinato reconocido oficialmente como crimen del régimen de Idi Amin",
+      "editorial_note": "El Estado ugandés y fuentes históricas eclesiásticas reconocen que fue asesinado después de denunciar abusos del régimen. No existe una sentencia penal contemporánea que individualice toda la cadena.",
+      "sources": [
+        {
+          "id": "luwum-statehouse",
+          "type": "reconocimiento estatal",
+          "institution": "State House Uganda",
+          "title": "President Museveni Honors Archbishop Janani Luwum’s Martyrdom",
+          "year": 2026,
+          "url": "https://statehouse.go.ug/president-museveni-honors-archbishop-janani-luwums-martyrdom-urges-leaders-to-persuade-not-intimidate-people/",
+          "supports": [
+            "denuncia de abusos",
+            "asesinato bajo el régimen",
+            "conmemoración oficial"
+          ]
+        },
+        {
+          "id": "luwum-dacb",
+          "type": "biografía académica",
+          "institution": "Dictionary of African Christian Biography",
+          "title": "Luwum, Janani Jakaliya",
+          "year": 2026,
+          "url": "https://dacb.org/stories/uganda/luwum-janani/",
+          "supports": [
+            "biografía",
+            "arresto",
+            "asesinato",
+            "legado"
+          ]
+        }
+      ]
+    },
+    "rosa-luxemburgo": {
+      "name": "Rosa Luxemburgo",
+      "status": "con_salvedad",
+      "certainty": "alta sobre autores materiales y uso de Freikorps por el gobierno; orden política específica debatida",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Asesinato por miembros de una división Freikorps desplegada por el gobierno",
+      "editorial_note": "El Bundesarchiv documenta a los autores materiales y el despliegue gubernamental de las fuerzas. Se evita afirmar como hecho cerrado que una orden expresa de asesinato proviniera del gabinete.",
+      "sources": [
+        {
+          "id": "luxemburg-bundesarchiv",
+          "type": "archivo federal",
+          "institution": "Bundesarchiv, Alemania",
+          "title": "Ermordung von Rosa Luxemburg und Karl Liebknecht",
+          "year": 2026,
+          "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/ermordung-von-rosa-luxemburg-und-karl-liebknecht/",
+          "supports": [
+            "autores materiales",
+            "despliegue de Freikorps",
+            "proceso militar"
+          ]
+        },
+        {
+          "id": "luxemburg-dhm",
+          "type": "museo histórico nacional",
+          "institution": "Deutsches Historisches Museum",
+          "title": "Freikorps",
+          "year": 2014,
+          "url": "https://www.dhm.de/lemo/kapitel/weimarer-republik/revolution-191819/freikorps",
+          "supports": [
+            "relación con el gobierno",
+            "asesinatos de Luxemburgo y Liebknecht"
+          ]
+        }
+      ]
+    },
+    "federico-garcia-lorca": {
+      "name": "Federico García Lorca",
+      "status": "con_salvedad",
+      "certainty": "alta sobre ejecución por fuerzas sublevadas; móvil y responsables individuales no cerrados judicialmente",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Ejecución en la represión franquista",
+      "editorial_note": "Se presenta como víctima de la represión franquista y se evita atribuir un móvil único o una cadena individual no establecida judicialmente.",
+      "sources": [
+        {
+          "id": "lorca-cultura",
+          "type": "archivo cultural público",
+          "institution": "Ministerio de Cultura de España",
+          "title": "Lorca y el archivo. Memoria en movimiento",
+          "year": 2026,
+          "url": "https://generaciondel27.cultura.gob.es/programa/actividades/lorca-expo.html",
+          "supports": [
+            "asesinato",
+            "archivo y memoria"
+          ]
+        },
+        {
+          "id": "lorca-declaracion-victima",
+          "type": "reconocimiento oficial",
+          "institution": "Gobierno de España — Memoria Democrática",
+          "title": "Declaración de reconocimiento y reparación personal",
+          "year": 2025,
+          "url": "https://www.memoriademocratica.gob.es/actualidad/noticias/18-declaraciones-reconocimiento-reparacion-personal.html",
+          "supports": [
+            "reconocimiento como víctima del franquismo"
+          ]
+        }
+      ]
+    },
+    "victor-jara": {
+      "name": "Víctor Jara",
+      "status": "verificado",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Secuestro y homicidio por oficiales del Ejército con condena definitiva",
+      "editorial_note": "La Corte Suprema chilena ratificó condenas por secuestro y homicidio calificados.",
+      "sources": [
+        {
+          "id": "jara-memoria-chilena",
+          "type": "archivo nacional",
+          "institution": "Biblioteca Nacional de Chile — Memoria Chilena",
+          "title": "Víctor Jara: Su muerte",
+          "year": 2026,
+          "url": "https://www.memoriachilena.gob.cl/602/w3-article-98161.html",
+          "supports": [
+            "detención",
+            "tortura",
+            "muerte"
+          ]
+        },
+        {
+          "id": "jara-supreme-court",
+          "type": "sentencia definitiva reseñada",
+          "institution": "Corte Suprema de Chile / Cooperativa",
+          "title": "Corte Suprema dictó sentencia definitiva por homicidio de Víctor Jara",
+          "year": 2023,
+          "url": "https://www.cooperativa.cl/noticias/pais/judicial/corte-suprema/corte-suprema-dicto-sentencia-definitiva-por-homicidio-de-victor-jara/2023-08-28/172335.html",
+          "supports": [
+            "condenas",
+            "secuestro calificado",
+            "homicidio calificado"
+          ]
+        }
+      ]
+    },
+    "orlando-letelier": {
+      "name": "Orlando Letelier",
+      "status": "verificado",
+      "certainty": "alta",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Atentado con coche bomba ejecutado por la DINA",
+      "editorial_note": "La autoría de la policía secreta chilena y las condenas en Estados Unidos y Chile están documentadas. La actualización incorpora nuevas condenas chilenas de 2026 relacionadas con el atentado.",
+      "sources": [
+        {
+          "id": "letelier-frus",
+          "type": "archivo diplomático oficial",
+          "institution": "U.S. Department of State, Office of the Historian",
+          "title": "Assassination of Orlando Letelier — Telegram 9212",
+          "year": 1976,
+          "url": "https://history.state.gov/historicaldocuments/frus1969-76ve11p2/d247",
+          "supports": [
+            "atentado",
+            "reacción diplomática",
+            "contexto contemporáneo"
+          ]
+        },
+        {
+          "id": "letelier-chile-2026",
+          "type": "actualización judicial",
+          "institution": "El País / resolución de ministra en visita chilena",
+          "title": "Condenados tres exagentes de Pinochet por el atentado de Washington",
+          "year": 2026,
+          "url": "https://elpais.com/chile/2026-06-19/condenados-tres-exagentes-de-pinochet-por-el-asesinato-de-ronnie-moffit-a-50-anos-del-atentado-en-washington.html",
+          "supports": [
+            "DINA",
+            "planificación",
+            "condenas de 2026"
+          ]
+        }
+      ]
+    },
+    "rachel-corrie": {
+      "name": "Rachel Corrie",
+      "status": "con_salvedad",
+      "certainty": "alta sobre muerte por bulldozer militar; responsabilidad jurídica estatal rechazada por tribunales israelíes",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Aparato militar implicado; responsabilidad civil estatal judicialmente rechazada",
+      "editorial_note": "Se presentan conjuntamente el hecho material, la sentencia que eximió al Estado y las críticas a la investigación. No se afirma homicidio deliberado ni responsabilidad judicial establecida.",
+      "sources": [
+        {
+          "id": "corrie-amnesty-verdict",
+          "type": "análisis de derechos humanos",
+          "institution": "Amnesty International",
+          "title": "Rachel Corrie verdict highlights impunity for Israeli military",
+          "year": 2012,
+          "url": "https://www.amnesty.org/en/latest/news/2012/08/rachel-corrie-verdict-highlights-impunity-israeli-military/",
+          "supports": [
+            "muerte por bulldozer militar",
+            "sentencia israelí",
+            "críticas a la investigación"
+          ]
+        },
+        {
+          "id": "corrie-us-case",
+          "type": "expediente judicial y derechos humanos",
+          "institution": "Center for Constitutional Rights",
+          "title": "Corrie et al. v. Caterpillar",
+          "year": 2007,
+          "url": "https://ccrjustice.org/home/what-we-do/our-cases/corrie-et-al-v-caterpillar",
+          "supports": [
+            "litigio estadounidense",
+            "resultado procesal"
+          ]
+        }
+      ]
+    },
+    "shireen-abu-akleh": {
+      "name": "Shireen Abu Akleh",
+      "status": "con_salvedad",
+      "certainty": "alta sobre origen probable de fuego israelí; intencionalidad y responsabilidad penal no establecidas",
+      "reviewed": "2026-07-22",
+      "responsibility_label": "Fuego de fuerzas israelíes según monitoreo de ONU; alta probabilidad reconocida por el ejército israelí",
+      "editorial_note": "Se exponen las conclusiones divergentes: la ONU halló consistencia con disparos de fuerzas israelíes; la investigación militar israelí admitió alta probabilidad de fuego propio accidental y descartó abrir investigación penal.",
+      "sources": [
+        {
+          "id": "abuakleh-ohchr",
+          "type": "monitoreo internacional",
+          "institution": "Office of the High Commissioner for Human Rights",
+          "title": "Killing of journalist in OPT — spokesperson statement",
+          "year": 2022,
+          "url": "https://www.un.org/unispal/document/killing-of-journalist-in-opt-un-high-commissioner-for-human-rights-spokesperson-statement/",
+          "supports": [
+            "origen de disparos",
+            "ausencia de fuego palestino cercano",
+            "llamado a investigación"
+          ]
+        },
+        {
+          "id": "abuakleh-idf",
+          "type": "investigación militar",
+          "institution": "Israel Defense Forces",
+          "title": "Final Conclusions of Shireen Abu Akleh Investigation",
+          "year": 2022,
+          "url": "https://www.idf.il/en/articles/2022/final-conclusions-of-shireen-abu-akleh-investigation/",
+          "supports": [
+            "alta posibilidad de fuego israelí",
+            "afirmación de no intencionalidad",
+            "decisión de no abrir investigación penal"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,390 @@
+{
+  "collection": "Silenciados por el Estado — serie completa de retratos editoriales",
+  "created": "2026-07-22",
+  "updated": "2026-07-22",
+  "version": "2.1.0",
+  "status": "complete_series_normalized",
+  "method": "Ilustraciones editoriales generadas como una serie homogénea y normalizadas individualmente para uso web. No se empleó una fotografía única como plantilla ni se conservaron elementos de interfaz de las láminas maestras.",
+  "source_assets": [
+    {
+      "id": "pilot-sheet",
+      "description": "Lámina maestra del lote piloto: Hermanas Mirabal, Steve Biko y Berta Cáceres."
+    },
+    {
+      "id": "series-sheet-1",
+      "description": "Primera lámina maestra de la serie completa."
+    },
+    {
+      "id": "series-sheet-2",
+      "description": "Segunda lámina maestra de la serie completa."
+    }
+  ],
+  "generation_ids": [
+    "8043709e-b95f-47e8-8d46-1a184c89c2ca",
+    "f1de125c-b16c-4d1c-99c7-3e9f8c4648b1",
+    "14f216d6-b918-4ec5-8344-afda264cbdeb"
+  ],
+  "editorial_constraints": [
+    "no caricature",
+    "no violence depiction",
+    "no endorsement implication",
+    "editorial and educational use",
+    "no single-photo tracing"
+  ],
+  "postprocessing": {
+    "purpose": "Eliminar espacios vacíos, bandas, fragmentos de tarjetas vecinas y fondos grises; conservar el estilo gráfico aprobado.",
+    "single_portraits": "Recorte centrado en el rostro y hombros dentro del área ilustrada, ajustado a 4:5.",
+    "collective_portraits": "Composición completa sobre fondo papel tenue para conservar a todas las personas.",
+    "css": "Marcos de imagen eliminados; cuadrículas sin fondo gris en celdas vacías."
+  },
+  "assets": [
+    {
+      "file": "alekos-panagulis.webp",
+      "alt": "Ilustración editorial de Alekos Panagulis",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "82d09e719265c54e4283df1101fee7a75c3f4460439998901ef935dfc5afd974",
+      "source_sheet": "sheet2",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "berta-caceres.webp",
+      "alt": "Ilustración editorial de Berta Cáceres",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "0cb92ac46b6a6e678930faab84e6a4e720b8fe1ed33d8e2fc39872a12c608811",
+      "source_sheet": "pilot",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "federico-garcia-lorca.webp",
+      "alt": "Ilustración editorial de Federico García Lorca",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "d16f1927c57b5a1963c2a68a34202e9067b5ed676a8468167d8c2ba7b24d222e",
+      "source_sheet": "sheet2",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "fred-hampton.webp",
+      "alt": "Ilustración editorial de Fred Hampton",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "7fa46a10c66490d926fe9ec4470b815803e4248e7ccb7d89c5b15d8e3e7a3c06",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "frei-tito-de-alencar-lima.webp",
+      "alt": "Ilustración editorial de Frei Tito de Alencar Lima",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "01878eaa32b6c31ed46f0148ef0776b48cf6fb27b389e4c38f2f382fbcdaa313",
+      "source_sheet": "sheet2",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "hermanas-mirabal.webp",
+      "alt": "Ilustración editorial de las Hermanas Mirabal",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "27457d1a7ac68992a9e0967e785fc706a87e537c89e1aaadfa049f5bdc03492c",
+      "source_sheet": "pilot",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "hrant-dink.webp",
+      "alt": "Ilustración editorial de Hrant Dink",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "67fbb5576b7a5feecf1c765e3c38b7a9355649eeacb0ff8c77ecc881bab0c75d",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "jamal-khashoggi.webp",
+      "alt": "Ilustración editorial de Jamal Khashoggi",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "c1ac26baf4e63035d4a9fe32cbe2656443a0af8cfdfe9c9dd19fbebe13975c67",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "james-chaney-andrew-goodman-y-michael-schwerner.webp",
+      "alt": "Ilustración editorial de James Chaney, Andrew Goodman y Michael Schwerner",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "5821b729c62e035af23c21d15a07dd628b01094b5b50426ad7660a91bfd05e1a",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "janani-luwum.webp",
+      "alt": "Ilustración editorial de Janani Luwum",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "20d3b11bf14d04321e49a634f4d2cfe05b1c2780a0f3f72ab2f85bf899f4df67",
+      "source_sheet": "sheet2",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "ken-saro-wiwa.webp",
+      "alt": "Ilustración editorial de Ken Saro-Wiwa",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "8a22f194031a12cf67c38bf876e8b9208c7ed6dcb867c0f224bcb726a30d9e48",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "lady-constance-lytton.webp",
+      "alt": "Ilustración editorial de Lady Constance Lytton",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "372005ad9b7c49e077661b214557249b76f94c1da69a9411c11358facbf0b735",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "mehdi-ben-barka.webp",
+      "alt": "Ilustración editorial de Mehdi Ben Barka",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "afe7c1ff07ff6cc3dff9ebe969e697eea1e8872b876695d70a0befd8f7efe804",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "orlando-letelier.webp",
+      "alt": "Ilustración editorial de Orlando Letelier",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "63fb0389af4a69c748b221275438d5fac5632bd28875727b85b1d0625d904739",
+      "source_sheet": "sheet2",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "oscar-romero.webp",
+      "alt": "Ilustración editorial de Óscar Romero",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "ea3d8077a17fc76476e95f870818e5b1bdea48ac3da917e91187f129064224d3",
+      "source_sheet": "sheet2",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "patrice-lumumba.webp",
+      "alt": "Ilustración editorial de Patrice Lumumba",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "44d5f8c081e14a10ebfd372bb1264ebf33394149b8cd19f3b916329125bcb204",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "pierre-seel-y-los-triangulos-rosas.webp",
+      "alt": "Ilustración editorial de Pierre Seel",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "8e69c0fd8fdd28ddc40effc274cd6ebc086c0bbf732d4ab7e0dcaee4f715f16f",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "rachel-corrie.webp",
+      "alt": "Ilustración editorial de Rachel Corrie",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "c9f0b6ff49c57800b66c1c1df3e5f2de43c616b69184d24b9731090f21349b43",
+      "source_sheet": "sheet2",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "religiosas-de-maryknoll.webp",
+      "alt": "Ilustración editorial de las religiosas de Maryknoll",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "fd67d267c74027fa9d969375698964d2a9c941c95300a44d2b1b6244f2cc0511",
+      "source_sheet": "sheet2",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "rodolfo-walsh.webp",
+      "alt": "Ilustración editorial de Rodolfo Walsh",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "0be53f29f27d40c7cf3a7ec3268d0b6ca1c8817c1f27530ce3816c45e7ed69b0",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "rosa-luxemburgo.webp",
+      "alt": "Ilustración editorial de Rosa Luxemburgo",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "62583bfb210e614c2b4520676bda0a5b1791961f1bd52c3d01078c24b6cc0873",
+      "source_sheet": "sheet2",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "ruth-first.webp",
+      "alt": "Ilustración editorial de Ruth First",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "36fae228805793413f938ce7c3761d5cfc2e64463641f81c987f446ed67dcb6d",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "salvador-allende.webp",
+      "alt": "Ilustración editorial de Salvador Allende",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "4c7fd271ec61becd628bdaddf0e0fdc98379627aabe3add4cb4703b11d1b46d4",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "shireen-abu-akleh.webp",
+      "alt": "Ilustración editorial de Shireen Abu Akleh",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "f106c7b8062ddecc78314a841a8e092cf2216d1ff969868d51138051fce1353f",
+      "source_sheet": "sheet2",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "sophie-scholl.webp",
+      "alt": "Ilustración editorial de Sophie Scholl",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "227ef079d837d89c8019531a922fd420aa85bb8724f5b1f8527d730b04e0f902",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "steve-biko.webp",
+      "alt": "Ilustración editorial de Steve Biko",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "d74a061c63a0c6af53fda13bc3ae041662593c3e9519f7c7a6178c91562e869b",
+      "source_sheet": "pilot",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "thomas-sankara.webp",
+      "alt": "Ilustración editorial de Thomas Sankara",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "30359c8f894b4de6b875c609093ff14742024b5b6a84ae9340ed94223cc713ac",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "victor-jara.webp",
+      "alt": "Ilustración editorial de Víctor Jara",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "0bebd80ee2d7730cd0ddf5478f4ce85020868572deb5796b15be1ddb8f2171aa",
+      "source_sheet": "sheet2",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    },
+    {
+      "file": "zahra-kazemi.webp",
+      "alt": "Ilustración editorial de Zahra Kazemi",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "format": "webp",
+      "sha256": "bc1c13e3c481f94ab442d8d9b7c4e6424730ce42ea9bd163be99148112de9a79",
+      "source_sheet": "sheet1",
+      "processing": "Recorte editorial individual, eliminación de bandas y fragmentos laterales, normalización 4:5 y exportación WebP."
+    }
+  ]
+}
