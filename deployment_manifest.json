@@ -1,0 +1,1316 @@
+{
+  "project": "Fundación Radix — Observatorio Radix",
+  "version": "2.1.0",
+  "generated": "2026-07-22",
+  "excluded_files": [
+    "deployment_manifest.json"
+  ],
+  "file_count": 261,
+  "files": [
+    {
+      "path": ".nojekyll",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "404.html",
+      "size_bytes": 1305,
+      "sha256": "cafc5499e978ce5d5bb41b27e9c097ec3ce0a6e0223fb3339691a36d8067d2f3"
+    },
+    {
+      "path": "CAMBIOS.md",
+      "size_bytes": 4511,
+      "sha256": "045e2133d963e96d2a384ef24c3b6f185831b3e2cb90ef9dbd6e3c01699625f1"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 2924,
+      "sha256": "eff11c89b477647bd0ae121dbbd9365e75d03eac0e29ee999c73fc7ab25054d0"
+    },
+    {
+      "path": "VALIDACION_OBSERVATORIO_RADIX.md",
+      "size_bytes": 3060,
+      "sha256": "ac98daf72456c025569afa241c6bed1167219e66c8ef8d5de6bdaaf1f1d1d514"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/biografias.html",
+      "size_bytes": 92330,
+      "sha256": "c679c349537ed6a446f6e5376c8944a135fc315596084d81d0394afe3eb2bdd6"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/criterios.html",
+      "size_bytes": 13416,
+      "sha256": "30bfbd22c8f0a48c0244076a050f9ff5911cec5603f7e882e5cfd2f273883e01"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/data/fuentes.json",
+      "size_bytes": 47055,
+      "sha256": "8322493a7b0cfdfec5b16851a1f460eb7c1febf4b1ff876adc6635865da93759"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/documentos/biografias-v2.md",
+      "size_bytes": 34133,
+      "sha256": "fab8a0af8ea266c48d0ffaf2adf95b95919c6e2a3310382d6de51dd8cfdda71f"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/documentos/criterios-v3.md",
+      "size_bytes": 7448,
+      "sha256": "07ebdad59914c105c85b2b9a23bbae0268dd118965d5508c2052c620bff99377"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/documentos/verificacion-fuentes-v1.md",
+      "size_bytes": 1740,
+      "sha256": "5e1ba81c715a88bd578702524247c9ed37e666c60f778b46de8c143568a41001"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/documentos/verificacion-fuentes-v2.md",
+      "size_bytes": 12258,
+      "sha256": "2417a715a21f643878c8a1f6497e9101eddbc64b700530532378ee99dbf98b55"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/README.md",
+      "size_bytes": 991,
+      "sha256": "03b3a8181ebcd199110e1f643db2fa6f4a5da2ae5a14aae352d15e141b583eb4"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/alekos-panagulis.webp",
+      "size_bytes": 88732,
+      "sha256": "82d09e719265c54e4283df1101fee7a75c3f4460439998901ef935dfc5afd974"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/berta-caceres.webp",
+      "size_bytes": 157586,
+      "sha256": "0cb92ac46b6a6e678930faab84e6a4e720b8fe1ed33d8e2fc39872a12c608811"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/federico-garcia-lorca.webp",
+      "size_bytes": 82592,
+      "sha256": "d16f1927c57b5a1963c2a68a34202e9067b5ed676a8468167d8c2ba7b24d222e"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/fred-hampton.webp",
+      "size_bytes": 121528,
+      "sha256": "7fa46a10c66490d926fe9ec4470b815803e4248e7ccb7d89c5b15d8e3e7a3c06"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/frei-tito-de-alencar-lima.webp",
+      "size_bytes": 94320,
+      "sha256": "01878eaa32b6c31ed46f0148ef0776b48cf6fb27b389e4c38f2f382fbcdaa313"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/hermanas-mirabal.webp",
+      "size_bytes": 85262,
+      "sha256": "27457d1a7ac68992a9e0967e785fc706a87e537c89e1aaadfa049f5bdc03492c"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/hrant-dink.webp",
+      "size_bytes": 120098,
+      "sha256": "67fbb5576b7a5feecf1c765e3c38b7a9355649eeacb0ff8c77ecc881bab0c75d"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/jamal-khashoggi.webp",
+      "size_bytes": 120422,
+      "sha256": "c1ac26baf4e63035d4a9fe32cbe2656443a0af8cfdfe9c9dd19fbebe13975c67"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/james-chaney-andrew-goodman-y-michael-schwerner.webp",
+      "size_bytes": 77018,
+      "sha256": "5821b729c62e035af23c21d15a07dd628b01094b5b50426ad7660a91bfd05e1a"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/janani-luwum.webp",
+      "size_bytes": 91014,
+      "sha256": "20d3b11bf14d04321e49a634f4d2cfe05b1c2780a0f3f72ab2f85bf899f4df67"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/ken-saro-wiwa.webp",
+      "size_bytes": 114276,
+      "sha256": "8a22f194031a12cf67c38bf876e8b9208c7ed6dcb867c0f224bcb726a30d9e48"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/lady-constance-lytton.webp",
+      "size_bytes": 130074,
+      "sha256": "372005ad9b7c49e077661b214557249b76f94c1da69a9411c11358facbf0b735"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/mehdi-ben-barka.webp",
+      "size_bytes": 106058,
+      "sha256": "afe7c1ff07ff6cc3dff9ebe969e697eea1e8872b876695d70a0befd8f7efe804"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/orlando-letelier.webp",
+      "size_bytes": 91020,
+      "sha256": "63fb0389af4a69c748b221275438d5fac5632bd28875727b85b1d0625d904739"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/oscar-romero.webp",
+      "size_bytes": 84194,
+      "sha256": "ea3d8077a17fc76476e95f870818e5b1bdea48ac3da917e91187f129064224d3"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/patrice-lumumba.webp",
+      "size_bytes": 119320,
+      "sha256": "44d5f8c081e14a10ebfd372bb1264ebf33394149b8cd19f3b916329125bcb204"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/pierre-seel-y-los-triangulos-rosas.webp",
+      "size_bytes": 118530,
+      "sha256": "8e69c0fd8fdd28ddc40effc274cd6ebc086c0bbf732d4ab7e0dcaee4f715f16f"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/provenance.json",
+      "size_bytes": 14694,
+      "sha256": "9a3429afc31cbe5c9e7a7e75b8bcea4200639538792fcc7c913ca85371cb3711"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/rachel-corrie.webp",
+      "size_bytes": 99738,
+      "sha256": "c9f0b6ff49c57800b66c1c1df3e5f2de43c616b69184d24b9731090f21349b43"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/religiosas-de-maryknoll.webp",
+      "size_bytes": 63066,
+      "sha256": "fd67d267c74027fa9d969375698964d2a9c941c95300a44d2b1b6244f2cc0511"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/rodolfo-walsh.webp",
+      "size_bytes": 112116,
+      "sha256": "0be53f29f27d40c7cf3a7ec3268d0b6ca1c8817c1f27530ce3816c45e7ed69b0"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/rosa-luxemburgo.webp",
+      "size_bytes": 85258,
+      "sha256": "62583bfb210e614c2b4520676bda0a5b1791961f1bd52c3d01078c24b6cc0873"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/ruth-first.webp",
+      "size_bytes": 126378,
+      "sha256": "36fae228805793413f938ce7c3761d5cfc2e64463641f81c987f446ed67dcb6d"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/salvador-allende.webp",
+      "size_bytes": 119882,
+      "sha256": "4c7fd271ec61becd628bdaddf0e0fdc98379627aabe3add4cb4703b11d1b46d4"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/shireen-abu-akleh.webp",
+      "size_bytes": 85838,
+      "sha256": "f106c7b8062ddecc78314a841a8e092cf2216d1ff969868d51138051fce1353f"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/sophie-scholl.webp",
+      "size_bytes": 125880,
+      "sha256": "227ef079d837d89c8019531a922fd420aa85bb8724f5b1f8527d730b04e0f902"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/steve-biko.webp",
+      "size_bytes": 138818,
+      "sha256": "d74a061c63a0c6af53fda13bc3ae041662593c3e9519f7c7a6178c91562e869b"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/thomas-sankara.webp",
+      "size_bytes": 119710,
+      "sha256": "30359c8f894b4de6b875c609093ff14742024b5b6a84ae9340ed94223cc713ac"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/victor-jara.webp",
+      "size_bytes": 101740,
+      "sha256": "0bebd80ee2d7730cd0ddf5478f4ce85020868572deb5796b15be1ddb8f2171aa"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/imagenes/zahra-kazemi.webp",
+      "size_bytes": 140592,
+      "sha256": "bc1c13e3c481f94ab442d8d9b7c4e6424730ce42ea9bd163be99148112de9a79"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/index.html",
+      "size_bytes": 28222,
+      "sha256": "9b060a3ff17110cfe1bd88f3f5451ebd6272ff39525b2d2a84c223ae137ac5a5"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/js/archive.js",
+      "size_bytes": 1803,
+      "sha256": "5746fcce4f4968aa1ac80c79111eb91a2082799e0750cd7795c184ce0dfa695e"
+    },
+    {
+      "path": "archivo/silenciados-por-el-estado/referencias.html",
+      "size_bytes": 14008,
+      "sha256": "c8a83d59d6dcc5b3f95006981b0ad8eb487a3101f0b01bd8af3dd7f0386e9e5a"
+    },
+    {
+      "path": "arduino_docentes.html",
+      "size_bytes": 8985,
+      "sha256": "55dbb823653a1c1a59ba472364661372b46aa30a942ca8e4118a50a041d68229"
+    },
+    {
+      "path": "area_region.html",
+      "size_bytes": 9993,
+      "sha256": "7a0174f0c434ca49e228c63196df4c3e51fd2790a1130706b73c49f6631ad131"
+    },
+    {
+      "path": "bezier.html",
+      "size_bytes": 9494,
+      "sha256": "a358012edb6e39e6b01f32be9493139aae22f0e0f724ab10cc7bb5da9720702a"
+    },
+    {
+      "path": "cal_RGB_CIELAB.html",
+      "size_bytes": 15936,
+      "sha256": "d7d2bac691079455b5647a8e55f6998dc862e393e0dbb1ab79b691503f0337d3"
+    },
+    {
+      "path": "chryzode.html",
+      "size_bytes": 9151,
+      "sha256": "3fbc591a3cd863bf6848fe7106aa5a63e9de24f7a10bffc50778477ad27ce010"
+    },
+    {
+      "path": "conf_triangular.html",
+      "size_bytes": 8773,
+      "sha256": "5326888c925a408fe9e27a9928ff02d632965cf601d8ebbfadab92c33c8ba1c1"
+    },
+    {
+      "path": "css/archive.css",
+      "size_bytes": 14237,
+      "sha256": "ce81f8b6cb883ca6d9a581a365ca4fef1e14622e662cda38bb32878224fdb0a4"
+    },
+    {
+      "path": "css/course-detail.css",
+      "size_bytes": 3055,
+      "sha256": "9febc3d6bc581aef02807a44d4d00c37c81bc6a5c8e2d515f63e1937138bb675"
+    },
+    {
+      "path": "css/courses.css",
+      "size_bytes": 7242,
+      "sha256": "54670474cf350c6f6433d6d35c0f7bd41b8c6bd535644b81e6e9445821b029e4"
+    },
+    {
+      "path": "css/explorations.css",
+      "size_bytes": 4757,
+      "sha256": "fa4d2711e5eab8577745df5d36a8d61b4039dd68232030cf583e8b6dce134846"
+    },
+    {
+      "path": "css/home.css",
+      "size_bytes": 5665,
+      "sha256": "5e78d1aaabb13e6a56675540e4a061a52d1f5524c0786e89c76eec069d055604"
+    },
+    {
+      "path": "css/opinion.css",
+      "size_bytes": 2768,
+      "sha256": "1f1769d8815e0d18d13b0755ea35d2d72b63ed44342321562db9a6c962a9361e"
+    },
+    {
+      "path": "css/research.css",
+      "size_bytes": 7114,
+      "sha256": "5e6e3237501f796b6bcb33f961d27b47d0e5c6241334df31318e46a7f7edd198"
+    },
+    {
+      "path": "css/style.css",
+      "size_bytes": 24163,
+      "sha256": "217ed13a791982c2bd2df02778b12f5d9ae0f7b9bff907a891683983ee3f6e3b"
+    },
+    {
+      "path": "css/tool-pages.css",
+      "size_bytes": 1999,
+      "sha256": "e71019e3f12dee1fb52a34bc4f24922568a463c1d1101fe9718a7ae73a11e7b6"
+    },
+    {
+      "path": "cursillos_talleres.html",
+      "size_bytes": 9622,
+      "sha256": "3498608467917694c05b3dde3a3a680d12b040675254e0ac54b6d745d91e88f0"
+    },
+    {
+      "path": "datos/homicidios-0-14/README.md",
+      "size_bytes": 899,
+      "sha256": "05b80c645784017c45dc8374da104e76a6a8e537bab1519c0dc2ea1822433f4d"
+    },
+    {
+      "path": "datos/homicidios-0-14/css/styles.css",
+      "size_bytes": 15027,
+      "sha256": "2aed7d0fa7e7b8e52265450bc838169e5cfcab63a1d8e9011ff92c48ea8608b9"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/1030.json",
+      "size_bytes": 1357,
+      "sha256": "55d1dbc560077c493ab33f8cd13bb78d5475752160577441cea830e73c7e7a7d"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/1060.json",
+      "size_bytes": 1847,
+      "sha256": "eacd874af44323857e49f1142fb1ccaec74bf561dfec1015f2ae08a5a25b9147"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/1125.json",
+      "size_bytes": 10636,
+      "sha256": "f570efc67ff02921ecc4f4830807e2bcff4d702d64c84a606ac7ce53e3d6705a"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/1250.json",
+      "size_bytes": 1859,
+      "sha256": "46d9d232bf28a001fe98fb80612b365b1abc59c46f9de90fdbbc1f8e36b85eeb"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/1300.json",
+      "size_bytes": 10633,
+      "sha256": "6b26b65104baf56b537b849d837d2376fc8ca53b1291e8e0fccae3a69dbee869"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/1310.json",
+      "size_bytes": 9167,
+      "sha256": "4a70b4b4803f256ead4e8705f70f71b9f1a95bf21020b739b08c71274ef456dd"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/1365.json",
+      "size_bytes": 3067,
+      "sha256": "a6d2cd6e036cdd7bdd2ab05e55dd7f52d38176315a7c88f7ae982f94a4bd3190"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/1400.json",
+      "size_bytes": 10634,
+      "sha256": "1d653d5db880b44c5c2bec1041fd1f256e06b3e1ab27f39468e43e60d8463a5a"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/1430.json",
+      "size_bytes": 19110,
+      "sha256": "4310805f10a35af7f3f05a15051defaef9b2e0f28174b538f8d0958d7b71bce9"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/1520.json",
+      "size_bytes": 3883,
+      "sha256": "2a7b7bc1c5c4a4cf4fe7d7fb4eef9abbd7b11688cc2e756f01c2fbfa33409d41"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2005.json",
+      "size_bytes": 4767,
+      "sha256": "90efca2c00f42b8ff920e95eb0874eb5cc14a193db3e0c8155e1090b1376250c"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2010.json",
+      "size_bytes": 4540,
+      "sha256": "2b9a4bd067c3371181a46cddd682cdd6815d43d7fda35694c5b5b93e4cd34d0e"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2020.json",
+      "size_bytes": 20581,
+      "sha256": "92951a4f21766c688837f3d5bbe97722e2fd8d1347fe9fc22fd8c182d15768d3"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2025.json",
+      "size_bytes": 10133,
+      "sha256": "b28171a4932c2bfba147b71c5cdacf3ae56344782ee17b913fa49531106903f8"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2030.json",
+      "size_bytes": 9167,
+      "sha256": "c67c2ebf8a7fcbf50cc544e2a2c7def6d091272f039a55334667eefdc873eb21"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2040.json",
+      "size_bytes": 6971,
+      "sha256": "08d3cff4923bd6b0aa43d6335e89e080f520e192e66bc041c40d6d3cee3b2f51"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2045.json",
+      "size_bytes": 13558,
+      "sha256": "9da5f4d6d9b2e88c66e19e171c1c9cb87e5bd5cf2d27ca077e3a601a3f4f637d"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2050.json",
+      "size_bytes": 6475,
+      "sha256": "42ff3197b1e8b1a81828b7208af5f4c58522ea6798ce209b384e7bebaa821e62"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2060.json",
+      "size_bytes": 3394,
+      "sha256": "774e8dbeefda865fb093df38d8a6703ddcb7a7857de8fdda8fba235e1432c941"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2070.json",
+      "size_bytes": 21616,
+      "sha256": "c43b341d95d27e137e6962ee69cf614d6a5852d07d1b85caf6106fb290f1a585"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2085.json",
+      "size_bytes": 4295,
+      "sha256": "aa3931a99df894f4d4835fc10d80e21154d91b83db17b4c06633b3d5343c9014"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2090.json",
+      "size_bytes": 13105,
+      "sha256": "e0fe4844048eae6420e5d85f26e8184beb2ef51e89768d8565b5c99186c29638"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2110.json",
+      "size_bytes": 6725,
+      "sha256": "8631d3643431d94ff1d93fbfdbf0f39c825292004bf2ddc34a6f38417f107788"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2120.json",
+      "size_bytes": 14070,
+      "sha256": "a6ec53a75704339fa7e611418ee1f136d235ee9aed0665b3dc303959a07319d2"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2130.json",
+      "size_bytes": 20615,
+      "sha256": "5fc63504a46abc178864035776de1ea5ada1dc80bb7c9a78e207afeba097f5df"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2140.json",
+      "size_bytes": 14052,
+      "sha256": "d0977ddcd435768cc4b881d0ddd39eac80b090b9be2c68424694973675a11f07"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2150.json",
+      "size_bytes": 12095,
+      "sha256": "53f81b896904a1386bd1d88bf7754bbf5d2db03c21f0c43a0f12d28434a0ccf4"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2160.json",
+      "size_bytes": 7457,
+      "sha256": "6b4bf823126ff621ce0d4a33c84e8af7d4308fce9ed963563bd65a02214151d6"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2170.json",
+      "size_bytes": 18590,
+      "sha256": "bddf3d456e2a3887ad46771656443efeedcfdf65fc3af312c6ed7489fa0dfa7c"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2180.json",
+      "size_bytes": 14584,
+      "sha256": "87fbf9824f8be4e129c63ac4ad538f7dfeee511940c60adb1d128d29a9bb5307"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2190.json",
+      "size_bytes": 11653,
+      "sha256": "9424a53e4200feb3528e7fdfe5054ff0b5dce9c10ae0116b9f894fd33fe74e05"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2230.json",
+      "size_bytes": 6720,
+      "sha256": "d1bbd95a2e66251aa720d4fbcef2cc4132778e116358bac901eff762556b2003"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2250.json",
+      "size_bytes": 10510,
+      "sha256": "dbda10db10efdb13beda4149fdecd037a54888f0f9abcfb357a12ff497fed1b0"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2260.json",
+      "size_bytes": 10630,
+      "sha256": "10c1cbbb49ae2f45051048ea38207372f875b5e41ddb3049a16395c4fee5534d"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2270.json",
+      "size_bytes": 3634,
+      "sha256": "ff2a621e4a4dce8c4b50f685ca51740d6d2b0ca40f012698de56e401954145aa"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2280.json",
+      "size_bytes": 3798,
+      "sha256": "adc0a01416e607805fbc9c3c578a54045b22001e94c2e5957505d847b0cf2865"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2290.json",
+      "size_bytes": 10635,
+      "sha256": "f6368bf8010aa0c33e1018a20f3ff89b3f326cba23e0cbb0cd3efbd8b34d796e"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2310.json",
+      "size_bytes": 20140,
+      "sha256": "c8b4dd092936be2c08f41b5906a510ad02bd73fc8e1dbf32e47738b16a815090"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2320.json",
+      "size_bytes": 2331,
+      "sha256": "71eab7d0a88520d0b31ca04183fe48e3367b73784327927621d83181d34fbfdf"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2330.json",
+      "size_bytes": 6247,
+      "sha256": "407d0c6594cbbc93b6cd92978512605b55233f1fcfb640a458ace9b41806290e"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2340.json",
+      "size_bytes": 13567,
+      "sha256": "4308686d33ced1d07cc59c3ee3154509aebe266043af6cdd10e2a17dce27be66"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2350.json",
+      "size_bytes": 13076,
+      "sha256": "db47cebe9cbcc63dafe3b54016786d7b3c2b282340f503543ab5cd77e492f4a2"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2360.json",
+      "size_bytes": 14385,
+      "sha256": "d67acdc8efdcbea2e686fc19843a7af36c10a668f41bbffc5832f09f53fb9a3b"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2370.json",
+      "size_bytes": 12609,
+      "sha256": "174f31f033ec9c618ef7b168d06a1b7cd16c31b0b6cac1e469630e9cfa28533c"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2380.json",
+      "size_bytes": 11614,
+      "sha256": "64075ff15d1919ee91ef31befc5d1790ba21b8fbf2699829267d2e39f857a4e4"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2385.json",
+      "size_bytes": 8678,
+      "sha256": "deea5d4373551ca69970a73d675c46028d59918134d5259f87d0cf0695e3bd4c"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2400.json",
+      "size_bytes": 11852,
+      "sha256": "e7775e86a7e3c41de2c3fbeb05b07f0c7d0c9c27c7b229962eef35a1da3c8185"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2420.json",
+      "size_bytes": 11381,
+      "sha256": "a99ec8ded6b70388adb28c2db0eea9fb5cad0c06a98884b9536c0e639dc396f0"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2430.json",
+      "size_bytes": 10959,
+      "sha256": "e2f7c1c748b7ccad9c649b87b20133a6b47ae7bfa1bcce71893885c6e6e46aa5"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2440.json",
+      "size_bytes": 11619,
+      "sha256": "d6bfbf3bb5b0764a50d5a9c018c7a6a7f526d54ce6889b6d253647bd820c4b8e"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2445.json",
+      "size_bytes": 6980,
+      "sha256": "92b5969eb3f0deca679041b15ac1dfb5d376dae1acad2355e0aa0624e0efe0e0"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2450.json",
+      "size_bytes": 13515,
+      "sha256": "61a595356b71995cd94594966abeda9eb315dc9408dd844256f346b63ba7e4a2"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2455.json",
+      "size_bytes": 10644,
+      "sha256": "8e05b262266693039088f2e5f97c7f6ed9ddef58c21c00824d23d15825850130"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2460.json",
+      "size_bytes": 15116,
+      "sha256": "0da687d1db9dd45083e6c604b16f02c64ea7948468d9d0ffd9d191f5071ef42d"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/2470.json",
+      "size_bytes": 11175,
+      "sha256": "06806418d0f398f04e8bfffb0b3fc31cbb56f503e4e7647c8ce0a0bd621029aa"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3020.json",
+      "size_bytes": 4525,
+      "sha256": "b171d67241826fbf8568cabe0ba9796fdab499cc416d9e75b085efb3e20f5642"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3030.json",
+      "size_bytes": 11615,
+      "sha256": "13c7aae450cdd989ec83bd294d2878293bd9b8c4a19cba56bc058b6b9e0b2878"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3080.json",
+      "size_bytes": 11116,
+      "sha256": "9569848ecca5c4a7b73ff1483dea1fe84973f803c1123483c0e0370b8b798b47"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3090.json",
+      "size_bytes": 12590,
+      "sha256": "ad8beaa714d147d638a9f1ffc329bb4f7f4c600861ea7ec1185a4b6e7394550e"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3130.json",
+      "size_bytes": 3912,
+      "sha256": "110a567990c750a28d6fea4c0d8798b632dbd6d61202367278bea23c7949da37"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3140.json",
+      "size_bytes": 2339,
+      "sha256": "ab99d8470a4135633b8785d9d2ee56722b86e48ec978a4aad240f60dab62597c"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3150.json",
+      "size_bytes": 13562,
+      "sha256": "5844c93324c0dfc2966f03b5175f1ff53a413b04d5794ef91ad1a0147aef0fc7"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3160.json",
+      "size_bytes": 15073,
+      "sha256": "3168e35deb8fab5fdd467a9dd9b03b79a9f9a622b1b1fe0254029b31d2474309"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3170.json",
+      "size_bytes": 7214,
+      "sha256": "eb24727c1c2e9cccc848dddd2da8823e5131cd1586ec830ef42a3c2cb2403c29"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3190.json",
+      "size_bytes": 14289,
+      "sha256": "02e22fd9a524c710de10947c3c3e5ed9b85d787124da2f3cc658df8d85703a52"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3210.json",
+      "size_bytes": 2575,
+      "sha256": "62bcf500729cf7eb3610ab54e2236f1a2d09047f97c6f01e83074798d6d9005a"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3236.json",
+      "size_bytes": 11122,
+      "sha256": "cb4aca632b61b0ab48f138ff323578d8f38a52b2394af68c74551d1d392053e4"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3255.json",
+      "size_bytes": 5010,
+      "sha256": "805a33f459278b27c0b823e3d0d4db5f54ac07ebe38f929c33d125d198367b82"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3260.json",
+      "size_bytes": 5262,
+      "sha256": "c91439ccea8a617e2c36965725aa7d99dbfbe5ed61ce9e443b07e88e7b142747"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3285.json",
+      "size_bytes": 5255,
+      "sha256": "65c3db07c7bbf0bb1226998c2a612f10a95ea5ff7b788a331203baf88fdb9fa9"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3300.json",
+      "size_bytes": 8728,
+      "sha256": "f25d94cbdb222273d7e4a4292029ad008e4185795dc12df7ea6bd3698d03fe63"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3320.json",
+      "size_bytes": 10625,
+      "sha256": "22f76c850a64f1164557bc3c36537bb7573a7fd4bb1812072df140753364bb0a"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3325.json",
+      "size_bytes": 15091,
+      "sha256": "393598f76a8f76148b7dd998d127af3c84b62565f100f7dcd2b54ee754a47419"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3340.json",
+      "size_bytes": 2828,
+      "sha256": "3f25fd22d3947ef13205c140c92d657649ca8d52446d89b3a231ec2f4f97198f"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3350.json",
+      "size_bytes": 5753,
+      "sha256": "b76d96ad72e484ba2225527ba9aa8b33091a91ac6786774c808bd407beb484c1"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3365.json",
+      "size_bytes": 10155,
+      "sha256": "51910cc27e462d43df4b8bdc3d2dac16e292212ac9d2bb6c51e37298c4df76d8"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3370.json",
+      "size_bytes": 7239,
+      "sha256": "5611cb13de06c918454d2c7dcc7b4ace95b5d72c706fdf81eb45685a9cec0ebf"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3380.json",
+      "size_bytes": 14590,
+      "sha256": "8e4631cd81f8d90ce45bcef2ec75e3e880fbcb51e2dcd98a40cad38cb982b4b7"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3400.json",
+      "size_bytes": 8211,
+      "sha256": "73621ddde475d64b42fb52a5f470585efc4697a963554b9e67d0781152dc251f"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/3405.json",
+      "size_bytes": 2345,
+      "sha256": "61494fd69138ca4e403057e4999de5b0e31d1f33c2099e1637760ed03db5e927"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4007.json",
+      "size_bytes": 10143,
+      "sha256": "b4e8c42373d14b036b2a20612a8b397d195e14ac9dff30a7357ecd97b00ef350"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4010.json",
+      "size_bytes": 12096,
+      "sha256": "69219842c4de93ecbbaa045c02f54dd6b4490659f2785b3caccc9966bc5f23fc"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4012.json",
+      "size_bytes": 3312,
+      "sha256": "732b60bf37b252fcaf9b6816956a88a10d6fbfe717bdd2dcc7353c3dc7de8cb0"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4018.json",
+      "size_bytes": 5751,
+      "sha256": "623e424d71389fbc78ca036bf4866c5b9c242614221c3eac8dc721d2318a78de"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4020.json",
+      "size_bytes": 13080,
+      "sha256": "ca21c6fed959b0d6d78be35e7c0e4d32de982cdd34192309858c0a4e75c941bd"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4025.json",
+      "size_bytes": 2345,
+      "sha256": "7cfeb16e8d473a3e4cf679239fa0a63a94b436a751cf4c98918399c51e0a8666"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4030.json",
+      "size_bytes": 10144,
+      "sha256": "d05e7852a4500799ac77c21888248d7011c22abc2b57747d371ae106d1c219d3"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4038.json",
+      "size_bytes": 14535,
+      "sha256": "583cab0e9da951face59f58531164375b7c96ecdc327c818737a1eac61cbfdc6"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4045.json",
+      "size_bytes": 16009,
+      "sha256": "21dbf5b08c3efe782ef447cd735b1f2a46dddcaf3f42fa72b94ce39f6595dcda"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4050.json",
+      "size_bytes": 15023,
+      "sha256": "c2560af43a26dfce5aa793db20cb7e197ee21adbbd1bf41ff416a065cfd611ab"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4055.json",
+      "size_bytes": 14535,
+      "sha256": "a8622606786a882674c00092e6455e64572bb7f97bac1a4213bb6443e2474bae"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4070.json",
+      "size_bytes": 15023,
+      "sha256": "33dd03ab6344f493ab96c0f5015571039d6c9c20db093b25d86e7c552674d30f"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4080.json",
+      "size_bytes": 12629,
+      "sha256": "6817fb0eedd7158aadcc0c888d6cff7229a71d088e6dccd78e3b9d62d413d8e9"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4084.json",
+      "size_bytes": 12095,
+      "sha256": "9a54a0da9cab8495114f06f141b3aca318ec67f459f9fc4001baec305985595e"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4085.json",
+      "size_bytes": 12139,
+      "sha256": "ebf743fcff35ae9160771ab001509dfadbe64e7c66fc7a924cff1ac585bf892f"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4140.json",
+      "size_bytes": 5260,
+      "sha256": "de291ea7cbac9af94748f5870898cb2d75b929840528e93d081b8f1ff6305293"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4150.json",
+      "size_bytes": 15031,
+      "sha256": "d6dd1bc8adc1f1850937ffa7a011dffaef4228f6597455f308a8f26784edafd9"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4160.json",
+      "size_bytes": 9161,
+      "sha256": "1bcecb1520d4903a823c0326bd83af8fba6dbdfd2a370c38935965a38be41ed6"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4170.json",
+      "size_bytes": 8679,
+      "sha256": "b780b0e7134c7a05987db598322d77e3913145b4067002f82334e79766387cc4"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4180.json",
+      "size_bytes": 11122,
+      "sha256": "cacf3e8fb21c7776aede6338559a4840322b1344bfce58c073a258ececf2370c"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4182.json",
+      "size_bytes": 11143,
+      "sha256": "98328850993c71b5e1885de3048892fb35d0b2993ddebdb632b9c036667c5e91"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4184.json",
+      "size_bytes": 12586,
+      "sha256": "4006fe2c8bcfb900eb052b16a651042b1f768322a5b49ea4659b00ac1a1e499f"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4186.json",
+      "size_bytes": 15023,
+      "sha256": "ee483cbea99644d6332563ff9762977f02a0e0ceeb7e30af6396895a94e3f15e"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4188.json",
+      "size_bytes": 14049,
+      "sha256": "daede1c58da64ce854306518c817d9ab33578d614746bdf56ebef315916c436c"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4190.json",
+      "size_bytes": 12341,
+      "sha256": "d567e27b936747b05d8e797973221a6c4267ce503885f55dcb4a054b0bfd04c0"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4195.json",
+      "size_bytes": 9663,
+      "sha256": "e18f0cb08092597f9ca9a2b37f875ed77d10f0e978e617c37aa478ce3084c31b"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4200.json",
+      "size_bytes": 12089,
+      "sha256": "5bfe619703ca9ce1551095338f27840ecd4bd17772b67b1d6a075b8a52b82f81"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4207.json",
+      "size_bytes": 3555,
+      "sha256": "605d52bb02d8006a16ff8253119d6fea84906b2c2af306edeeeaf10ac7de46d9"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4210.json",
+      "size_bytes": 15037,
+      "sha256": "8fd59abf480e68c5a754e3f56c7b5a40b79ddb5ca9b8c803a3a411e586b41627"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4220.json",
+      "size_bytes": 11118,
+      "sha256": "6d9bdde59c473d54a642d6854f664bd1efa9f07de5d4fadaa7b3251c5bf07366"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4230.json",
+      "size_bytes": 13572,
+      "sha256": "cded4f887b93316c5926fdc5cad101fd227f714ab88ba6fd84e61bbcd3d663a6"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4240.json",
+      "size_bytes": 8680,
+      "sha256": "68d6ceb44ff30706a893c116aa4fd3e32eaf94648e5a404ce3babe4513e6183d"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4260.json",
+      "size_bytes": 14550,
+      "sha256": "9fadd95218ea445c721f0f7884b70f8b579388d21b33cfbd6dc8e95b63e44d41"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4270.json",
+      "size_bytes": 13087,
+      "sha256": "a07767959f7c72aae6e5be4306035fa86522d6b589061b5882f33df545bf1adb"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4272.json",
+      "size_bytes": 11195,
+      "sha256": "7f2f1c32c054b896e9e2770f9ef937f3ead2fc98b25f059beb59d1962ee3dc3a"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4273.json",
+      "size_bytes": 14046,
+      "sha256": "22d850a3383dad99c573975f6d3c0bfa56d1dba746862e487d4b6fa6497a9d67"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4274.json",
+      "size_bytes": 14048,
+      "sha256": "0bee36616919641a9b43d13ae7fed48d52271787633523f52babf5855a5eaee7"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4276.json",
+      "size_bytes": 14536,
+      "sha256": "0a83453fe3e9fcb674d6ab30a4018f2086c5cb34cd669d82826e9fb984870134"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4280.json",
+      "size_bytes": 13564,
+      "sha256": "8d6a2f21a39dd0035e186329eed07261bff08e0eac214b25b9c2e3650a18e003"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4290.json",
+      "size_bytes": 14534,
+      "sha256": "e9fb951a3c8857240ab520c0d69d897733ad4063e122194c6808235e28b3659f"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4300.json",
+      "size_bytes": 15027,
+      "sha256": "f0d30c9d3cd360b9f1eed3365660db88d872445c62a72969aefd8b358ad8407b"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4301.json",
+      "size_bytes": 4288,
+      "sha256": "f5854613d6b76ac9a027a6b917364b077583266af7db72719496304cd35213b2"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4302.json",
+      "size_bytes": 9172,
+      "sha256": "70b291c93794ee86b3f6b9c647085eb607fd564790108ee4acf56e7244cfb25c"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4303.json",
+      "size_bytes": 7239,
+      "sha256": "3bee637475a238eeec3da5c43aa8a99473906464e569035fe04a6680bd90e871"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4308.json",
+      "size_bytes": 12602,
+      "sha256": "fc0d7f9fc5a8c81a89802ea29fd23cf338200d88a352e98661a5d430bf707db6"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4310.json",
+      "size_bytes": 12616,
+      "sha256": "a3cd3de1ce35e99d8d2bc8c2241661595caf262aa7ad5cad424ae5dae40d9989"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4320.json",
+      "size_bytes": 12608,
+      "sha256": "2b4e16b3f355cca3192deb2f612658a8f03234a005a0e787fae81befebd0ca20"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4330.json",
+      "size_bytes": 13088,
+      "sha256": "240dac30b0cdeed9eb4273e54edd0f6663135f3feebaa95242a16eb87a42663d"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4335.json",
+      "size_bytes": 9665,
+      "sha256": "abb187d1dedb346f3f71432a8e22257aaf36e6a03723313b18a73ec131984a7a"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/4350.json",
+      "size_bytes": 3819,
+      "sha256": "8bb186302480f08590f58731c3db832dc6796fc26a1fadd75d4f203a56ada72a"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/5020.json",
+      "size_bytes": 13587,
+      "sha256": "fed910d2bd41bf9a922e2db11cf963450895b9cd1fd15c6ed650473cc623a555"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/5060.json",
+      "size_bytes": 1037,
+      "sha256": "745ef08f33edb737c43bc864d9e04bc8d7e38aa882b99a78a4ac12d90e59310f"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/5070.json",
+      "size_bytes": 6479,
+      "sha256": "6b5db8f77fed3b02ae2ded5db5bd6548021eb3d91845c1380188f0643fccc6cb"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/5105.json",
+      "size_bytes": 1276,
+      "sha256": "7e2e5315ca87fc47bd0a2785a4e8a8580cfb4b3bd3c314f66ab24ab3208fc0f8"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/5108.json",
+      "size_bytes": 2353,
+      "sha256": "c219edb16fa5c287d10c1d793cea1160591c8705d4fca58a63af5e0bdd111537"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/5150.json",
+      "size_bytes": 11123,
+      "sha256": "64bed2fe97232f652a251644bacef3224f1b377f549bab37d16e8c958d6f52f7"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/5195.json",
+      "size_bytes": 1365,
+      "sha256": "b4a5dd09f02a1df181fa09e926eddad37f68aeb0724fed02e0893a5400c7dab3"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/countries/5198.json",
+      "size_bytes": 1040,
+      "sha256": "82daaeb8ae767bbc738c3692c9ee3417ecacae360f41df82b224c55917fd6a5c"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/embedded-data.js",
+      "size_bytes": 1421730,
+      "sha256": "ad7fbd8ad7953f3b7d125f45cb8c612c721323dd13a44bb818d53eb58a2cc0c3"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/index.json",
+      "size_bytes": 42186,
+      "sha256": "fef5bd77d77876e1d6b96b808306bce06d69949972c4367393f4f4da8cf2efdf"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/methodology.json",
+      "size_bytes": 1892,
+      "sha256": "f2692a50dc2629ad2111be3a3337be2c35b1745ac2e097012c5d690ee7d04371"
+    },
+    {
+      "path": "datos/homicidios-0-14/data/provenance.json",
+      "size_bytes": 639,
+      "sha256": "91a07c8e5fa185a47f6424efef57e7a606ed8756fbbb258bae44725b00c85305"
+    },
+    {
+      "path": "datos/homicidios-0-14/index.html",
+      "size_bytes": 11794,
+      "sha256": "b2d0eef91e5c07f3087f7c2e65a3a1dcd006a9b36674a833285f04741f357efb"
+    },
+    {
+      "path": "datos/homicidios-0-14/js/app.js",
+      "size_bytes": 46329,
+      "sha256": "b76ad5097aa4f6bf66b1094d32883dcbf9dd3e0c7e9bb2b138f70ca6ac004833"
+    },
+    {
+      "path": "datos/homicidios-0-14/manifest.json",
+      "size_bytes": 23604,
+      "sha256": "3c6f4047937e5ffc7c111660e66e9d91891c8a509ec48fc3df65367bdf4bd22f"
+    },
+    {
+      "path": "docs/RadixEdu_Act_GUIA_DOCENTE.pdf",
+      "size_bytes": 190661,
+      "sha256": "dbb0d6e0b0fb3c2cf469c023304fbad36b247de177c9cbd4c2f31805256c9d96"
+    },
+    {
+      "path": "docs/RadixEdu_Act_GUIA_GENERAL.pdf",
+      "size_bytes": 218544,
+      "sha256": "71b54e9af832902bb77d71421810e26b9b1c5f97237318b235ee28f981c8b8ca"
+    },
+    {
+      "path": "flor.html",
+      "size_bytes": 24555,
+      "sha256": "bb0da72ee11fe8bfd97e8cfe25ae0840cf3ffde73783416e3ea2fd28f41860ed"
+    },
+    {
+      "path": "imagenes/archivo/CHIA.png",
+      "size_bytes": 218095,
+      "sha256": "e8dc431f8eafdf556750a92eaaa778171062b5bc4e1875e5493d57a0d1241cac"
+    },
+    {
+      "path": "imagenes/archivo/RADIX_ART.png",
+      "size_bytes": 167026,
+      "sha256": "6295073453ce2e22bc027d9559417d371ed81a6cf6021c67cd0c1bd2a4c09331"
+    },
+    {
+      "path": "imagenes/archivo/RADIX_EDU.png",
+      "size_bytes": 69891,
+      "sha256": "b410616ebdf77afaf4e6ec549937ad257f148a3daee853a825f1aed0c15132e4"
+    },
+    {
+      "path": "imagenes/archivo/RADIX_LAB.png",
+      "size_bytes": 73764,
+      "sha256": "64b37c6a3fe6f6ac4626fedfbba859a2c26c3312acaaa2d493e687686c0f1c2a"
+    },
+    {
+      "path": "imagenes/archivo/RADIX_LOGO.png",
+      "size_bytes": 64023,
+      "sha256": "bab2f6c6846e5ea46bcd21d8258c74429d9bc7948db6907229daec63e1daed06"
+    },
+    {
+      "path": "imagenes/archivo/foto.jpg",
+      "size_bytes": 241541,
+      "sha256": "216ce2553f388516f42360d9381fab132271902b4b751df505d684a8790a9c9b"
+    },
+    {
+      "path": "imagenes/archivo/img_ART.jpg",
+      "size_bytes": 87949,
+      "sha256": "764ea0b378dece92113bf31d25444acaa66a7b7b38b2b82394f1bce16386caf6"
+    },
+    {
+      "path": "imagenes/archivo/img_EDU.jpg",
+      "size_bytes": 229092,
+      "sha256": "3cda70a6f9a3c07ff0297b56c5768c2ec4dad03cc3db1a1eb04df61259410265"
+    },
+    {
+      "path": "imagenes/archivo/img_LAB.jpg",
+      "size_bytes": 645225,
+      "sha256": "f68b9e8615b8f14193f239606e8d4c2a846416d8de9b604330b8f7cd87c0f0ab"
+    },
+    {
+      "path": "imagenes/archivo/posterv1.png",
+      "size_bytes": 57080,
+      "sha256": "1884f474d2b94e361256467f3ecb0e65eec21f5423f8008629b6a5da640c7e4d"
+    },
+    {
+      "path": "imagenes/archivo/posterv2.png",
+      "size_bytes": 676848,
+      "sha256": "91c7d8380a859f65288984eea475ac72d05ffcd82913080a6d2160719b1455bb"
+    },
+    {
+      "path": "imagenes/favicon-16x16.png",
+      "size_bytes": 408,
+      "sha256": "9eb4e1a2dd71a478d4d45f92c3cd2777f41efbbbe1c468dba949f83ef5483c49"
+    },
+    {
+      "path": "imagenes/favicon-32x32.png",
+      "size_bytes": 1090,
+      "sha256": "7892d87860905077df77e19b17fd341b2cb367a169b4e34458702b867f1782f3"
+    },
+    {
+      "path": "imagenes/favicon-64x64.png",
+      "size_bytes": 3024,
+      "sha256": "a7b87c87dfd52877e295dba483abf909294193df433dd0177a29fc1d65828eb6"
+    },
+    {
+      "path": "imagenes/favicon.ico",
+      "size_bytes": 4063,
+      "sha256": "4826ac26e44cbb364113323b5b397e95117ed4a3cfbc76042ea8080745e00c97"
+    },
+    {
+      "path": "imagenes/favicon.svg",
+      "size_bytes": 111,
+      "sha256": "b2fdecd93bfa9b0700a62f5d3d11abd997381314cf91b71a9716dcf13fe16997"
+    },
+    {
+      "path": "index.html",
+      "size_bytes": 8589,
+      "sha256": "beb6c919cc169f72818ce2efd72d8a636e79b42e1aade438a98b5be053971864"
+    },
+    {
+      "path": "investigacion.html",
+      "size_bytes": 10673,
+      "sha256": "42d0427172c616d113bed99271c42d5d0b536c5f18f64229931f1ee252cdf5e0"
+    },
+    {
+      "path": "js/app.js",
+      "size_bytes": 11478,
+      "sha256": "4a942fdbde0bd8b78a28e1ec7aa484466c7a5697efc30dfac15a056dec1ec6b6"
+    },
+    {
+      "path": "js/bezier.js",
+      "size_bytes": 6501,
+      "sha256": "4a9fb9895d1f76ebe079bce3bc001f768cfd0864ef07e8d6ed19fc9ad71c349c"
+    },
+    {
+      "path": "js/cal_rgb_cielab.js",
+      "size_bytes": 6726,
+      "sha256": "1d5188bdbfb7e37818903ce1cac646afcc665f8aeb4facbdb9fd599ec79a3b3c"
+    },
+    {
+      "path": "js/chryzode.js",
+      "size_bytes": 9107,
+      "sha256": "4b09385e4c8dcb81a3983cd11f3d8ae02d5891600301c093a2e1d62b30c5f346"
+    },
+    {
+      "path": "js/courses-boids.js",
+      "size_bytes": 11612,
+      "sha256": "3472548b23191df8685b420a88a7df3c7de76b370b7890c2af814ad41b187447"
+    },
+    {
+      "path": "js/explorations-field.js",
+      "size_bytes": 15162,
+      "sha256": "1ee6946e2d2a0dea72f69204f294dfcbdef9cbb1f69984bf4e7b23846a61fea2"
+    },
+    {
+      "path": "js/gielis.js",
+      "size_bytes": 8739,
+      "sha256": "e56510d2963662c738aca3467c1b64f2f09dba42de2dddc928df07809c24cc98"
+    },
+    {
+      "path": "js/home-growth.js",
+      "size_bytes": 13517,
+      "sha256": "587677e9b0d870554f8767592cff84ce23085dc5f47afc8a55de934b76dcd14b"
+    },
+    {
+      "path": "js/life.js",
+      "size_bytes": 9922,
+      "sha256": "d638a28d0147fbf0e1f5e9521ba6d9aa6972a0a183e75a9cd288df3c12738471"
+    },
+    {
+      "path": "js/lsystem-radix.js",
+      "size_bytes": 5716,
+      "sha256": "3c500b1090347d75a529a5ea43a8adc2b5f5d5e443f583a83a7f3f8c128bccc3"
+    },
+    {
+      "path": "js/plane_grid.js",
+      "size_bytes": 8275,
+      "sha256": "0c40b7967e2e150b9ed68b67cec763ced267fe2f0a972691573c8fd1ea9a6e68"
+    },
+    {
+      "path": "js/triangulo.js",
+      "size_bytes": 8710,
+      "sha256": "c1a4a8d6257e8a215897fe62c84d45097fd961eb2cd2152a9f5674cc2fd935a9"
+    },
+    {
+      "path": "js/voronoi.js",
+      "size_bytes": 5461,
+      "sha256": "d89a0dee8a49c66d97734566a35ced85ce1c8c61dec885180859906f13f7d57f"
+    },
+    {
+      "path": "juego_vida.html",
+      "size_bytes": 12752,
+      "sha256": "91cae0b64383ed834a3b511f534f5c79581b13cb6ad34782a2d6b305db900af4"
+    },
+    {
+      "path": "l_system.html",
+      "size_bytes": 8535,
+      "sha256": "82a53bf3b2c10db2e6608d805b81435268e71c32913a2a86c553ce9095c21474"
+    },
+    {
+      "path": "openscad_docentes.html",
+      "size_bytes": 8923,
+      "sha256": "8e0cb059d154066747f314c6676df9b1c7c51ea3ab0fcef32d97f331ed15c13c"
+    },
+    {
+      "path": "opinion/articles.json",
+      "size_bytes": 549,
+      "sha256": "4ef3ba0560d47fdad5ca6e3fb8c20ae070ac83d902eab102a1a149b85282c003"
+    },
+    {
+      "path": "opinion/con_mat.html",
+      "size_bytes": 2451,
+      "sha256": "9b285fc1d27f7441b202fda8d34ebb6de2550c46fb3feccb04510fba017387e0"
+    },
+    {
+      "path": "opinion/edu_bambalinas.html",
+      "size_bytes": 5851,
+      "sha256": "7242e8e7552cd17d53eb06353006d60e7f88e71302cc984242ad1205f4bfa253"
+    },
+    {
+      "path": "opinion/esp_digital.html",
+      "size_bytes": 9722,
+      "sha256": "9ca4f08ee7b15d419fabf1a7b7efbb24fb40b6fc9a2b6fb71ad6ba8d008bb5c0"
+    },
+    {
+      "path": "opinion/imagenes/graf_rot.png",
+      "size_bytes": 15886,
+      "sha256": "24aba57ec180726ed660fa1a75f68608919681001d82411dbd873db3480031e7"
+    },
+    {
+      "path": "opinion/rot_angular.html",
+      "size_bytes": 7205,
+      "sha256": "10936af117a5721f9a31814412a0ae974fc64645aaa028ed1edb041bcbc88a26"
+    },
+    {
+      "path": "opinion/soc_edu.html",
+      "size_bytes": 2554,
+      "sha256": "270fa9a201403b5e35a2bda37b7ae7ff438cab37c45b4637a38fa06d3b1e3396"
+    },
+    {
+      "path": "opinion.html",
+      "size_bytes": 6493,
+      "sha256": "d91101a847eb3f7d8e5bf1c2628b4b89ac620966b9f39ca77671001503e17acd"
+    },
+    {
+      "path": "pag_gielis.html",
+      "size_bytes": 10604,
+      "sha256": "42389571b5bd3bc8354d865ebd4368a8c952db7ff7b38e887b7ac0a83bc5be4b"
+    },
+    {
+      "path": "preview.png",
+      "size_bytes": 64023,
+      "sha256": "bab2f6c6846e5ea46bcd21d8258c74429d9bc7948db6907229daec63e1daed06"
+    },
+    {
+      "path": "robots.txt",
+      "size_bytes": 76,
+      "sha256": "016c17ab519786bd80f245ee3ad49b90c3b259b69ee7a85d7bddfd2ec86b540e"
+    },
+    {
+      "path": "rostro_arena.html",
+      "size_bytes": 14665,
+      "sha256": "f811a0256767158ca022ff430beac5750ea1aefd62714be5a3f3fcd4f26536b8"
+    },
+    {
+      "path": "scripts.html",
+      "size_bytes": 9587,
+      "sha256": "f296e2701286310a800cc0759f56c24f282ac62edd058f436c9d898269a21a18"
+    },
+    {
+      "path": "sitemap.xml",
+      "size_bytes": 1629,
+      "sha256": "c11a5c8a9725afaa4e0a64cf988a34050ce29eab809f07d815955098f8bc51cf"
+    },
+    {
+      "path": "voronoi.html",
+      "size_bytes": 11170,
+      "sha256": "73422acbca72f01b6e1856e99525caec639eefe6b976635d1347d7cce9b0234e"
+    }
+  ]
+}

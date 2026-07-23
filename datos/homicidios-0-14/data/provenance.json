@@ -1,0 +1,11 @@
+{
+  "source_file": "contenedor_radix_datos_v1_0_20260722_163107.zip",
+  "source_zip_sha256": "618cdffbe56c82606724f5958beea1abbf5ed8a453202f2cfa03a52e60a1ad0e",
+  "source_member": "contenedor_radix_datos_v1_0/staging/who_homicide_0_14.csv",
+  "source_member_sha256": "62093c6c0edb75098563badb7d51695a3c8da8f282f8ee06e5769fa9c42118c3",
+  "container_manifest_member": "contenedor_radix_datos_v1_0/manifest.json",
+  "container_manifest_sha256": "d414c5a4877daf45de3b5664ef24cf6d4cbd3a0e20c3a740a772fe04b6ab55a2",
+  "container_id": "radix_data_container",
+  "container_version": "1.0.0",
+  "generated_utc": "2026-07-22T18:33:09.435151+00:00"
+}

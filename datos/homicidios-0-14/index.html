@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="noindex,follow" name="robots"/>
+<meta content="Consulta y comparación preliminar de homicidios registrados de personas de 0 a 14 años por país, año y sexo." name="description"/>
+<link href="https://www.fundacionradix.org/datos/homicidios-0-14/" rel="canonical"/>
+<meta content="es_CO" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Fundación Radix" property="og:site_name"/>
+<meta content="Homicidios registrados de niñas y niños de 0 a 14 años | Observatorio Radix" property="og:title"/>
+<meta content="Consulta y comparación de registros nacionales de homicidios de niñas y niños de 0 a 14 años a partir de la WHO Mortality Database." property="og:description"/>
+<meta content="https://www.fundacionradix.org/datos/homicidios-0-14/" property="og:url"/>
+<meta content="https://www.fundacionradix.org/preview.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Homicidios registrados de niñas y niños de 0 a 14 años | Observatorio Radix" name="twitter:title"/>
+<meta content="Consulta y comparación de registros nacionales de homicidios de niñas y niños de 0 a 14 años a partir de la WHO Mortality Database." name="twitter:description"/>
+<link href="../../imagenes/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../../imagenes/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="#F4F1E8" name="theme-color"/>
+<title>
+  Homicidios registrados de niñas y niños de 0 a 14 años | Observatorio Radix
+</title>
+<link href="./css/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#consulta">Saltar a la consulta</a>
+<header class="site-header">
+<div class="brand">
+<span aria-hidden="true" class="brand-mark">R</span>
+<div>
+<p class="eyebrow">Fundación Radix</p>
+<p class="brand-name">Observatorio Radix</p>
+</div>
+</div>
+<div class="header-actions">
+<a class="portal-link" href="../../investigacion.html">Observatorio Radix</a>
+<a class="portal-link portal-link-home" href="../../index.html">Portal Radix</a>
+<span class="preview-badge">Vista preliminar</span>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="hero-copy">
+<p class="eyebrow">Violencia e infancia</p>
+<h1>Homicidios registrados de niñas y niños de 0 a 14 años</h1>
+<p class="lead">
+              Consulta o compara series nacionales por país, año y sexo registrado
+              a partir de la WHO Mortality Database. Los registros subnacionales
+              están excluidos.
+        </p>
+</div>
+<aside aria-label="Alcance de la serie" class="scope-card">
+<p class="scope-label">Alcance</p>
+<strong>Serie parcial 0–14</strong>
+<p>
+          No representa a todas las personas menores de 18 años y no constituye
+          un total mundial.
+        </p>
+</aside>
+</section>
+<section aria-labelledby="notice-title" class="notice">
+<div aria-hidden="true" class="notice-icon">i</div>
+<div>
+<h2 id="notice-title">Cómo debe leerse esta consulta</h2>
+<p>
+          Cada cifra corresponde a una observación nacional registrada por sexo
+          y año. «Ambos» muestra femenino y masculino como series separadas. «Total
+          integrado» suma únicamente femenino y masculino cuando ambos registros
+          existen en el mismo año; no interpola ausencias ni incorpora la categoría
+          de sexo desconocido.
+        </p>
+</div>
+</section>
+<section aria-labelledby="comparison-notice-title" class="comparison-notice">
+<div>
+<p class="eyebrow">Comparación responsable</p>
+<h2 id="comparison-notice-title">La comparación muestra conteos, no tasas</h2>
+</div>
+<p>
+        Dos países pueden tener poblaciones infantiles muy diferentes. La vista
+        comparativa permite contrastar los registros disponibles, pero no mide
+        por sí sola el riesgo relativo entre países.
+      </p>
+</section>
+<section aria-labelledby="query-title" class="query-panel" id="consulta">
+<div class="section-heading">
+<div>
+<p class="eyebrow">Consulta</p>
+<h2 id="query-title">Seleccione el modo de exploración</h2>
+</div>
+<p aria-live="polite" class="dataset-status" id="dataset-status">
+          Cargando índice de datos…
+        </p>
+</div>
+<fieldset class="mode-selector">
+<legend>Modo</legend>
+<label class="mode-option">
+<input checked="" name="query-mode" type="radio" value="single"/>
+<span>
+<strong>Un país</strong>
+<small>Consultar una serie nacional.</small>
+</span>
+</label>
+<label class="mode-option">
+<input name="query-mode" type="radio" value="compare"/>
+<span>
+<strong>Comparar dos países</strong>
+<small>Contrastar dos series sin sumarlas.</small>
+</span>
+</label>
+</fieldset>
+<div class="country-panels">
+<section aria-labelledby="country-a-title" class="country-panel country-panel-primary">
+<div class="country-panel-heading">
+<span aria-hidden="true" class="series-swatch series-swatch-primary"></span>
+<h3 id="country-a-title">País A</h3>
+</div>
+<div class="country-controls">
+<div class="field">
+<label for="country-search">Buscar país o territorio</label>
+<input autocomplete="off" id="country-search" placeholder="Escriba para filtrar la lista" type="search"/>
+</div>
+<div class="field">
+<label for="country-select">País o territorio</label>
+<select disabled="" id="country-select">
+<option value="">Seleccione una opción</option>
+</select>
+<p class="field-note">El nombre se conserva según la fuente WHO.</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="country-b-title" class="country-panel country-panel-secondary" hidden="" id="comparison-country-panel">
+<div class="country-panel-heading">
+<span aria-hidden="true" class="series-swatch series-swatch-secondary"></span>
+<h3 id="country-b-title">País B</h3>
+</div>
+<div class="country-controls">
+<div class="field">
+<label for="country-search-2">Buscar segundo país o territorio</label>
+<input autocomplete="off" id="country-search-2" placeholder="Escriba para filtrar la lista" type="search"/>
+</div>
+<div class="field">
+<label for="country-select-2">Segundo país o territorio</label>
+<select disabled="" id="country-select-2">
+<option value="">Seleccione una opción</option>
+</select>
+<p class="field-note">Debe ser diferente del país A.</p>
+</div>
+</div>
+</section>
+</div>
+<div class="controls controls-shared">
+<div class="field">
+<label for="sex-select">Sexo registrado</label>
+<select disabled="" id="sex-select">
+<option value="">Seleccione</option>
+</select>
+<p class="field-note">
+            La fuente WHO registra sexo. «Ambos» conserva dos series. «Total
+            integrado» calcula F + M solo en años con ambos componentes y excluye
+            la categoría de sexo desconocido.
+          </p>
+</div>
+<div class="field">
+<label for="year-from">Desde</label>
+<select disabled="" id="year-from"></select>
+</div>
+<div class="field">
+<label for="year-to">Hasta</label>
+<select disabled="" id="year-to"></select>
+</div>
+</div>
+<p class="form-message" hidden="" id="comparison-error" role="alert"></p>
+</section>
+<section class="results" hidden="" id="results">
+<div class="result-header">
+<div>
+<p class="eyebrow">Resultado</p>
+<h2 id="result-title">País seleccionado</h2>
+<p class="result-subtitle" id="result-subtitle"></p>
+</div>
+<button class="button-secondary" id="download-button" type="button">
+          Descargar selección en CSV
+        </button>
+</div>
+<div aria-label="Resumen de cobertura" class="metric-grid">
+<article class="metric-card">
+<span class="metric-label" id="metric-label-period">Periodo seleccionado</span>
+<strong id="metric-period">—</strong>
+</article>
+<article class="metric-card">
+<span class="metric-label" id="metric-label-observed">Años observados</span>
+<strong id="metric-observed">—</strong>
+</article>
+<article class="metric-card">
+<span class="metric-label" id="metric-label-latest">Último registro</span>
+<strong id="metric-latest">—</strong>
+</article>
+<article class="metric-card">
+<span class="metric-label" id="metric-label-missing">Años sin observación</span>
+<strong id="metric-missing">—</strong>
+</article>
+</div>
+<article class="chart-card">
+<div class="chart-heading">
+<div>
+<h3 id="chart-heading-title">Serie anual seleccionada</h3>
+<p>
+              El color distingue países. En «Ambos», la línea continua representa
+              femenino y la discontinua, masculino. En «Total integrado», cada línea
+              representa la suma derivada F + M. Las interrupciones indican años sin
+              observación completa.
+            </p>
+</div>
+<span class="unit-label" id="chart-unit">Defunciones registradas</span>
+</div>
+<div aria-label="Leyenda del gráfico" class="chart-legend" hidden="" id="chart-legend"></div>
+<div class="empty-state" hidden="" id="chart-empty">
+          No hay observaciones para la combinación seleccionada.
+        </div>
+<svg aria-labelledby="chart-title chart-description" class="series-chart" id="series-chart" role="img" viewbox="0 0 960 380">
+<title id="chart-title">Serie anual de homicidios registrados</title>
+<desc id="chart-description">
+            Gráfico de líneas para el país, sexo y periodo seleccionados.
+          </desc>
+</svg>
+</article>
+<article class="table-card">
+<div class="table-heading">
+<div>
+<h3>Observaciones</h3>
+<p id="table-caption">Registros disponibles en el rango.</p>
+</div>
+</div>
+<div class="table-wrap">
+<table>
+<thead id="records-head"></thead>
+<tbody id="records-body"></tbody>
+</table>
+</div>
+</article>
+</section>
+<section class="methodology">
+<details>
+<summary>Metodología y límites de interpretación</summary>
+<div class="methodology-content">
+<div>
+<h2>Qué contiene</h2>
+<p>
+              Registros nacionales de homicidio intencional, códigos ICD-10
+              X85–Y09, para personas de 0 a 14 años. La unidad es el número de
+              defunciones registradas.
+            </p>
+</div>
+<div>
+<h2>Qué no contiene</h2>
+<p>
+              No incluye una estimación de las edades 15–17, no ajusta por
+              subregistro, no mezcla registros nacionales y subnacionales, no
+              calcula tasas poblacionales y no produce un total mundial. El total
+              integrado es una suma derivada en la interfaz, no una nueva observación
+              de la fuente.
+            </p>
+</div>
+<div>
+<h2>Sexo y categorías</h2>
+<p>
+              Se utiliza «sexo» porque esa es la variable de la WHO Mortality
+              Database. La interfaz ofrece Femenino, Masculino, Ambos y Total
+              integrado. «Ambos» conserva dos series independientes. «Total
+              integrado» suma F + M solo cuando los dos registros existen en el mismo
+              año. Los registros de sexo desconocido permanecen en la fuente, pero no
+              se incluyen en ninguna de esas dos opciones derivadas.
+            </p>
+</div>
+<div>
+<h2>Procedencia</h2>
+<p>
+              WHO Mortality Database; auditoría Radix
+              <code>who_mortality_v1_2_2</code>; colector
+              <code>1.0.2</code>; contenedor <code>1.0.0</code>.
+            </p>
+</div>
+</div>
+</details>
+</section>
+</main>
+<footer>
+<div>
+<p><strong>Fundación Radix · Arte, Ciencia y Educación</strong></p>
+<nav aria-label="Navegación del observatorio" class="footer-links">
+<a href="../../investigacion.html">Observatorio Radix</a>
+<a href="../../index.html">Portal Radix</a>
+</nav>
+</div>
+<p>
+      Vista preliminar. No corresponde al indicador público de muertes
+      violentas de menores de 18 años.
+    </p>
+</footer>
+<noscript>
+    Esta consulta necesita JavaScript para cargar los archivos de datos.
+  </noscript>
+<script src="./data/embedded-data.js"></script>
+<script defer="" src="./js/app.js"></script>
+</body>
+</html>
